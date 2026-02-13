@@ -5,10 +5,6 @@ import {ICompanyForTable} from '../_interfaces/ICompanyForTable';
 
 interface IGetAllCompany {
   data: ICompanyForTable[];
-  number_of_page: number;
-  page: number;
-  total: number;
-  // TODO add in Backend
   currentPage: number;
   totalPages: number;
   pageSize: number;
@@ -16,14 +12,14 @@ interface IGetAllCompany {
   hasPrevious: boolean;
   hasNext: boolean;
 }
-const getAllCompany = async ({page}:{page:number}) => {
-  const response = await axiosInstance.get(`/${COMPANY}?page=${page}`);
+const getAllCompany = async ({page, search}: {page: number; search: string}) => {
+  const response = await axiosInstance.get(`/${COMPANY}?page=${page}&search=${search}`);
   return response.data.data as IGetAllCompany;
 };
-const GetAllCompany = ({page}:{page:number}) => {
+const GetAllCompany = ({page, search}: {page: number; search: string}) => {
   return useQuery({
-    queryKey: ['GetAllCompany',page],
-    queryFn: ()=>getAllCompany({page})
+    queryKey: ['GetAllCompany', page, search],
+    queryFn: () => getAllCompany({page, search})
   });
 };
 

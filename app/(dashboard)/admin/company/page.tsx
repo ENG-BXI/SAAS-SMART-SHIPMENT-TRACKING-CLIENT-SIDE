@@ -3,18 +3,20 @@ import CustomButton from '@/app/_components/CustomButton';
 import DashboardSearchAndActionPage from '@/app/_components/dashboard/DashboardSearchAndActionPage';
 import PageDashboardHeader from '@/app/_components/dashboard/header';
 import {Filter} from 'lucide-react';
-import {useState} from 'react';
+import { useState} from 'react';
 import AllCompanies from './_components/AllCompanies';
 import CustomPagination from '@/app/_components/CustomPagination';
 import CompanyDialog from './_components/CompanyDialog';
 import GetAllCompany from './_services/getAllCompany';
 import {TableSkelton} from '@/app/_components/TableSkelton';
 import {toast} from 'sonner';
+import useDebounce from '@/app/_utils/debounce';
 
 const Page = () => {
   const [search, setSearch] = useState('');
+  const  searchAfterDebounce = useDebounce({value:search})
   const [page, setPage] = useState(1);
-  const {data, isLoading, isError, error} = GetAllCompany({page});
+  const {data, isLoading, isError, error} = GetAllCompany({page, search:searchAfterDebounce});
   if (isError) {
     toast.error('Error In Fetch All Company');
     console.error('Error In Fetch All Company \n', error);
@@ -40,7 +42,7 @@ const Page = () => {
         }
       />
       {isLoading ? <TableSkelton /> : <AllCompanies companies={data?.data} />}
-      {!isLoading && !isError && <CustomPagination currentPage={page} setPage={setPage} pageSize={10}  totalCount={100} hasPrevious={true} hasNext={true} />}
+      {!isLoading && !isError && <CustomPagination currentPage={page} setPage={setPage} pageSize={data!.pageSize} totalCount={data!.totalCount} hasPrevious={data!.hasPrevious} hasNext={data!.hasNext} />}
     </div>
   );
 };

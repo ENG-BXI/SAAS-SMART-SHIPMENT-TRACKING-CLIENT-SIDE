@@ -37,7 +37,7 @@ function CustomPagination({hasPrevious, hasNext, pageSize, currentPage, setPage,
         </PaginationContent>
       </Pagination>
       <div className='text-gray-500 text-sm px-4 select-none'>
-        عرض 1 إلى {pageSize} من {totalCount} منتج
+        عرض {(currentPage - 1) * pageSize + 1} إلى {hasNext ? pageSize * currentPage : totalCount} من {totalCount} منتج
       </div>
     </div>
   );

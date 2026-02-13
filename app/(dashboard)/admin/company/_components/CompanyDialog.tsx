@@ -61,7 +61,7 @@ function CompanyDialog({...props}: ICompanyDialog) {
       );
     else if (props.type == 'edit')
       EditCompanyMutate(
-        {id: props.id, company: props.data},
+        {id: props.id, company: data},
         {
           onSuccess: () => {
             toast.success('تم تعديل الشركة بنجاح');
