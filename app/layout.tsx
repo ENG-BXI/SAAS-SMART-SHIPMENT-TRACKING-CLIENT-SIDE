@@ -1,6 +1,8 @@
 import type {Metadata} from 'next';
 import './globals.css';
 import localFont from 'next/font/local';
+import ProviderQueryClient from './_provider/reactQuery';
+import {Toaster} from './_components/ui/sonner';
 
 const myFont = localFont({
   src: './../public/Fonts/IBMPlexSansArabic-Medium.ttf'
@@ -17,7 +19,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={`${myFont.className} antialiased`}>{children}</body>
+      <body className={`${myFont.className} antialiased`}>
+        <ProviderQueryClient>
+          {children}
+          <Toaster richColors />
+        </ProviderQueryClient>
+      </body>
     </html>
   );
 }

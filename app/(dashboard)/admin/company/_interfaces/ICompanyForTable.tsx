@@ -1,7 +1,8 @@
-export interface ICompany {
+export interface ICompanyForTable {
+  id: string;
   name: string;
   location: string;
   numberOfClient: string;
-  email: string;
+  companyEmail: string;
   subscriptionStatus: 'active' | 'inactive';
 }

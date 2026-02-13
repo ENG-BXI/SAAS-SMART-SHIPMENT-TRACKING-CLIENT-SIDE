@@ -1,8 +1,8 @@
 import {Button} from './ui/button';
 import {ICustomButton} from '../_Types/ICustomButton';
-function CustomButton({text, type = 'primary', className, icon}: ICustomButton) {
+function CustomButton({text, type = 'primary', disable = false, className, IsSubmit = false, icon}: ICustomButton) {
   return (
-    <Button variant={type == 'primary' ? 'default' : 'outline'} className={`${type == 'primary' ? 'bg-custom-primary-color' : 'text-black'} ${className}`}>
+    <Button disable={disable} type={IsSubmit ? 'submit' : 'button'} variant={type == 'secondary' ? 'outline' : 'default'} className={`${type == 'primary' ? 'bg-custom-primary-color' : type == 'danger' ? 'bg-[#D92D20]' : 'text-black'} ${className}`}>
       {text}
       {icon}
     </Button>

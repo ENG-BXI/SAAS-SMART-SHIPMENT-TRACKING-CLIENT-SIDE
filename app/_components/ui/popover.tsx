@@ -3,7 +3,7 @@
 import * as React from 'react';
 import {Popover as PopoverPrimitive} from 'radix-ui';
 
-import {cn} from '@/app/lib/utils';
+import {cn} from '@/app/_lib/utils';
 
 function Popover({...props}: React.ComponentProps<typeof PopoverPrimitive.Root>) {
   return <PopoverPrimitive.Root data-slot='popover' {...props} />;
