@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import {Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator} from '../ui/breadcrumb';
-import {ReactNode} from 'react';
+import React, {ReactNode} from 'react';
 
 interface IBreadcrumbList {
   text: string;
@@ -19,14 +19,14 @@ const PageDashboardHeader = ({breadcrumbList, title, description, ...props}: IPa
         <Breadcrumb className='mb-1'>
           <BreadcrumbList>
             {breadcrumbList.map((item, index) => (
-              <>
-                <BreadcrumbItem key={index}>
+              <React.Fragment key={index}>
+                <BreadcrumbItem>
                   <BreadcrumbLink asChild>
                     <Link href={item.path}>{item.text}</Link>
                   </BreadcrumbLink>
                 </BreadcrumbItem>
                 {breadcrumbList.length - 1 != index && <BreadcrumbSeparator />}
-              </>
+              </React.Fragment>
             ))}
           </BreadcrumbList>
         </Breadcrumb>

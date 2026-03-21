@@ -2,6 +2,9 @@ export interface ICurrentShipmentForTable {
   id: number;
   shipmentNumber: string;
   departureDate: string;
-  route: string;
+  way: string;
   currentPoint: string;
+  shipmentDriver: string;
+  shipmentDriverId: string;
+  wayId: string;
 }

@@ -9,32 +9,40 @@ import {TableEmpty} from '@/components/table-empty';
 import TablePopover from '@/components/table-popover';
 import CustomPagination from '@/components/custom-pagination';
 import {IFinishedShipmentForTable} from '../_interfaces/finshed-shipment-for-table';
+import DeleteDialog from '@/components/dashboard/delete-dialog';
 const listOfFinishedShipments: IFinishedShipmentForTable[] = [
   {
     id: 1,
     shipmentNumber: '1',
     departureDate: '2026-03-21',
     currentPoint: 'المكلا',
-    route: 'المكلا - عدن',
-    arrivalDate: '2026-03-21'
+    way: 'المكلا - عدن',
+    arrivalDate: '2026-03-21',
+    shipmentDriver: 'السائق 1',
+    shipmentDriverId: '1',
+    wayId: '1'
   },
-
   {
     id: 2,
     shipmentNumber: '1',
     departureDate: '2026-03-21',
     currentPoint: 'المكلا',
-    route: 'المكلا - عدن',
-    arrivalDate: '2026-03-21'
+    way: 'المكلا - عدن',
+    arrivalDate: '2026-03-21',
+    shipmentDriver: 'السائق 1',
+    shipmentDriverId: '1',
+    wayId: '1'
   },
-
   {
     id: 3,
     shipmentNumber: '1',
     departureDate: '2026-03-21',
     currentPoint: 'المكلا',
-    route: 'المكلا - عدن',
-    arrivalDate: '2026-03-21'
+    way: 'المكلا - عدن',
+    arrivalDate: '2026-03-21',
+    shipmentDriver: 'السائق 1',
+    shipmentDriverId: '1',
+    wayId: '1'
   },
 
   {
@@ -42,8 +50,11 @@ const listOfFinishedShipments: IFinishedShipmentForTable[] = [
     shipmentNumber: '1',
     departureDate: '2026-03-21',
     currentPoint: 'المكلا',
-    route: 'المكلا - عدن',
-    arrivalDate: '2026-03-21'
+    way: 'المكلا - عدن',
+    arrivalDate: '2026-03-21',
+    shipmentDriver: 'السائق 1',
+    shipmentDriverId: '1',
+    wayId: '1'
   },
 
   {
@@ -51,8 +62,11 @@ const listOfFinishedShipments: IFinishedShipmentForTable[] = [
     shipmentNumber: '1',
     departureDate: '2026-03-21',
     currentPoint: 'المكلا',
-    route: 'المكلا - عدن',
-    arrivalDate: '2026-03-21'
+    way: 'المكلا - عدن',
+    arrivalDate: '2026-03-21',
+    shipmentDriver: 'السائق 1',
+    shipmentDriverId: '1',
+    wayId: '1'
   },
 
   {
@@ -60,12 +74,16 @@ const listOfFinishedShipments: IFinishedShipmentForTable[] = [
     shipmentNumber: '1',
     departureDate: '2026-03-21',
     currentPoint: 'المكلا',
-    route: 'المكلا - عدن',
-    arrivalDate: '2026-03-21'
+    way: 'المكلا - عدن',
+    arrivalDate: '2026-03-21',
+    shipmentDriver: 'السائق 1',
+    shipmentDriverId: '1',
+    wayId: '1'
   }
 ];
 function FinishedShipments() {
   const [search, setSearch] = useState('');
+  const [open, setOpen] = useState(false);
   return (
     <div className='mt-4'>
       <PageDashboardHeader title='الشحنات المنتهية' description='عرض الشحنات التي تم إغلاقها أو إكمالها، مع إمكانية مراجعة الحالة النهائية وسجل التتبع الكامل لكل شحنة.' />
@@ -87,13 +105,14 @@ function FinishedShipments() {
             <TableHead className='text-start'>تاريخ الوصول</TableHead>
             <TableHead className='text-start'>المسار</TableHead>
             <TableHead className='text-start'>النقطة الحالية</TableHead>
+            <TableHead className='text-start'>سائق الشحنة</TableHead>
             <TableHead className=''></TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {listOfFinishedShipments?.length === 0 ? (
             <TableRow>
-              <TableCell colSpan={4}>
+              <TableCell colSpan={6}>
                 <TableEmpty />
               </TableCell>
             </TableRow>
@@ -103,13 +122,14 @@ function FinishedShipments() {
                 <TableCell>{shipment.shipmentNumber}</TableCell>
                 <TableCell>{shipment.departureDate}</TableCell>
                 <TableCell>{shipment.arrivalDate}</TableCell>
-                <TableCell>{shipment.route}</TableCell>
+                <TableCell>{shipment.way}</TableCell>
                 <TableCell>{shipment.currentPoint}</TableCell>
+                <TableCell>{shipment.shipmentDriver}</TableCell>
                 <TableCell>
                   <TablePopover
                     items={[
-                      {type: 'dialog', item: <Pencil className='' />},
-                      {type: 'dialog', item: <Trash className='' />}
+                      {type: 'link', link: `/manager/shipments/${shipment.id}`, text: 'عرض التفاصيل'},
+                      {type: 'dialog', item: <DeleteDialog title='حدف الشحنة' triggerText='حدف الشحنة' description='هل انت متاكد من حدف الشحنة' onclick={() => {}} open={open} setOpen={setOpen} />}
                     ]}
                   />
                 </TableCell>

@@ -2,7 +2,7 @@ import CardStat from '@/components/dashboard/card-stat';
 import PageDashboardHeader from '@/components/dashboard/header';
 import {TableEmpty} from '@/components/table-empty';
 import {Table, TableHeader, TableRow, TableHead, TableBody, TableCell} from '@/components/ui/table';
-import { ICurrentShipmentForTable } from './shipments/_interfaces/current-shipment-for-table';
+import {ICurrentShipmentForTable} from './shipments/_interfaces/current-shipment-for-table';
 
 const listOfShipments: ICurrentShipmentForTable[] = [
   {
@@ -10,21 +10,21 @@ const listOfShipments: ICurrentShipmentForTable[] = [
     shipmentNumber: '1',
     departureDate: '2026-03-21',
     currentPoint: 'المكلا',
-    route: 'المكلا - عدن'
+    way: 'المكلا - عدن'
   },
   {
     id: 2,
     shipmentNumber: '1',
     departureDate: '2026-03-21',
     currentPoint: 'البيضاء',
-    route: 'المكلا - عدن'
+    way: 'المكلا - عدن'
   },
   {
     id: 3,
     shipmentNumber: '1',
     departureDate: '2026-03-21',
     currentPoint: 'البيضاء',
-    route: 'المكلا - عدن'
+    way: 'المكلا - عدن'
   }
 ];
 const page = () => {
@@ -60,7 +60,7 @@ const page = () => {
               <TableRow key={shipment.id}>
                 <TableCell>{shipment.shipmentNumber}</TableCell>
                 <TableCell>{shipment.departureDate}</TableCell>
-                <TableCell>{shipment.route}</TableCell>
+                <TableCell>{shipment.way}</TableCell>
                 <TableCell>{shipment.currentPoint}</TableCell>
               </TableRow>
             ))
@@ -72,5 +72,3 @@ const page = () => {
 };
 
 export default page;
-
-

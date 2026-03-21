@@ -2,14 +2,12 @@ import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from '@/c
 import {Badge} from '@/components/ui/badge';
 import CompanyDialog from './company-dialog';
 import TablePopover from '@/components/table-popover';
-import {Button} from '@/components/ui/button';
-import {File} from 'lucide-react';
 import {ICompanyForTable} from '../_interfaces/company-for-table';
 import {TableEmpty} from '@/components/table-empty';
-import {Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger} from '@/components/ui/dialog';
 import {useState} from 'react';
 import DeleteCompanyService from '../_services/deleteCompany';
 import {toast} from 'sonner';
+import DeleteDialog from '@/components/dashboard/delete-dialog';
 interface IAllCompanies {
   companies?: ICompanyForTable[];
 }
@@ -73,6 +71,7 @@ function AllCompanies({companies}: IAllCompanies) {
                             open={open}
                             setOpen={setOpen}
                             title={`هل انت متاكد من حدف الشركة ${company.name}`}
+                            triggerText={`حدف الشركة`}
                             description={`الشركة ${company.name} سيتم حدفها نهائيا`}
                           />
                         )
@@ -95,35 +94,3 @@ function AllCompanies({companies}: IAllCompanies) {
   );
 }
 export default AllCompanies;
-interface IDeleteDialog {
-  title: string;
-  description: string;
-  onclick: () => void;
-  open: boolean;
-  setOpen: (open: boolean) => void;
-}
-function DeleteDialog({title, description, onclick, open, setOpen}: IDeleteDialog) {
-  return (
-    <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
-        <Button variant={'ghost'} className='w-full justify-start text-[15px] text-red-400'>
-          <File className='min-w-6 min-h-6' /> حدف الشركة
-        </Button>
-      </DialogTrigger>
-      <DialogContent dir='rtl'>
-        <DialogHeader>
-          <DialogTitle>{title}</DialogTitle>
-          <DialogDescription>{description}</DialogDescription>
-        </DialogHeader>
-        <DialogFooter>
-          <DialogClose asChild>
-            <Button variant={'outline'}>الغاء</Button>
-          </DialogClose>
-          <Button onClick={() => onclick()} variant={'destructive'}>
-            حدف
-          </Button>
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
-  );
-}
