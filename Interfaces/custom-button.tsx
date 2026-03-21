@@ -7,4 +7,5 @@ export interface ICustomButton {
   className?: string;
   IsSubmit?: boolean;
   disable?: boolean;
+  onClick?: () => void;
 }

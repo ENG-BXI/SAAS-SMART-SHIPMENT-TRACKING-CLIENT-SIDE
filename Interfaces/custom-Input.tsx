@@ -27,5 +27,6 @@ type IBaseCustomInput = {
   required?: boolean;
   placeHolder?: string;
   disabled?: boolean;
+  inputType?: 'text' | 'number';
 };
 export type ICustomInput<T extends FieldValues> = (IInputByFieldAndController<T> | IInputByState | IInputForView) & ((CustomInputWithLabel & IBaseCustomInput) | (CustomInputWithoutLabel & IBaseCustomInput));
