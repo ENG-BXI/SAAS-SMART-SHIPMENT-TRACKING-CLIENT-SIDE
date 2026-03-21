@@ -10,21 +10,30 @@ const listOfShipments: ICurrentShipmentForTable[] = [
     shipmentNumber: '1',
     departureDate: '2026-03-21',
     currentPoint: 'المكلا',
-    way: 'المكلا - عدن'
+    way: 'المكلا - عدن',
+    shipmentDriver: 'السائق 1',
+    shipmentDriverId: '1',
+    wayId: '1'
   },
   {
     id: 2,
     shipmentNumber: '1',
     departureDate: '2026-03-21',
     currentPoint: 'البيضاء',
-    way: 'المكلا - عدن'
+    way: 'المكلا - عدن',
+    shipmentDriver: 'السائق 1',
+    shipmentDriverId: '1',
+    wayId: '1'
   },
   {
     id: 3,
     shipmentNumber: '1',
     departureDate: '2026-03-21',
     currentPoint: 'البيضاء',
-    way: 'المكلا - عدن'
+    way: 'المكلا - عدن',
+    shipmentDriver: 'السائق 1',
+    shipmentDriverId: '1',
+    wayId: '1'
   }
 ];
 const page = () => {
@@ -46,6 +55,8 @@ const page = () => {
             <TableHead className='text-start'>تاريخ الانطلاق</TableHead>
             <TableHead className='text-start'>المسار</TableHead>
             <TableHead className='text-start'>النقطة الحالية</TableHead>
+            <TableHead className='text-start'>سائق الشحنة</TableHead>
+            <TableHead className=''></TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -62,6 +73,7 @@ const page = () => {
                 <TableCell>{shipment.departureDate}</TableCell>
                 <TableCell>{shipment.way}</TableCell>
                 <TableCell>{shipment.currentPoint}</TableCell>
+                <TableCell>{shipment.shipmentDriver}</TableCell>
               </TableRow>
             ))
           )}

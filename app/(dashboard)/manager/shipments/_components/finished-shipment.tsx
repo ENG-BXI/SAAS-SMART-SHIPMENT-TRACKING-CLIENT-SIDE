@@ -2,7 +2,7 @@
 import CustomButton from '@/components/custom-button';
 import DashboardSearchAndActionPage from '@/components/dashboard/dashboard-search-and-action-page';
 import PageDashboardHeader from '@/components/dashboard/header';
-import {Filter, Pencil, Trash} from 'lucide-react';
+import {Filter} from 'lucide-react';
 import {memo, useState} from 'react';
 import {Table, TableHeader, TableRow, TableHead, TableBody, TableCell} from '@/components/ui/table';
 import {TableEmpty} from '@/components/table-empty';
