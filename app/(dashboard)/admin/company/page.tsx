@@ -1,22 +1,22 @@
 'use client';
-import CustomButton from '@/app/_components/CustomButton';
-import DashboardSearchAndActionPage from '@/app/_components/dashboard/DashboardSearchAndActionPage';
-import PageDashboardHeader from '@/app/_components/dashboard/header';
+import CustomButton from '@/components/custom-button';
+import DashboardSearchAndActionPage from '@/components/dashboard/dashboard-search-and-action-page';
+import PageDashboardHeader from '@/components/dashboard/header';
 import {Filter} from 'lucide-react';
-import { useState} from 'react';
-import AllCompanies from './_components/AllCompanies';
-import CustomPagination from '@/app/_components/CustomPagination';
-import CompanyDialog from './_components/CompanyDialog';
+import {useState} from 'react';
+import AllCompanies from './_components/all-companies';
+import CustomPagination from '@/components/custom-pagination';
+import CompanyDialog from './_components/company-dialog';
 import GetAllCompany from './_services/getAllCompany';
-import {TableSkelton} from '@/app/_components/TableSkelton';
+import {TableSkelton} from '@/components/table-skelton';
 import {toast} from 'sonner';
-import useDebounce from '@/app/_utils/debounce';
+import useDebounce from '@/lib/debounce';
 
 const Page = () => {
   const [search, setSearch] = useState('');
-  const  searchAfterDebounce = useDebounce({value:search})
+  const searchAfterDebounce = useDebounce({value: search});
   const [page, setPage] = useState(1);
-  const {data, isLoading, isError, error} = GetAllCompany({page, search:searchAfterDebounce});
+  const {data, isLoading, isError, error} = GetAllCompany({page, search: searchAfterDebounce});
   if (isError) {
     toast.error('Error In Fetch All Company');
     console.error('Error In Fetch All Company \n', error);

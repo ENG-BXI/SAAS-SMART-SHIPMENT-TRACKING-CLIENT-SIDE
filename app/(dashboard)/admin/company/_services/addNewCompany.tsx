@@ -1,7 +1,7 @@
-import {COMPANY} from '@/app/_constant/routes';
-import {axiosInstance} from '@/app/_provider/axios';
+import {COMPANY} from '@/lib/Constant/routes';
+import {axiosInstance} from '@/lib/axios';
 import {useMutation, useQueryClient} from '@tanstack/react-query';
-import {ICreateCompany} from '../_interfaces/ICompany';
+import {ICreateCompany} from '../_interfaces/company';
 interface IAddNewCompanyService {
   company: ICreateCompany;
 }

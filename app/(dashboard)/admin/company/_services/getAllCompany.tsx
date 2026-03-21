@@ -1,7 +1,7 @@
-import {COMPANY} from '@/app/_constant/routes';
-import {axiosInstance} from '@/app/_provider/axios';
+import {COMPANY} from '@/lib/Constant/routes';
+import {axiosInstance} from '@/lib/axios';
 import {useQuery} from '@tanstack/react-query';
-import {ICompanyForTable} from '../_interfaces/ICompanyForTable';
+import {ICompanyForTable} from '../_interfaces/company-for-table';
 
 interface IGetAllCompany {
   data: ICompanyForTable[];

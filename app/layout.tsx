@@ -1,8 +1,8 @@
 import type {Metadata} from 'next';
 import './globals.css';
 import localFont from 'next/font/local';
-import ProviderQueryClient from './_provider/reactQuery';
-import {Toaster} from './_components/ui/sonner';
+import ProviderQueryClient from '@/lib/react-query';
+import {Toaster} from '@/components/ui/sonner';
 
 const myFont = localFont({
   src: './../public/Fonts/IBMPlexSansArabic-Medium.ttf'
