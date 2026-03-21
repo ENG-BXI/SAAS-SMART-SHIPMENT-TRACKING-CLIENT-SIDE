@@ -1,8 +1,8 @@
-import PageDashboardHeader from '@/app/_components/dashboard/header';
-import CustomButton from '@/app/_components/CustomButton';
+import PageDashboardHeader from '@/components/dashboard/header';
+import CustomButton from '@/components/custom-button';
 import {StopCircle} from 'lucide-react';
-import {ICompanyWithSubscription} from '../_interfaces/ICompanyWithSubscription';
-import CompanyForm from '../_components/CompanyForm';
+import {ICompanyWithSubscription} from '../_interfaces/company-with-subscription';
+import CompanyForm from '../_components/company-form';
 
 const Page = async (params: Promise<{id: string}>) => {
   const {id} = await params;
