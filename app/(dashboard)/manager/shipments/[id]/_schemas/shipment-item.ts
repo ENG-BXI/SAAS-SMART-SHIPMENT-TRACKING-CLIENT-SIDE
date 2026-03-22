@@ -1,7 +1,7 @@
 import z from 'zod';
 const shipmentItem = z.object({
   item: z.string().min(1, 'الغرض مطلوب'),
-  quantity: z.coerce.number().min(1, 'الكمية يجب ان تكون اكبر من صفر'),
+  quantity: z.coerce.number<number>().min(1, 'الكمية يجب ان تكون اكبر من صفر'),
   isBreakable: z.string()
 });
 export const shipmentItems = z.object({

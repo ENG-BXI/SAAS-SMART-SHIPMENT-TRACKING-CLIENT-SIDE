@@ -1,9 +1,11 @@
+'use client';
 import {ReactNode} from 'react';
 import {ICustomInput} from '../Interfaces/custom-Input';
 import {Field, FieldError} from './ui/field';
 import {Input} from './ui/input';
 import {Label} from './ui/label';
 import {FieldValues, FieldError as TypeFieldError} from 'react-hook-form';
+import { cn } from '@/lib/utils';
 
 function CustomInput<T extends FieldValues>({disabled, className, required, placeHolder,inputType, ...props}: ICustomInput<T>) {
   return (
@@ -29,7 +31,7 @@ interface IInputLayout {
 }
 function InputLayout({type, children, invalid, error, className}: IInputLayout) {
   return type == 'controller' ? (
-    <Field data-invalid={invalid} className={` ${className}`}>
+    <Field data-invalid={invalid} className={cn(className)}>
       {children}
       {invalid && <FieldError errors={[error]} />}
     </Field>

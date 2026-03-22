@@ -10,7 +10,9 @@ export const userSchema = z.object({
 export const createUserSchema = userSchema.extend({
   password: z.string().min(8, 'كلمة المرور يجب ان تكون 8 احرف على الاقل')
 });
-export const editUserSchema = userSchema;
+export const editUserSchema = userSchema.extend({
+  password: z.string().optional()
+});
 
 export type userFormData = z.infer<typeof userSchema>;
 export type createUserFormData = z.infer<typeof createUserSchema>;
