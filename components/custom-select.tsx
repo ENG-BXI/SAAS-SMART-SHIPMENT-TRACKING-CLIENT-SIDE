@@ -2,7 +2,7 @@ import {Select, SelectTrigger, SelectValue, SelectContent, SelectItem} from '@/c
 import {Field, FieldError} from '@/components/ui/field';
 import {Label} from '@/components/ui/label';
 import {RefCallBack} from 'react-hook-form';
-interface IOption {
+export interface IOption {
   value: string;
   label: string;
 }

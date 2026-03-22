@@ -9,41 +9,32 @@ import TablePopover from '@/components/table-popover';
 import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from '@/components/ui/table';
 import {Filter} from 'lucide-react';
 import {useState} from 'react';
-import WayDialog from './_components/way-dialog';
-import {ConcatListOfString} from '@/lib/utils';
-import {pointFormData} from './_schemas/way-schema';
-interface IWayForTable {
+import UserDialog from './_components/user-dialog';
+import {enUserRole, userRoleName} from '@/lib/Constant/user-role';
+interface IUserForTable {
   id: string;
   name: string;
-  points: pointFormData[];
+  email: string;
+  role: enUserRole;
 }
-const listOfWays: IWayForTable[] = [
+const listOfUsers: IUserForTable[] = [
   {
     id: '1',
-    name: 'خط المكلا - عدن',
-    points: [
-      {name: 'المكلا', order: 1},
-      {name: 'المكلا', order: 2},
-      {name: 'عدن', order: 3}
-    ]
+    name: 'محمد احمد',
+    email: 'mohamed@gmail.com',
+    role: enUserRole.manager
   },
   {
     id: '2',
-    name: 'خط المكلا - سيئون',
-    points: [
-      {name: 'المكلا', order: 1},
-      {name: 'المكلا', order: 2},
-      {name: 'سيئون', order: 3}
-    ]
+    name: 'احمد محمد',
+    email: 'ahmed@gmail.com',
+    role: enUserRole.driver
   },
   {
     id: '3',
-    name: 'خط المكلا - تعز',
-    points: [
-      {name: 'المكلا', order: 1},
-      {name: 'المكلا', order: 2},
-      {name: 'تعز', order: 3}
-    ]
+    name: 'خالد محمد',
+    email: 'khalid@gmail.com',
+    role: enUserRole.employee
   }
 ];
 const Page = () => {
@@ -51,46 +42,49 @@ const Page = () => {
   const [open, setOpen] = useState(false);
   return (
     <div>
-      <PageDashboardHeader title='المسارات' description='إدارة المسارات المعتمدة لنقل الشحنات، مع تحديد نقاط الانطلاق والوصول وربطها بعمليات الشحن.' breadcrumbList={[{text: 'المسارات', path: '/manager/ways'}]} />
+      <PageDashboardHeader title='المستخدمين' description='عرض وإدارة المستخدمين المسجلين على النظام، مع تحديد أدوارهم وصلاحياتهم المرتبطة بإدارة الشحنات والبيانات.' breadcrumbList={[{text: 'المستخدمين', path: '/manager/users'}]} />
       <DashboardSearchAndActionPage
         value={search}
         setValue={setSearch}
         action={
           <div className='self-start flex gap-x-1'>
             <CustomButton text='فلترة' type='secondary' icon={<Filter className='' />} />
-            <WayDialog type='add' triggerTitle='اضافة مسار جديد' />
+            <UserDialog type='add' triggerTitle='اضافة مستخدم جديد' />
           </div>
         }
       />
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className='text-start'>اسم المسار</TableHead>
-            <TableHead className='text-start'>عدد النقاط</TableHead>
+            <TableHead className='text-start'>اسم المستخدم</TableHead>
+            <TableHead className='text-start'>البريد الالكتروني</TableHead>
+            <TableHead className='text-start'>الصلاحية</TableHead>
             <TableHead></TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
-          {listOfWays?.length === 0 ? (
+          {listOfUsers?.length === 0 ? (
             <TableRow>
               <TableCell colSpan={3}>
                 <TableEmpty />
               </TableCell>
             </TableRow>
           ) : (
-            listOfWays?.map(way => (
-              <TableRow key={way.id}>
-                <TableCell className=''>{way.name}</TableCell>
-                <TableCell className=''>{ConcatListOfString(way.points.map(point => point.name))}</TableCell>
+            listOfUsers?.map(user => (
+              <TableRow key={user.id}>
+                <TableCell className='w-50'>{user.name}</TableCell>
+                <TableCell className='w-60'>{user.email}</TableCell>
+                {/* //TODO: add badge here by user role  */}
+                <TableCell className=''>{userRoleName[user.role]}</TableCell>
                 <TableCell>
                   <TablePopover
                     items={[
                       // TODO : add dialog for show Details
                       //   {type: 'link', link: `/manager/ways/${way.id}`, text: 'عرض التفاصيل'},
-                      {type: 'dialog', item: <WayDialog type='edit' triggerTitle='تعديل بيانات المسار' data={{name: way.name, points: way.points}} />},
+                      {type: 'dialog', item: <UserDialog type='edit' triggerTitle='تعديل بيانات المستخدم' data={{name: user.name, email: user.email, password: '', role: user.role}} />},
                       {
                         type: 'dialog',
-                        item: <DeleteDialog title='حذف المسار' triggerText='حذف المسار' description='هل انت متاكد من حذف المسار' onclick={() => {}} open={open} setOpen={setOpen} />
+                        item: <DeleteDialog title='حذف المستخدم' triggerText='حذف المستخدم' description='هل انت متاكد من حذف المستخدم' onclick={() => {}} open={open} setOpen={setOpen} />
                       }
                     ]}
                   />

@@ -17,6 +17,7 @@ const listOfSideBarItem: ISidebarItem[] = [
   {text: 'الشحنات', icon: <Building2Icon />, link: '/manager/shipments'},
   {text: 'العملاء', icon: <BanknoteIcon />, link: '/manager/clients'},
   {text: 'المسارات', icon: <NotepadText />, link: '/manager/ways'},
+  {text: 'المستخدمين', icon: <NotepadText />, link: '/manager/users'},
   {text: 'الملاحظات', icon: <LogOut />, link: '/manager/notes'},
   {text: 'الاعدادات', icon: <Settings />, link: '/manager/settings'}
 ];
