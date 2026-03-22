@@ -120,7 +120,7 @@ const Page = () => {
                 <TableCell>
                   <TablePopover
                     items={[
-                      {type: 'link', link: `/manager/shipments/${shipment.id}`, text: 'عرض التفاصيل'},
+                      // TODO : Add View Dialog
                       {type: 'dialog', item: <ShipmentItemDialog triggerTitle='تعديل بيانات العميل ' type='edit' data={{personName: shipment.personName, items: [{item: shipment.item, quantity: shipment.quantity, isBreakable: shipment.isBreakable}]}} />},
                       {type: 'dialog', item: <DeleteDialog title='حدف الغرض' triggerText='حدف الغرض' description='هل انت متاكد من حدف الغرض' onclick={() => {}} open={open} setOpen={setOpen} />}
                     ]}
