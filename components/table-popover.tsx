@@ -1,7 +1,7 @@
 import {File, MoreVertical} from 'lucide-react';
 import {Popover, PopoverContent, PopoverTrigger} from '@/components/ui/popover';
 import {buttonVariants} from '@/components/ui/button';
-import {ReactNode} from 'react';
+import React, {ReactNode} from 'react';
 import Link from 'next/link';
 type ITablePopoverItem = {type: 'dialog'; item: ReactNode} | {type: 'link'; text: string; link: string};
 interface ITablePopover {
@@ -24,7 +24,7 @@ function TablePopover({items}: ITablePopover) {
               </Link>
             );
           } else if (item.type === 'dialog') {
-            return item.item;
+            return <React.Fragment key={index}>{item.item}</React.Fragment>;
           }
         })}
       </PopoverContent>
