@@ -71,7 +71,8 @@ const Page = () => {
                 <TableCell>
                   <TablePopover
                     items={[
-                      {type: 'link', link: `/manager/clients/${client.id}`, text: 'عرض التفاصيل'},
+                      // TODO: add Dialog to show client details
+                      // {type: 'link', link: `/manager/clients/${client.id}`, text: 'عرض التفاصيل'},
                       {type: 'dialog', item: <ClientDialog type='edit' triggerTitle='تعديل بيانات العميل' data={{name: client.name, contactWays: [{contactWay: client.contactWay, contactType: 'phoneNumber', isPrimary: 'false'}]}} />},
                       {
                         type: 'dialog',
@@ -89,8 +90,5 @@ const Page = () => {
     </div>
   );
 };
-
-
-
 
 export default Page;
