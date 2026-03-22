@@ -1,3 +1,4 @@
+'use client';
 import {ReactNode} from 'react';
 import {ICustomInput} from '../Interfaces/custom-Input';
 import {Field, FieldError} from './ui/field';
@@ -31,7 +32,7 @@ interface IInputLayout {
 }
 function InputLayout({type, children, invalid, error, className}: IInputLayout) {
   return type == 'controller' ? (
-    <Field data-invalid={invalid} className={` ${className}`}>
+    <Field data-invalid={invalid} className={cn(className)}>
       {children}
       {invalid && <FieldError errors={[error]} />}
     </Field>

@@ -70,13 +70,14 @@ function UserDialog(props: UserDialogProps) {
           <FieldGroup className='gap-y-2'>
             <Controller control={control} name='name' render={({field, fieldState: {invalid, error}}) => <CustomInput type='controller' field={field} error={error} invalid={invalid} required hasLabel label='اسم العميل' placeHolder='ادخل اسم العميل' />} />
             <Controller control={control} name='email' render={({field, fieldState: {invalid, error}}) => <CustomInput type='controller' field={field} error={error} invalid={invalid} required hasLabel label='البريد الالكتروني' placeHolder='ادخل البريد الالكتروني' />} />
-            {props.type == 'add' && <Controller control={control} name='password' render={({field, fieldState: {invalid, error}}) => <CustomInput type='controller' field={field} error={error} invalid={invalid} required hasLabel label='كلمة المرور' placeHolder='ادخل كلمة المرور' />} />}
+            <Controller control={control} name='password' render={({field, fieldState: {invalid, error}}) => <CustomInput type='controller' field={field} error={error} invalid={invalid} required hasLabel label='كلمة المرور' placeHolder='ادخل كلمة المرور' />} />
             <Controller
               control={control}
               name='role'
               render={({field, fieldState: {invalid, error}}) => (
                 <CustomSelect
-                  onChange={field.onChange}
+                  // Because Select Input Uses string data type and enUserRole is Numbers data type
+                  onChange={val => field.onChange(parseInt(val))}
                   value={field.value.toString()}
                   ref={field.ref}
                   errorMessage={error?.message}

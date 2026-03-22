@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import {Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator} from '../ui/breadcrumb';
 import React, {ReactNode} from 'react';
+import { cn } from '@/lib/utils';
 
 interface IBreadcrumbList {
   text: string;
@@ -10,9 +11,11 @@ type IPageDashboardHeaderWithAction = {hasAction?: true; actions: ReactNode} | {
 type IPageDashboardHeader = {
   breadcrumbList?: IBreadcrumbList[];
   title: string;
+  titleClassName?: string;
   description: string;
+  descriptionClassName?: string;
 } & IPageDashboardHeaderWithAction;
-const PageDashboardHeader = ({breadcrumbList, title, description, ...props}: IPageDashboardHeader) => {
+const PageDashboardHeader = ({breadcrumbList, title, description, titleClassName, descriptionClassName, ...props}: IPageDashboardHeader) => {
   return (
     <header className='mb-4'>
       {breadcrumbList && (
@@ -33,8 +36,8 @@ const PageDashboardHeader = ({breadcrumbList, title, description, ...props}: IPa
       )}
       <div className='flex items-center justify-between'>
         <div>
-          <h3 className='text-2xl font-semibold mb-1'>{title}</h3>
-          <p>{description}</p>
+          <h3 className={cn('text-2xl font-semibold mb-1', titleClassName)}>{title}</h3>
+          <p className={cn('text-muted-foreground', descriptionClassName)}>{description}</p>
         </div>
         {props.hasAction && props.actions}
       </div>
