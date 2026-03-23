@@ -1,15 +1,13 @@
-'use client';
 import CustomButton from '@/components/custom-button';
 import DashboardSearchAndActionPage from '@/components/dashboard/dashboard-search-and-action-page';
 import PageDashboardHeader from '@/components/dashboard/header';
 import {Filter} from 'lucide-react';
-import {memo, useState} from 'react';
+import {memo} from 'react';
 import {Table, TableHeader, TableRow, TableHead, TableBody, TableCell} from '@/components/ui/table';
 import {TableEmpty} from '@/components/table-empty';
 import TablePopover from '@/components/table-popover';
 import CustomPagination from '@/components/custom-pagination';
 import {IFinishedShipmentForTable} from '../_interfaces/finshed-shipment-for-table';
-import DeleteDialog from '@/components/dashboard/delete-dialog';
 const listOfFinishedShipments: IFinishedShipmentForTable[] = [
   {
     id: 1,
@@ -82,14 +80,10 @@ const listOfFinishedShipments: IFinishedShipmentForTable[] = [
   }
 ];
 function FinishedShipments() {
-  const [search, setSearch] = useState('');
-  const [open, setOpen] = useState(false);
   return (
     <div className='mt-4'>
       <PageDashboardHeader title='الشحنات المنتهية' description='عرض الشحنات التي تم إغلاقها أو إكمالها، مع إمكانية مراجعة الحالة النهائية وسجل التتبع الكامل لكل شحنة.' />
       <DashboardSearchAndActionPage
-        value={search}
-        setValue={setSearch}
         action={
           <div className='flex gap-x-1'>
             <CustomButton text='فلترة' type='secondary' icon={<Filter className='' />} />
@@ -129,7 +123,7 @@ function FinishedShipments() {
                   <TablePopover
                     items={[
                       {type: 'link', link: `/manager/shipments/${shipment.id}`, text: 'عرض التفاصيل'},
-                      {type: 'dialog', item: <DeleteDialog title='حدف الشحنة' triggerText='حدف الشحنة' description='هل انت متاكد من حدف الشحنة' onclick={() => {}} open={open} setOpen={setOpen} />}
+                      // {type: 'dialog', item: <DeleteDialog title='حدف الشحنة' triggerText='حدف الشحنة' description='هل انت متاكد من حدف الشحنة' onclick={() => {}} open={open} setOpen={setOpen} />}
                     ]}
                   />
                 </TableCell>
@@ -138,7 +132,7 @@ function FinishedShipments() {
           )}
         </TableBody>
       </Table>
-      <CustomPagination pageSize={10} totalCount={100} currentPage={1} setPage={() => {}} hasNext={true} hasPrevious={true} />
+      <CustomPagination pageSize={10} totalCount={100} currentPage={1} hasNext={true} hasPrevious={true} totalPages={10} />
     </div>
   );
 }

@@ -1,4 +1,6 @@
-import {Dialog, DialogClose, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger} from '@/components/ui/dialog';
+'use client'
+
+import { Dialog, DialogClose, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import {Controller, useFieldArray, useForm} from 'react-hook-form';
 import {wayFormData, waySchema} from '../_schemas/way-schema';
 import {Button} from '@/components/ui/button';

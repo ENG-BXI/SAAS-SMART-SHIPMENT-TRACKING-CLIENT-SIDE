@@ -2,7 +2,7 @@ import {Select, SelectTrigger, SelectValue, SelectContent, SelectItem} from '@/c
 import {Field, FieldError} from '@/components/ui/field';
 import {Label} from '@/components/ui/label';
 import {RefCallBack} from 'react-hook-form';
-import { cn } from '@/lib/utils';
+import {cn} from '@/lib/utils';
 export interface IOption {
   value: string;
   label: string;
@@ -19,8 +19,9 @@ interface CustomSelectProps {
   options: IOption[];
   className?: string;
   dir?: 'ltr' | 'rtl';
+  disabled?: boolean;
 }
-function CustomSelect({onChange, label, required, value, ref, invalid, errorMessage, options, placeHolder, className, dir='rtl'}: CustomSelectProps) {
+function CustomSelect({onChange, label, required, value, ref, invalid, errorMessage, options, placeHolder, className, dir = 'rtl', disabled = false}: CustomSelectProps) {
   return (
     <Field className={cn(className)} data-invalid={invalid}>
       {label && (
@@ -28,8 +29,8 @@ function CustomSelect({onChange, label, required, value, ref, invalid, errorMess
           {label} {required && <span className='text-red-500'>{'*'}</span>}
         </Label>
       )}
-      <Select dir={dir} onValueChange={onChange} defaultValue={value}>
-        <SelectTrigger >
+      <Select disabled={disabled} dir={dir} onValueChange={onChange} defaultValue={value}>
+        <SelectTrigger>
           <SelectValue placeholder={placeHolder} />
         </SelectTrigger>
         <SelectContent ref={ref}>

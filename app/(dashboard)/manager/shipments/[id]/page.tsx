@@ -1,15 +1,12 @@
-'use client';
 import CustomPagination from '@/components/custom-pagination';
 import DashboardSearchAndActionPage from '@/components/dashboard/dashboard-search-and-action-page';
 import PageDashboardHeader from '@/components/dashboard/header';
 import {TableEmpty} from '@/components/table-empty';
 import TablePopover from '@/components/table-popover';
 import {Table, TableHeader, TableRow, TableHead, TableBody, TableCell} from '@/components/ui/table';
-import {useState} from 'react';
 import ShipmentItemDialog from './_components/shipment-item-dialog';
 import {ShipmentDetailsInfo} from './_components/shipment-details-info';
 import ShipmentDetailsHeader from './_components/shipment-details-header';
-import DeleteDialog from '@/components/dashboard/delete-dialog';
 interface IShipmentItemForTable {
   id: string;
   personName: string;
@@ -69,8 +66,6 @@ const listOfShipmentItem: IShipmentItemForTable[] = [
   }
 ];
 const Page = () => {
-  const [search, setSearch] = useState('');
-  const [open, setOpen] = useState(false);
   return (
     <div>
       <PageDashboardHeader
@@ -92,7 +87,7 @@ const Page = () => {
         <ShipmentDetailsInfo title='النقطة الحالية' value='شحن' />
       </div>
       <PageDashboardHeader title='اغراض الشحنة' description='عرض قائمة الأغراض المرفقة ضمن الشحنة، مع تفاصيل كل غرض من حيث الوصف والكمية وأي ملاحظات مرتبطة به.' hasAction actions={<ShipmentItemDialog triggerTitle='اضافة عميل للشحنة' type='add' />} />
-      <DashboardSearchAndActionPage value={search} setValue={setSearch} />
+      <DashboardSearchAndActionPage />
       <Table>
         <TableHeader className='bg-[#FCFCFD]'>
           <TableRow>
@@ -121,8 +116,8 @@ const Page = () => {
                   <TablePopover
                     items={[
                       // TODO : Add View Dialog
-                      {type: 'dialog', item: <ShipmentItemDialog triggerTitle='تعديل بيانات العميل ' type='edit' data={{personName: shipment.personName, items: [{item: shipment.item, quantity: shipment.quantity, isBreakable: shipment.isBreakable}]}} />},
-                      {type: 'dialog', item: <DeleteDialog title='حدف الغرض' triggerText='حدف الغرض' description='هل انت متاكد من حدف الغرض' onclick={() => {}} open={open} setOpen={setOpen} />}
+                      {type: 'dialog', item: <ShipmentItemDialog triggerTitle='تعديل بيانات العميل ' type='edit' data={{personName: shipment.personName, items: [{item: shipment.item, quantity: shipment.quantity, isBreakable: shipment.isBreakable}]}} />}
+                      // {type: 'dialog', item: <DeleteDialog title='حدف الغرض' triggerText='حدف الغرض' description='هل انت متاكد من حدف الغرض' onclick={() => {}} open={open} setOpen={setOpen} />}
                     ]}
                   />
                 </TableCell>
@@ -131,7 +126,7 @@ const Page = () => {
           )}
         </TableBody>
       </Table>
-      <CustomPagination pageSize={10} totalCount={100} currentPage={1} setPage={() => {}} hasNext={true} hasPrevious={true} />
+      <CustomPagination pageSize={10} totalCount={100} currentPage={1} hasNext={true} hasPrevious={true} totalPages={10} />
     </div>
   );
 };

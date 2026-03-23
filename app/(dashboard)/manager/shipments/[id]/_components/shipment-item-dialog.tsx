@@ -1,3 +1,4 @@
+'use client';
 import {Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogTrigger, DialogClose} from '@/components/ui/dialog';
 import {shipmentItemFormData, shipmentItems} from '../_schemas/shipment-item';
 import CustomInput from '@/components/custom-input';

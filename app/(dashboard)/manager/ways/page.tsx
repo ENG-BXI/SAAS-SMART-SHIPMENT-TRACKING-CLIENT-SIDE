@@ -1,14 +1,11 @@
-'use client';
 import CustomButton from '@/components/custom-button';
 import CustomPagination from '@/components/custom-pagination';
 import DashboardSearchAndActionPage from '@/components/dashboard/dashboard-search-and-action-page';
-import DeleteDialog from '@/components/dashboard/delete-dialog';
 import PageDashboardHeader from '@/components/dashboard/header';
 import {TableEmpty} from '@/components/table-empty';
 import TablePopover from '@/components/table-popover';
 import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from '@/components/ui/table';
 import {Filter} from 'lucide-react';
-import {useState} from 'react';
 import WayDialog from './_components/way-dialog';
 import {ConcatListOfString} from '@/lib/utils';
 import {pointFormData} from './_schemas/way-schema';
@@ -47,14 +44,10 @@ const listOfWays: IWayForTable[] = [
   }
 ];
 const Page = () => {
-  const [search, setSearch] = useState('');
-  const [open, setOpen] = useState(false);
   return (
     <div>
       <PageDashboardHeader title='المسارات' description='إدارة المسارات المعتمدة لنقل الشحنات، مع تحديد نقاط الانطلاق والوصول وربطها بعمليات الشحن.' breadcrumbList={[{text: 'المسارات', path: '/manager/ways'}]} />
       <DashboardSearchAndActionPage
-        value={search}
-        setValue={setSearch}
         action={
           <div className='self-start flex gap-x-1'>
             <CustomButton text='فلترة' type='secondary' icon={<Filter className='' />} />
@@ -88,10 +81,10 @@ const Page = () => {
                       // TODO : add dialog for show Details
                       //   {type: 'link', link: `/manager/ways/${way.id}`, text: 'عرض التفاصيل'},
                       {type: 'dialog', item: <WayDialog type='edit' triggerTitle='تعديل بيانات المسار' data={{name: way.name, points: way.points}} />},
-                      {
-                        type: 'dialog',
-                        item: <DeleteDialog title='حذف المسار' triggerText='حذف المسار' description='هل انت متاكد من حذف المسار' onclick={() => {}} open={open} setOpen={setOpen} />
-                      }
+                      // {
+                      //   type: 'dialog',
+                      //   item: <DeleteDialog title='حذف المسار' triggerText='حذف المسار' description='هل انت متاكد من حذف المسار' onclick={() => {}} open={open} setOpen={setOpen} />
+                      // }
                     ]}
                   />
                 </TableCell>
@@ -100,7 +93,7 @@ const Page = () => {
           )}
         </TableBody>
       </Table>
-      <CustomPagination pageSize={10} totalCount={100} currentPage={1} setPage={() => {}} hasNext={true} hasPrevious={true} />
+      <CustomPagination pageSize={10} totalCount={100} currentPage={1} hasNext={true} hasPrevious={true} totalPages={10}  />
     </div>
   );
 };
