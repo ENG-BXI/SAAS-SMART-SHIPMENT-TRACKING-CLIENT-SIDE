@@ -1,14 +1,11 @@
-'use client';
 import CustomButton from '@/components/custom-button';
 import CustomPagination from '@/components/custom-pagination';
 import DashboardSearchAndActionPage from '@/components/dashboard/dashboard-search-and-action-page';
-import DeleteDialog from '@/components/dashboard/delete-dialog';
 import PageDashboardHeader from '@/components/dashboard/header';
 import {TableEmpty} from '@/components/table-empty';
 import TablePopover from '@/components/table-popover';
 import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from '@/components/ui/table';
 import {Filter} from 'lucide-react';
-import {useState} from 'react';
 import ClientDialog from './_components/client-dialog';
 interface IClient {
   id: string;
@@ -33,14 +30,10 @@ const listOfClients: IClient[] = [
   }
 ];
 const Page = () => {
-  const [search, setSearch] = useState('');
-  const [open, setOpen] = useState(false);
   return (
     <div>
       <PageDashboardHeader title='العملاء' description='عرض وإدارة قائمة العملاء المسجلين على النظام، مع إمكانية ربطهم بالشحنات ومتابعة نشاطهم المرتبط بعمليات الشحن.' breadcrumbList={[{text: 'العملاء', path: '/manager/clients'}]} />
       <DashboardSearchAndActionPage
-        value={search}
-        setValue={setSearch}
         action={
           <div className='self-start flex gap-x-1'>
             <CustomButton text='فلترة' type='secondary' icon={<Filter className='' />} />
@@ -73,11 +66,11 @@ const Page = () => {
                     items={[
                       // TODO: add Dialog to show client details
                       // {type: 'link', link: `/manager/clients/${client.id}`, text: 'عرض التفاصيل'},
-                      {type: 'dialog', item: <ClientDialog type='edit' triggerTitle='تعديل بيانات العميل' data={{name: client.name, contactWays: [{contactWay: client.contactWay, contactType: 'phoneNumber', isPrimary: 'false'}]}} />},
-                      {
-                        type: 'dialog',
-                        item: <DeleteDialog title='حذف العميل' triggerText='حذف العميل' description='هل انت متاكد من حذف العميل' onclick={() => {}} open={open} setOpen={setOpen} />
-                      }
+                      {type: 'dialog', item: <ClientDialog type='edit' triggerTitle='تعديل بيانات العميل' data={{name: client.name, contactWays: [{contactWay: client.contactWay, contactType: 'phoneNumber', isPrimary: 'false'}]}} />}
+                      // {
+                      //   type: 'dialog',
+                      //   item: <DeleteDialog title='حذف العميل' triggerText='حذف العميل' description='هل انت متاكد من حذف العميل' onclick={() => {}} open={open} setOpen={setOpen} />
+                      // }
                     ]}
                   />
                 </TableCell>
@@ -86,7 +79,7 @@ const Page = () => {
           )}
         </TableBody>
       </Table>
-      <CustomPagination pageSize={10} totalCount={100} currentPage={1} setPage={() => {}} hasNext={true} hasPrevious={true} />
+      <CustomPagination pageSize={10} totalCount={100} currentPage={1} hasNext={true} hasPrevious={true} totalPages={10} />
     </div>
   );
 };

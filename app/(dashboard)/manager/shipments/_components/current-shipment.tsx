@@ -1,18 +1,14 @@
-'use client';
 import {memo} from 'react';
 import CustomButton from '@/components/custom-button';
 import DashboardSearchAndActionPage from '@/components/dashboard/dashboard-search-and-action-page';
 import PageDashboardHeader from '@/components/dashboard/header';
 import {Filter} from 'lucide-react';
-import {useState} from 'react';
 import {Table, TableHeader, TableRow, TableHead, TableBody, TableCell} from '@/components/ui/table';
 import {TableEmpty} from '@/components/table-empty';
 import TablePopover from '@/components/table-popover';
 import CustomPagination from '@/components/custom-pagination';
 import {ICurrentShipmentForTable} from '../_interfaces/current-shipment-for-table';
 import ShipmentDialog from './shipment-dialog';
-import DeleteDialog from '@/components/dashboard/delete-dialog';
-
 const listOfCurrentShipments: ICurrentShipmentForTable[] = [
   {
     id: 1,
@@ -46,14 +42,10 @@ const listOfCurrentShipments: ICurrentShipmentForTable[] = [
   }
 ];
 function CurrentShipments() {
-  const [search, setSearch] = useState('');
-  const [open, setOpen] = useState(false);
   return (
     <div>
       <PageDashboardHeader title='الشحنات' description='عرض وإدارة جميع الشحنات المسجلة على النظام، مع إمكانية متابعة حالتها وسجل التحديثات المرتبطة بكل شحنة.' breadcrumbList={[{text: 'الشحنات', path: '/'}]} />
       <DashboardSearchAndActionPage
-        value={search}
-        setValue={setSearch}
         action={
           <div className='self-start flex gap-x-1'>
             <CustomButton text='فلترة' type='secondary' icon={<Filter className='' />} />
@@ -91,15 +83,15 @@ function CurrentShipments() {
                   <TablePopover
                     items={[
                       {type: 'link', link: `/manager/shipments/${shipment.id}`, text: 'عرض التفاصيل'},
-                      {type: 'dialog', item: <ShipmentDialog type='edit' data={{shipmentNumber: shipment.shipmentNumber, way: shipment.wayId, shipmentDriver: shipment.shipmentDriverId}} />},
-                      {
-                        type: 'dialog',
-                        item: <DeleteDialog title='توقيف الشحنة' triggerText='توقيف الشحنة' description='هل انت متاكد من توقيف الشحنة' onclick={() => {}} open={open} setOpen={setOpen} />
-                      },
-                      {
-                        type: 'dialog',
-                        item: <DeleteDialog title='حدف الشحنة' triggerText='حدف الشحنة' description='هل انت متاكد من حدف الشحنة' onclick={() => {}} open={open} setOpen={setOpen} />
-                      }
+                      {type: 'dialog', item: <ShipmentDialog type='edit' data={{shipmentNumber: shipment.shipmentNumber, way: shipment.wayId, shipmentDriver: shipment.shipmentDriverId}} />}
+                      // {
+                      //   type: 'dialog',
+                      //   item: <DeleteDialog title='توقيف الشحنة' triggerText='توقيف الشحنة' description='هل انت متاكد من توقيف الشحنة' onclick={() => {}} open={open} setOpen={setOpen} />
+                      // },
+                      // {
+                      //   type: 'dialog',
+                      //   item: <DeleteDialog title='حدف الشحنة' triggerText='حدف الشحنة' description='هل انت متاكد من حدف الشحنة' onclick={() => {}} open={open} setOpen={setOpen} />
+                      // }
                     ]}
                   />
                 </TableCell>
@@ -108,7 +100,7 @@ function CurrentShipments() {
           )}
         </TableBody>
       </Table>
-      <CustomPagination pageSize={10} totalCount={100} currentPage={1} setPage={() => {}} hasNext={true} hasPrevious={true} />
+      <CustomPagination pageSize={10} totalCount={100} currentPage={1} hasNext={true} hasPrevious={true} totalPages={10} />
     </div>
   );
 }

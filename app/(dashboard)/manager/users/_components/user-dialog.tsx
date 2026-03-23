@@ -1,3 +1,5 @@
+'use client';
+
 import {Dialog, DialogClose, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger} from '@/components/ui/dialog';
 import {Controller, useForm} from 'react-hook-form';
 import {createUserSchema, createUserFormData, editUserSchema, editUserFormData} from '../_schemas/user-schema';

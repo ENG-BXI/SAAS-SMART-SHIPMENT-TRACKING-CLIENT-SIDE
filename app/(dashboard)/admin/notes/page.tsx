@@ -34,15 +34,14 @@ const listOfNotes: INoteForTable[] = [
   }
 ];
 const Page = () => {
-
   return (
     <div>
       <PageDashboardHeader title='الملاحظات' description='يتيح هذا القسم للشركات إرسال ملاحظات، شكاوى، أو طلبات تغيير إلى إدارة النظام. يتم عرض جميع الملاحظات مباشرة في لوحة تحكم الأدمن لمراجعتها واتخاذ الإجراء المناسب.' breadcrumbList={[{text: 'الملاحظات', path: '/manager/notes'}]} />
       <DashboardSearchAndActionPage
+        className='justify-start'
         action={
-          <div className='self-start flex gap-x-1'>
+          <div className=''>
             <CustomButton text='فلترة' type='secondary' icon={<Filter className='' />} />
-            <NoteDialog type='add' triggerTitle='اضافة ملاحظة جديدة' />
           </div>
         }
       />
@@ -74,10 +73,10 @@ const Page = () => {
                     items={[
                       // TODO : add dialog for show Details
                       //   {type: 'link', link: `/manager/ways/${way.id}`, text: 'عرض التفاصيل'},
-                      {type: 'dialog', item: <NoteDialog type='edit' triggerTitle='تعديل بيانات الملاحظة' data={{createdDate: note.createdDate, type: note.type, note: note.note}} />},
+                      {type: 'dialog', item: <NoteDialog data={{createdDate: note.createdDate, type: note.type, note: note.note}} />}
                       // {
                       //   type: 'dialog',
-                      //   item: <DeleteDialog title='حذف الملاحظة' triggerText='حذف الملاحظة' description='هل انت متاكد من حذف الملاحظة' onclick={() => {}} open={open} setOpen={setOpen} />
+                      //  item: <DeleteDialog title='حذف الملاحظة' triggerText='حذف الملاحظة' description='هل انت متاكد من حذف الملاحظة' onclick={() => {}} open={open} setOpen={setOpen} />
                       // }
                     ]}
                   />
@@ -87,7 +86,7 @@ const Page = () => {
           )}
         </TableBody>
       </Table>
-      <CustomPagination pageSize={10} totalCount={100} currentPage={1}  hasNext={true} hasPrevious={true} totalPages={10}  />
+      <CustomPagination pageSize={10} totalCount={100} currentPage={1} hasNext={true} hasPrevious={true} totalPages={10} />
     </div>
   );
 };

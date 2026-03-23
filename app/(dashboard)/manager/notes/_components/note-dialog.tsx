@@ -1,4 +1,6 @@
-import {Dialog, DialogClose, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger} from '@/components/ui/dialog';
+'use client'
+
+import { Dialog, DialogClose, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import {Controller, useForm} from 'react-hook-form';
 import {Button} from '@/components/ui/button';
 import {ArrowRight, File, PlusCircle} from 'lucide-react';
