@@ -6,33 +6,42 @@ import {useIsMobile} from '@/hooks/use-mobile';
 import {Sheet, SheetContent, SheetTrigger} from '../ui/sheet';
 import {Button} from '../ui/button';
 import {usePathname} from 'next/navigation';
-const listOfSideBarItem: ISidebarItem[] = [
-  {text: 'الرئيسية', icon: <LucideHome />, link: '/admin'},
-  {text: 'الشركات', icon: <Building2Icon />, link: '/admin/company'},
-  {text: 'الاشتراكات', icon: <BanknoteIcon />, link: '/admin/subscription'},
-  {text: 'الملاحظات', icon: <NotepadText />, link: '/admin/notes'},
-  {text: 'تسجيل الخروج', icon: <LogOut />, link: '/admin/logout'},
-  // Manager Route (Temp)
-  {text: 'الرئيسية', icon: <LucideHome />, link: '/manager'},
-  {text: 'الشحنات', icon: <Building2Icon />, link: '/manager/shipments'},
-  {text: 'العملاء', icon: <BanknoteIcon />, link: '/manager/clients'},
-  {text: 'المسارات', icon: <NotepadText />, link: '/manager/ways'},
-  {text: 'المستخدمين', icon: <NotepadText />, link: '/manager/users'},
-  {text: 'الملاحظات', icon: <LogOut />, link: '/manager/notes'},
-  {text: 'الاعدادات', icon: <Settings />, link: '/manager/settings'}
-];
+import {enUserRoleForSaasAdmin, UserRoleForSaasAdmin} from '@/lib/Constant/user-role';
+import {useAuth} from '@/context/auth-context';
+const listOfSideBarItem: Record<UserRoleForSaasAdmin, ISidebarItem[]> = {
+  [enUserRoleForSaasAdmin.ADMIN]: [
+    {text: 'الرئيسية', icon: <LucideHome />, link: '/admin'},
+    {text: 'الشركات', icon: <Building2Icon />, link: '/admin/company'},
+    {text: 'الاشتراكات', icon: <BanknoteIcon />, link: '/admin/subscription'},
+    {text: 'الملاحظات', icon: <NotepadText />, link: '/admin/notes'},
+    {text: 'تسجيل الخروج', icon: <LogOut />, link: '/admin/logout'}
+  ],
+  [enUserRoleForSaasAdmin.MANAGER]: [
+    {text: 'الرئيسية', icon: <LucideHome />, link: '/manager'},
+    {text: 'الشحنات', icon: <Building2Icon />, link: '/manager/shipments'},
+    {text: 'العملاء', icon: <BanknoteIcon />, link: '/manager/clients'},
+    {text: 'المسارات', icon: <NotepadText />, link: '/manager/ways'},
+    {text: 'المستخدمين', icon: <NotepadText />, link: '/manager/users'},
+    {text: 'الملاحظات', icon: <LogOut />, link: '/manager/notes'},
+    {text: 'الاعدادات', icon: <Settings />, link: '/manager/settings'}
+  ],
+  [enUserRoleForSaasAdmin.EMPLOYEE]: [],
+  [enUserRoleForSaasAdmin.DRIVER]: []
+};
 const SideBar = () => {
   // TODO :
   // optimize this code
   // Error active link in nested routes
   const path = usePathname();
+  const user = useAuth().user;
   const pathName = path.split('/').pop();
   const isSelected = (link?: string) => link?.split('/').pop() === pathName;
+  const sideBarData = listOfSideBarItem[user?.role ?? enUserRoleForSaasAdmin.DRIVER];
   return (
     <aside className='w-60 bg-[#F9F9F9] py-8 px-4'>
       <SideBarLogo />
       <div className='flex flex-col gap-y-1.5'>
-        {listOfSideBarItem.map((item, index) => (
+        {sideBarData.map((item, index) => (
           <SidebarItem key={index} item={{...item, isSelected: isSelected(item.link)}} />
         ))}
       </div>

@@ -19,19 +19,19 @@ const listOfUsers: IUserForTable[] = [
     id: '1',
     name: 'محمد احمد',
     email: 'mohamed@gmail.com',
-    role: enUserRole.manager
+    role: enUserRole.MANAGER
   },
   {
     id: '2',
     name: 'احمد محمد',
     email: 'ahmed@gmail.com',
-    role: enUserRole.driver
+    role: enUserRole.DRIVER
   },
   {
     id: '3',
     name: 'خالد محمد',
     email: 'khalid@gmail.com',
-    role: enUserRole.employee
+    role: enUserRole.EMPLOYEE
   }
 ];
 const Page = () => {
