@@ -1,6 +1,6 @@
-import {Card, CardContent, CardHeader, CardTitle} from '@/app/_components/ui/card';
-import {Separator} from '@/app/_components/ui/separator';
-import CustomInputWithLabelForViewPage from '@/app/_components/CustomInputWithLabelForViewPage';
+import {Card, CardContent, CardHeader, CardTitle} from '@/components/ui/card';
+import {Separator} from '@/components/ui/separator';
+import CustomInputWithLabelForViewPage from '@/components/custom-input-with-label-for-view-page';
 import {ICompanyWithSubscription} from '../_interfaces/company-with-subscription';
 import UploadImage from '../[id]/_components/UploadImage';
 function CompanyForm({company}: {company: ICompanyWithSubscription}) {

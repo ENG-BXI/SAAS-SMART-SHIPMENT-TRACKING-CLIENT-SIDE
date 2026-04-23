@@ -46,7 +46,7 @@ function UserDialog(props: UserDialogProps) {
       name: props.data?.name || '',
       email: props.data?.email || '',
       password: '',
-      role: props.data?.role || enUserRole.employee
+      role: props.data?.role || enUserRole.EMPLOYEE
     }
   });
   return (
