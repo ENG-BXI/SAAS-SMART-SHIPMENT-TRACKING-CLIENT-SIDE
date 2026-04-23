@@ -8,7 +8,7 @@ interface IAppContext {
   setUser?: (value: IUser | null) => void;
 }
 const AuthContext = createContext<IAppContext | null>(null);
-const AppContextProvider = ({children, value}: {children: React.ReactNode; value: IAppContext}) => {
+const AuthContextProvider = ({children, value}: {children: React.ReactNode; value: IAppContext}) => {
   const [isAuthenticated, setIsAuthenticated] = useState(value.isAuthenticated);
   const [user, setUser] = useState<IUser | null>(value.user);
   return <AuthContext.Provider value={{isAuthenticated, setIsAuthenticated, user, setUser}}>{children}</AuthContext.Provider>;
@@ -21,4 +21,4 @@ export function useAuth() {
   }
   return context;
 }
-export default AppContextProvider;
+export default AuthContextProvider;

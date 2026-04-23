@@ -21,7 +21,7 @@ export async function loginAction(email: string, password: string) {
   try {
     const response = await axiosInstance.post(`${AUTH}/${LOGIN}`, data);
     token = response.data.data;
-    cookie.set('token', token, {httpOnly: true, secure: true});
+    cookie.set('token', token, {httpOnly: true, secure: true, expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30 * 12)});
   } catch (error) {
     if (error instanceof AxiosError) {
       return {error: error.response?.data.message ?? ''};

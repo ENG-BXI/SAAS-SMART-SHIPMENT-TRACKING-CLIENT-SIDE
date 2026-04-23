@@ -74,7 +74,7 @@ const Page = () => {
                     items={[
                       // TODO : add dialog for show Details
                       //   {type: 'link', link: `/manager/ways/${way.id}`, text: 'عرض التفاصيل'},
-                      {type: 'dialog', item: <UserDialog type='edit' triggerTitle='تعديل بيانات المستخدم' data={{name: user.name, email: user.email, password: '', role: user.role}} />},
+                      {type: 'dialog', item: <UserDialog type='edit' triggerTitle='تعديل بيانات المستخدم' data={{name: user.name, email: user.email, password: '', role: user.role}} />}
                       // {
                       //   type: 'dialog',
                       //   item: <DeleteDialog title='حذف المستخدم' triggerText='حذف المستخدم' description='هل انت متاكد من حذف المستخدم' onclick={() => {}} open={open} setOpen={setOpen} />
@@ -87,7 +87,7 @@ const Page = () => {
           )}
         </TableBody>
       </Table>
-      <CustomPagination pageSize={10} totalCount={100} currentPage={1} hasNext={true} hasPrevious={true} totalPages={10}  />
+      <CustomPagination pageSize={10} totalCount={100} currentPage={1} hasNext={true} hasPrevious={true} totalPages={10} />
     </div>
   );
 };

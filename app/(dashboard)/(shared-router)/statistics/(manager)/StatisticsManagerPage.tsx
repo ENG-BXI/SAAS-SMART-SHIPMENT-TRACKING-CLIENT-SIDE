@@ -2,7 +2,7 @@ import CardStat from '@/components/dashboard/card-stat';
 import PageDashboardHeader from '@/components/dashboard/header';
 import {TableEmpty} from '@/components/table-empty';
 import {Table, TableHeader, TableRow, TableHead, TableBody, TableCell} from '@/components/ui/table';
-import {ICurrentShipmentForTable} from './shipments/_interfaces/current-shipment-for-table';
+import {ICurrentShipmentForTable} from '../../../(manager)/shipments/_interfaces/current-shipment-for-table';
 
 const listOfShipments: ICurrentShipmentForTable[] = [
   {
@@ -36,7 +36,7 @@ const listOfShipments: ICurrentShipmentForTable[] = [
     wayId: '1'
   }
 ];
-const page = () => {
+const StatisticsManagerPage = () => {
   return (
     <div>
       <PageDashboardHeader title='الصفحة الرئيسية' description='نظرة عامة على أداء عمليات الشحن، مع إحصائيات مختصرة عن الشحنات الحالية والمتوقفة، عدد العملاء، وعدد المسارات المسجلة.' breadcrumbList={[{text: 'الرئيسية', path: '#'}]} />
@@ -83,4 +83,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default StatisticsManagerPage;

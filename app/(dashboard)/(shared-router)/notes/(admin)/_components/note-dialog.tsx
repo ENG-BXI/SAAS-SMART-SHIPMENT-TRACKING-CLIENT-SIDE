@@ -7,7 +7,7 @@ import CustomButton from '@/components/custom-button';
 import CustomInput from '@/components/custom-input';
 import CustomSelect from '@/components/custom-select';
 import {useState} from 'react';
-import {noteFormData} from '@/app/(dashboard)/manager/notes/_schemas/note-schema';
+import {noteFormData} from '@/app/(dashboard)/(shared-router)/notes/(manager)/_schemas/note-schema';
 
 interface NoteDialogProps {
   data?: noteFormData;

@@ -10,20 +10,20 @@ import {enUserRoleForSaasAdmin, UserRoleForSaasAdmin} from '@/lib/Constant/user-
 import {useAuth} from '@/context/auth-context';
 const listOfSideBarItem: Record<UserRoleForSaasAdmin, ISidebarItem[]> = {
   [enUserRoleForSaasAdmin.ADMIN]: [
-    {text: 'الرئيسية', icon: <LucideHome />, link: '/admin'},
-    {text: 'الشركات', icon: <Building2Icon />, link: '/admin/company'},
-    {text: 'الاشتراكات', icon: <BanknoteIcon />, link: '/admin/subscription'},
-    {text: 'الملاحظات', icon: <NotepadText />, link: '/admin/notes'},
-    {text: 'تسجيل الخروج', icon: <LogOut />, link: '/admin/logout'}
+    {text: 'الرئيسية', icon: <LucideHome />, link: '/statistics'},
+    {text: 'الشركات', icon: <Building2Icon />, link: '/company'},
+    {text: 'الاشتراكات', icon: <BanknoteIcon />, link: '/subscription'},
+    {text: 'المستخدمين', icon: <NotepadText />, link: '/users'},
+    {text: 'الملاحظات', icon: <NotepadText />, link: '/notes'},
+    {text: 'تسجيل الخروج', icon: <LogOut />, link: '/logout'}
   ],
   [enUserRoleForSaasAdmin.MANAGER]: [
-    {text: 'الرئيسية', icon: <LucideHome />, link: '/manager'},
-    {text: 'الشحنات', icon: <Building2Icon />, link: '/manager/shipments'},
-    {text: 'العملاء', icon: <BanknoteIcon />, link: '/manager/clients'},
-    {text: 'المسارات', icon: <NotepadText />, link: '/manager/ways'},
-    {text: 'المستخدمين', icon: <NotepadText />, link: '/manager/users'},
-    {text: 'الملاحظات', icon: <LogOut />, link: '/manager/notes'},
-    {text: 'الاعدادات', icon: <Settings />, link: '/manager/settings'}
+    {text: 'الرئيسية', icon: <LucideHome />, link: '/statistics'},
+    {text: 'الشحنات', icon: <Building2Icon />, link: '/shipments'},
+    {text: 'العملاء', icon: <BanknoteIcon />, link: '/clients'},
+    {text: 'المسارات', icon: <NotepadText />, link: '/ways'},
+    {text: 'الملاحظات', icon: <LogOut />, link: '/notes'},
+    {text: 'الاعدادات', icon: <Settings />, link: '/settings'}
   ],
   [enUserRoleForSaasAdmin.EMPLOYEE]: [],
   [enUserRoleForSaasAdmin.DRIVER]: []
@@ -38,7 +38,7 @@ const SideBar = () => {
   const isSelected = (link?: string) => link?.split('/').pop() === pathName;
   const sideBarData = listOfSideBarItem[user?.role ?? enUserRoleForSaasAdmin.DRIVER];
   return (
-    <aside className='w-60 bg-[#F9F9F9] py-8 px-4'>
+    <aside className='min-w-60 bg-[#F9F9F9] py-8 px-4'>
       <SideBarLogo />
       <div className='flex flex-col gap-y-1.5'>
         {sideBarData.map((item, index) => (

@@ -3,7 +3,7 @@ import PageDashboardHeader from '@/components/dashboard/header';
 import { ChartLineLabel } from './_components/charts';
 
 
-const page = () => {
+const StatisticsAdminPage = () => {
   return (
     <div>
       <PageDashboardHeader title='الصفحة الرئيسية' description='نظرة عامة على أداء عمليات الشحن، مع إحصائيات مختصرة عن الشحنات الحالية والمتوقفة، عدد العملاء، وعدد المسارات المسجلة.' breadcrumbList={[{text: 'الرئيسية', path: '#'}]} />
@@ -19,4 +19,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default StatisticsAdminPage;
