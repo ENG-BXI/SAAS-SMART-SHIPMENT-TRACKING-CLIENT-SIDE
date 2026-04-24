@@ -1,7 +1,7 @@
-import z from "zod";
+import z from 'zod';
 
 const contactWaySchema = z.object({
-  contactWay: z.string().min(1, 'طريقة التواصل مطلوبة'),
+  text: z.string().min(1, 'طريقة التواصل مطلوبة'),
   contactType: z.enum(['phoneNumber', 'email']),
   isPrimary: z.string().min(1, 'هل هو اساسي مطلوب')
 });

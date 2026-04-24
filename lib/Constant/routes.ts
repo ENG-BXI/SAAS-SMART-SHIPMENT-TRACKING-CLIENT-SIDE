@@ -11,3 +11,4 @@ export const FINISHED = 'finished';
 export const WAY = 'way';
 export const DRIVERS = 'drivers';
 export const USER = 'user';
+export const CLIENT = 'client';
