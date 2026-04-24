@@ -5,20 +5,18 @@ import {ICompanyWithSubscription} from '../_interfaces/company-with-subscription
 import CompanyForm from '../_components/company-form';
 
 
-const Page = async (params: Promise<{id: string}>) => {
-  const {id} = await params;
-  console.log(id);
-  const company: ICompanyWithSubscription = {
-    name: 'شركة الامتياز الاول',
-    location: 'الرياض، السعودية',
-    numberOfClient: '245',
-    companyEmail: 'info@fasttrack.sa',
-    subscriptionStatus: 'active',
-    subscriptionType: 'basic',
-    subscriptionStartDate: '2022-01-01',
-    subscriptionEndDate: '2022-12-31',
-    subscriptionImage: 'https://via.placeholder.com/150'
-  };
+const company: ICompanyWithSubscription = {
+  name: 'شركة الامتياز الاول',
+  location: 'الرياض، السعودية',
+  numberOfClient: '245',
+  companyEmail: 'info@fasttrack.sa',
+  subscriptionStatus: 'active',
+  subscriptionType: 'basic',
+  subscriptionStartDate: '2022-01-01',
+  subscriptionEndDate: '2022-12-31',
+  subscriptionImage: 'https://via.placeholder.com/150'
+};
+const Page = async () => {
   return (
     <div>
       <PageDashboardHeader
