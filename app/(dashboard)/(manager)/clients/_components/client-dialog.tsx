@@ -1,14 +1,17 @@
-'use client'
-import { Dialog, DialogClose, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Controller, useFieldArray, useForm } from "react-hook-form";
-import { clientFormData, clientSchema } from "../_schemas/client-schema";
-import { Button } from "@/components/ui/button";
-import { ArrowRight, File, PlusCircle } from "lucide-react";
-import { FieldGroup } from "@/components/ui/field";
-import CustomSelect from "@/components/custom-select";
-import CustomButton from "@/components/custom-button";
-import { zodResolver } from "@hookform/resolvers/zod";
-import CustomInput from "@/components/custom-input";
+'use client';
+import {Dialog, DialogClose, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger} from '@/components/ui/dialog';
+import {Controller, useFieldArray, useForm} from 'react-hook-form';
+import {clientFormData, clientSchema} from '../_schemas/client-schema';
+import {Button} from '@/components/ui/button';
+import {ArrowRight, File, Loader2, PlusCircle} from 'lucide-react';
+import {FieldGroup} from '@/components/ui/field';
+import CustomSelect from '@/components/custom-select';
+import CustomButton from '@/components/custom-button';
+import {zodResolver} from '@hookform/resolvers/zod';
+import CustomInput from '@/components/custom-input';
+import {useState, useTransition} from 'react';
+import {toast} from 'sonner';
+import {AddClient} from '../_services/actions';
 
 interface ClientDialogProps {
   type: 'add' | 'edit';
@@ -32,24 +35,36 @@ function getDescription(type: 'add' | 'edit') {
       return 'تعديل بيانات العميل المسجل مسبقًا وإضافة وسائل التواصل المعتمدة لإشعارات الشحن.';
   }
 }
-function onSubmit() {
-  console.log('submit');
-}
+
 function ClientDialog(props: ClientDialogProps) {
+  const [isPending, startTransition] = useTransition();
+  const [open,setOpen] =useState(false)
   const {
     control,
     handleSubmit,
-    formState: {errors}
+    formState: {errors},reset
   } = useForm<clientFormData>({
     resolver: zodResolver(clientSchema),
     defaultValues: {
       name: props.data?.name || '',
-      contactWays: props.data?.contactWays || [{contactWay: '', contactType: 'phoneNumber', isPrimary: 'false'}]
+      contactWays: props.data?.contactWays || [{text: '', contactType: 'phoneNumber', isPrimary: 'false'}]
     }
   });
   const {fields, append, remove} = useFieldArray({name: 'contactWays', control: control});
+  function onSubmit(data: clientFormData) {
+    startTransition(async () => {
+      const result = await AddClient(data);
+      if (result?.error) {
+        toast.error(result.error);
+      } else {
+        toast.success(result?.message);
+        reset()
+        setOpen(false)
+      }
+    });
+  }
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         {props.type == 'add' ? (
           <Button className='bg-custom-primary-color'>
@@ -69,15 +84,16 @@ function ClientDialog(props: ClientDialogProps) {
         </DialogHeader>
         <form onSubmit={handleSubmit(onSubmit)}>
           <FieldGroup className='gap-y-2'>
-            <Controller control={control} name='name' render={({field, fieldState: {invalid, error}}) => <CustomInput type='controller' field={field} error={error} invalid={invalid} required hasLabel label='اسم العميل' placeHolder='ادخل اسم العميل' />} />
+            <Controller control={control} name='name' render={({field, fieldState: {invalid, error}}) => <CustomInput disabled={isPending} type='controller' field={field} error={error} invalid={invalid} required hasLabel label='اسم العميل' placeHolder='ادخل اسم العميل' />} />
             {fields.map((field, index) => (
               <div key={field.id} className='flex items-end gap-x-2'>
-                <Controller control={control} name={`contactWays.${index}.contactWay`} render={({field, fieldState: {invalid}}) => <CustomInput type='controller' field={field} error={undefined} invalid={invalid} required hasLabel label='طريقة التواصل' placeHolder='ادخل طريقة التواصل' />} />
+                <Controller control={control} name={`contactWays.${index}.text`} render={({field, fieldState: {invalid}}) => <CustomInput disabled={isPending} type='controller' field={field} error={undefined} invalid={invalid} required hasLabel label='طريقة التواصل' placeHolder='ادخل طريقة التواصل' />} />
                 <Controller
                   control={control}
                   name={`contactWays.${index}.contactType`}
                   render={({field, fieldState: {invalid}}) => (
                     <CustomSelect
+                      disabled={isPending}
                       onChange={field.onChange}
                       value={field.value}
                       ref={field.ref}
@@ -98,6 +114,7 @@ function ClientDialog(props: ClientDialogProps) {
                   name={`contactWays.${index}.isPrimary`}
                   render={({field, fieldState: {invalid}}) => (
                     <CustomSelect
+                      disabled={isPending}
                       onChange={field.onChange}
                       value={field.value}
                       ref={field.ref}
@@ -113,18 +130,18 @@ function ClientDialog(props: ClientDialogProps) {
                     />
                   )}
                 />
-                <Button variant={'destructive'} onClick={() => remove(index)}>
+                <Button disabled={isPending} variant={'destructive'} onClick={() => remove(index)}>
                   حذف
                 </Button>
               </div>
             ))}
-            <CustomButton text='اضافة غرض' icon={<PlusCircle className='min-w-5 min-h-5' />} onClick={() => append({contactWay: '', contactType: 'phoneNumber', isPrimary: 'false'})} className='bg-black text-white' />
+            <CustomButton disable={isPending} text='اضافة غرض' icon={<PlusCircle className='min-w-5 min-h-5' />} onClick={() => append({text: '', contactType: 'phoneNumber', isPrimary: 'false'})} className='bg-black text-white' />
             {fields.length == 0 && errors.contactWays?.root?.message && <p className='text-red-500 text-sm'>{errors.contactWays.root.message}</p>}
             <div className='flex justify-end gap-x-2 mt-2'>
               <DialogClose>
                 <CustomButton text='الغاء' icon={<ArrowRight className='min-w-5 min-h-5' />} className=' flex-row-reverse' type='secondary' />
               </DialogClose>
-              <CustomButton text={props.type == 'add' ? 'اضافة' : 'تعديل'} icon={<PlusCircle className='min-w-5 min-h-5' />} type='primary' className='bg-black text-white' IsSubmit />
+              <CustomButton disable={isPending} text={isPending ? 'جاري التحميل ... ' : props.type == 'add' ? 'اضافة' : 'تعديل'} icon={isPending? <Loader2 className='animate-spin'/> :<PlusCircle className='min-w-5 min-h-5' />} type='primary' className='bg-black text-white' IsSubmit />
             </div>
           </FieldGroup>
         </form>
@@ -133,4 +150,4 @@ function ClientDialog(props: ClientDialogProps) {
   );
 }
 
-export default ClientDialog
+export default ClientDialog;

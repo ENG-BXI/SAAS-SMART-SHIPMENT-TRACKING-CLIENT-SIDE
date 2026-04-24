@@ -7,7 +7,8 @@ import {Sheet, SheetContent, SheetTrigger} from '../ui/sheet';
 import {Button} from '../ui/button';
 import {usePathname} from 'next/navigation';
 import {enUserRoleForSaasAdmin, UserRoleForSaasAdmin} from '@/lib/Constant/user-role';
-import {useAuth} from '@/context/auth-context';
+import {useMe} from '@/services/me';
+import SideBarSkeleton from './side-bar-skeleton';
 const listOfSideBarItem: Record<UserRoleForSaasAdmin, ISidebarItem[]> = {
   [enUserRoleForSaasAdmin.ADMIN]: [
     {text: 'الرئيسية', icon: <LucideHome />, link: '/statistics'},
@@ -33,18 +34,23 @@ const SideBar = () => {
   // optimize this code
   // Error active link in nested routes
   const path = usePathname();
-  const user = useAuth().user;
+  const {data: user, isLoading, isError, error} = useMe();
   const pathName = path.split('/').pop();
   const isSelected = (link?: string) => link?.split('/').pop() === pathName;
   const sideBarData = listOfSideBarItem[user?.role ?? enUserRoleForSaasAdmin.DRIVER];
+
   return (
     <aside className='min-w-60 bg-[#F9F9F9] py-8 px-4'>
       <SideBarLogo />
-      <div className='flex flex-col gap-y-1.5'>
-        {sideBarData.map((item, index) => (
-          <SidebarItem key={index} item={{...item, isSelected: isSelected(item.link)}} />
-        ))}
-      </div>
+      {isLoading && <SideBarSkeleton />}
+      {sideBarData.length > 0 && (
+        <div className='flex flex-col gap-y-1.5'>
+          {sideBarData.map((item, index) => (
+            <SidebarItem key={index} item={{...item, isSelected: isSelected(item.link)}} />
+          ))}
+        </div>
+      )}
+      {isError && <p className='text-red-500 text-center'>{error?.message}</p>}
     </aside>
   );
 };
