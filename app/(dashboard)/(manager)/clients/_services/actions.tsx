@@ -4,7 +4,7 @@ import {clientFormData} from '../_schemas/client-schema';
 import serverAxiosInstance from '@/lib/axios/server';
 import {CLIENT} from '@/lib/Constant/routes';
 import {AxiosError} from 'axios';
-import { updateTag } from 'next/cache';
+import {updateTag} from 'next/cache';
 
 export const AddClient = async (data: clientFormData) => {
   const cookie = await cookies();
@@ -17,10 +17,41 @@ export const AddClient = async (data: clientFormData) => {
     }))
   };
   try {
-    const response = await serverAxiosInstance.post(CLIENT, client, { headers: { Authorization: `Bearer ${token}` } });
+    const response = await serverAxiosInstance.post(CLIENT, client, {headers: {Authorization: `Bearer ${token}`}});
     updateTag('all-client');
     return {message: response.data.message, data: response.data.data, error: null};
   } catch (error) {
     if (error instanceof AxiosError) return {message: 'Add Client Failed', error: error.response?.data.message, data: null};
+  }
+};
+
+export const UpdateClient = async ({id, data}: {id: string; data: clientFormData}) => {
+  const cookie = await cookies();
+  const token = cookie.get('token')?.value;
+  const client = {
+    ...data,
+    contactWays: data.contactWays.map(contactWay => ({
+      ...contactWay,
+      isPrimary: Boolean(contactWay.isPrimary)
+    }))
+  };
+  try {
+    const response = await serverAxiosInstance.put(`${CLIENT}/${id}`, client, {headers: {Authorization: `Bearer ${token}`}});
+    updateTag('all-client');
+    return {message: response.data.message, data: response.data.data, error: null};
+  } catch (error) {
+    if (error instanceof AxiosError) return {message: 'Update Client Failed', error: error.response?.data.message, data: null};
+  }
+};
+
+export const DeleteClient = async (id: string) => {
+  const cookie = await cookies();
+  const token = cookie.get('token')?.value;
+  try {
+    const response = await serverAxiosInstance.delete(`${CLIENT}/${id}`, {headers: {Authorization: `Bearer ${token}`}});
+    updateTag('all-client');
+    return {message: response.data.message, data: response.data.data, error: null};
+  } catch (error) {
+    if (error instanceof AxiosError) return {message: 'Delete Client Failed', error: error.response?.data.message, data: null};
   }
 };

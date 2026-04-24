@@ -10,6 +10,7 @@ import ClientDialog from './_components/client-dialog';
 import GetAllClient from './_services/get-all-client';
 import {cookies} from 'next/headers';
 import {Suspense} from 'react';
+import DeleteClientDialog from './_components/delete-client-dialog';
 interface PageProps {
   searchParams: Promise<{
     search?: string;
@@ -41,6 +42,7 @@ interface ClientTableAndPaginationProps {
   search?: string;
   page?: string;
 }
+
 async function ClientTableAndPagination({search, page}: ClientTableAndPaginationProps) {
   const cookie = await cookies();
   const token = cookie.get('token')?.value;
@@ -64,24 +66,24 @@ async function ClientTableAndPagination({search, page}: ClientTableAndPagination
             </TableRow>
           ) : (
             clients?.data?.map(client => {
-              const contactWays = client.contactWays.map(contactWay => contactWay.text).join(', ');
+              const contactWaysAsText = client.contactWays.map(contactWay => contactWay.text).join(', ');
+              const contactWays = client.contactWays.map(contactWay => ({text: contactWay.text, contactType: contactWay.contactType, isPrimary: contactWay.isPrimary.toString()}));
               return (
                 <TableRow key={client.id}>
                   <TableCell className=''>{client.name}</TableCell>
                   <TableCell className=''>
                     {client.contactWays.length == 0 && 'لا يوجد طرق تواصل'}
-                    {contactWays.slice(0, 40)} {contactWays.length > 40 && '...'}
+                    {contactWaysAsText.slice(0, 40)} {contactWaysAsText.length > 40 && '...'}
                   </TableCell>
                   <TableCell>
                     <TablePopover
                       items={[
-                        // TODO: add Dialog to show client details
-                        // {type: 'link', link: `/manager/clients/${client.id}`, text: 'عرض التفاصيل'},
-                        {type: 'dialog', item: <ClientDialog type='edit' triggerTitle='تعديل بيانات العميل' data={{name: client.name, contactWays: client.contactWays.map(contactWay => ({text: contactWay.text, contactType: contactWay.contactType, isPrimary: contactWay.isPrimary.toString()}))}} />}
-                        // {
-                        //   type: 'dialog',
-                        //   item: <DeleteDialog title='حذف العميل' triggerText='حذف العميل' description='هل انت متاكد من حذف العميل' onclick={() => {}} open={open} setOpen={setOpen} />
-                        // }
+                        {type: 'dialog', item: <ClientDialog type='view' triggerTitle='عرض بيانات العميل' id={client.id} data={{name: client.name, contactWays: contactWays}} />},
+                        {type: 'dialog', item: <ClientDialog type='edit' triggerTitle='تعديل بيانات العميل' id={client.id} data={{name: client.name, contactWays: contactWays}} />},
+                        {
+                          type: 'dialog',
+                          item: <DeleteClientDialog id={client.id} name={client.name} />
+                        }
                       ]}
                     />
                   </TableCell>
