@@ -6,34 +6,28 @@ import {ICurrentShipmentForTable} from '../../../(manager)/shipments/_interfaces
 
 const listOfShipments: ICurrentShipmentForTable[] = [
   {
-    id: 1,
+    id: '1',
     shipmentNumber: '1',
-    departureDate: '2026-03-21',
-    currentPoint: 'المكلا',
-    way: 'المكلا - عدن',
-    shipmentDriver: 'السائق 1',
-    shipmentDriverId: '1',
-    wayId: '1'
+    currentPoint: {name: 'المكلا'},
+    way: {name: 'المكلا - عدن'},
+    driver: {userName: 'السائق 1'},
+    launchDate: new Date().toLocaleString()
   },
   {
-    id: 2,
+    id: '2',
     shipmentNumber: '1',
-    departureDate: '2026-03-21',
-    currentPoint: 'البيضاء',
-    way: 'المكلا - عدن',
-    shipmentDriver: 'السائق 1',
-    shipmentDriverId: '1',
-    wayId: '1'
+    currentPoint: {name: 'البيضاء'},
+    way: {name: 'المكلا - عدن'},
+    driver: {userName: 'السائق 1'},
+    launchDate: new Date().toLocaleString()
   },
   {
-    id: 3,
+    id: '3',
     shipmentNumber: '1',
-    departureDate: '2026-03-21',
-    currentPoint: 'البيضاء',
-    way: 'المكلا - عدن',
-    shipmentDriver: 'السائق 1',
-    shipmentDriverId: '1',
-    wayId: '1'
+    currentPoint: {name: 'البيضاء'},
+    way: {name: 'المكلا - عدن'},
+    driver: {userName: 'السائق 1'},
+    launchDate: new Date().toLocaleString()
   }
 ];
 const StatisticsManagerPage = () => {
@@ -70,10 +64,10 @@ const StatisticsManagerPage = () => {
             listOfShipments?.map(shipment => (
               <TableRow key={shipment.id}>
                 <TableCell>{shipment.shipmentNumber}</TableCell>
-                <TableCell>{shipment.departureDate}</TableCell>
-                <TableCell>{shipment.way}</TableCell>
-                <TableCell>{shipment.currentPoint}</TableCell>
-                <TableCell>{shipment.shipmentDriver}</TableCell>
+                <TableCell>{shipment.launchDate}</TableCell>
+                <TableCell>{shipment.way.name}</TableCell>
+                <TableCell>{shipment.currentPoint.name}</TableCell>
+                <TableCell>{shipment.driver.userName}</TableCell>
               </TableRow>
             ))
           )}
