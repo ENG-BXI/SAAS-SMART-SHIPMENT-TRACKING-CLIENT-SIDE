@@ -4,7 +4,6 @@ import {StopCircle} from 'lucide-react';
 import {ICompanyWithSubscription} from '../_interfaces/company-with-subscription';
 import CompanyForm from '../_components/company-form';
 
-
 const company: ICompanyWithSubscription = {
   name: 'شركة الامتياز الاول',
   location: 'الرياض، السعودية',
@@ -16,7 +15,8 @@ const company: ICompanyWithSubscription = {
   subscriptionEndDate: '2022-12-31',
   subscriptionImage: 'https://via.placeholder.com/150'
 };
-const Page = async () => {
+
+const Page = () => {
   return (
     <div>
       <PageDashboardHeader
