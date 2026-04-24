@@ -5,9 +5,9 @@ import {IShipmentFromBackend} from '../_interfaces/IShipment-From-Backend';
 import serverAxiosInstance from '@/lib/axios/server';
 
 export async function getCurrentShipments(token?: string, search?: string, page?: string) {
-  // 'use cache';
-  // cacheTag('current-shipment');
-  // cacheLife('hours');
+  'use cache';
+  cacheTag('current-shipment');
+  cacheLife('hours');
   const SearchParams = new URLSearchParams();
   if (search) {
     SearchParams.append('search', search);
