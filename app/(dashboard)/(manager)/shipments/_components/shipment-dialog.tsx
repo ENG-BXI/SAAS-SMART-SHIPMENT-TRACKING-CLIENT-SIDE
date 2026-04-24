@@ -1,5 +1,5 @@
-'use client'
-import { Dialog, DialogClose, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+'use client';
+import {Dialog, DialogClose, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger} from '@/components/ui/dialog';
 import {Button} from '@/components/ui/button';
 import {Controller, useForm} from 'react-hook-form';
 import {FieldGroup} from '@/components/ui/field';
@@ -9,10 +9,17 @@ import {shipmentFormData, shipmentSchema} from '../_schema/shipment-schema';
 import {ArrowRight, File, PlusCircle} from 'lucide-react';
 import CustomButton from '@/components/custom-button';
 import CustomSelect from '@/components/custom-select';
+import {AddShipmentAction} from '../actions';
+import {useState, useTransition} from 'react';
+import {toast} from 'sonner';
+import useGetAllWaysAsOptions from '../services/get-all-ways-as-options';
+import useGetAllDriversAsOptions from '../services/get-all-driver-as-options';
+import CustomCalender from '@/components/custom-calender';
 interface IShipment {
   shipmentNumber: string;
-  way: string;
-  shipmentDriver: string;
+  wayId: string;
+  driverId: string;
+  launchDate: string;
 }
 interface ShipmentDialogProps {
   type: 'add' | 'edit';
@@ -36,20 +43,36 @@ function getDescription(type: 'add' | 'edit') {
   }
 }
 
-function onSubmit() {
-  console.log('submit');
-}
 function ShipmentDialog(props: ShipmentDialogProps) {
-  const {control, handleSubmit} = useForm<shipmentFormData>({
+  const [isPending, startTransition] = useTransition();
+  const [open, setOpen] = useState(false);
+  const {control, handleSubmit, reset} = useForm<shipmentFormData>({
     resolver: zodResolver(shipmentSchema),
     defaultValues: {
       shipmentNumber: props.data?.shipmentNumber || '',
-      way: props.data?.way || '0',
-      shipmentDriver: props.data?.shipmentDriver || '0'
+      wayId: props.data?.wayId || '',
+      driverId: props.data?.driverId || '',
+      launchDate: new Date(props.data?.launchDate ?? new Date().toISOString())
     }
   });
+  async function onSubmit(data: shipmentFormData) {
+    if (props.type == 'add') {
+      startTransition(async () => {
+        const { message, error } = await AddShipmentAction(data);
+        if (error) {
+          toast.error(error);
+        } else {
+          toast.success(message);
+          setOpen(false);
+          reset();
+        }
+      });
+    }
+  }
+  const {data: ways, isLoading: wayIsLoading, isError: isWayError, error: wayError} = useGetAllWaysAsOptions(open);
+  const {data: drivers, isLoading: driverIsLoading, isError: isDriverError, error: driverError} = useGetAllDriversAsOptions(open);
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         {props.type == 'add' ? (
           <Button className='bg-custom-primary-color'>
@@ -68,58 +91,33 @@ function ShipmentDialog(props: ShipmentDialogProps) {
         </DialogHeader>
         <form onSubmit={handleSubmit(onSubmit)}>
           <FieldGroup className='gap-y-2'>
-            <Controller control={control} name='shipmentNumber' render={({field, fieldState: {invalid, error}}) => <CustomInput type='controller' field={field} error={error} invalid={invalid} required hasLabel label='رقم الشحنة' placeHolder='ادخل رقم الشحنة' />} />
+            <Controller control={control} name='shipmentNumber' render={({field, fieldState: {invalid, error}}) => <CustomInput disabled={isPending} type='controller' field={field} error={error} invalid={invalid} required hasLabel label='رقم الشحنة' placeHolder='ادخل رقم الشحنة' />} />
             <Controller
               control={control}
-              name='way'
+              name='wayId'
               render={({field, fieldState: {invalid, error}}) => {
-                return (
-                  <CustomSelect
-                    onChange={field.onChange}
-                    value={field.value}
-                    ref={field.ref}
-                    invalid={invalid}
-                    errorMessage={error?.message}
-                    placeHolder='اختر المسار'
-                    required
-                    label='مسار الشحنة'
-                    options={[
-                      {value: '1', label: 'المسار 1'},
-                      {value: '2', label: 'المسار 2'},
-                      {value: '3', label: 'المسار 3'}
-                    ]}
-                  />
-                );
+                return <CustomSelect disabled={isPending} onChange={field.onChange} value={field.value} ref={field.ref} invalid={invalid} isLoading={wayIsLoading} isError={isWayError} error={wayError?.message} errorMessage={error?.message} placeHolder='اختر المسار' required label='مسار الشحنة' options={ways || []} />;
               }}
             />
             <Controller
               control={control}
-              name='shipmentDriver'
+              name='driverId'
               render={({field, fieldState: {invalid, error}}) => {
-                return (
-                  <CustomSelect
-                    onChange={field.onChange}
-                    value={field.value}
-                    ref={field.ref}
-                    invalid={invalid}
-                    errorMessage={error?.message}
-                    placeHolder='اختر السائق'
-                    required
-                    label='سائق الشحنة'
-                    options={[
-                      {value: '1', label: 'السائق 1'},
-                      {value: '2', label: 'السائق 2'},
-                      {value: '3', label: 'السائق 3'}
-                    ]}
-                  />
-                );
+                return <CustomSelect disabled={isPending} isLoading={driverIsLoading} isError={isDriverError} error={driverError?.message} onChange={field.onChange} value={field.value} ref={field.ref} invalid={invalid} errorMessage={error?.message} placeHolder='اختر السائق' required label='سائق الشحنة' options={drivers || []} />;
+              }}
+            />
+            <Controller
+              control={control}
+              name='launchDate'
+              render={({field, fieldState: {invalid, error}}) => {
+                return <CustomCalender disabled={isPending} value={field.value} onChange={field.onChange} invalid={invalid} errorMessage={error?.message} required label='تاريخ الانطلاق' placeHolder='ادخل تاريخ الانطلاق' />;
               }}
             />
             <div className='flex justify-end gap-x-2'>
               <DialogClose>
                 <CustomButton text='الغاء' icon={<ArrowRight className='min-w-5 min-h-5' />} className=' flex-row-reverse' type='secondary' />
               </DialogClose>
-              <CustomButton text='اضافة شحنة' icon={<PlusCircle className='min-w-5 min-h-5' />} type='primary' className='bg-black text-white' IsSubmit />
+              <CustomButton disable={isPending} text={isPending ? '....جاري الاضافة' : 'اضافة شحنة'} icon={<PlusCircle className='min-w-5 min-h-5' />} type='primary' className='bg-black text-white' IsSubmit />
             </div>
           </FieldGroup>
         </form>

@@ -1,4 +1,4 @@
-import {memo} from 'react';
+import {memo, Suspense} from 'react';
 import CustomButton from '@/components/custom-button';
 import DashboardSearchAndActionPage from '@/components/dashboard/dashboard-search-and-action-page';
 import PageDashboardHeader from '@/components/dashboard/header';
@@ -7,45 +7,21 @@ import {Table, TableHeader, TableRow, TableHead, TableBody, TableCell} from '@/c
 import {TableEmpty} from '@/components/table-empty';
 import TablePopover from '@/components/table-popover';
 import CustomPagination from '@/components/custom-pagination';
-import {ICurrentShipmentForTable} from '../_interfaces/current-shipment-for-table';
 import ShipmentDialog from './shipment-dialog';
-const listOfCurrentShipments: ICurrentShipmentForTable[] = [
-  {
-    id: 1,
-    shipmentNumber: '1',
-    departureDate: '2026-03-21',
-    currentPoint: 'المكلا',
-    way: 'المكلا - عدن',
-    shipmentDriver: 'السائق 1',
-    shipmentDriverId: '1',
-    wayId: '1'
-  },
-  {
-    id: 2,
-    shipmentNumber: '1',
-    departureDate: '2026-03-21',
-    currentPoint: 'عدن',
-    way: 'المكلا - عدن',
-    shipmentDriver: 'السائق 1',
-    shipmentDriverId: '1',
-    wayId: '1'
-  },
-  {
-    id: 3,
-    shipmentNumber: '1',
-    departureDate: '2026-03-21',
-    currentPoint: 'المكلا',
-    way: 'المكلا - عدن',
-    shipmentDriver: 'السائق 1',
-    shipmentDriverId: '1',
-    wayId: '1'
-  }
-];
-function CurrentShipments() {
+import {cookies} from 'next/headers';
+import {getCurrentShipments} from '../services/current-shipment.services';
+import {formattedDate} from '@/lib/utils';
+
+interface CurrentShipmentsProps {
+  search?: string;
+  page?: string;
+}
+async function CurrentShipments({search, page}: CurrentShipmentsProps) {
   return (
     <div>
       <PageDashboardHeader title='الشحنات' description='عرض وإدارة جميع الشحنات المسجلة على النظام، مع إمكانية متابعة حالتها وسجل التحديثات المرتبطة بكل شحنة.' breadcrumbList={[{text: 'الشحنات', path: '/'}]} />
       <DashboardSearchAndActionPage
+        searchParamsKey='cs'
         action={
           <div className='self-start flex gap-x-1'>
             <CustomButton text='فلترة' type='secondary' icon={<Filter className='' />} />
@@ -53,6 +29,21 @@ function CurrentShipments() {
           </div>
         }
       />
+      {/* Improve Loading Component and Add skelton */}
+      <Suspense fallback={<div>Loading...</div>}>
+        <TableAndPagination search={search} page={page} />
+      </Suspense>
+    </div>
+  );
+}
+export default memo(CurrentShipments) as unknown as typeof CurrentShipments;
+
+async function TableAndPagination({search, page}: CurrentShipmentsProps) {
+  const cookie = await cookies();
+  const token = cookie.get('token')?.value;
+  const data = await getCurrentShipments(token, search, page);
+  return (
+    <>
       <Table>
         <TableHeader>
           <TableRow>
@@ -65,25 +56,25 @@ function CurrentShipments() {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {listOfCurrentShipments?.length === 0 ? (
+          {data?.data?.length === 0 ? (
             <TableRow>
               <TableCell colSpan={5}>
                 <TableEmpty />
               </TableCell>
             </TableRow>
           ) : (
-            listOfCurrentShipments?.map(shipment => (
+            data?.data?.map(shipment => (
               <TableRow key={shipment.id}>
                 <TableCell>{shipment.shipmentNumber}</TableCell>
-                <TableCell>{shipment.departureDate}</TableCell>
-                <TableCell>{shipment.way}</TableCell>
-                <TableCell>{shipment.currentPoint}</TableCell>
-                <TableCell>{shipment.shipmentDriver}</TableCell>
+                <TableCell>{formattedDate(shipment.launchDate)}</TableCell>
+                <TableCell>{shipment.way.name}</TableCell>
+                <TableCell>{shipment.currentPoint?.name}</TableCell>
+                <TableCell>{shipment.driver.userName}</TableCell>
                 <TableCell>
                   <TablePopover
                     items={[
-                      {type: 'link', link: `/manager/shipments/${shipment.id}`, text: 'عرض التفاصيل'},
-                      {type: 'dialog', item: <ShipmentDialog type='edit' data={{shipmentNumber: shipment.shipmentNumber, way: shipment.wayId, shipmentDriver: shipment.shipmentDriverId}} />}
+                      {type: 'link', link: `/shipments/${shipment.id}`, text: 'عرض التفاصيل'},
+                      {type: 'dialog', item: <ShipmentDialog type='edit' data={{shipmentNumber: shipment.shipmentNumber, wayId: shipment.way.id, driverId: shipment.driver.id, launchDate: shipment.launchDate}} />}
                       // {
                       //   type: 'dialog',
                       //   item: <DeleteDialog title='توقيف الشحنة' triggerText='توقيف الشحنة' description='هل انت متاكد من توقيف الشحنة' onclick={() => {}} open={open} setOpen={setOpen} />
@@ -100,8 +91,7 @@ function CurrentShipments() {
           )}
         </TableBody>
       </Table>
-      <CustomPagination pageSize={10} totalCount={100} currentPage={1} hasNext={true} hasPrevious={true} totalPages={10} />
-    </div>
+      <CustomPagination searchParamsKey='c' pageSize={data.pageSize} totalCount={data.totalCount} currentPage={data.currentPage} hasNext={data.hasNext} hasPrevious={data.hasPrevious} totalPages={data.totalPages} />
+    </>
   );
 }
-export default memo(CurrentShipments) as unknown as typeof CurrentShipments;

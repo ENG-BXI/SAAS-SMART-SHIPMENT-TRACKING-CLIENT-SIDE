@@ -1,10 +1,10 @@
 'use server';
-import {axiosInstance} from '@/lib/axios';
 import {AUTH, LOGIN} from '@/lib/Constant/routes';
 import {loginSchema} from '../_schema/login-schema';
 import {cookies} from 'next/headers';
 import {AxiosError} from 'axios';
 import {getUser} from '@/lib/utils';
+import serverAxiosInstance from '@/lib/axios/server';
 
 export async function loginAction(email: string, password: string) {
   const user = loginSchema.safeParse({email, password});
@@ -19,9 +19,9 @@ export async function loginAction(email: string, password: string) {
   const cookie = await cookies();
 
   try {
-    const response = await axiosInstance.post(`${AUTH}/${LOGIN}`, data);
+    const response = await serverAxiosInstance.post(`${AUTH}/${LOGIN}`, data);
     token = response.data.data;
-    cookie.set('token', token, {httpOnly: true, secure: true, expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30 * 12)});
+    cookie.set('token', token, {expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30 * 12)});
   } catch (error) {
     if (error instanceof AxiosError) {
       return {error: error.response?.data.message ?? ''};

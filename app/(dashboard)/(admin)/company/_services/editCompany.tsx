@@ -1,13 +1,13 @@
 import {COMPANY} from '@/lib/Constant/routes';
-import {axiosInstance} from '@/lib/axios';
 import {useMutation, useQueryClient} from '@tanstack/react-query';
 import {IEditCompany} from '../_interfaces/company';
+import {clientAxiosInstance} from '@/lib/axios/client';
 interface IEditCompanyService {
   id: string;
   company: IEditCompany;
 }
 const editCompany = async ({id, company}: IEditCompanyService) => {
-  const response = await axiosInstance.patch(`/${COMPANY}/${id}`, company);
+  const response = await clientAxiosInstance.patch(`/${COMPANY}/${id}`, company);
   // TODO Delete This
   console.log(response);
 
