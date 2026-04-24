@@ -1,3 +1,4 @@
+import addUserInfoIntoHeader from '@/lib/add-user-info-into-header';
 import {enUserRoleForSaasAdmin} from '@/lib/Constant/user-role';
 import {getUser} from '@/lib/utils';
 import {cookies} from 'next/headers';
@@ -17,6 +18,7 @@ export async function adminMiddleware(req: NextRequest) {
   if (user.role !== enUserRoleForSaasAdmin.ADMIN) {
     return NextResponse.redirect(new URL('/unauthorized', req.url));
   }
-
-  return NextResponse.next();
+  const res = NextResponse.next();
+  addUserInfoIntoHeader(res, user);
+  return res;
 }

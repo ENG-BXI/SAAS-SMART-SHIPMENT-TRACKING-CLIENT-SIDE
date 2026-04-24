@@ -1,3 +1,4 @@
+import addUserInfoIntoHeader from '@/lib/add-user-info-into-header';
 import {parseReq} from '@/lib/parse-req';
 import {getUser} from '@/lib/utils';
 import {cookies} from 'next/headers';
@@ -11,10 +12,7 @@ export async function publicMiddleware(req: NextRequest) {
     const user = getUser(token);
     if (user) {
       const res = NextResponse.next();
-      res.headers.append('user-companyId', user.companyId);
-      res.headers.append('user-email', user.email);
-      res.headers.append('user-role', user.role);
-      res.headers.append('user-id', user.id);
+      addUserInfoIntoHeader(res, user);
       if (pathName == 'login') return NextResponse.redirect(new URL('/statistics', req.url));
       else return res;
     }

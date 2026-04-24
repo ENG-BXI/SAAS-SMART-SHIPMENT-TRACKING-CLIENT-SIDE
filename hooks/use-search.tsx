@@ -20,6 +20,6 @@ export function useSearchParams({key, search, time = 500}: {key: string; search:
       query.delete(key);
     }
     const url = `${pathName}?${query.toString()}`;
-    router.replace(url);
+    router.replace(url,{scroll:false});
   }, [debounced]);
 }
