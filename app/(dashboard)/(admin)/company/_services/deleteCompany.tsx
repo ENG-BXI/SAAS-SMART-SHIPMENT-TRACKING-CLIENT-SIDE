@@ -1,11 +1,11 @@
 import {COMPANY} from '@/lib/Constant/routes';
-import {axiosInstance} from '@/lib/axios';
 import {useMutation, useQueryClient} from '@tanstack/react-query';
+import { clientAxiosInstance } from '@/lib/axios/client';
 interface IDeleteCompanyService {
   id: string;
 }
 const deleteCompany = async ({id}: IDeleteCompanyService) => {
-  await axiosInstance.delete(`/${COMPANY}/${id}`);
+  await clientAxiosInstance.delete(`/${COMPANY}/${id}`);
 };
 const DeleteCompanyService = () => {
   const reactQuery = useQueryClient();

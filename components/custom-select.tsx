@@ -3,6 +3,7 @@ import {Field, FieldError} from '@/components/ui/field';
 import {Label} from '@/components/ui/label';
 import {RefCallBack} from 'react-hook-form';
 import {cn} from '@/lib/utils';
+import {Ban, Loader2} from 'lucide-react';
 export interface IOption {
   value: string;
   label: string;
@@ -20,8 +21,11 @@ interface CustomSelectProps {
   className?: string;
   dir?: 'ltr' | 'rtl';
   disabled?: boolean;
+  isLoading?: boolean;
+  isError?: boolean;
+  error?: string;
 }
-function CustomSelect({onChange, label, required, value, ref, invalid, errorMessage, options, placeHolder, className, dir = 'rtl', disabled = false}: CustomSelectProps) {
+function CustomSelect({onChange, label, required, value, ref, invalid, errorMessage, options, placeHolder, className, dir = 'rtl', disabled = false, isLoading = false, isError = false, error}: CustomSelectProps) {
   return (
     <Field className={cn(className)} data-invalid={invalid}>
       {label && (
@@ -31,7 +35,18 @@ function CustomSelect({onChange, label, required, value, ref, invalid, errorMess
       )}
       <Select disabled={disabled} dir={dir} onValueChange={onChange} defaultValue={value}>
         <SelectTrigger>
-          <SelectValue placeholder={placeHolder} />
+          {isLoading && (
+            <div className='flex items-center gap-2'>
+              <Loader2 className='min-w-5 min-h-5 animate-spin' />
+              جاري التحميل...
+            </div>
+          )}
+          {isError && (
+            <div className='flex items-center gap-2 text-red-500'>
+              <Ban className='text-red-500 min-w-5 min-h-5' /> {error}
+            </div>
+          )}
+          {!isLoading && !isError && <SelectValue placeholder={placeHolder} />}
         </SelectTrigger>
         <SelectContent ref={ref}>
           <SelectItem value='0' disabled>

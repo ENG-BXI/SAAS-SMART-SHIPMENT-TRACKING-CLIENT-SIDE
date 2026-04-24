@@ -27,3 +27,23 @@ export function getUser(token: string) {
     return null;
   }
 }
+
+export function formattedDate(date: string) {
+  return new Date(date).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'numeric',
+    day: 'numeric'
+  });
+}
+
+export function formattedDateTime(date: string) {
+  return new Date(date).toLocaleDateString('ar-EG', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    second: 'numeric'
+  });
+}
+

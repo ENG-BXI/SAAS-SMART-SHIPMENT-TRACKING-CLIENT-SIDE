@@ -5,10 +5,10 @@ import {IDashboardSearchAndActionPage} from '@/Interfaces/dashboard-search-and-a
 import {cn} from '@/lib/utils';
 import {useSearchParams} from '@/hooks/use-search';
 
-function DashboardSearchAndActionPage({action, className}: IDashboardSearchAndActionPage) {
+function DashboardSearchAndActionPage({action, className, searchParamsKey = 'search'}: IDashboardSearchAndActionPage) {
   const [search, setSearch] = useState('');
-  
-  useSearchParams({key: 'search', search});
+
+  useSearchParams({key: searchParamsKey, search});
   return (
     <div className={cn(`flex justify-between gap-x-3 mb-3`, className)}>
       <CustomInput type='state' value={search} setValue={setSearch} className='max-w-100' />

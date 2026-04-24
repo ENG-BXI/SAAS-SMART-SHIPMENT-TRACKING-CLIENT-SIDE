@@ -2,88 +2,24 @@ import CustomButton from '@/components/custom-button';
 import DashboardSearchAndActionPage from '@/components/dashboard/dashboard-search-and-action-page';
 import PageDashboardHeader from '@/components/dashboard/header';
 import {Filter} from 'lucide-react';
-import {memo} from 'react';
+import {memo, Suspense} from 'react';
 import {Table, TableHeader, TableRow, TableHead, TableBody, TableCell} from '@/components/ui/table';
 import {TableEmpty} from '@/components/table-empty';
 import TablePopover from '@/components/table-popover';
 import CustomPagination from '@/components/custom-pagination';
-import {IFinishedShipmentForTable} from '../_interfaces/finshed-shipment-for-table';
-const listOfFinishedShipments: IFinishedShipmentForTable[] = [
-  {
-    id: 1,
-    shipmentNumber: '1',
-    departureDate: '2026-03-21',
-    currentPoint: 'المكلا',
-    way: 'المكلا - عدن',
-    arrivalDate: '2026-03-21',
-    shipmentDriver: 'السائق 1',
-    shipmentDriverId: '1',
-    wayId: '1'
-  },
-  {
-    id: 2,
-    shipmentNumber: '1',
-    departureDate: '2026-03-21',
-    currentPoint: 'المكلا',
-    way: 'المكلا - عدن',
-    arrivalDate: '2026-03-21',
-    shipmentDriver: 'السائق 1',
-    shipmentDriverId: '1',
-    wayId: '1'
-  },
-  {
-    id: 3,
-    shipmentNumber: '1',
-    departureDate: '2026-03-21',
-    currentPoint: 'المكلا',
-    way: 'المكلا - عدن',
-    arrivalDate: '2026-03-21',
-    shipmentDriver: 'السائق 1',
-    shipmentDriverId: '1',
-    wayId: '1'
-  },
-
-  {
-    id: 4,
-    shipmentNumber: '1',
-    departureDate: '2026-03-21',
-    currentPoint: 'المكلا',
-    way: 'المكلا - عدن',
-    arrivalDate: '2026-03-21',
-    shipmentDriver: 'السائق 1',
-    shipmentDriverId: '1',
-    wayId: '1'
-  },
-
-  {
-    id: 5,
-    shipmentNumber: '1',
-    departureDate: '2026-03-21',
-    currentPoint: 'المكلا',
-    way: 'المكلا - عدن',
-    arrivalDate: '2026-03-21',
-    shipmentDriver: 'السائق 1',
-    shipmentDriverId: '1',
-    wayId: '1'
-  },
-
-  {
-    id: 6,
-    shipmentNumber: '1',
-    departureDate: '2026-03-21',
-    currentPoint: 'المكلا',
-    way: 'المكلا - عدن',
-    arrivalDate: '2026-03-21',
-    shipmentDriver: 'السائق 1',
-    shipmentDriverId: '1',
-    wayId: '1'
-  }
-];
-function FinishedShipments() {
+import {getFinishedShipments} from '../services/finish-shipment.services';
+import {cookies} from 'next/headers';
+import {formattedDate} from '@/lib/utils';
+interface FinishedShipmentsProps {
+  search?: string;
+  page?: string;
+}
+function FinishedShipments({search, page}: FinishedShipmentsProps) {
   return (
     <div className='mt-4'>
       <PageDashboardHeader title='الشحنات المنتهية' description='عرض الشحنات التي تم إغلاقها أو إكمالها، مع إمكانية مراجعة الحالة النهائية وسجل التتبع الكامل لكل شحنة.' />
       <DashboardSearchAndActionPage
+        searchParamsKey='fs'
         action={
           <div className='flex gap-x-1'>
             <CustomButton text='فلترة' type='secondary' icon={<Filter className='' />} />
@@ -91,6 +27,21 @@ function FinishedShipments() {
         }
         className='justify-start'
       />
+      <Suspense fallback={<h2>Loading...</h2>}>
+        <TableAndPagination search={search} page={page} />
+      </Suspense>
+    </div>
+  );
+}
+
+export default memo(FinishedShipments) as unknown as typeof FinishedShipments;
+
+async function TableAndPagination({search, page}: FinishedShipmentsProps) {
+  const cookieStore = await cookies();
+  const token = cookieStore.get('token')?.value;
+  const data = await getFinishedShipments(token, search, page);
+  return (
+    <>
       <Table>
         <TableHeader>
           <TableRow>
@@ -104,25 +55,25 @@ function FinishedShipments() {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {listOfFinishedShipments?.length === 0 ? (
+          {data?.data?.length === 0 ? (
             <TableRow>
               <TableCell colSpan={6}>
                 <TableEmpty />
               </TableCell>
             </TableRow>
           ) : (
-            listOfFinishedShipments?.map(shipment => (
+            data?.data?.map(shipment => (
               <TableRow key={shipment.id}>
                 <TableCell>{shipment.shipmentNumber}</TableCell>
-                <TableCell>{shipment.departureDate}</TableCell>
-                <TableCell>{shipment.arrivalDate}</TableCell>
-                <TableCell>{shipment.way}</TableCell>
-                <TableCell>{shipment.currentPoint}</TableCell>
-                <TableCell>{shipment.shipmentDriver}</TableCell>
+                <TableCell>{formattedDate(shipment.launchDate)}</TableCell>
+                <TableCell>{'shipment.arrivalDate'}</TableCell>
+                <TableCell>{shipment.way.name}</TableCell>
+                <TableCell>{shipment.currentPoint?.name}</TableCell>
+                <TableCell>{shipment.driver.userName}</TableCell>
                 <TableCell>
                   <TablePopover
                     items={[
-                      {type: 'link', link: `/manager/shipments/${shipment.id}`, text: 'عرض التفاصيل'},
+                      {type: 'link', link: `/manager/shipments/${shipment.id}`, text: 'عرض التفاصيل'}
                       // {type: 'dialog', item: <DeleteDialog title='حدف الشحنة' triggerText='حدف الشحنة' description='هل انت متاكد من حدف الشحنة' onclick={() => {}} open={open} setOpen={setOpen} />}
                     ]}
                   />
@@ -132,9 +83,7 @@ function FinishedShipments() {
           )}
         </TableBody>
       </Table>
-      <CustomPagination pageSize={10} totalCount={100} currentPage={1} hasNext={true} hasPrevious={true} totalPages={10} />
-    </div>
+      <CustomPagination searchParamsKey='f' pageSize={data.pageSize} totalCount={data.totalCount} currentPage={data.currentPage} hasNext={data.hasNext} hasPrevious={data.hasPrevious} totalPages={data.totalPages} />
+    </>
   );
 }
-
-export default memo(FinishedShipments) as unknown as typeof FinishedShipments;

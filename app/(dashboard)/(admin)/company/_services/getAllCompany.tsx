@@ -1,7 +1,7 @@
 import {COMPANY} from '@/lib/Constant/routes';
-import {axiosInstance} from '@/lib/axios';
 import {useQuery} from '@tanstack/react-query';
 import {ICompanyForTable} from '../_interfaces/company-for-table';
+import { clientAxiosInstance } from '@/lib/axios/client';
 
 interface IGetAllCompany {
   data: ICompanyForTable[];
@@ -13,7 +13,7 @@ interface IGetAllCompany {
   hasNext: boolean;
 }
 const getAllCompany = async ({page, search}: {page: number; search: string}) => {
-  const response = await axiosInstance.get(`/${COMPANY}?page=${page}&search=${search}`);
+  const response = await clientAxiosInstance.get(`/${COMPANY}?page=${page}&search=${search}`);
   return response.data.data as IGetAllCompany;
 };
 const GetAllCompany = ({page, search}: {page: number; search: string}) => {

@@ -8,9 +8,9 @@ import {useSearchParams} from '@/hooks/use-search';
 //     "totalCount": 9,
 //     "hasPrevious": false,
 //     "hasNext": false
-function CustomPagination({hasPrevious, hasNext, pageSize, currentPage, totalCount, totalPages}: {hasPrevious: boolean; hasNext: boolean; pageSize: number; currentPage: number; totalCount: number; totalPages: number}) {
+function CustomPagination({hasPrevious, hasNext, pageSize, currentPage, totalCount, totalPages, searchParamsKey = 'page'}: {hasPrevious: boolean; hasNext: boolean; pageSize: number; currentPage: number; totalCount: number; totalPages: number; searchParamsKey?: string}) {
   const [page, setPage] = useState(currentPage);
-  useSearchParams({key: 'page', search: page, time: 0});
+  useSearchParams({key: searchParamsKey, search: page, time: 0});
   return (
     <div dir='ltr' className='flex items-center justify-between bg-white p-2 mt-4 rounded-2xl'>
       <Pagination className='mx-0 w-auto'>
