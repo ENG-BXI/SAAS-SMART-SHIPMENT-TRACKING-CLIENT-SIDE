@@ -4,7 +4,6 @@ import localFont from 'next/font/local';
 import ProviderQueryClient from '@/lib/react-query';
 import {Toaster} from '@/components/ui/sonner';
 import React from 'react';
-import AuthContextProvider from '@/context/auth-context';
 
 const myFont = localFont({
   src: './../public/Fonts/IBMPlexSansArabic-Medium.ttf'
@@ -24,10 +23,8 @@ export default function RootLayout({
     <html lang='ar' dir='rtl'>
       <body className={`${myFont.className} antialiased`}>
         <ProviderQueryClient>
-          <AuthContextProvider>
-            {children}
-            <Toaster richColors position='top-right' />
-          </AuthContextProvider>
+          {children}
+          <Toaster richColors position='top-right' />
         </ProviderQueryClient>
       </body>
     </html>

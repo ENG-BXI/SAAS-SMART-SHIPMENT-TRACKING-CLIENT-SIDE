@@ -68,8 +68,6 @@ function AllCompanies({companies}: IAllCompanies) {
                             onclick={() => {
                               DeleteCompany(company.id);
                             }}
-                            open={open}
-                            setOpen={setOpen}
                             title={`هل انت متاكد من حدف الشركة ${company.name}`}
                             triggerText={`حدف الشركة`}
                             description={`الشركة ${company.name} سيتم حدفها نهائيا`}
