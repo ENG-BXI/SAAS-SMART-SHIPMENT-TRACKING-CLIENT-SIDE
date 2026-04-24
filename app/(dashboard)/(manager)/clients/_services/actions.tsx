@@ -32,9 +32,10 @@ export const UpdateClient = async ({id, data}: {id: string; data: clientFormData
     ...data,
     contactWays: data.contactWays.map(contactWay => ({
       ...contactWay,
-      isPrimary: Boolean(contactWay.isPrimary)
+      isPrimary: contactWay.isPrimary == 'true'
     }))
   };
+  console.log('client', client);
   try {
     const response = await serverAxiosInstance.put(`${CLIENT}/${id}`, client, {headers: {Authorization: `Bearer ${token}`}});
     updateTag('all-client');
