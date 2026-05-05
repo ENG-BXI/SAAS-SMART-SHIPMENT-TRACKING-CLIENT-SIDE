@@ -8,42 +8,19 @@ import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from '@/c
 import {Filter} from 'lucide-react';
 import WayDialog from './_components/way-dialog';
 import {ConcatListOfString} from '@/lib/utils';
-import {pointFormData} from './_schemas/way-schema';
-interface IWayForTable {
-  id: string;
-  name: string;
-  points: pointFormData[];
+import GetAllWays from './services/get-all-c-ways';
+import {cookies} from 'next/headers';
+import {Suspense} from 'react';
+
+
+interface PageProps {
+  searchParams: Promise<{
+    page?: string;
+    search?: string;
+  }>;
 }
-const listOfWays: IWayForTable[] = [
-  {
-    id: '1',
-    name: 'خط المكلا - عدن',
-    points: [
-      {name: 'المكلا', order: 1},
-      {name: 'المكلا', order: 2},
-      {name: 'عدن', order: 3}
-    ]
-  },
-  {
-    id: '2',
-    name: 'خط المكلا - سيئون',
-    points: [
-      {name: 'المكلا', order: 1},
-      {name: 'المكلا', order: 2},
-      {name: 'سيئون', order: 3}
-    ]
-  },
-  {
-    id: '3',
-    name: 'خط المكلا - تعز',
-    points: [
-      {name: 'المكلا', order: 1},
-      {name: 'المكلا', order: 2},
-      {name: 'تعز', order: 3}
-    ]
-  }
-];
-const Page = () => {
+const Page = async ({searchParams}: PageProps) => {
+  const {page, search} = await searchParams;
   return (
     <div>
       <PageDashboardHeader title='المسارات' description='إدارة المسارات المعتمدة لنقل الشحنات، مع تحديد نقاط الانطلاق والوصول وربطها بعمليات الشحن.' breadcrumbList={[{text: 'المسارات', path: '/manager/ways'}]} />
@@ -55,6 +32,21 @@ const Page = () => {
           </div>
         }
       />
+      
+      <Suspense fallback={<h1>loading...</h1>}>
+        <WaysTableAndPagination page={page} search={search} />
+      </Suspense>
+    </div>
+  );
+};
+
+export default Page;
+async function WaysTableAndPagination({page, search}: {page?: string; search?: string}) {
+  const cookie = await cookies();
+  const token = cookie.get('token')?.value;
+  const ways = await GetAllWays({token, page, search});
+  return (
+    <>
       <Table>
         <TableHeader>
           <TableRow>
@@ -64,14 +56,14 @@ const Page = () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {listOfWays?.length === 0 ? (
+          {ways?.data.length === 0 ? (
             <TableRow>
               <TableCell colSpan={3}>
                 <TableEmpty />
               </TableCell>
             </TableRow>
           ) : (
-            listOfWays?.map(way => (
+            ways?.data.map(way => (
               <TableRow key={way.id}>
                 <TableCell className=''>{way.name}</TableCell>
                 <TableCell className=''>{ConcatListOfString(way.points.map(point => point.name))}</TableCell>
@@ -80,7 +72,7 @@ const Page = () => {
                     items={[
                       // TODO : add dialog for show Details
                       //   {type: 'link', link: `/manager/ways/${way.id}`, text: 'عرض التفاصيل'},
-                      {type: 'dialog', item: <WayDialog type='edit' triggerTitle='تعديل بيانات المسار' data={{name: way.name, points: way.points}} />},
+                      {type: 'dialog', item: <WayDialog type='edit' triggerTitle='تعديل بيانات المسار' data={{name: way.name, points: way.points}} />}
                       // {
                       //   type: 'dialog',
                       //   item: <DeleteDialog title='حذف المسار' triggerText='حذف المسار' description='هل انت متاكد من حذف المسار' onclick={() => {}} open={open} setOpen={setOpen} />
@@ -93,9 +85,7 @@ const Page = () => {
           )}
         </TableBody>
       </Table>
-      <CustomPagination pageSize={10} totalCount={100} currentPage={1} hasNext={true} hasPrevious={true} totalPages={10}  />
-    </div>
+      <CustomPagination pageSize={ways.pageSize} totalCount={ways.totalCount} currentPage={ways.currentPage} hasNext={ways.hasNext} hasPrevious={ways.hasPrevious} totalPages={ways.totalPages} />
+    </>
   );
-};
-
-export default Page;
+}
