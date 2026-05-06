@@ -1,6 +1,7 @@
+'use client';
 import {cn} from '@/lib/utils';
 import Link from 'next/link';
-import {ReactNode} from 'react';
+import {ReactNode, useState} from 'react';
 
 export interface ISidebarItem {
   icon: ReactNode;
@@ -9,10 +10,18 @@ export interface ISidebarItem {
   link?: string;
 }
 function SidebarItem({item}: {item: ISidebarItem}) {
+  const [prefetch, setPrefetch] = useState(false);
   const {icon, text, isSelected = false, link} = item;
   const Icon = icon;
   return (
-    <Link href={link || '#'} className={cn(`flex items-center gap-x-1`, isSelected ? 'bg-custom-primary-color text-white' : 'bg-transparent', 'py-1 px-2 rounded-lg hover:bg-custom-primary-color hover:text-white cursor-pointer')}>
+    <Link
+      href={link || '#'}
+      onMouseEnter={() => {
+        setPrefetch(true);
+      }}
+      prefetch={prefetch}
+      className={cn(`flex items-center gap-x-1`, isSelected ? 'bg-custom-primary-color text-white' : 'bg-transparent', 'py-1 px-2 rounded-lg hover:bg-custom-primary-color hover:text-white cursor-pointer')}
+    >
       {Icon}
       <h4 className='text-md!'>{text}</h4>
     </Link>
