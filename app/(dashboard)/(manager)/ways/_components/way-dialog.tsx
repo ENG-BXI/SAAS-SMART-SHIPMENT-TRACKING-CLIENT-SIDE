@@ -11,9 +11,9 @@ import {zodResolver} from '@hookform/resolvers/zod';
 import CustomInput from '@/components/custom-input';
 import {ReorderList} from '@/components/shadix-ui/components/reorder-list';
 import {useState, useTransition} from 'react';
-import {CreateWay} from '../_actions';
+import {CreateWay, UpdateWays} from '../_actions';
 import Cookies from 'universal-cookie';
-import { toast } from 'sonner';
+import {toast} from 'sonner';
 
 interface WayDialogProps {
   type: 'add' | 'edit';
@@ -41,10 +41,10 @@ function getDescription(type: 'add' | 'edit') {
 interface Props {
   ['data-id']?: string;
 }
-const cookie = new Cookies();
 function WayDialog(props: WayDialogProps) {
   const [isPending, startTransitions] = useTransition();
   const [open, setOpen] = useState(false);
+  const cookie = new Cookies();
   const {
     control,
     handleSubmit,
@@ -77,15 +77,28 @@ function WayDialog(props: WayDialogProps) {
     replace(newPoints);
   }
   async function onSubmit(data: wayFormData) {
-    startTransitions(async () => {
-      const {error, message, } = await CreateWay(token, data);
-      if (!error) {
-        toast.success(message);
-        setOpen(false);
-      } else {
-        toast.error(message);
-      }
-    });
+    if (props.type == 'add') {
+      startTransitions(async () => {
+        const {error, message} = await CreateWay(token, data);
+        if (!error) {
+          toast.success(message);
+          setOpen(false);
+        } else {
+          toast.error(message);
+        }
+      });
+    } else {
+      startTransitions(async () => {
+        if (!props.id) return;
+        const {error, message} = await UpdateWays(props.id, token, data);
+        if (!error) {
+          toast.success(message);
+          setOpen(false);
+        } else {
+          toast.error(message);
+        }
+      });
+    }
   }
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -108,11 +121,11 @@ function WayDialog(props: WayDialogProps) {
         </DialogHeader>
         <form onSubmit={handleSubmit(onSubmit)}>
           <FieldGroup className='gap-y-2'>
-            <Controller control={control} name='name' render={({field, fieldState: {invalid, error}}) => <CustomInput disabled={isPending} type='controller' field={field} error={error} invalid={invalid} required hasLabel label='اسم العميل' placeHolder='ادخل اسم العميل' />} />
+            <Controller control={control} name='name' render={({field, fieldState: {invalid, error}}) => <CustomInput disabled={isPending} type='controller' field={field} error={error} invalid={invalid} required hasLabel label='اسم الخط' placeHolder='ادخل اسم العميل' />} />
             <ReorderList withDragHandle onReorderFinish={handleReorderFinish} itemClassName='rounded-lg'>
               {fields.map((field, index) => (
                 <div key={field.id} data-id={field.id} className='flex items-end gap-x-2'>
-                  <Controller control={control} name={`points.${index}.name`} render={({field, fieldState: {invalid}}) => <CustomInput disabled={isPending}  type='controller' field={field} error={undefined} invalid={invalid} required hasLabel label='اسم النقطة' placeHolder='ادخل اسم النقطة' />} />
+                  <Controller control={control} name={`points.${index}.name`} render={({field, fieldState: {invalid}}) => <CustomInput disabled={isPending} type='controller' field={field} error={undefined} invalid={invalid} required hasLabel label='اسم النقطة' placeHolder='ادخل اسم النقطة' />} />
                   <Controller control={control} name={`points.${index}.order`} render={({field, fieldState: {invalid}}) => <CustomInput disabled={isPending} type='controller' inputType='number' field={field} error={undefined} invalid={invalid} required label='ترتيب النقطة' placeHolder='ادخل ترتيب النقطة' />} />
                   <Button disabled={isPending} variant={'destructive'} onClick={() => remove(index)}>
                     حذف

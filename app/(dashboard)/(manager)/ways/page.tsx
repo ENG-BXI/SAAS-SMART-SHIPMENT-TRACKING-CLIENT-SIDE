@@ -11,7 +11,8 @@ import {ConcatListOfString} from '@/lib/utils';
 import GetAllWays from './services/get-all-c-ways';
 import {cookies} from 'next/headers';
 import {Suspense} from 'react';
-
+import DeleteDialog from '@/components/dashboard/delete-dialog';
+import DeleteWayDialog from './_components/delete-way-dialog';
 
 interface PageProps {
   searchParams: Promise<{
@@ -32,7 +33,7 @@ const Page = async ({searchParams}: PageProps) => {
           </div>
         }
       />
-      
+
       <Suspense fallback={<h1>loading...</h1>}>
         <WaysTableAndPagination page={page} search={search} />
       </Suspense>
@@ -72,11 +73,11 @@ async function WaysTableAndPagination({page, search}: {page?: string; search?: s
                     items={[
                       // TODO : add dialog for show Details
                       //   {type: 'link', link: `/manager/ways/${way.id}`, text: 'عرض التفاصيل'},
-                      {type: 'dialog', item: <WayDialog type='edit' triggerTitle='تعديل بيانات المسار' data={{name: way.name, points: way.points}} />}
-                      // {
-                      //   type: 'dialog',
-                      //   item: <DeleteDialog title='حذف المسار' triggerText='حذف المسار' description='هل انت متاكد من حذف المسار' onclick={() => {}} open={open} setOpen={setOpen} />
-                      // }
+                      {type: 'dialog', item: <WayDialog id={way.id} type='edit' triggerTitle='تعديل بيانات المسار' data={{name: way.name, points: way.points}} />},
+                      {
+                        type: 'dialog',
+                        item: <DeleteWayDialog id={way.id} />
+                      }
                     ]}
                   />
                 </TableCell>
