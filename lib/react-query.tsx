@@ -4,14 +4,14 @@ import React, {ReactNode} from 'react';
 interface IProviderQueryClient {
   children: ReactNode;
 }
-const ProviderQueryClient = ({children}: IProviderQueryClient) => {
-  const queryClient = new QueryClient({
-    defaultOptions: {
-      queries: {
-        refetchOnWindowFocus: false
-      }
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false
     }
-  });
+  }
+});
+const ProviderQueryClient = ({children}: IProviderQueryClient) => {
 
   return <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>;
 };

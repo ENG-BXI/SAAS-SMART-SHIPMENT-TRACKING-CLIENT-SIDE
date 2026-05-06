@@ -5,10 +5,11 @@ import SidebarItem, {ISidebarItem} from './sidebar-item';
 import {useIsMobile} from '@/hooks/use-mobile';
 import {Sheet, SheetContent, SheetTrigger} from '../ui/sheet';
 import {Button} from '../ui/button';
-import {usePathname} from 'next/navigation';
 import {enUserRoleForSaasAdmin, UserRoleForSaasAdmin} from '@/lib/Constant/user-role';
 import {useMe} from '@/services/me';
 import SideBarSkeleton from './side-bar-skeleton';
+import {usePathname} from 'next/navigation';
+import {Suspense} from 'react';
 const listOfSideBarItem: Record<UserRoleForSaasAdmin, ISidebarItem[]> = {
   [enUserRoleForSaasAdmin.ADMIN]: [
     {text: 'الرئيسية', icon: <LucideHome />, link: '/statistics'},
@@ -34,7 +35,7 @@ const SideBar = () => {
   // optimize this code
   // Error active link in nested routes
   const path = usePathname();
-  const {data: user, isLoading, isError, error} = useMe();
+  const {data: user, isError, isLoading, error} = useMe();
   const pathName = path.split('/').pop();
   const isSelected = (link?: string) => link?.split('/').pop() === pathName;
   const sideBarData = listOfSideBarItem[user?.role ?? enUserRoleForSaasAdmin.DRIVER];
@@ -54,7 +55,7 @@ const SideBar = () => {
     </aside>
   );
 };
-function AppSideBar() {
+function AppSideBarClient() {
   const isMobile = useIsMobile();
   if (isMobile) {
     return (
@@ -73,4 +74,4 @@ function AppSideBar() {
   return <SideBar />;
 }
 
-export default AppSideBar;
+export default AppSideBarClient;
