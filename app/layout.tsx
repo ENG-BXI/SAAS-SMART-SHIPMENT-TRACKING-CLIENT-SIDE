@@ -4,6 +4,7 @@ import localFont from 'next/font/local';
 import ProviderQueryClient from '@/lib/react-query';
 import {Toaster} from '@/components/ui/sonner';
 import React from 'react';
+import NextTopLoader from 'nextjs-toploader';
 
 const myFont = localFont({
   src: './../public/Fonts/IBMPlexSansArabic-Medium.ttf'
@@ -25,6 +26,7 @@ export default function RootLayout({
         <ProviderQueryClient>
           {children}
           <Toaster richColors position='top-right' />
+          <NextTopLoader color='#1B8354' height={4} />
         </ProviderQueryClient>
       </body>
     </html>
