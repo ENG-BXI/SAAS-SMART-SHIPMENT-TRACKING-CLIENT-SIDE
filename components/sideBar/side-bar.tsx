@@ -9,13 +9,11 @@ import {enUserRoleForSaasAdmin, UserRoleForSaasAdmin} from '@/lib/Constant/user-
 import {useMe} from '@/services/me';
 import SideBarSkeleton from './side-bar-skeleton';
 import {usePathname} from 'next/navigation';
-import {Suspense} from 'react';
 const listOfSideBarItem: Record<UserRoleForSaasAdmin, ISidebarItem[]> = {
   [enUserRoleForSaasAdmin.ADMIN]: [
     {text: 'الرئيسية', icon: <LucideHome />, link: '/statistics'},
     {text: 'الشركات', icon: <Building2Icon />, link: '/company'},
     {text: 'الاشتراكات', icon: <BanknoteIcon />, link: '/subscription'},
-    {text: 'المستخدمين', icon: <NotepadText />, link: '/users'},
     {text: 'الملاحظات', icon: <NotepadText />, link: '/notes'},
     {text: 'تسجيل الخروج', icon: <LogOut />, link: '/logout'}
   ],
@@ -24,6 +22,7 @@ const listOfSideBarItem: Record<UserRoleForSaasAdmin, ISidebarItem[]> = {
     {text: 'الشحنات', icon: <Building2Icon />, link: '/shipments'},
     {text: 'العملاء', icon: <BanknoteIcon />, link: '/clients'},
     {text: 'المسارات', icon: <NotepadText />, link: '/ways'},
+    {text: 'المستخدمين', icon: <NotepadText />, link: '/users'},
     {text: 'الملاحظات', icon: <LogOut />, link: '/notes'},
     {text: 'الاعدادات', icon: <Settings />, link: '/settings'}
   ],
