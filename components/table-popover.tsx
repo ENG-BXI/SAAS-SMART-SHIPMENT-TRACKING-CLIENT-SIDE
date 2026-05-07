@@ -11,7 +11,7 @@ function TablePopover({items}: ITablePopover) {
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <MoreVertical className='max-w-4 max-h-4' />
+        <MoreVertical className='max-w-4 max-h-4 cursor-pointer' />
       </PopoverTrigger>
       <PopoverContent align='end' dir='rtl' className='w-70'>
         <h4 className='text-[16px] mb-2'>العمليات</h4>
