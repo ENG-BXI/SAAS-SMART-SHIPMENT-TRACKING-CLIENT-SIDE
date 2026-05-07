@@ -14,9 +14,8 @@ interface NoteDialogProps {
 }
 
 function NoteDialog(props: NoteDialogProps) {
-  const [CreatedDate, setCreatedDate] = useState(props.data?.createdDate || '');
   const [type, setType] = useState(props.data?.type || '');
-  const [note, setNote] = useState(props.data?.note || '');
+  const [note, setNote] = useState(props.data?.text || '');
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -32,8 +31,6 @@ function NoteDialog(props: NoteDialogProps) {
         <form>
           <FieldGroup className='gap-y-2'>
             {/* //TODO : Covert This to Calendar */}
-            <CustomInput type='state' value={CreatedDate} setValue={setCreatedDate} disabled required hasLabel label='تاريخ الانشاء' placeHolder='ادخل تاريخ الانشاء' />
-
             <CustomSelect
               value={type}
               onChange={setType}
