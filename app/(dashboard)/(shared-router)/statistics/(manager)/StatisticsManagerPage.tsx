@@ -2,35 +2,17 @@ import CardStat from '@/components/dashboard/card-stat';
 import PageDashboardHeader from '@/components/dashboard/header';
 import {TableEmpty} from '@/components/table-empty';
 import {Table, TableHeader, TableRow, TableHead, TableBody, TableCell} from '@/components/ui/table';
-import {ICurrentShipmentForTable} from '../../../(manager)/shipments/_interfaces/current-shipment-for-table';
+import {getCurrentShipments} from '@/app/(dashboard)/(manager)/shipments/services/current-shipment.services';
+import {cookies} from 'next/headers';
+import CustomPagination from '@/components/custom-pagination';
+import {Suspense} from 'react';
+import { formattedDate } from '@/lib/utils';
 
-const listOfShipments: ICurrentShipmentForTable[] = [
-  {
-    id: '1',
-    shipmentNumber: '1',
-    currentPoint: {name: 'المكلا'},
-    way: {name: 'المكلا - عدن'},
-    driver: {userName: 'السائق 1'},
-    launchDate: new Date().toLocaleString()
-  },
-  {
-    id: '2',
-    shipmentNumber: '1',
-    currentPoint: {name: 'البيضاء'},
-    way: {name: 'المكلا - عدن'},
-    driver: {userName: 'السائق 1'},
-    launchDate: new Date().toLocaleString()
-  },
-  {
-    id: '3',
-    shipmentNumber: '1',
-    currentPoint: {name: 'البيضاء'},
-    way: {name: 'المكلا - عدن'},
-    driver: {userName: 'السائق 1'},
-    launchDate: new Date().toLocaleString()
-  }
-];
-const StatisticsManagerPage = () => {
+interface StatisticsManagerPageProps {
+  searchParams: {page?: string};
+}
+const StatisticsManagerPage = async ({searchParams}: StatisticsManagerPageProps) => {
+  const {page} = await searchParams;
   return (
     <div>
       <PageDashboardHeader title='الصفحة الرئيسية' description='نظرة عامة على أداء عمليات الشحن، مع إحصائيات مختصرة عن الشحنات الحالية والمتوقفة، عدد العملاء، وعدد المسارات المسجلة.' breadcrumbList={[{text: 'الرئيسية', path: '#'}]} />
@@ -42,6 +24,21 @@ const StatisticsManagerPage = () => {
         <CardStat title='عدد المسارات' value='45' />
       </div>
       <PageDashboardHeader title='الشحنات الحالية' description='عرض جميع الشحنات النشطة قيد التنفيذ، مع متابعة حالتها الحالية وآخر تحديثات التتبع المرتبطة بها.' />
+      <Suspense fallback={<h2>Loading ....</h2>}>
+        <ShipmentTableAndPagination page={page} />
+      </Suspense>
+    </div>
+  );
+};
+
+export default StatisticsManagerPage;
+
+async function ShipmentTableAndPagination({page}: {page?: string}) {
+  const cookie = await cookies();
+  const token = cookie.get('token')?.value;
+  const currentShipment = await getCurrentShipments(token, '', page);
+  return (
+    <>
       <Table>
         <TableHeader>
           <TableRow>
@@ -54,27 +51,26 @@ const StatisticsManagerPage = () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {listOfShipments?.length === 0 ? (
+          {currentShipment.data?.length === 0 ? (
             <TableRow>
               <TableCell colSpan={4}>
                 <TableEmpty />
               </TableCell>
             </TableRow>
           ) : (
-            listOfShipments?.map(shipment => (
+            currentShipment.data?.map(shipment => (
               <TableRow key={shipment.id}>
                 <TableCell>{shipment.shipmentNumber}</TableCell>
-                <TableCell>{shipment.launchDate}</TableCell>
+                <TableCell>{formattedDate(shipment.launchDate)}</TableCell>
                 <TableCell>{shipment.way.name}</TableCell>
-                <TableCell>{shipment.currentPoint.name}</TableCell>
+                <TableCell>{shipment.currentPoint?.name}</TableCell>
                 <TableCell>{shipment.driver.userName}</TableCell>
               </TableRow>
             ))
           )}
         </TableBody>
       </Table>
-    </div>
+      <CustomPagination currentPage={currentShipment.currentPage} pageSize={currentShipment.pageSize} totalPages={currentShipment.totalPages} totalCount={currentShipment.totalCount} hasNext={currentShipment.hasNext} hasPrevious={currentShipment.hasPrevious} />
+    </>
   );
-};
-
-export default StatisticsManagerPage;
+}
