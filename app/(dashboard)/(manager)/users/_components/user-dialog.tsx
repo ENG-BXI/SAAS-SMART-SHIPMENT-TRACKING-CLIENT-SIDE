@@ -107,7 +107,7 @@ function UserDialog(props: UserDialogProps) {
               render={({field, fieldState: {invalid, error}}) => (
                 <CustomSelect
                   // Because Select Input Uses string data type and enUserRole is Numbers data type
-                  onChange={val => field.onChange(parseInt(val))}
+                  onChange={val => field.onChange(val)}
                   disabled={isPending}
                   value={field.value.toString()}
                   ref={field.ref}
