@@ -5,8 +5,8 @@ import {parseReq} from './lib/parse-req';
 import {publicMiddleware} from './middleware/public.middleware';
 import {sharedMiddleware} from './middleware/shared.middleware';
 const publicRoute = ['', 'login'];
-const adminRoute = ['company', 'subscription', 'users'];
-const managerRoute = ['shipments', 'clients', 'ways', 'settings'];
+const adminRoute = ['company', 'subscription'];
+const managerRoute = ['shipments', 'clients', 'users', 'ways', 'settings'];
 const sharedRoute = ['statistics', 'notes'];
 export default async function Proxy(req: NextRequest) {
   const {pathName} = parseReq(req);
