@@ -73,7 +73,7 @@ const AdminNotes = () => {
                     items={[
                       // TODO : add dialog for show Details
                       //   {type: 'link', link: `/manager/ways/${way.id}`, text: 'عرض التفاصيل'},
-                      {type: 'dialog', item: <NoteDialog data={{createdDate: note.createdDate, type: note.type, note: note.note}} />}
+                      {type: 'dialog', item: <NoteDialog data={{type: note.type, text: note.note}} />}
                       // {
                       //   type: 'dialog',
                       //  item: <DeleteDialog title='حذف الملاحظة' triggerText='حذف الملاحظة' description='هل انت متاكد من حذف الملاحظة' onclick={() => {}} open={open} setOpen={setOpen} />
