@@ -3,10 +3,11 @@ import PageDashboardHeader from '@/components/dashboard/header';
 import {TableEmpty} from '@/components/table-empty';
 import {Table, TableHeader, TableRow, TableHead, TableBody, TableCell} from '@/components/ui/table';
 import {getCurrentShipments} from '@/app/(dashboard)/(manager)/shipments/services/current-shipment.services';
-import {cookies} from 'next/headers';
 import CustomPagination from '@/components/custom-pagination';
 import {Suspense} from 'react';
-import { formattedDate } from '@/lib/utils';
+import {formattedDate} from '@/lib/utils';
+import GetManagerStatistics from './services/get-manager-statistics';
+import {cookies} from 'next/headers';
 
 interface StatisticsManagerPageProps {
   searchParams: {page?: string};
@@ -16,13 +17,9 @@ const StatisticsManagerPage = async ({searchParams}: StatisticsManagerPageProps)
   return (
     <div>
       <PageDashboardHeader title='الصفحة الرئيسية' description='نظرة عامة على أداء عمليات الشحن، مع إحصائيات مختصرة عن الشحنات الحالية والمتوقفة، عدد العملاء، وعدد المسارات المسجلة.' breadcrumbList={[{text: 'الرئيسية', path: '#'}]} />
-      <div className='flex flex-wrap gap-4 mb-5'>
-        <CardStat title='عدد الشنحات' value='45' />
-        <CardStat title='عدد الشحنات الحالية' value='45' />
-        <CardStat title='عدد الشحنات المنتهية' value='45' />
-        <CardStat title='عدد العملاء' value='45' />
-        <CardStat title='عدد المسارات' value='45' />
-      </div>
+      <Suspense fallback={<h2>Loading ....</h2>}>
+        <StatisticsCards />
+      </Suspense>
       <PageDashboardHeader title='الشحنات الحالية' description='عرض جميع الشحنات النشطة قيد التنفيذ، مع متابعة حالتها الحالية وآخر تحديثات التتبع المرتبطة بها.' />
       <Suspense fallback={<h2>Loading ....</h2>}>
         <ShipmentTableAndPagination page={page} />
@@ -32,7 +29,20 @@ const StatisticsManagerPage = async ({searchParams}: StatisticsManagerPageProps)
 };
 
 export default StatisticsManagerPage;
-
+export async function StatisticsCards() {
+  const cookie = await cookies();
+  const token = cookie.get('token')?.value;
+  const statistics = await GetManagerStatistics(token);
+  return (
+    <div className='flex flex-wrap gap-4 mb-5'>
+      <CardStat title='عدد الشنحات' value={statistics.numberOfShipments} />
+      <CardStat title='عدد الشحنات الحالية' value={statistics.numberOfCurrentShipments} />
+      <CardStat title='عدد الشحنات المنتهية' value={statistics.numberOfFinishedShipments} />
+      <CardStat title='عدد العملاء' value={statistics.numberOfClients} />
+      <CardStat title='عدد المسارات' value={statistics.numberOfWays} />
+    </div>
+  );
+}
 async function ShipmentTableAndPagination({page}: {page?: string}) {
   const cookie = await cookies();
   const token = cookie.get('token')?.value;

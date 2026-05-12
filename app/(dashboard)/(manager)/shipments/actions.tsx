@@ -46,3 +46,63 @@ export const UpdateShipmentAction = async (id:string,data: shipmentFormData) => 
     return {message: null, error: (error as Error).message || 'حدث خطأ ما'};
   }
 };
+
+export const DeleteShipmentAction = async (id:string) => {
+  try {
+    const cookie = await cookies();
+    const token = cookie.get('token')?.value;
+    const res = await serverAxiosInstance.delete(`${SHIPMENT}/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+    updateTag('current-shipment');
+    return {message: res.data.message, error: null};
+  } catch (error) {
+    if (error instanceof AxiosError) {
+      console.log('error in delete shipment action', error.response?.data.message);
+      return {message: null, error: error.response?.data.message as string | string[]};
+    }
+    return {message: null, error: (error as Error).message || 'حدث خطأ ما'};
+  }
+};
+
+export const PauseShipmentAction = async (id:string) => {
+  try {
+    const cookie = await cookies();
+    const token = cookie.get('token')?.value;
+    const res = await serverAxiosInstance.put(`${SHIPMENT}/${id}/pause`, {}, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+    updateTag('current-shipment');
+    return {message: res.data.message, error: null};
+  } catch (error) {
+    if (error instanceof AxiosError) {
+      console.log('error in pause shipment action', error.response?.data.message);
+      return {message: null, error: error.response?.data.message as string | string[]};
+    }
+    return {message: null, error: (error as Error).message || 'حدث خطأ ما'};
+  }
+};
+
+export const ResumeShipmentAction = async (id:string) => {
+  try {
+    const cookie = await cookies();
+    const token = cookie.get('token')?.value;
+    const res = await serverAxiosInstance.put(`${SHIPMENT}/${id}/resume`, {}, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+    updateTag('current-shipment');
+    return {message: res.data.message, error: null};
+  } catch (error) {
+    if (error instanceof AxiosError) {
+      console.log('error in resume shipment action', error.response?.data.message);
+      return {message: null, error: error.response?.data.message as string | string[]};
+    }
+    return {message: null, error: (error as Error).message || 'حدث خطأ ما'};
+  }
+};

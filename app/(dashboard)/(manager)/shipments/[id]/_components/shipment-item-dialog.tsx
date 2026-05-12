@@ -11,7 +11,7 @@ import {ArrowRight, File, PlusCircle} from 'lucide-react';
 import CustomButton from '@/components/custom-button';
 import GetAllClientForSelect from '../_services/get-all-client-for-select';
 import {useState, useTransition} from 'react';
-import {CreateShipmentItem} from '../_actions';
+import {CreateShipmentItem, UpdateShipmentItem} from '../_actions';
 import {toast} from 'sonner';
 
 interface ShipmentItemDialogProps {
@@ -53,10 +53,11 @@ function ShipmentItemDialog(props: ShipmentItemDialogProps) {
     }
   });
   function onSubmit(data: shipmentItemFormData) {
-    if (!props.shipmentId) return;
     console.log(data);
     if (props.type == 'add') {
       startTransition(async () => {
+        if (!props.shipmentId) return;
+
         const {message, error} = await CreateShipmentItem(props.shipmentId!, data);
         if (error) toast.error(message);
         else {
@@ -66,6 +67,15 @@ function ShipmentItemDialog(props: ShipmentItemDialogProps) {
         }
       });
     } else {
+      startTransition(async () => {
+        const {message, error} = await UpdateShipmentItem(props.id!, data);
+        if (error) toast.error(message);
+        else {
+          toast.success(message);
+          reset();
+          setOpen(false);
+        }
+      });
     }
   }
   const {fields, append, remove} = useFieldArray({name: 'items', control: control});
@@ -128,7 +138,7 @@ function ShipmentItemDialog(props: ShipmentItemDialogProps) {
               <DialogClose>
                 <CustomButton disable={isPending} text='الغاء' icon={<ArrowRight className='min-w-5 min-h-5' />} className=' flex-row-reverse' type='secondary' />
               </DialogClose>
-              <CustomButton disable={isPending} text={isPending ? 'جاري ' + (props.type == 'add' ? 'اضافة' : 'تعديل') :  props.type == 'add' ? 'اضافة' : 'تعديل'} icon={<PlusCircle className='min-w-5 min-h-5' />} type='primary' className='bg-black text-white' IsSubmit />
+              <CustomButton disable={isPending} text={isPending ? 'جاري ' + (props.type == 'add' ? 'اضافة' : 'تعديل') : props.type == 'add' ? 'اضافة' : 'تعديل'} icon={<PlusCircle className='min-w-5 min-h-5' />} type='primary' className='bg-black text-white' IsSubmit />
             </div>
           </FieldGroup>
         </form>

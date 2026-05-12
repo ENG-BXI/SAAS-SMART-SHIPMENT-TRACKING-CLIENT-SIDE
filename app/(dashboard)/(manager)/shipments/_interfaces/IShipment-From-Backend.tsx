@@ -3,6 +3,8 @@ export interface IShipmentFromBackend {
   shipmentNumber: string;
   launchDate: string;
   endDate: string;
+  isCompleted: boolean;
+  isPaused: boolean;
   way: {
     id: string;
     name: string;

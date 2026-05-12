@@ -18,7 +18,7 @@ const Page = async ({params, searchParams}: PageProps) => {
         title='تفاصيل الشحنة'
         description='عرض معلومات الشحنة وحالتها الحالية، مع الاطلاع على سجل التتبع الكامل والتحديثات المرتبطة بها.'
         breadcrumbList={[
-          {text: 'الشحنات', path: '/manager/shipments'},
+          {text: 'الشحنات', path: '/shipments'},
           {text: 'تفاصيل الشحنة', path: '1'}
         ]}
       />

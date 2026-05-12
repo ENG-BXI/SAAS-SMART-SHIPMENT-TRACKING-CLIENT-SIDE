@@ -5,6 +5,7 @@ import ShipmentItemDialog from './shipment-item-dialog';
 import GetAllShipmentItem from '../_services/get-all-shipment-item';
 import {cookies} from 'next/headers';
 import CustomPagination from '@/components/custom-pagination';
+import DeleteShipmentItemDialog from './delete-shipment-item-dialog';
 interface ShipmentTableAndPaginationProps {
   id: string;
   search?: string;
@@ -34,18 +35,18 @@ async function ShipmentTableAndPagination({id, search, page}: ShipmentTableAndPa
               </TableCell>
             </TableRow>
           ) : (
-            shipmentItemData.data?.map(shipment => (
-              <TableRow key={shipment.id}>
-                <TableCell>{shipment.client.name}</TableCell>
-                <TableCell>{shipment.name}</TableCell>
-                <TableCell>{shipment.quantity}</TableCell>
-                <TableCell>{shipment.isBreakable ? 'نعم' : 'لا'}</TableCell>
+            shipmentItemData.data?.map(shipmentItem => (
+              <TableRow key={shipmentItem.id}>
+                <TableCell>{shipmentItem.client.name}</TableCell>
+                <TableCell>{shipmentItem.name}</TableCell>
+                <TableCell>{shipmentItem.quantity}</TableCell>
+                <TableCell>{shipmentItem.isBreakable ? 'نعم' : 'لا'}</TableCell>
                 <TableCell>
                   <TablePopover
                     items={[
                       // TODO : Add View Dialog
-                      {type: 'dialog', item: <ShipmentItemDialog triggerTitle='تعديل بيانات العميل ' type='edit' data={{clientId: shipment.client.id, items: [{name: shipment.name, quantity: shipment.quantity, isBreakable: shipment.isBreakable}]}} />}
-                      // {type: 'dialog', item: <DeleteDialog title='حدف الغرض' triggerText='حدف الغرض' description='هل انت متاكد من حدف الغرض' onclick={() => {}} open={open} setOpen={setOpen} />}
+                      {type: 'dialog', item: <ShipmentItemDialog triggerTitle='تعديل بيانات الغرض' id={shipmentItem.id} type='edit' data={{clientId: shipmentItem.client.id, items: [{name: shipmentItem.name, quantity: shipmentItem.quantity, isBreakable: shipmentItem.isBreakable}]}} />},
+                      {type: 'dialog', item: <DeleteShipmentItemDialog id={shipmentItem.id} />}
                     ]}
                   />
                 </TableCell>
