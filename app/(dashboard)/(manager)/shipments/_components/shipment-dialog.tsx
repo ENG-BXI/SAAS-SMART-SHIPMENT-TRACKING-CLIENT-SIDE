@@ -9,7 +9,7 @@ import {shipmentFormData, shipmentSchema} from '../_schema/shipment-schema';
 import {ArrowRight, File, PlusCircle} from 'lucide-react';
 import CustomButton from '@/components/custom-button';
 import CustomSelect from '@/components/custom-select';
-import {AddShipmentAction} from '../actions';
+import {AddShipmentAction, UpdateShipmentAction} from '../actions';
 import {useState, useTransition} from 'react';
 import {toast} from 'sonner';
 import useGetAllWaysAsOptions from '../services/get-all-ways-as-options';
@@ -68,6 +68,19 @@ function ShipmentDialog(props: ShipmentDialogProps) {
         }
       });
     }
+    else {
+      startTransition(async () => {
+        if (!props.id) return;
+        const { message, error } = await UpdateShipmentAction(props.id,data);
+        if (error) {
+          toast.error(error);
+        } else {
+          toast.success(message);
+          setOpen(false);
+          reset();
+        }
+      });
+    }
   }
   const {data: ways, isLoading: wayIsLoading, isError: isWayError, error: wayError} = useGetAllWaysAsOptions(open);
   const {data: drivers, isLoading: driverIsLoading, isError: isDriverError, error: driverError} = useGetAllDriversAsOptions(open);
@@ -117,7 +130,7 @@ function ShipmentDialog(props: ShipmentDialogProps) {
               <DialogClose>
                 <CustomButton text='الغاء' icon={<ArrowRight className='min-w-5 min-h-5' />} className=' flex-row-reverse' type='secondary' />
               </DialogClose>
-              <CustomButton disable={isPending} text={isPending ? '....جاري الاضافة' : 'اضافة شحنة'} icon={<PlusCircle className='min-w-5 min-h-5' />} type='primary' className='bg-black text-white' IsSubmit />
+              <CustomButton disable={isPending} text={props.type == 'add' ? (isPending ? '....جاري الاضافة' : 'اضافة شحنة') : (isPending ? '....جاري التعديل' : 'تعديل شحنة')} icon={<PlusCircle className='min-w-5 min-h-5' />} type='primary' className='bg-black text-white' IsSubmit />
             </div>
           </FieldGroup>
         </form>

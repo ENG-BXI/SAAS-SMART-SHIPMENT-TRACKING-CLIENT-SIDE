@@ -26,3 +26,23 @@ export const AddShipmentAction = async (data: shipmentFormData) => {
     return {message: null, error: (error as Error).message || 'حدث خطأ ما'};
   }
 };
+
+export const UpdateShipmentAction = async (id:string,data: shipmentFormData) => {
+  try {
+    const cookie = await cookies();
+    const token = cookie.get('token')?.value;
+    const res = await serverAxiosInstance.put(`${SHIPMENT}/${id}`, data, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+    updateTag('current-shipment');
+    return {message: res.data.message, error: null};
+  } catch (error) {
+    if (error instanceof AxiosError) {
+      console.log('error in update shipment action', error.response?.data.message);
+      return {message: null, error: error.response?.data.message as string | string[]};
+    }
+    return {message: null, error: (error as Error).message || 'حدث خطأ ما'};
+  }
+};

@@ -74,7 +74,7 @@ async function TableAndPagination({search, page}: CurrentShipmentsProps) {
                   <TablePopover
                     items={[
                       {type: 'link', link: `/shipments/${shipment.id}`, text: 'عرض التفاصيل'},
-                      {type: 'dialog', item: <ShipmentDialog type='edit' data={{shipmentNumber: shipment.shipmentNumber, wayId: shipment.way.id, driverId: shipment.driver.id, launchDate: shipment.launchDate}} />}
+                      {type: 'dialog', item: <ShipmentDialog type='edit' id={shipment.id} data={{shipmentNumber: shipment.shipmentNumber, wayId: shipment.way.id, driverId: shipment.driver.id, launchDate: shipment.launchDate}} />}
                       // {
                       //   type: 'dialog',
                       //   item: <DeleteDialog title='توقيف الشحنة' triggerText='توقيف الشحنة' description='هل انت متاكد من توقيف الشحنة' onclick={() => {}} open={open} setOpen={setOpen} />
