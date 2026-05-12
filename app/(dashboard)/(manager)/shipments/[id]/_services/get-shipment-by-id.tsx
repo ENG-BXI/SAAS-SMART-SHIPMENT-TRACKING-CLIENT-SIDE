@@ -17,6 +17,9 @@ interface IResponse {
     name: string;
   };
   clients: number;
+
+  isCompleted: boolean;
+  isPaused: boolean;
 }
 async function GetShipmentById(id: string, token?: string) {
   'use cache';

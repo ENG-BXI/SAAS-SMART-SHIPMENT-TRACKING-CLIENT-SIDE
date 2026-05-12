@@ -48,8 +48,8 @@ function ShipmentItemDialog(props: ShipmentItemDialogProps) {
   } = useForm<shipmentItemFormData>({
     resolver: zodResolver(shipmentItems),
     defaultValues: {
-      clientId: '',
-      items: [{name: '', quantity: 0, isBreakable: false}]
+      clientId: props.data?.clientId,
+      items: props.data?.items
     }
   });
   function onSubmit(data: shipmentItemFormData) {

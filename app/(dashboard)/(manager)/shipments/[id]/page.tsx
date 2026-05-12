@@ -6,8 +6,8 @@ import ShipmentTableAndPagination from './_components/shipment-table-and-paginat
 import ShipmentItemDialog from './_components/shipment-item-dialog';
 
 interface PageProps {
-  params: Promise<{ id: string }>;
-  searchParams: Promise<{ search?: string; page?: string }>;
+  params: Promise<{id: string}>;
+  searchParams: Promise<{search?: string; page?: string}>;
 }
 const Page = async ({params, searchParams}: PageProps) => {
   const {id} = await params;

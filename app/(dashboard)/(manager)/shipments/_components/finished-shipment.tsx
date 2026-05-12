@@ -66,14 +66,14 @@ async function TableAndPagination({search, page}: FinishedShipmentsProps) {
               <TableRow key={shipment.id}>
                 <TableCell>{shipment.shipmentNumber}</TableCell>
                 <TableCell>{formattedDate(shipment.launchDate)}</TableCell>
-                <TableCell>{'shipment.arrivalDate'}</TableCell>
+                <TableCell>{formattedDate(shipment.endDate)}</TableCell>
                 <TableCell>{shipment.way.name}</TableCell>
                 <TableCell>{shipment.currentPoint?.name}</TableCell>
                 <TableCell>{shipment.driver.userName}</TableCell>
                 <TableCell>
                   <TablePopover
                     items={[
-                      {type: 'link', link: `/manager/shipments/${shipment.id}`, text: 'عرض التفاصيل'}
+                      {type: 'link', link: `/shipments/${shipment.id}`, text: 'عرض التفاصيل'}
                       // {type: 'dialog', item: <DeleteDialog title='حدف الشحنة' triggerText='حدف الشحنة' description='هل انت متاكد من حدف الشحنة' onclick={() => {}} open={open} setOpen={setOpen} />}
                     ]}
                   />

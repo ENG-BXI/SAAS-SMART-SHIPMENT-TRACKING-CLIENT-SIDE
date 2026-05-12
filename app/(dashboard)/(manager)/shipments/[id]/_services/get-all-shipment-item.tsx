@@ -4,7 +4,7 @@ import {ITEMS, SHIPMENT} from '@/lib/Constant/routes';
 import {cacheLife, cacheTag} from 'next/cache';
 interface ShipmentItem {
   id: string;
-  client: {name: string};
+  client: {id: string; name: string};
   isBreakable: boolean;
   name: string;
   quantity: number;
@@ -19,6 +19,7 @@ const GetAllShipmentItem = async (shipmentId: string, token?: string, search?: s
       Authorization: `Bearer ${token}`
     }
   });
+
   const data = response.data.data as IResponseWithPagination<ShipmentItem>;
   console.log('====================================');
   console.log(data);

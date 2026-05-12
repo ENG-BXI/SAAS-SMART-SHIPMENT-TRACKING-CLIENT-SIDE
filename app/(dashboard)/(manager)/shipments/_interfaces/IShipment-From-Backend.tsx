@@ -2,6 +2,7 @@ export interface IShipmentFromBackend {
   id: string;
   shipmentNumber: string;
   launchDate: string;
+  endDate: string;
   way: {
     id: string;
     name: string;

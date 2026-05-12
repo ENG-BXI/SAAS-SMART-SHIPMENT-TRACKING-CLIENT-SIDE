@@ -6,7 +6,18 @@ import serverAxiosInstance from '@/lib/axios/server';
 import {ADD_CLIENT_AND_SHIPMENT_ITEM, MOVE_SHIPMENT_WITH_NOTIFICATION, MOVE_SHIPMENT_WITHOUT_NOTIFICATION, PAUSE_SHIPMENT, RESUME_SHIPMENT, SHIPMENT} from '@/lib/Constant/routes';
 import {AxiosError} from 'axios';
 import {updateTag} from 'next/cache';
-
+interface IResponseMoveData {
+  id: string;
+  shipmentNumber: string;
+  launchDate: string;
+  endDate: string | null;
+  wayId: string;
+  currentPointId: string;
+  driverId: string;
+  companyId: string;
+  isPaused: boolean;
+  isCompleted: boolean;
+}
 export async function CreateShipmentItem(id: string, data: shipmentItemFormData) {
   const cookie = await cookies();
   const token = cookie.get('token')?.value;
@@ -35,9 +46,14 @@ export async function MoveShipmentWithNotification(id: string) {
         Authorization: `Bearer ${token}`
       }
     });
-    updateTag('all-shipment-item');
+    const data = response.data.data as IResponseMoveData;
+    if (data.isCompleted) {
+      updateTag('finished-shipment');
+    } else {
+      updateTag('current-shipment');
+    }
     updateTag(`shipment-info-${id}`);
-    return {data: response.data.data, message: response.data.message, error: null};
+    return {data, message: response.data.message, error: null};
   } catch (error) {
     if (error instanceof AxiosError) {
       return {data: null, message: error.response?.data?.message, error: error.message};
@@ -55,9 +71,13 @@ export async function MoveShipmentWithoutNotification(id: string) {
         Authorization: `Bearer ${token}`
       }
     });
-    updateTag('all-shipment-item');
     updateTag(`shipment-info-${id}`);
-    return {data: response.data.data, message: response.data.message, error: null};
+    updateTag('current-shipment');
+    const data = response.data.data as IResponseMoveData;
+    if (data.isCompleted) {
+      updateTag('finished-shipment');
+    }
+    return {data, message: response.data.message, error: null};
   } catch (error) {
     if (error instanceof AxiosError) {
       return {data: null, message: error.response?.data?.message, error: error.message};
