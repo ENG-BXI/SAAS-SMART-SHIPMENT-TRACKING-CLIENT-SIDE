@@ -1,7 +1,7 @@
 import {Badge} from '@/components/ui/badge';
 import {Button} from '@/components/ui/button';
 import {Card, CardContent} from '@/components/ui/card';
-import {MapPin, Truck} from 'lucide-react';
+import {Truck} from 'lucide-react';
 import {shipment} from './shipment-data';
 
 export default function ShipmentTopSection() {
