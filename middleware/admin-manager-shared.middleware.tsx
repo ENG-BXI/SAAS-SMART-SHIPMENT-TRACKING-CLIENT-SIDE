@@ -4,7 +4,7 @@ import {getUser} from '@/lib/utils';
 import {cookies} from 'next/headers';
 import {NextRequest, NextResponse} from 'next/server';
 
-export async function sharedMiddleware(req: NextRequest) {
+export async function admin_manager_sharedMiddleware(req: NextRequest) {
   const cookie = await cookies();
   const token = cookie.get('token')?.value;
   if (!token) {

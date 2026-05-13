@@ -14,7 +14,7 @@ function AllPageContent(searchParams: AllPageContentProps): Record<UserRoleForSa
   return {
     [enUserRoleForSaasAdmin.ADMIN]: <AdminNotes />,
     [enUserRoleForSaasAdmin.MANAGER]: <ManagerNotes searchParams={{page, search}} />,
-    [enUserRoleForSaasAdmin.EMPLOYEE]: undefined,
+    [enUserRoleForSaasAdmin.EMPLOYEE]: <ManagerNotes searchParams={{page, search}} />,
     [enUserRoleForSaasAdmin.DRIVER]: undefined
   };
 }

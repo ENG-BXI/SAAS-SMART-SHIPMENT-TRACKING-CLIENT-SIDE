@@ -14,6 +14,7 @@ export async function CreateWay(token: string, data: wayFormData) {
       }
     });
     updateTag('all-ways');
+    updateTag('manager-statistics');
     return {data: response.data, message: response.data.message, error: null};
   } catch (error) {
     if (error instanceof AxiosError) {
@@ -46,6 +47,7 @@ export async function DeleteWay(id: string, token: string) {
       }
     });
     updateTag('all-ways');
+    updateTag('manager-statistics');
     return {data: response.data, message: response.data.message, error: null};
   } catch (error) {
     if (error instanceof AxiosError) return {data: null, message: error.message, error: error.response?.data?.message};

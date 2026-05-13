@@ -11,7 +11,7 @@ import {zodResolver} from '@hookform/resolvers/zod';
 import CustomInput from '@/components/custom-input';
 import {useState, useTransition} from 'react';
 import {toast} from 'sonner';
-import {AddClient, UpdateClient} from '../_services/actions';
+import {AddClient, UpdateClient} from '../actions';
 
 interface ClientDialogProps {
   type: 'add' | 'edit' | 'view';
@@ -143,9 +143,11 @@ function ClientDialog(props: ClientDialogProps) {
                     />
                   )}
                 />
-                {props.type !== 'view' && <Button disabled={isPending} variant={'destructive'} onClick={() => remove(index)}>
-                  حذف
-                </Button>}
+                {props.type !== 'view' && (
+                  <Button disabled={isPending} variant={'destructive'} onClick={() => remove(index)}>
+                    حذف
+                  </Button>
+                )}
               </div>
             ))}
             {props.type !== 'view' && <CustomButton disable={isDisabled} text='اضافة غرض' icon={<PlusCircle className='min-w-5 min-h-5' />} onClick={() => append({text: '', contactType: 'phoneNumber', isPrimary: 'false'})} className='bg-black text-white' />}

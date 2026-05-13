@@ -16,6 +16,7 @@ export const AddShipmentAction = async (data: shipmentFormData) => {
         Authorization: `Bearer ${token}`
       }
     });
+    updateTag('manager-statistics');
     updateTag('current-shipment');
     return {message: res.data.message, error: null};
   } catch (error) {
@@ -27,7 +28,7 @@ export const AddShipmentAction = async (data: shipmentFormData) => {
   }
 };
 
-export const UpdateShipmentAction = async (id:string,data: shipmentFormData) => {
+export const UpdateShipmentAction = async (id: string, data: shipmentFormData) => {
   try {
     const cookie = await cookies();
     const token = cookie.get('token')?.value;
@@ -37,6 +38,7 @@ export const UpdateShipmentAction = async (id:string,data: shipmentFormData) => 
       }
     });
     updateTag('current-shipment');
+    updateTag('manager-statistics');
     return {message: res.data.message, error: null};
   } catch (error) {
     if (error instanceof AxiosError) {
@@ -47,7 +49,7 @@ export const UpdateShipmentAction = async (id:string,data: shipmentFormData) => 
   }
 };
 
-export const DeleteShipmentAction = async (id:string) => {
+export const DeleteShipmentAction = async (id: string) => {
   try {
     const cookie = await cookies();
     const token = cookie.get('token')?.value;
@@ -57,6 +59,7 @@ export const DeleteShipmentAction = async (id:string) => {
       }
     });
     updateTag('current-shipment');
+    updateTag('manager-statistics');
     return {message: res.data.message, error: null};
   } catch (error) {
     if (error instanceof AxiosError) {
@@ -67,15 +70,20 @@ export const DeleteShipmentAction = async (id:string) => {
   }
 };
 
-export const PauseShipmentAction = async (id:string) => {
+export const PauseShipmentAction = async (id: string) => {
   try {
     const cookie = await cookies();
     const token = cookie.get('token')?.value;
-    const res = await serverAxiosInstance.put(`${SHIPMENT}/${id}/pause`, {}, {
-      headers: {
-        Authorization: `Bearer ${token}`
+    const res = await serverAxiosInstance.put(
+      `${SHIPMENT}/${id}/pause`,
+      {},
+      {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
       }
-    });
+    );
+    updateTag('manager-statistics');
     updateTag('current-shipment');
     return {message: res.data.message, error: null};
   } catch (error) {
@@ -87,15 +95,20 @@ export const PauseShipmentAction = async (id:string) => {
   }
 };
 
-export const ResumeShipmentAction = async (id:string) => {
+export const ResumeShipmentAction = async (id: string) => {
   try {
     const cookie = await cookies();
     const token = cookie.get('token')?.value;
-    const res = await serverAxiosInstance.put(`${SHIPMENT}/${id}/resume`, {}, {
-      headers: {
-        Authorization: `Bearer ${token}`
+    const res = await serverAxiosInstance.put(
+      `${SHIPMENT}/${id}/resume`,
+      {},
+      {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
       }
-    });
+    );
+    updateTag('manager-statistics');
     updateTag('current-shipment');
     return {message: res.data.message, error: null};
   } catch (error) {
