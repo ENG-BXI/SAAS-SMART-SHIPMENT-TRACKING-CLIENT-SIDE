@@ -10,6 +10,7 @@ import CustomPagination from '@/components/custom-pagination';
 import {getFinishedShipments} from '../services/finish-shipment.services';
 import {cookies} from 'next/headers';
 import {formattedDate} from '@/lib/utils';
+import {FinishedShipmentTableSkeleton} from './skeletons';
 interface FinishedShipmentsProps {
   search?: string;
   page?: string;
@@ -27,7 +28,7 @@ function FinishedShipments({search, page}: FinishedShipmentsProps) {
         }
         className='justify-start'
       />
-      <Suspense fallback={<h2>Loading...</h2>}>
+      <Suspense fallback={<FinishedShipmentTableSkeleton />}>
         <TableAndPagination search={search} page={page} />
       </Suspense>
     </div>

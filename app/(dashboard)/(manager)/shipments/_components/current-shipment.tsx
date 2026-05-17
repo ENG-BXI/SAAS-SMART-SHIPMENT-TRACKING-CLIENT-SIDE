@@ -17,6 +17,8 @@ import DeleteShipmentDialog from './delete-shipment-dialog';
 import {SHIPMENT_STATUS} from '@/lib/Constant/enum';
 import {Badge} from '@/components/ui/badge';
 
+import {CurrentShipmentTableSkeleton} from './skeletons';
+
 interface CurrentShipmentsProps {
   search?: string;
   page?: string;
@@ -24,7 +26,7 @@ interface CurrentShipmentsProps {
 async function CurrentShipments({search, page}: CurrentShipmentsProps) {
   return (
     <div>
-      <PageDashboardHeader title='الشحنات' description='عرض وإدارة جميع الشحنات المسجلة على النظام، مع إمكانية متابعة حالتها وسجل التحديثات المرتبطة بكل شحنة.' breadcrumbList={[{text: 'الشحنات', path: '/'}]} />
+      <PageDashboardHeader title='الشحنات' description='عرض وإدارة جميع الشحنات المسجلة على النظام، مع إمكانية متابعة حالتها وسجل التحديثات المرتبطة بكل شحنة.' breadcrumbList={[{text: 'الرئيسية', path: '/'}, {text: 'الشحنات', path: '/'}]} />
       <DashboardSearchAndActionPage
         searchParamsKey='cs'
         action={
@@ -34,8 +36,7 @@ async function CurrentShipments({search, page}: CurrentShipmentsProps) {
           </div>
         }
       />
-      {/* Improve Loading Component and Add skelton */}
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<CurrentShipmentTableSkeleton />}>
         <TableAndPagination search={search} page={page} />
       </Suspense>
     </div>

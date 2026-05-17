@@ -11,6 +11,8 @@ import GetAllClient from './_services/get-all-client';
 import {cookies} from 'next/headers';
 import {Suspense} from 'react';
 import DeleteClientDialog from './_components/delete-client-dialog';
+import {ClientTableSkeleton} from './_components/skeletons';
+
 interface PageProps {
   searchParams: Promise<{
     search?: string;
@@ -21,7 +23,7 @@ const Page = async ({searchParams}: PageProps) => {
   const sp = await searchParams;
   return (
     <div>
-      <PageDashboardHeader title='العملاء' description='عرض وإدارة قائمة العملاء المسجلين على النظام، مع إمكانية ربطهم بالشحنات ومتابعة نشاطهم المرتبط بعمليات الشحن.' breadcrumbList={[{text: 'العملاء', path: '/manager/clients'}]} />
+      <PageDashboardHeader title='العملاء' description='عرض وإدارة قائمة العملاء المسجلين على النظام، مع إمكانية ربطهم بالشحنات ومتابعة نشاطهم المرتبط بعمليات الشحن.' breadcrumbList={[{text: 'الرئيسية', path: '/'}, {text: 'العملاء', path: '/manager/clients'}]} />
       <DashboardSearchAndActionPage
         action={
           <div className='self-start flex gap-x-1'>
@@ -30,7 +32,7 @@ const Page = async ({searchParams}: PageProps) => {
           </div>
         }
       />
-      <Suspense fallback={'Loading ...'}>
+      <Suspense fallback={<ClientTableSkeleton />}>
         <ClientTableAndPagination search={sp.search} page={sp.page} />
       </Suspense>
     </div>
