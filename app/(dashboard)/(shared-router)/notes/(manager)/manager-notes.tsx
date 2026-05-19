@@ -14,14 +14,21 @@ import {Badge} from '@/components/ui/badge';
 import {Suspense} from 'react';
 import {NOTE_TYPE_NAMES} from '@/lib/Constant/note-type';
 import DeleteNoteDialog from './_components/delete-note-dialog';
-import {NoteTableSkeleton} from './_components/skeletons';
+import {NoteTableSkeleton} from '../_components/skeletons';
 interface IManagerNotesProps {
   searchParams: {search?: string; page?: string};
 }
 const ManagerNotes = async ({searchParams}: IManagerNotesProps) => {
   return (
     <div>
-      <PageDashboardHeader title='الملاحظات' description='يتيح هذا القسم للشركات إرسال ملاحظات، شكاوى، أو طلبات تغيير إلى إدارة النظام. يتم عرض جميع الملاحظات مباشرة في لوحة تحكم الأدمن لمراجعتها واتخاذ الإجراء المناسب.' breadcrumbList={[{text: 'الرئيسية', path: '/'}, {text: 'الملاحظات', path: '/manager/notes'}]} />
+      <PageDashboardHeader
+        title='الملاحظات'
+        description='يتيح هذا القسم للشركات إرسال ملاحظات، شكاوى، أو طلبات تغيير إلى إدارة النظام. يتم عرض جميع الملاحظات مباشرة في لوحة تحكم الأدمن لمراجعتها واتخاذ الإجراء المناسب.'
+        breadcrumbList={[
+          {text: 'الرئيسية', path: '/'},
+          {text: 'الملاحظات', path: '/manager/notes'}
+        ]}
+      />
       <DashboardSearchAndActionPage
         action={
           <div className='self-start flex gap-x-1'>
@@ -67,13 +74,7 @@ async function NoteTableAndPagination({searchParams}: IManagerNotesProps) {
               <TableRow key={note.id}>
                 <TableCell className='w-50'>{formattedDate(note.createdAt)}</TableCell>
                 <TableCell className='w-60'>
-                  <Badge className={cn('',
-                    note.type == 'complaint' ?
-                    'bg-red-500' : note.type == 'compliment' ?
-                    'bg-green-500' : note.type == 'feedback' ?
-                    'bg-amber-500' : note.type == 'inquiry' ?
-                    'bg-fuchsia-700' : note.type == 'suggestion' ?
-                    'bg-cyan-500' : 'default')} >{NOTE_TYPE_NAMES[note.type]}</Badge>
+                  <Badge className={cn('', note.type == 'complaint' ? 'bg-red-500' : note.type == 'compliment' ? 'bg-green-500' : note.type == 'feedback' ? 'bg-amber-500' : note.type == 'inquiry' ? 'bg-fuchsia-700' : note.type == 'suggestion' ? 'bg-cyan-500' : 'default')}>{NOTE_TYPE_NAMES[note.type]}</Badge>
                 </TableCell>
                 {/* //TODO: add badge here by user role  */}
                 <TableCell className=''>{note.text}</TableCell>

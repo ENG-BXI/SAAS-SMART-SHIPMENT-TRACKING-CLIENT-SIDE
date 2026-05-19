@@ -12,7 +12,7 @@ interface AllPageContentProps {
 function AllPageContent(searchParams: AllPageContentProps): Record<UserRoleForSaasAdmin, ReactNode | undefined> {
   const {page, search} = searchParams;
   return {
-    [enUserRoleForSaasAdmin.ADMIN]: <AdminNotes />,
+    [enUserRoleForSaasAdmin.ADMIN]: <AdminNotes searchParams={{page, search}} />,
     [enUserRoleForSaasAdmin.MANAGER]: <ManagerNotes searchParams={{page, search}} />,
     [enUserRoleForSaasAdmin.EMPLOYEE]: <ManagerNotes searchParams={{page, search}} />,
     [enUserRoleForSaasAdmin.DRIVER]: undefined

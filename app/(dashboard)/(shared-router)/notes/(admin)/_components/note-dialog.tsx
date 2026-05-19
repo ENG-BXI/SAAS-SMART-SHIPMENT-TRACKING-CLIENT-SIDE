@@ -8,6 +8,7 @@ import CustomInput from '@/components/custom-input';
 import CustomSelect from '@/components/custom-select';
 import {useState} from 'react';
 import {noteFormData} from '@/app/(dashboard)/(shared-router)/notes/(manager)/_schemas/note-schema';
+import { NOTE_TYPE, NOTE_TYPE_NAMES } from '@/lib/Constant/note-type';
 
 interface NoteDialogProps {
   data?: noteFormData;
@@ -16,6 +17,8 @@ interface NoteDialogProps {
 function NoteDialog(props: NoteDialogProps) {
   const [type, setType] = useState(props.data?.type || '');
   const [note, setNote] = useState(props.data?.text || '');
+    const typeOption = Object.entries(NOTE_TYPE).map(([, val]) => ({label: NOTE_TYPE_NAMES[val], value: val}));
+  
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -30,22 +33,7 @@ function NoteDialog(props: NoteDialogProps) {
         </DialogHeader>
         <form>
           <FieldGroup className='gap-y-2'>
-            {/* //TODO : Covert This to Calendar */}
-            <CustomSelect
-              value={type}
-              onChange={setType}
-              disabled
-              required
-              label='نوع الملاحظة'
-              placeHolder='اختر نوع الملاحظة'
-              options={[
-                {value: 'شكوى', label: 'شكوى'},
-                {value: 'استفسار', label: 'استفسار'},
-                {value: 'اقتراح', label: 'اقتراح'},
-                {value: 'اخري', label: 'اخري'}
-              ]}
-            />
-
+            <CustomSelect value={type} onChange={setType} disabled required label='نوع الملاحظة' placeHolder='اختر نوع الملاحظة' options={typeOption} />
             <CustomInput type='state' inputType='textarea' value={note} setValue={setNote} disabled required hasLabel label='الملاحظة' placeHolder='ادخل الملاحظة' />
             <div className='flex justify-end gap-x-2 mt-2'>
               <DialogClose>

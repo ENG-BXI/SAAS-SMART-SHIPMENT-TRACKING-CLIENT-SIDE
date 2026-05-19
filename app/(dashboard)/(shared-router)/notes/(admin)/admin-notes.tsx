@@ -7,33 +7,17 @@ import TablePopover from '@/components/table-popover';
 import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from '@/components/ui/table';
 import {Filter} from 'lucide-react';
 import NoteDialog from './_components/note-dialog';
-interface INoteForTable {
-  id: string;
-  createdDate: string;
-  type: string;
-  note: string;
+import GetAllNotes from './_services/get-all-notes';
+import {cookies} from 'next/headers';
+import {Badge} from '@/components/ui/badge';
+import {cn, formattedDate} from '@/lib/utils';
+import {NOTE_TYPE_NAMES} from '@/lib/Constant/note-type';
+import {Suspense} from 'react';
+import {NoteTableSkeleton} from '../_components/skeletons';
+interface IAdminNotesProps {
+  searchParams: {search?: string; page?: string};
 }
-const listOfNotes: INoteForTable[] = [
-  {
-    id: '1',
-    createdDate: '2026-03-22',
-    type: 'شكوى',
-    note: 'تم التاخير في تسليم الشحنة'
-  },
-  {
-    id: '2',
-    createdDate: '2026-03-22',
-    type: 'استفسار',
-    note: 'متى سيتم تسليم الشحنة'
-  },
-  {
-    id: '3',
-    createdDate: '2026-03-22',
-    type: 'شكوى',
-    note: 'تم التاخير في تسليم الشحنة'
-  }
-];
-const AdminNotes = () => {
+const AdminNotes = async ({searchParams}: IAdminNotesProps) => {
   return (
     <div>
       <PageDashboardHeader title='الملاحظات' description='يتيح هذا القسم للشركات إرسال ملاحظات، شكاوى، أو طلبات تغيير إلى إدارة النظام. يتم عرض جميع الملاحظات مباشرة في لوحة تحكم الأدمن لمراجعتها واتخاذ الإجراء المناسب.' breadcrumbList={[{text: 'الملاحظات', path: '/manager/notes'}]} />
@@ -45,6 +29,22 @@ const AdminNotes = () => {
           </div>
         }
       />
+      <Suspense fallback={<NoteTableSkeleton />}>
+        <NotesTableWithPagination searchParams={searchParams} />
+      </Suspense>
+    </div>
+  );
+};
+
+export default AdminNotes;
+
+async function NotesTableWithPagination({searchParams}: IAdminNotesProps) {
+  const {page, search} = searchParams;
+  const cookiesStore = await cookies();
+  const token = cookiesStore.get('token')?.value;
+  const notes = await GetAllNotes(token, search, page);
+  return (
+    <>
       <Table>
         <TableHeader>
           <TableRow>
@@ -55,29 +55,25 @@ const AdminNotes = () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {listOfNotes?.length === 0 ? (
+          {notes.data?.length === 0 ? (
             <TableRow>
               <TableCell colSpan={3}>
                 <TableEmpty />
               </TableCell>
             </TableRow>
           ) : (
-            listOfNotes?.map(note => (
+            notes.data?.map(note => (
               <TableRow key={note.id}>
-                <TableCell className='w-50'>{note.createdDate}</TableCell>
-                <TableCell className='w-60'>{note.type}</TableCell>
+                <TableCell className='w-50'>{formattedDate(note.createdAt)}</TableCell>
+                <TableCell className='w-60'>
+                  <Badge className={cn('', note.type == 'complaint' ? 'bg-red-500' : note.type == 'compliment' ? 'bg-green-500' : note.type == 'feedback' ? 'bg-amber-500' : note.type == 'inquiry' ? 'bg-fuchsia-700' : note.type == 'suggestion' ? 'bg-cyan-500' : 'default')}>{NOTE_TYPE_NAMES[note.type]}</Badge>
+                </TableCell>
                 {/* //TODO: add badge here by user role  */}
-                <TableCell className=''>{note.note}</TableCell>
+                <TableCell className=''>{note.text}</TableCell>
                 <TableCell>
                   <TablePopover
                     items={[
-                      // TODO : add dialog for show Details
-                      //   {type: 'link', link: `/manager/ways/${way.id}`, text: 'عرض التفاصيل'},
-                      {type: 'dialog', item: <NoteDialog data={{type: note.type, text: note.note}} />}
-                      // {
-                      //   type: 'dialog',
-                      //  item: <DeleteDialog title='حذف الملاحظة' triggerText='حذف الملاحظة' description='هل انت متاكد من حذف الملاحظة' onclick={() => {}} open={open} setOpen={setOpen} />
-                      // }
+                      {type: 'dialog', item: <NoteDialog data={{type: note.type, text: note.text}} />}
                     ]}
                   />
                 </TableCell>
@@ -86,9 +82,7 @@ const AdminNotes = () => {
           )}
         </TableBody>
       </Table>
-      <CustomPagination pageSize={10} totalCount={100} currentPage={1} hasNext={true} hasPrevious={true} totalPages={10} />
-    </div>
+      <CustomPagination pageSize={notes.pageSize} totalCount={notes.totalCount} currentPage={notes.currentPage} hasNext={notes.hasNext} hasPrevious={notes.hasPrevious} totalPages={notes.totalPages} />
+    </>
   );
-};
-
-export default AdminNotes;
+}
