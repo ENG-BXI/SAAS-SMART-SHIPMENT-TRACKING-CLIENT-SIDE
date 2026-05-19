@@ -15,7 +15,6 @@ export async function getCurrentShipments(token?: string, search?: string, page?
   if (page) {
     SearchParams.append('page', page);
   }
-  console.log(`${SHIPMENT}/${CURRENT}?${SearchParams.toString()}`);
   const response = await serverAxiosInstance.get(`${SHIPMENT}/${CURRENT}?${SearchParams.toString()}`, {
     headers: {
       Authorization: `Bearer ${token}`

@@ -6,13 +6,16 @@ import {memo} from 'react';
 interface IDeleteDialog {
   title: string;
   triggerText: string;
+  actionText?: string;
   description: string;
   onclick: () => void;
   isLoading?: boolean;
+  open?: boolean;
+  setOpen?: (open: boolean) => void;
 }
-function DeleteDialog({title, triggerText, description, onclick, isLoading = false}: IDeleteDialog) {
+function DeleteDialog({title, actionText='حذف', triggerText, description, onclick, isLoading = false, open, setOpen}: IDeleteDialog) {
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button variant={'ghost'} className='w-full justify-start text-[15px] text-red-400'>
           <File className='min-w-6 min-h-6' /> {triggerText}
@@ -30,10 +33,10 @@ function DeleteDialog({title, triggerText, description, onclick, isLoading = fal
           <Button disabled={isLoading} onClick={() => onclick()} variant={'destructive'}>
             {isLoading ? (
               <div className='flex items-center gap-x-2'>
-                <Loader2 className='animate-spin' /> <span>جاري الحذف...</span>
+                <Loader2 className='animate-spin' /> <span>جاري {actionText}...</span>
               </div>
             ) : (
-              'حذف'
+              actionText
             )}
           </Button>
         </DialogFooter>

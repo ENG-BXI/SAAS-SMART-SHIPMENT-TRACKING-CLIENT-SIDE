@@ -2,7 +2,7 @@ import {IconCircleCheck} from '@tabler/icons-react';
 import {memo} from 'react';
 interface CardStatProps {
   title: string;
-  value: string;
+  value: string | number;
 }
 function CardStat({title, value}: CardStatProps) {
   return (

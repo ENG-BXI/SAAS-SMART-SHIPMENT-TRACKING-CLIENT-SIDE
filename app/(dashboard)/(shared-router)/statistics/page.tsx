@@ -9,7 +9,7 @@ function AllPageContent(searchParams?: {page?: string}): Record<UserRoleForSaasA
   return {
     [enUserRoleForSaasAdmin.ADMIN]: <StatisticsAdminPage />,
     [enUserRoleForSaasAdmin.MANAGER]: <StatisticsManagerPage searchParams={searchParams!} />,
-    [enUserRoleForSaasAdmin.EMPLOYEE]: undefined,
+    [enUserRoleForSaasAdmin.EMPLOYEE]: <StatisticsManagerPage searchParams={searchParams!} />,
     [enUserRoleForSaasAdmin.DRIVER]: undefined
   };
 }

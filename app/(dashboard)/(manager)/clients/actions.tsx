@@ -1,6 +1,6 @@
 'use server';
 import {cookies} from 'next/headers';
-import {clientFormData} from '../_schemas/client-schema';
+import {clientFormData} from './_schemas/client-schema';
 import serverAxiosInstance from '@/lib/axios/server';
 import {CLIENT} from '@/lib/Constant/routes';
 import {AxiosError} from 'axios';
@@ -19,6 +19,7 @@ export const AddClient = async (data: clientFormData) => {
   try {
     const response = await serverAxiosInstance.post(CLIENT, client, {headers: {Authorization: `Bearer ${token}`}});
     updateTag('all-client');
+    updateTag('manager-statistics');
     return {message: response.data.message, data: response.data.data, error: null};
   } catch (error) {
     if (error instanceof AxiosError) return {message: 'Add Client Failed', error: error.response?.data.message, data: null};
@@ -35,7 +36,6 @@ export const UpdateClient = async ({id, data}: {id: string; data: clientFormData
       isPrimary: contactWay.isPrimary == 'true'
     }))
   };
-  console.log('client', client);
   try {
     const response = await serverAxiosInstance.put(`${CLIENT}/${id}`, client, {headers: {Authorization: `Bearer ${token}`}});
     updateTag('all-client');
@@ -51,6 +51,7 @@ export const DeleteClient = async (id: string) => {
   try {
     const response = await serverAxiosInstance.delete(`${CLIENT}/${id}`, {headers: {Authorization: `Bearer ${token}`}});
     updateTag('all-client');
+    updateTag('manager-statistics');
     return {message: response.data.message, data: response.data.data, error: null};
   } catch (error) {
     if (error instanceof AxiosError) return {message: 'Delete Client Failed', error: error.response?.data.message, data: null};

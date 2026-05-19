@@ -13,6 +13,7 @@ import {cookies} from 'next/headers';
 import {Suspense} from 'react';
 import DeleteDialog from '@/components/dashboard/delete-dialog';
 import DeleteWayDialog from './_components/delete-way-dialog';
+import {WayTableSkeleton} from './_components/skeletons';
 
 interface PageProps {
   searchParams: Promise<{
@@ -24,7 +25,7 @@ const Page = async ({searchParams}: PageProps) => {
   const {page, search} = await searchParams;
   return (
     <div>
-      <PageDashboardHeader title='المسارات' description='إدارة المسارات المعتمدة لنقل الشحنات، مع تحديد نقاط الانطلاق والوصول وربطها بعمليات الشحن.' breadcrumbList={[{text: 'المسارات', path: '/manager/ways'}]} />
+      <PageDashboardHeader title='المسارات' description='إدارة المسارات المعتمدة لنقل الشحنات، مع تحديد نقاط الانطلاق والوصول وربطها بعمليات الشحن.' breadcrumbList={[{text: 'الرئيسية', path: '/'}, {text: 'المسارات', path: '/manager/ways'}]} />
       <DashboardSearchAndActionPage
         action={
           <div className='self-start flex gap-x-1'>
@@ -34,7 +35,7 @@ const Page = async ({searchParams}: PageProps) => {
         }
       />
 
-      <Suspense fallback={<h1>loading...</h1>}>
+      <Suspense fallback={<WayTableSkeleton />}>
         <WaysTableAndPagination page={page} search={search} />
       </Suspense>
     </div>

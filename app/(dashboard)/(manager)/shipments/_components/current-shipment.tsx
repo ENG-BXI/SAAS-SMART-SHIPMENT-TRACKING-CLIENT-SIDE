@@ -10,7 +10,14 @@ import CustomPagination from '@/components/custom-pagination';
 import ShipmentDialog from './shipment-dialog';
 import {cookies} from 'next/headers';
 import {getCurrentShipments} from '../services/current-shipment.services';
-import {formattedDate} from '@/lib/utils';
+import {cn, formattedDate} from '@/lib/utils';
+import PauseShipmentDialog from './pause-shipment-dialog';
+import ResumeShipmentDialog from './resume-shipment-dialog';
+import DeleteShipmentDialog from './delete-shipment-dialog';
+import {SHIPMENT_STATUS} from '@/lib/Constant/enum';
+import {Badge} from '@/components/ui/badge';
+
+import {CurrentShipmentTableSkeleton} from './skeletons';
 
 interface CurrentShipmentsProps {
   search?: string;
@@ -19,7 +26,7 @@ interface CurrentShipmentsProps {
 async function CurrentShipments({search, page}: CurrentShipmentsProps) {
   return (
     <div>
-      <PageDashboardHeader title='الشحنات' description='عرض وإدارة جميع الشحنات المسجلة على النظام، مع إمكانية متابعة حالتها وسجل التحديثات المرتبطة بكل شحنة.' breadcrumbList={[{text: 'الشحنات', path: '/'}]} />
+      <PageDashboardHeader title='الشحنات' description='عرض وإدارة جميع الشحنات المسجلة على النظام، مع إمكانية متابعة حالتها وسجل التحديثات المرتبطة بكل شحنة.' breadcrumbList={[{text: 'الرئيسية', path: '/'}, {text: 'الشحنات', path: '/'}]} />
       <DashboardSearchAndActionPage
         searchParamsKey='cs'
         action={
@@ -29,8 +36,7 @@ async function CurrentShipments({search, page}: CurrentShipmentsProps) {
           </div>
         }
       />
-      {/* Improve Loading Component and Add skelton */}
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<CurrentShipmentTableSkeleton />}>
         <TableAndPagination search={search} page={page} />
       </Suspense>
     </div>
@@ -52,6 +58,7 @@ async function TableAndPagination({search, page}: CurrentShipmentsProps) {
             <TableHead className='text-start'>المسار</TableHead>
             <TableHead className='text-start'>النقطة الحالية</TableHead>
             <TableHead className='text-start'>سائق الشحنة</TableHead>
+            <TableHead className='text-start'>الحالة</TableHead>
             <TableHead className=''></TableHead>
           </TableRow>
         </TableHeader>
@@ -71,18 +78,18 @@ async function TableAndPagination({search, page}: CurrentShipmentsProps) {
                 <TableCell>{shipment.currentPoint?.name}</TableCell>
                 <TableCell>{shipment.driver.userName}</TableCell>
                 <TableCell>
+                  <Badge className={cn(shipment.isPaused ? 'bg-gray-500' : 'bg-green-500')}>{shipment.isPaused ? SHIPMENT_STATUS.PAUSED : SHIPMENT_STATUS.CURRENT}</Badge>
+                </TableCell>
+                <TableCell>
                   <TablePopover
                     items={[
                       {type: 'link', link: `/shipments/${shipment.id}`, text: 'عرض التفاصيل'},
-                      {type: 'dialog', item: <ShipmentDialog type='edit' data={{shipmentNumber: shipment.shipmentNumber, wayId: shipment.way.id, driverId: shipment.driver.id, launchDate: shipment.launchDate}} />}
-                      // {
-                      //   type: 'dialog',
-                      //   item: <DeleteDialog title='توقيف الشحنة' triggerText='توقيف الشحنة' description='هل انت متاكد من توقيف الشحنة' onclick={() => {}} open={open} setOpen={setOpen} />
-                      // },
-                      // {
-                      //   type: 'dialog',
-                      //   item: <DeleteDialog title='حدف الشحنة' triggerText='حدف الشحنة' description='هل انت متاكد من حدف الشحنة' onclick={() => {}} open={open} setOpen={setOpen} />
-                      // }
+                      {type: 'dialog', item: <ShipmentDialog type='edit' id={shipment.id} data={{shipmentNumber: shipment.shipmentNumber, wayId: shipment.way.id, driverId: shipment.driver.id, launchDate: shipment.launchDate}} />},
+                      shipment.isPaused ? {type: 'dialog', item: <ResumeShipmentDialog id={shipment.id} />} : {type: 'dialog', item: <PauseShipmentDialog id={shipment.id} />},
+                      {
+                        type: 'dialog',
+                        item: <DeleteShipmentDialog id={shipment.id} />
+                      }
                     ]}
                   />
                 </TableCell>

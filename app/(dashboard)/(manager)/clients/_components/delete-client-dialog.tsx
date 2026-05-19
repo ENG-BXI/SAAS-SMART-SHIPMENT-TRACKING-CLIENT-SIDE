@@ -1,7 +1,7 @@
 'use client';
 
 import DeleteDialog from '@/components/dashboard/delete-dialog';
-import {DeleteClient} from '../_services/actions';
+import {DeleteClient} from '../actions';
 import {toast} from 'sonner';
 import {useTransition} from 'react';
 

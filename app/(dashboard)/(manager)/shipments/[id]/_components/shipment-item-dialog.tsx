@@ -9,9 +9,14 @@ import {zodResolver} from '@hookform/resolvers/zod';
 import {Controller, useFieldArray, useForm} from 'react-hook-form';
 import {ArrowRight, File, PlusCircle} from 'lucide-react';
 import CustomButton from '@/components/custom-button';
+import GetAllClientForSelect from '../_services/get-all-client-for-select';
+import {useState, useTransition} from 'react';
+import {CreateShipmentItem, UpdateShipmentItem} from '../_actions';
+import {toast} from 'sonner';
 
 interface ShipmentItemDialogProps {
   type: 'add' | 'edit';
+  shipmentId?: string;
   id?: string;
   triggerTitle: string;
   data?: shipmentItemFormData;
@@ -32,25 +37,51 @@ function getDescription(type: 'add' | 'edit') {
       return 'تعديل بيانات العميل المسجل مسبقًا وربطه بهذه الشحنة، مع تحديد أغراض الشحنة وإمكانية إضافة أكثر من غرض حسب الحاجة.';
   }
 }
-function onSubmit() {
-  console.log('submit');
-}
 function ShipmentItemDialog(props: ShipmentItemDialogProps) {
+  const [isPending, startTransition] = useTransition();
+  const [open, setOpen] = useState(false);
   const {
     control,
     handleSubmit,
+    reset,
     formState: {errors}
   } = useForm<shipmentItemFormData>({
-    //TODO : Fix This Error
     resolver: zodResolver(shipmentItems),
     defaultValues: {
-      personName: props.data?.personName || '',
-      items: props.data?.items || [{item: '', quantity: 0, isBreakable: 'false'}]
+      clientId: props.data?.clientId,
+      items: props.data?.items
     }
   });
+  function onSubmit(data: shipmentItemFormData) {
+    console.log(data);
+    if (props.type == 'add') {
+      startTransition(async () => {
+        if (!props.shipmentId) return;
+
+        const {message, error} = await CreateShipmentItem(props.shipmentId!, data);
+        if (error) toast.error(message);
+        else {
+          toast.success(message);
+          reset();
+          setOpen(false);
+        }
+      });
+    } else {
+      startTransition(async () => {
+        const {message, error} = await UpdateShipmentItem(props.id!, data);
+        if (error) toast.error(message);
+        else {
+          toast.success(message);
+          reset();
+          setOpen(false);
+        }
+      });
+    }
+  }
   const {fields, append, remove} = useFieldArray({name: 'items', control: control});
+  const {data, isLoading, isError, error: remoteError} = GetAllClientForSelect();
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         {props.type == 'add' ? (
           <Button className='bg-custom-primary-color'>
@@ -70,38 +101,19 @@ function ShipmentItemDialog(props: ShipmentItemDialogProps) {
         </DialogHeader>
         <form onSubmit={handleSubmit(onSubmit)}>
           <FieldGroup className='gap-y-2'>
-            <Controller
-              control={control}
-              name='personName'
-              render={({field, fieldState: {invalid, error}}) => (
-                <CustomSelect
-                  onChange={field.onChange}
-                  value={field.value}
-                  ref={field.ref}
-                  invalid={invalid}
-                  errorMessage={error?.message}
-                  required
-                  label='اسم العميل'
-                  placeHolder='اختر العميل'
-                  options={[
-                    {value: '1', label: 'العميل 1'},
-                    {value: '2', label: 'العميل 2'},
-                    {value: '3', label: 'العميل 3'}
-                  ]}
-                />
-              )}
-            />
+            <Controller control={control} name='clientId' render={({field, fieldState: {invalid, error}}) => <CustomSelect isLoading={isLoading} isError={isError} errorMessage={error?.message || remoteError?.message} onChange={field.onChange} value={field.value} ref={field.ref} invalid={invalid} required label='اسم العميل' placeHolder='اختر العميل' options={data || []} />} />
             {fields.map((field, index) => (
               <div key={field.id} className='flex items-end gap-x-2'>
-                <Controller control={control} name={`items.${index}.item`} render={({field, fieldState: {invalid}}) => <CustomInput type='controller' field={field} error={undefined} invalid={invalid} required hasLabel label='الغرض' placeHolder='ادخل الغرض' />} />
-                <Controller control={control} name={`items.${index}.quantity`} render={({field, fieldState: {invalid}}) => <CustomInput type='controller' inputType='number' field={field} error={undefined} invalid={invalid} required hasLabel label='الكمية' placeHolder='ادخل الكمية' />} />
+                <Controller control={control} name={`items.${index}.name`} render={({field, fieldState: {invalid}}) => <CustomInput disabled={isPending} type='controller' field={field} error={undefined} invalid={invalid} required hasLabel label='الغرض' placeHolder='ادخل الغرض' />} />
+                <Controller control={control} name={`items.${index}.quantity`} render={({field, fieldState: {invalid}}) => <CustomInput disabled={isPending} type='controller' inputType='number' field={field} error={undefined} invalid={invalid} required hasLabel label='الكمية' placeHolder='ادخل الكمية' />} />
                 <Controller
                   control={control}
                   name={`items.${index}.isBreakable`}
                   render={({field, fieldState: {invalid}}) => (
                     <CustomSelect
-                      onChange={field.onChange}
-                      value={field.value}
+                      disabled={isPending}
+                      onChange={v => field.onChange(v == 'true')}
+                      value={field.value ? 'true' : 'false'}
                       ref={field.ref}
                       invalid={invalid}
                       errorMessage={undefined}
@@ -115,18 +127,18 @@ function ShipmentItemDialog(props: ShipmentItemDialogProps) {
                     />
                   )}
                 />
-                <Button variant={'destructive'} onClick={() => remove(index)}>
+                <Button disabled={isPending} variant={'destructive'} onClick={() => remove(index)}>
                   حذف
                 </Button>
               </div>
             ))}
-            <CustomButton text='اضافة غرض' icon={<PlusCircle className='min-w-5 min-h-5' />} onClick={() => append({item: '', quantity: 0, isBreakable: 'false'})} className='bg-black text-white' />
+            <CustomButton disable={isPending} text='اضافة غرض' icon={<PlusCircle className='min-w-5 min-h-5' />} onClick={() => append({name: '', quantity: 0, isBreakable: false})} className='bg-black text-white' />
             {fields.length == 0 && errors.items?.root?.message && <p className='text-red-500 text-sm'>{errors.items.root.message}</p>}
             <div className='flex justify-end gap-x-2 mt-2'>
               <DialogClose>
-                <CustomButton text='الغاء' icon={<ArrowRight className='min-w-5 min-h-5' />} className=' flex-row-reverse' type='secondary' />
+                <CustomButton disable={isPending} text='الغاء' icon={<ArrowRight className='min-w-5 min-h-5' />} className=' flex-row-reverse' type='secondary' />
               </DialogClose>
-              <CustomButton text={props.type == 'add' ? 'اضافة' : 'تعديل'} icon={<PlusCircle className='min-w-5 min-h-5' />} type='primary' className='bg-black text-white' IsSubmit />
+              <CustomButton disable={isPending} text={isPending ? 'جاري ' + (props.type == 'add' ? 'اضافة' : 'تعديل') : props.type == 'add' ? 'اضافة' : 'تعديل'} icon={<PlusCircle className='min-w-5 min-h-5' />} type='primary' className='bg-black text-white' IsSubmit />
             </div>
           </FieldGroup>
         </form>

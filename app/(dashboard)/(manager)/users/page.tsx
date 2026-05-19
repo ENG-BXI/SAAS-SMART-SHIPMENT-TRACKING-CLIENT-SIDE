@@ -5,6 +5,7 @@ import {Filter} from 'lucide-react';
 import UserDialog from './_components/user-dialog';
 import {Suspense} from 'react';
 import UserTableAndPagination from './_components/user-table-and-pagination';
+import {UserTableSkeleton} from './_components/skeletons';
 
 interface PageProps {
   searchParams: Promise<{
@@ -16,7 +17,7 @@ const Page = async ({searchParams}: PageProps) => {
   const {page, search} = await searchParams;
   return (
     <div>
-      <PageDashboardHeader title='المستخدمين' description='عرض وإدارة المستخدمين المسجلين على النظام، مع تحديد أدوارهم وصلاحياتهم المرتبطة بإدارة الشحنات والبيانات.' breadcrumbList={[{text: 'المستخدمين', path: '/manager/users'}]} />
+      <PageDashboardHeader title='المستخدمين' description='عرض وإدارة المستخدمين المسجلين على النظام، مع تحديد أدوارهم وصلاحياتهم المرتبطة بإدارة الشحنات والبيانات.' breadcrumbList={[{text: 'الرئيسية', path: '/'}, {text: 'المستخدمين', path: '/manager/users'}]} />
       <DashboardSearchAndActionPage
         action={
           <div className='self-start flex gap-x-1'>
@@ -25,7 +26,7 @@ const Page = async ({searchParams}: PageProps) => {
           </div>
         }
       />
-      <Suspense fallback={<h2>Loading ....</h2>}>
+      <Suspense fallback={<UserTableSkeleton />}>
         <UserTableAndPagination page={page} search={search} />
       </Suspense>
     </div>

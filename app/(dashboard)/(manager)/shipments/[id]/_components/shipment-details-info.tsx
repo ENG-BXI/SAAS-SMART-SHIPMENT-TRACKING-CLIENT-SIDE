@@ -1,6 +1,6 @@
 interface ShipmentDetailsInfoProps {
   title: string;
-  value: string;
+  value: number | string;
 }
 export function ShipmentDetailsInfo({title, value}: ShipmentDetailsInfoProps) {
   return (
