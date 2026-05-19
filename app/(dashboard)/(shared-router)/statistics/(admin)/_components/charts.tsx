@@ -8,33 +8,14 @@ import {ChartContainer, ChartTooltip, ChartTooltipContent, type ChartConfig} fro
 
 export const description = 'A line chart with a label';
 
-const chartData = [
-  {month: 'January', desktop: 186, mobile: 80},
-  {month: 'February', desktop: 305, mobile: 200},
-  {month: 'March', desktop: 237, mobile: 120},
-  {month: 'April', desktop: 73, mobile: 190},
-  {month: 'May', desktop: 209, mobile: 130},
-  {month: 'June', desktop: 214, mobile: 140},
-  {month: 'July', desktop: 350, mobile: 140},
-  {month: 'August', desktop: 150, mobile: 140},
-  {month: 'September', desktop: 640, mobile: 140},
-  {month: 'October', desktop: 100, mobile: 140},
-  {month: 'November', desktop: 320, mobile: 140},
-  {month: 'December', desktop: 50, mobile: 140}
-];
-
 const chartConfig = {
   desktop: {
-    label: 'Desktop',
-    color: '#4072EE'
-  },
-  mobile: {
-    label: 'Mobile',
+    label: 'count',
     color: '#4072EE'
   }
 } satisfies ChartConfig;
 
-export function ChartLineLabel() {
+export function ChartLineLabel({chartData}: {chartData: {month: string; count: number}[]}) {
   return (
     <Card>
       <CardHeader>
@@ -59,7 +40,7 @@ export function ChartLineLabel() {
             <XAxis dataKey='month' tickLine={false} axisLine={false} tickMargin={8} tickFormatter={value => value.slice(0, 3)} />
             <ChartTooltip cursor={false} content={<ChartTooltipContent indicator='line' />} />
             <Line
-              dataKey='desktop'
+              dataKey='count'
               type='natural'
               stroke='var(--color-desktop)'
               strokeWidth={2}

@@ -4,31 +4,11 @@ import CompanyDialog from './company-dialog';
 import TablePopover from '@/components/table-popover';
 import {ICompanyForTable} from '../_interfaces/company-for-table';
 import {TableEmpty} from '@/components/table-empty';
-import {useState} from 'react';
-import DeleteCompanyService from '../_services/deleteCompany';
-import {toast} from 'sonner';
-import DeleteDialog from '@/components/dashboard/delete-dialog';
+import DeleteCompanyDialog from './delete-company-dialog';
 interface IAllCompanies {
   companies?: ICompanyForTable[];
 }
 function AllCompanies({companies}: IAllCompanies) {
-  const [open, setOpen] = useState(false);
-  const {mutateAsync: deleteCompany} = DeleteCompanyService();
-  function DeleteCompany(id: string) {
-    deleteCompany(
-      {id},
-      {
-        onSuccess: () => {
-          toast.success(`تم حدف الشركة بنجاح`);
-        },
-        onError: error => {
-          toast.error(`فشل في حدف الشركة ${error.message}`);
-          console.error('Error In Delete Company \n', error);
-        }
-      }
-    );
-    setOpen(false);
-  }
   return (
     <Table>
       <TableHeader>
@@ -59,20 +39,11 @@ function AllCompanies({companies}: IAllCompanies) {
                 <TableCell>
                   <TablePopover
                     items={[
-                      {type: 'link', text: 'عرض الشركة', link: `/admin/company/${index}`},
+                      {type: 'link', text: 'عرض الشركة', link: `/company/${company.id}`},
                       {type: 'dialog', item: <CompanyDialog type='edit' id={company.id} data={{name: company.name, location: company.location, companyEmail: company.companyEmail}} />},
                       {
                         type: 'dialog',
-                        item: (
-                          <DeleteDialog
-                            onclick={() => {
-                              DeleteCompany(company.id);
-                            }}
-                            title={`هل انت متاكد من حدف الشركة ${company.name}`}
-                            triggerText={`حدف الشركة`}
-                            description={`الشركة ${company.name} سيتم حدفها نهائيا`}
-                          />
-                        )
+                        item: <DeleteCompanyDialog companyId={company.id} companyName={company.name} />
                       }
                     ]}
                   />

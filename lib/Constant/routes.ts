@@ -23,4 +23,5 @@ export const PAUSE_SHIPMENT = 'pause-shipment';
 export const RESUME_SHIPMENT = 'resume-shipment';
 export const STATUS = 'status';
 export const STATISTICS = 'statistics';
-export const MANAGER_STATISTICS = 'manager-statistics/';
+export const MANAGER_STATISTICS = 'manager-statistics';
+export const ADMIN_STATISTICS = 'admin-statistics';

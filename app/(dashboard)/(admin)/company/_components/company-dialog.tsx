@@ -10,14 +10,15 @@ import {Controller, useForm} from 'react-hook-form';
 import {zodResolver} from '@hookform/resolvers/zod';
 import {CreateCompanyFormSchema, EditCompanyFormSchema} from '../_schemas/companyForm';
 import {FieldGroup} from '@/components/ui/field';
-import AddNewCompanyService from '../_services/addNewCompany';
 import {toast} from 'sonner';
-import {useState} from 'react';
+import {useState, useTransition} from 'react';
 import EditCompanyService from '../_services/editCompany';
+import {createCompany, editCompany} from '../_action';
 type ICompanyDialog = {type: 'edit'; id: string; data: ICompany} | {type: 'add'};
 
 function CompanyDialog({...props}: ICompanyDialog) {
   const [open, setOpen] = useState(false);
+  const [isPending, startTransition] = useTransition();
   const form = useForm<ICreateCompany | IEditCompany>({
     resolver: zodResolver(props.type == 'add' ? CreateCompanyFormSchema : EditCompanyFormSchema),
     defaultValues:
@@ -29,8 +30,6 @@ function CompanyDialog({...props}: ICompanyDialog) {
             name: ''
           }
   });
-  const {mutate: AddCompanyMutate, isPending: isAddCompanyPending} = AddNewCompanyService();
-  const {mutate: EditCompanyMutate, isPending: isEditCompanyPending} = EditCompanyService();
   function getTitle() {
     switch (props.type) {
       case 'add':
@@ -47,43 +46,41 @@ function CompanyDialog({...props}: ICompanyDialog) {
         return 'تعديل بيانات الشركة وحالة تفعيلها. أي تغيير سيتم تطبيقه فورًا على جميع المستخدمين التابعين للشركة.';
     }
   }
-  function onSubmit(data: ICreateCompany | IEditCompany) {
-    if (props.type == 'add')
-      AddCompanyMutate(
-        {company: data as ICreateCompany},
-        {
-          onSuccess: () => {
-            toast.success('تم اضافة شركة جديدة بنجاح');
-          },
-          onError: error => {
-            toast.error(`فشل في اضافة شركة جديدة ${error.message}`);
-            console.error('Error In Add New Company \n', error);
-          }
+  function onSubmit(company: ICreateCompany | IEditCompany) {
+    if (props.type == 'add') {
+      startTransition(async () => {
+        const {error, message} = await createCompany(company as ICreateCompany);
+        if (error) toast.error(message);
+        else {
+          toast.success(message);
+          form.reset({
+            name: '',
+            location: '',
+            companyEmail: '',
+            companyPassword: '',
+            confirmPassword: ''
+          });
         }
-      );
-    else if (props.type == 'edit')
-      EditCompanyMutate(
-        {id: props.id, company: data},
-        {
-          onSuccess: () => {
-            toast.success('تم تعديل الشركة بنجاح');
-          },
-          onError: error => {
-            toast.error(`فشل في تعديل شركة ${props.data.name} ${error.message}`);
-            console.error('Error In Edit Company \n', error);
-          }
+      });
+    } else if (props.type == 'edit') {
+      startTransition(async () => {
+        const {error, message} = await editCompany(props.id, company as IEditCompany);
+        if (error) toast.error(message);
+        else {
+          toast.success(message);
+          form.reset({
+            name: '',
+            location: '',
+            companyEmail: '',
+            companyPassword: '',
+            confirmPassword: ''
+          });
         }
-      );
-    form.reset({
-      name: '',
-      location: '',
-      companyEmail: '',
-      companyPassword: '',
-      confirmPassword: ''
-    });
+      });
+    }
+
     setOpen(false);
   }
-  const isPending = isAddCompanyPending || isEditCompanyPending;
   return (
     <Dialog open={open} onOpenChange={e => setOpen(e)}>
       <DialogTrigger asChild>
@@ -129,15 +126,13 @@ function CompanyDialog({...props}: ICompanyDialog) {
                 return <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label='ايميل الشركة' required placeHolder='مثال: example@gmail.com' />;
               }}
             />
-            {props.type == 'add' && (
-              <Controller
-                name='companyPassword'
-                control={form.control}
-                render={({field, fieldState}) => {
-                  return <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label='كلمة السرة' required placeHolder='***********' />;
-                }}
-              />
-            )}
+            <Controller
+              name='companyPassword'
+              control={form.control}
+              render={({field, fieldState}) => {
+                return <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label='كلمة السرة' required placeHolder='***********' />;
+              }}
+            />
             {props.type == 'add' && (
               <Controller
                 name='confirmPassword'

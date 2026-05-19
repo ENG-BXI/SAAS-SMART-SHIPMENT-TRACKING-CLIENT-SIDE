@@ -6,7 +6,6 @@ interface IAddNewCompanyService {
   company: ICreateCompany;
 }
 const addNewCompany = async ({company}: IAddNewCompanyService) => {
-  await clientAxiosInstance.post(`/${COMPANY}`, company);
 };
 const AddNewCompanyService = () => {
   const reactQuery = useQueryClient();
