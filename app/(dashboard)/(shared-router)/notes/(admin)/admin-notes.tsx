@@ -68,14 +68,9 @@ async function NotesTableWithPagination({searchParams}: IAdminNotesProps) {
                 <TableCell className='w-60'>
                   <Badge className={cn('', note.type == 'complaint' ? 'bg-red-500' : note.type == 'compliment' ? 'bg-green-500' : note.type == 'feedback' ? 'bg-amber-500' : note.type == 'inquiry' ? 'bg-fuchsia-700' : note.type == 'suggestion' ? 'bg-cyan-500' : 'default')}>{NOTE_TYPE_NAMES[note.type]}</Badge>
                 </TableCell>
-                {/* //TODO: add badge here by user role  */}
                 <TableCell className=''>{note.text}</TableCell>
                 <TableCell>
-                  <TablePopover
-                    items={[
-                      {type: 'dialog', item: <NoteDialog data={{type: note.type, text: note.text}} />}
-                    ]}
-                  />
+                  <TablePopover items={[{type: 'dialog', item: <NoteDialog data={{type: note.type, text: note.text}} />}]} />
                 </TableCell>
               </TableRow>
             ))

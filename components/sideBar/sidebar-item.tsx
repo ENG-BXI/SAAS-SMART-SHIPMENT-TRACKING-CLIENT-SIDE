@@ -8,6 +8,7 @@ export interface ISidebarItem {
   text: string;
   isSelected?: boolean;
   link?: string;
+  onClick?: () => void;
 }
 function SidebarItem({item}: {item: ISidebarItem}) {
   const [prefetch, setPrefetch] = useState(false);
@@ -16,6 +17,7 @@ function SidebarItem({item}: {item: ISidebarItem}) {
   return (
     <Link
       href={link || '#'}
+      onClick={item.onClick}
       onMouseEnter={() => {
         setPrefetch(true);
       }}
