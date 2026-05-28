@@ -17,6 +17,7 @@ const listOfSideBarItem: Record<UserRoleForSaasAdmin, ISidebarItem[]> = {
     {text: 'الرئيسية', icon: <LucideHome />, link: '/statistics'},
     {text: 'الشركات', icon: <Building2Icon />, link: '/company'},
     {text: 'الاشتراكات', icon: <BanknoteIcon />, link: '/subscription'},
+    {text: 'طلبات الاشتراك', icon: <BanknoteIcon />, link: '/subscription-request'},
     {text: 'الملاحظات', icon: <NotepadText />, link: '/notes'}
   ],
   [enUserRoleForSaasAdmin.MANAGER]: [

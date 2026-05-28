@@ -10,14 +10,16 @@ export const SUBSCRIPTION_STATUS = {
   PENDING: 'pending',
   ACTIVE: 'active',
   INACTIVE: 'inactive',
-  EXPIRED: 'expired'
+  EXPIRED: 'expired',
+  CHANGE: 'change'
 } as const;
 
 export const SUBSCRIPTION_TEXT = {
   pending: 'معلق',
   active: 'نشط',
   inactive: 'غير نشط',
-  expired: 'منتهي'
+  expired: 'منتهي',
+  change: 'تحت التتغير',
 };
 
 export type TSubscriptionStatus = (typeof SUBSCRIPTION_STATUS)[keyof typeof SUBSCRIPTION_STATUS];

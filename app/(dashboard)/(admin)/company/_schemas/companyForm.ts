@@ -2,7 +2,8 @@ import z from 'zod';
 export const companyFormSchema = z.object({
   name: z.string().min(3, {message: 'الاسم يجب ان يحتوي على 3 حروف على الأقل'}).max(100, {message: 'الاسم يجب ان يحتوي على 100 حروف على الأكثر'}),
   location: z.string().min(3, {message: 'الاسم يجب ان يحتوي على 3 حروف على الأقل'}).max(100, {message: 'الاسم يجب ان يحتوي على 100 حروف على الأكثر'}),
-  companyEmail: z.email({message: 'البريد الالكتروني غير صحيح'})
+  companyEmail: z.email({message: 'البريد الالكتروني غير صحيح'}),
+  subscriptionType: z.string().min(3, 'يجب تحديد نوع الاشتراك للشركة حسب المبلغ')
 });
 
 export const CreateCompanyFormSchema = companyFormSchema

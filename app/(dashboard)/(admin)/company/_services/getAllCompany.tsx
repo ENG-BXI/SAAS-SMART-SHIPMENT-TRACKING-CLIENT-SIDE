@@ -3,14 +3,15 @@ import serverAxiosInstance from '@/lib/axios/server';
 import {cacheLife, cacheTag} from 'next/cache';
 import {ICompanyForTable} from '../_interfaces/company-for-table';
 import {IResponseWithPagination} from '@/Interfaces/IResponse-with-pagination';
+import { TSubscriptionStatus } from '@/lib/Constant/enum';
 interface IResponseCompany {
   createdAt: string;
   id: string;
   location: string;
   name: string;
   updatedAt: string;
-  subscriptionStatus: 'active' | 'inactive';
   users: [{email: string}];
+  subscription: {typeId: string; status: TSubscriptionStatus};
   _count: {
     clients: number;
   };
@@ -29,7 +30,9 @@ const GetAllCompany = async ({token, page, search}: {token?: string; page?: numb
       Authorization: `Bearer ${token}`
     }
   });
-  console.log(response.data.data);
+
+
+  console.log("response.data.data",response.data.data);
   const responseData = response.data.data as IResponseWithPagination<IResponseCompany>;
   const data: ICompanyForTable[] = responseData.data.map(company => {
     const companyData: ICompanyForTable = {
@@ -38,7 +41,8 @@ const GetAllCompany = async ({token, page, search}: {token?: string; page?: numb
       location: company.location,
       numberOfClient: company._count.clients,
       companyEmail: company.users[0].email,
-      subscriptionStatus: company.subscriptionStatus
+      subscriptionStatus: company.subscription?.status||'pending',
+      subscriptionType:company.subscription?.typeId||''
     };
     return companyData;
   });

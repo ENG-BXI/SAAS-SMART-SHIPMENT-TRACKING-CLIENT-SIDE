@@ -1,10 +1,9 @@
 import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from '@/components/ui/table';
-import {Badge} from '@/components/ui/badge';
 import {ISubscriptionForTable} from '../_interfaces/subscription-for-table';
 import {TableEmpty} from '@/components/table-empty';
-import {cn, formattedDate} from '@/lib/utils';
-import {SUBSCRIPTION_STATUS, SUBSCRIPTION_TEXT} from '@/lib/Constant/enum';
-
+import TablePopover from '@/components/table-popover';
+import SubscriptionDialog from './subscription-dialog';
+import DeleteSubscriptionDialog from './delete-subscription-dialog';
 interface IAllSubscriptions {
   subscriptions?: ISubscriptionForTable[];
 }
@@ -14,40 +13,38 @@ function AllSubscriptions({subscriptions}: IAllSubscriptions) {
     <Table>
       <TableHeader>
         <TableRow>
-          <TableHead className='text-start'>الشركة</TableHead>
           <TableHead className='text-start'>نوع الباقة</TableHead>
           <TableHead className='text-start'>السعر</TableHead>
-          <TableHead className='text-start'>تاريخ البدء</TableHead>
-          <TableHead className='text-start'>تاريخ الانتهاء</TableHead>
-          <TableHead className='text-start'>حالة الاشتراك</TableHead>
+          <TableHead className='text-start'>عدد الاشهر</TableHead>
+          <TableHead className=''></TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
         {subscriptions && subscriptions.length > 0 ? (
           subscriptions.map(sub => {
+            const isYearly = sub.durationByMonth >= 12;
+            const durationByYear = sub.durationByMonth / 12;
             return (
               <TableRow key={sub.id}>
+                <TableCell className='font-semibold text-gray-900'>{sub.type}</TableCell>
+                <TableCell>{sub.price}</TableCell>
                 <TableCell>
-                  <div className='flex flex-col gap-1'>
-                    <span className='font-semibold text-gray-900'>{sub.companyName}</span>
-                    <span className='text-xs text-gray-500'>{sub.companyLocation}</span>
-                  </div>
+                  {isYearly ? durationByYear : sub.durationByMonth} {isYearly ? 'سنة' : 'شهر'}
                 </TableCell>
-                <TableCell className='capitalize'>{sub.subscriptionType}</TableCell>
-                <TableCell>${sub.price}</TableCell>
-                <TableCell>{formattedDate(sub.startDate)}</TableCell>
-                <TableCell>{formattedDate(sub.endDate)}</TableCell>
                 <TableCell>
-                  <Badge className={cn(sub.status == SUBSCRIPTION_STATUS.ACTIVE && 'bg-green-500', sub.status == SUBSCRIPTION_STATUS.PENDING && 'bg-yellow-500', sub.status == SUBSCRIPTION_STATUS.EXPIRED && 'bg-red-500', sub.status == SUBSCRIPTION_STATUS.INACTIVE && 'bg-gray-500')}>
-                    {SUBSCRIPTION_TEXT[sub.status]}
-                  </Badge>
+                  <TablePopover
+                    items={[
+                      {type: 'dialog', item: <SubscriptionDialog type='edit' id={sub.id} data={{type: sub.type, price: sub.price, durationByMonth: sub.durationByMonth}} />},
+                      {type: 'dialog', item: <DeleteSubscriptionDialog subscriptionId={sub.id} subscriptionType={sub.type} />}
+                    ]}
+                  />
                 </TableCell>
               </TableRow>
             );
           })
         ) : (
           <TableRow>
-            <TableCell colSpan={6}>
+            <TableCell colSpan={4}>
               <TableEmpty />
             </TableCell>
           </TableRow>

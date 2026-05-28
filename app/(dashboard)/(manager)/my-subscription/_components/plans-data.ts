@@ -88,8 +88,7 @@ export const PLANS: Plan[] = [
     buttonText: 'باقتك الحالية',
     badgeText: 'الأفضل للاستمرار',
     badgeStyle: 'bg-[#1B8354]/15 text-[#1B8354] border-[#1B8354]/30'
-  },
-
+  }
 ];
 
 export const FAQS = [
@@ -105,4 +104,11 @@ export const FAQS = [
     q: 'هل توجد رسوم خفية أو عقود طويلة الأجل؟',
     a: 'الواجهة تعرض السعر ونوع الاشتراك كما هما في بيانات الباقة، وأي تفاصيل دفع إضافية تعتمد على إعدادات النظام.'
   }
+];
+
+export const defaultFeatures = [
+  {text: 'دعم فني مباشر للشركات', available: true},
+  {text: 'تقارير يومية ومتابعة للاشتراكات', available: true},
+  {text: 'لوحة تحكم لإدارة المستخدمين والشحنات', available: true},
+  {text: 'ترقية أو تخفيض الباقة بسهولة', available: true}
 ];
