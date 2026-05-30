@@ -25,7 +25,7 @@ function SubscriptionDialog({...props}: SubscriptionDialogProps) {
         ? props.data
         : {
             type: '',
-            price: 0,
+            price: 1,
             durationByMonth: 1
           }
   });
