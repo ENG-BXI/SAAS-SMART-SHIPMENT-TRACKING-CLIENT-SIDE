@@ -34,6 +34,7 @@ export const editCompany = async (id: string, data: IEditCompany) => {
         Authorization: `Bearer ${token}`
       }
     });
+    updateTag('admin-statistics');
     updateTag('admin-companies');
     return {message: response.data.message, data: response.data.data, error: null};
   } catch (error) {

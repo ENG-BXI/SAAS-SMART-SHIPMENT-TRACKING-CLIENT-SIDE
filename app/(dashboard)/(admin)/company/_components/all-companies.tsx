@@ -40,7 +40,8 @@ function AllCompanies({companies}: IAllCompanies) {
                   <TablePopover
                     items={[
                       {type: 'link', text: 'عرض الشركة', link: `/company/${company.id}`},
-                      {type: 'dialog', item: <CompanyDialog type='edit' id={company.id} data={{name: company.name, location: company.location, companyEmail: company.companyEmail}} />},
+                      // TODO : Add Subscription Type
+                      {type: 'dialog', item: <CompanyDialog type='edit' id={company.id} data={{name: company.name, location: company.location, companyEmail: company.companyEmail, subscriptionType: company?.subscriptionType}} />},
                       {
                         type: 'dialog',
                         item: <DeleteCompanyDialog companyId={company.id} companyName={company.name} />

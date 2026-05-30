@@ -1,18 +1,16 @@
 import addUserInfoIntoHeader from '@/lib/add-user-info-into-header';
-import {getUser} from '@/lib/utils';
-import {cookies} from 'next/headers';
 import {NextRequest, NextResponse} from 'next/server';
+import {baseProtectedMiddleWare} from './base-protected-middle-ware';
 
-export async function managerMiddleware(req: NextRequest) {
-  const cookie = await cookies();
-  const token = cookie.get('token')?.value;
-  if (!token) {
-    return NextResponse.redirect(new URL('/unauthorized', req.url));
+export async function managerMiddleware(req: NextRequest, mySubscriptionPath:string) {
+  const user = await baseProtectedMiddleWare(req);
+  if (!user) return;
+  const path = req.nextUrl.pathname.split('/')[1];
+  if (user.status == 'pending' && path != mySubscriptionPath) {
+    return NextResponse.redirect(new URL('/pending', req.url));
   }
-  const user = getUser(token);
-  if (!user) {
-    cookie.delete('token');
-    return NextResponse.redirect(new URL('/login', req.url));
+  if (user.status == 'expired' && path != mySubscriptionPath) {
+    return NextResponse.redirect(new URL('/expire', req.url));
   }
   const res = NextResponse.next();
   addUserInfoIntoHeader(res, user);

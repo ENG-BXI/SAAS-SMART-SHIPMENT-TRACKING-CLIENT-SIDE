@@ -1,5 +1,5 @@
 'use client';
-import {BanknoteIcon, Building2Icon, LogOut, LucideHome, Menu, NotepadText, Settings} from 'lucide-react';
+import {BanknoteIcon, Building2Icon, Loader2, LogOut, LogOutIcon, LucideHome, Menu, NotepadText, Settings} from 'lucide-react';
 import SideBarLogo from './side-bar-logo';
 import SidebarItem, {ISidebarItem} from './sidebar-item';
 import {useIsMobile} from '@/hooks/use-mobile';
@@ -9,22 +9,26 @@ import {enUserRoleForSaasAdmin, UserRoleForSaasAdmin} from '@/lib/Constant/user-
 import {useMe} from '@/services/me';
 import SideBarSkeleton from './side-bar-skeleton';
 import {usePathname} from 'next/navigation';
+import {useTransition} from 'react';
+import {logout} from '@/actions/logout';
+import {toast} from 'sonner';
 const listOfSideBarItem: Record<UserRoleForSaasAdmin, ISidebarItem[]> = {
   [enUserRoleForSaasAdmin.ADMIN]: [
     {text: 'الرئيسية', icon: <LucideHome />, link: '/statistics'},
     {text: 'الشركات', icon: <Building2Icon />, link: '/company'},
     {text: 'الاشتراكات', icon: <BanknoteIcon />, link: '/subscription'},
-    {text: 'الملاحظات', icon: <NotepadText />, link: '/notes'},
-    {text: 'تسجيل الخروج', icon: <LogOut />, link: '/logout'}
+    {text: 'طلبات الاشتراك', icon: <BanknoteIcon />, link: '/subscription-request'},
+    {text: 'الملاحظات', icon: <NotepadText />, link: '/notes'}
   ],
   [enUserRoleForSaasAdmin.MANAGER]: [
     {text: 'الرئيسية', icon: <LucideHome />, link: '/statistics'},
-    {text: 'الشحنات', icon: <Building2Icon />, link: '/shipments'},
-    {text: 'العملاء', icon: <BanknoteIcon />, link: '/clients'},
-    {text: 'المسارات', icon: <NotepadText />, link: '/ways'},
-    {text: 'المستخدمين', icon: <NotepadText />, link: '/users'},
-    {text: 'الملاحظات', icon: <LogOut />, link: '/notes'},
-    {text: 'الاعدادات', icon: <Settings />, link: '/settings'}
+    {text: 'الشحنات', icon: <Building2Icon />, link: '/shipments', canLock: true},
+    {text: 'العملاء', icon: <BanknoteIcon />, link: '/clients', canLock: true},
+    {text: 'المسارات', icon: <NotepadText />, link: '/ways', canLock: true},
+    {text: 'المستخدمين', icon: <NotepadText />, link: '/users', canLock: true},
+    {text: 'اشتراكي', icon: <BanknoteIcon />, link: '/my-subscription', canLock: false},
+    {text: 'الملاحظات', icon: <LogOut />, link: '/notes', canLock: true},
+    {text: 'الاعدادات', icon: <Settings />, link: '/settings', canLock: true}
   ],
   [enUserRoleForSaasAdmin.EMPLOYEE]: [
     {text: 'الرئيسية', icon: <LucideHome />, link: '/statistics'},
@@ -45,7 +49,17 @@ const SideBar = () => {
   const pathName = path.split('/').pop();
   const isSelected = (link?: string) => link?.split('/').pop() === pathName;
   const sideBarData = listOfSideBarItem[user?.role ?? enUserRoleForSaasAdmin.DRIVER];
-
+  const isLock = user?.status == 'pending';
+  const [isPending, startTransition] = useTransition();
+  function handleLogout() {
+    startTransition(async () => {
+      const {message} = await logout();
+      if (message) {
+        toast.success(message);
+        window.location.href = '/';
+      }
+    });
+  }
   return (
     <aside className='min-w-60 bg-[#F9F9F9] py-8 px-4'>
       <SideBarLogo />
@@ -53,8 +67,9 @@ const SideBar = () => {
       {sideBarData.length > 0 && (
         <div className='flex flex-col gap-y-1.5'>
           {sideBarData.map((item, index) => (
-            <SidebarItem key={index} item={{...item, isSelected: isSelected(item.link)}} />
+            <SidebarItem key={index} item={{...item, isSelected: isSelected(item.link), isLock}} />
           ))}
+          <SidebarItem item={{icon: isPending ? <Loader2 className='animate-spin' /> : <LogOutIcon />, text: 'تسجيل الخروج', onClick: handleLogout}} />
         </div>
       )}
       {isError && <p className='text-red-500 text-center'>{error?.message}</p>}

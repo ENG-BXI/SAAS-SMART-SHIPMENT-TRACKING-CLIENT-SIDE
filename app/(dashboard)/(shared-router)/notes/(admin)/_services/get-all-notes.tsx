@@ -19,8 +19,6 @@ const GetAllNotes = async (token?: string, search?: string, page?: string) => {
       Authorization: `Bearer ${token}`
     }
   });
-  console.log(response.data.data);
-
   const data = response.data.data as IResponseWithPagination<INote>;
   return data;
 };

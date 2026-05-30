@@ -10,6 +10,7 @@ const StatisticsAdminPage = async () => {
       <PageDashboardHeader title='الصفحة الرئيسية' description='نظرة عامة على أداء عمليات الشحن، مع إحصائيات مختصرة عن الشحنات الحالية والمتوقفة، عدد العملاء، وعدد المسارات المسجلة.' breadcrumbList={[{text: 'الرئيسية', path: '#'}]} />
       <div className='flex flex-wrap gap-4 mb-5'>
         <CardStat title='عدد الشركات' value={adminStatistics.numberOfCompanies} />
+        <CardStat title='عدد طلبات الاشتراك' value={adminStatistics.numberOfSubscriptionRequest} />
         {/* // TODO: add numberOfVisited From Backend */}
         <CardStat title='عدد الزوار' value='45' />
         <CardStat title='عدد الملاحظات' value={adminStatistics.numberOfNotes} />

@@ -8,6 +8,7 @@ interface ICompanyByMonth {
 interface IResponse {
   numberOfCompanies: number;
   numberOfNotes: number;
+  numberOfSubscriptionRequest: number;
   numberOfWillSubscriptionFinish: number;
   numberOfPausedCompanies: number;
   numberOfCompanyByMonth: ICompanyByMonth[];

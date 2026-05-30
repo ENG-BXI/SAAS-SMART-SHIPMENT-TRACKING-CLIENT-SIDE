@@ -8,7 +8,7 @@ import {FieldGroup} from '@/components/ui/field';
 import CustomButton from '@/components/custom-button';
 import {zodResolver} from '@hookform/resolvers/zod';
 import CustomInput from '@/components/custom-input';
-import CustomSelect, {IOption} from '@/components/custom-select';
+import CustomSelect from '@/components/custom-select';
 import {noteFormData, noteSchema} from '../_schemas/note-schema';
 import {useState, useTransition} from 'react';
 import {CreateNote, UpdateNote} from '../_actions';

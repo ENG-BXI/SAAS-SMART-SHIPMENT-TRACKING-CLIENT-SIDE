@@ -7,6 +7,7 @@ import {Ban, Loader2} from 'lucide-react';
 export interface IOption {
   value: string;
   label: string;
+  additionalInfo?: string;
 }
 interface CustomSelectProps {
   label?: string;
@@ -50,11 +51,14 @@ function CustomSelect({onChange, label, required, value, ref, invalid, errorMess
         </SelectTrigger>
         <SelectContent ref={ref}>
           <SelectItem value='0' disabled>
-            {placeHolder}
+            <div className='w-full'>{placeHolder}</div>
           </SelectItem>
           {options.map(option => (
-            <SelectItem key={option.value} value={option.value}>
-              {option.label}
+            <SelectItem className='cursor-pointer' key={option.value} value={option.value}>
+              <div className='flex w-full justify-between'>
+                <span>{option.label}</span>
+                <span className='text-muted-foreground text-xs'>{option.additionalInfo}</span>
+              </div>
             </SelectItem>
           ))}
         </SelectContent>

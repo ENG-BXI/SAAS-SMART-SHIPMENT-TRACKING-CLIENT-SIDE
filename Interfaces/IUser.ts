@@ -1,3 +1,4 @@
+import { TSubscriptionStatus } from '@/lib/Constant/enum';
 import {UserRoleForSaasAdmin} from '@/lib/Constant/user-role';
 
 export interface IUser {
@@ -5,4 +6,5 @@ export interface IUser {
   email: string;
   companyId: string;
   role: UserRoleForSaasAdmin;
+  status?:TSubscriptionStatus
 }

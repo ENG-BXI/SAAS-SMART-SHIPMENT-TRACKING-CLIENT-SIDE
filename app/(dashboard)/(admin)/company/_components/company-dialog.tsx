@@ -12,8 +12,9 @@ import {CreateCompanyFormSchema, EditCompanyFormSchema} from '../_schemas/compan
 import {FieldGroup} from '@/components/ui/field';
 import {toast} from 'sonner';
 import {useState, useTransition} from 'react';
-import EditCompanyService from '../_services/editCompany';
 import {createCompany, editCompany} from '../_action';
+import CustomSelect from '@/components/custom-select';
+import useGetSubscriptionTypeAsOptions from '../_services/get-all-subscription-type-as-options';
 type ICompanyDialog = {type: 'edit'; id: string; data: ICompany} | {type: 'add'};
 
 function CompanyDialog({...props}: ICompanyDialog) {
@@ -27,9 +28,11 @@ function CompanyDialog({...props}: ICompanyDialog) {
         : {
             companyEmail: '',
             location: '',
-            name: ''
+            name: '',
+            subscriptionType: ''
           }
   });
+  const { data: SubscriptionData, isLoading: isSubscriptionLoading, isError: isSubscriptionError, error: subscriptionError } = useGetSubscriptionTypeAsOptions(open);
   function getTitle() {
     switch (props.type) {
       case 'add':
@@ -110,6 +113,13 @@ function CompanyDialog({...props}: ICompanyDialog) {
               control={form.control}
               render={({field, fieldState}) => {
                 return <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label='اسم الشركة' required placeHolder='مثال: الخط السريع للشحن' />;
+              }}
+            />
+            <Controller
+              control={form.control}
+              name='subscriptionType'
+              render={({field, fieldState: {invalid, error}}) => {
+                return <CustomSelect disabled={isPending} onChange={field.onChange} value={field.value} ref={field.ref} invalid={invalid} isLoading={isSubscriptionLoading} isError={isSubscriptionError} error={subscriptionError?.message} errorMessage={error?.message} placeHolder='اختر باقه الاشتراك' required label='مسار باقه الاشتراك' options={SubscriptionData || []} />;
               }}
             />
             <Controller
