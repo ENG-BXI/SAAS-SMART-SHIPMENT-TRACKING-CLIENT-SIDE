@@ -32,7 +32,6 @@ const GetAllCompany = async ({token, page, search}: {token?: string; page?: numb
   });
 
 
-  console.log("response.data.data",response.data.data);
   const responseData = response.data.data as IResponseWithPagination<IResponseCompany>;
   const data: ICompanyForTable[] = responseData.data.map(company => {
     const companyData: ICompanyForTable = {

@@ -12,8 +12,9 @@ const Page = async () => {
   // TODO : Connection My-Subscription Page in Manager Role With Backend ✅
   // TODO : Return Id Of Subscription Type in Company Table For Edit Subscription Type in Dialog ✅
   // TODO : Subscription Request Added From Landing page and Come To Admin With Pending Status Of Subscription With Bill Of Payment ✅
+  // TODO : Lock Page When Subscription is expire ✅
+  // TODO : Show pending Page When Subscription is Pending ✅
   // TODO : Connect Company Details With Backend
-  // TODO : Lock Page When Subscription is expire
   // TODO : View Alert For Renew Subscription when Subscription in expire
   // TODO : Upload Bill
   // TODO : Client Page For Shipment

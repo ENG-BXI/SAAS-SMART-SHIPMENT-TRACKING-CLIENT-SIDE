@@ -7,7 +7,7 @@ import {cookies} from 'next/headers';
 
 export async function acceptCompany(id: string, typeId: string) {
   const cookie = await cookies();
-  const token = cookie.get('token')?.name;
+  const token = cookie.get('token')?.value;
   const payload = {
     type: typeId
   };

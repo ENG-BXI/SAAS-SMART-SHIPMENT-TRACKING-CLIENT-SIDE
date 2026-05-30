@@ -50,7 +50,7 @@ function SubscriptionRequestCard({company}: ISubscriptionRequestCard) {
       <CardContent className='grid gap-4 sm:grid-cols-2'>
         <div className='rounded-2xl border border-slate-200/80 bg-slate-50 p-4'>
           <p className='text-sm text-muted-foreground'>الباقة المطلوبة</p>
-          <p className='mt-2 text-base font-semibold text-slate-900'>{company.name}</p>
+          <p className='mt-2 text-base font-semibold text-slate-900'>{company.subscription.type.type}</p>
           <p className='mt-4 text-sm text-muted-foreground'>سعر الباقة</p>
           <p className='text-base font-semibold text-slate-900'>{`${company.subscription.type.price} ر.س`}</p>
         </div>
