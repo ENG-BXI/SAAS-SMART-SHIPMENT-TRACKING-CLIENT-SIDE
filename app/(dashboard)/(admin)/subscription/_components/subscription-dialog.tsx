@@ -116,7 +116,7 @@ function SubscriptionDialog({...props}: SubscriptionDialogProps) {
             />
           </FieldGroup>
 
-          <div className='mb-4 rounded-lg border border-[#1B8354]/15 bg-[#F3FCF6] p-3'>
+          <div className='mb-4 rounded-lg border border-custom-primary-color/15 bg-[#F3FCF6] p-3'>
             <div className='flex items-start gap-x-2 text-xs leading-relaxed text-[#085D3A]'>
               <CalendarClock className='mt-0.5 h-4 w-4 shrink-0' />
               <p>مدة الاشتراك تحفظ بالأشهر، مثل 1 للاشتراك الشهري و12 للاشتراك السنوي.</p>
