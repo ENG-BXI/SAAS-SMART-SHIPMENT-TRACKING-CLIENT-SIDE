@@ -4,6 +4,9 @@ import axios from 'axios';
 
 const getMe = async () => {
   const res = await axios.get('/api/me');
+  console.log('====================================');
+  console.log(res.data);
+  console.log('====================================');
   return res.data.data as IUser;
 };
 

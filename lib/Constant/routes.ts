@@ -27,3 +27,4 @@ export const MANAGER_STATISTICS = 'manager-statistics';
 export const ADMIN_STATISTICS = 'admin-statistics';
 export const SUBSCRIPTION = 'subscription';
 export const SUBSCRIPTION_TYPE = 'subscriptionType';
+export const REQUEST_SUBSCRIPTION= 'request-subscription';

@@ -1,34 +1,123 @@
-import Image from 'next/image';
+'use client';
+import CustomButton from '@/components/custom-button';
+import CustomInput from '@/components/custom-input';
+import CustomSelect from '@/components/custom-select';
+import {Card, CardDescription, CardHeader, CardTitle} from '@/components/ui/card';
+import {DialogFooter} from '@/components/ui/dialog';
+import {FieldGroup} from '@/components/ui/field';
+import {Form} from '@/components/ui/form';
+import {zodResolver} from '@hookform/resolvers/zod';
+import {PlusCircle} from 'lucide-react';
+import {Controller, useForm} from 'react-hook-form';
+import z from 'zod';
+import useGetSubscriptionTypeAsOptions from './(dashboard)/(admin)/company/_services/get-all-subscription-type-as-options';
+import {useTransition} from 'react';
+import {toast} from 'sonner';
+import {requestSubscriptionCompany} from '@/actions/request-subscription-company';
+
+const createCompanyFormSchema = z.object({
+  name: z.string().min(3, 'company name must be great than 3 char'),
+  location: z.string().min(3, 'location must be great than 3'),
+  companyEmail: z.email().min(3, 'company email must be great than 3 char'),
+  companyPassword: z.string().min(8, 'password must be great than 8 char').max(100, 'password must be less than 100 char'),
+  confirmPassword: z.string().min(8, 'password must be great than 8 char').max(100, 'password must be less than 100 char'),
+  subscriptionType: z.string().min(1, 'select subscription type')
+  // Upload Bill
+});
+export type createCompanyFormData = z.infer<typeof createCompanyFormSchema>;
 export default function Home() {
-  
+  const [isPending, startTransition] = useTransition();
+
+  const formHook = useForm<createCompanyFormData>({
+    resolver: zodResolver(createCompanyFormSchema),
+    defaultValues: {
+      name: '',
+      location: '',
+      companyEmail: '',
+      companyPassword: '',
+      confirmPassword: '',
+      subscriptionType: ''
+    }
+  });
+  const {data: SubscriptionData, isLoading: isSubscriptionLoading, isError: isSubscriptionError, error: subscriptionError} = useGetSubscriptionTypeAsOptions();
+  function onSubmit(company: createCompanyFormData) {
+    startTransition(async () => {
+      const {error, message} = await requestSubscriptionCompany(company);
+      if (error) toast.error(message);
+      else {
+        toast.success(message);
+        formHook.reset({
+          name: '',
+          location: '',
+          companyEmail: '',
+          companyPassword: '',
+          confirmPassword: ''
+        });
+      }
+    });
+  }
   return (
-    <div className='flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black'>
-      <main className='flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start'>
-        <Image className='dark:invert' src='/next.svg' alt='Next.js logo' width={100} height={20} priority />
-        <div className='flex flex-col items-center gap-6 text-center sm:items-start sm:text-left'>
-          <h1 className='max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50'>To get started, edit the page.tsx file.</h1>
-          <p className='max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400'>
-            Looking for a starting point or more instructions? Head over to{' '}
-            <a href='https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app' className='font-medium text-zinc-950 dark:text-zinc-50'>
-              Templates
-            </a>{' '}
-            or the{' '}
-            <a href='https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app' className='font-medium text-zinc-950 dark:text-zinc-50'>
-              Learning
-            </a>{' '}
-            center.
-          </p>
-        </div>
-        <div className='flex flex-col gap-4 text-base font-medium sm:flex-row'>
-          <a className='flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]' href='https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app' target='_blank' rel='noopener noreferrer'>
-            <Image className='dark:invert' src='/vercel.svg' alt='Vercel logomark' width={16} height={16} />
-            Deploy Now
-          </a>
-          <a className='flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]' href='https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app' target='_blank' rel='noopener noreferrer'>
-            Documentation
-          </a>
-        </div>
-      </main>
+    <div className='w-screen min-h-screen flex flex-col justify-center items-center'>
+      <p>Temp Landing Page For Request Subscription Company </p>
+      <Card className='mt-4 w-xl py-3 px-5'>
+        <CardHeader>
+          <CardTitle>اضافة شركة جديدة</CardTitle>
+          <CardDescription>ارسال طلب لانشاء شركة جديدة لتمكينها من استخدام النظام وإدارة عمليات الشحن الخاصة بها.</CardDescription>
+        </CardHeader>
+        <Form {...formHook}>
+          <form onSubmit={formHook.handleSubmit(onSubmit)}>
+            <FieldGroup className='gap-y-2 mb-3'>
+              <Controller
+                name='name'
+                control={formHook.control}
+                render={({field, fieldState}) => {
+                  return <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label='اسم الشركة' required placeHolder='مثال: الخط السريع للشحن' />;
+                }}
+              />
+              <Controller
+                control={formHook.control}
+                name='subscriptionType'
+                render={({field, fieldState: {invalid, error}}) => {
+                  return <CustomSelect disabled={isPending} onChange={field.onChange} value={field.value} ref={field.ref} invalid={invalid} isLoading={isSubscriptionLoading} isError={isSubscriptionError} error={subscriptionError?.message} errorMessage={error?.message} placeHolder='اختر باقه الاشتراك' required label='مسار باقه الاشتراك' options={SubscriptionData || []} />;
+                }}
+              />
+              <Controller
+                name='location'
+                control={formHook.control}
+                render={({field, fieldState}) => {
+                  return <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label='موقع الشركة' required placeHolder='مثال: الرياض، السعودية' />;
+                }}
+              />
+              <Controller
+                name='companyEmail'
+                control={formHook.control}
+                render={({field, fieldState}) => {
+                  return <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label='ايميل الشركة' required placeHolder='مثال: example@gmail.com' />;
+                }}
+              />
+              <Controller
+                name='companyPassword'
+                control={formHook.control}
+                render={({field, fieldState}) => {
+                  return <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label='كلمة السرة' required placeHolder='***********' />;
+                }}
+              />
+
+              <Controller
+                name='confirmPassword'
+                control={formHook.control}
+                render={({field, fieldState}) => {
+                  return <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label='تاكيد كلمة السرة ' required placeHolder='***********' />;
+                }}
+              />
+            </FieldGroup>
+
+            <DialogFooter>
+              <CustomButton disable={isPending} IsSubmit text={isPending ?'جاري الاضافة':'اضافة'} icon={<PlusCircle />} className='bg-black' />
+            </DialogFooter>
+          </form>
+        </Form>
+      </Card>
     </div>
   );
 }

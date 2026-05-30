@@ -22,13 +22,13 @@ const listOfSideBarItem: Record<UserRoleForSaasAdmin, ISidebarItem[]> = {
   ],
   [enUserRoleForSaasAdmin.MANAGER]: [
     {text: 'الرئيسية', icon: <LucideHome />, link: '/statistics'},
-    {text: 'الشحنات', icon: <Building2Icon />, link: '/shipments'},
-    {text: 'العملاء', icon: <BanknoteIcon />, link: '/clients'},
-    {text: 'المسارات', icon: <NotepadText />, link: '/ways'},
-    {text: 'المستخدمين', icon: <NotepadText />, link: '/users'},
-    {text: 'اشتراكي', icon: <BanknoteIcon />, link: '/my-subscription'},
-    {text: 'الملاحظات', icon: <LogOut />, link: '/notes'},
-    {text: 'الاعدادات', icon: <Settings />, link: '/settings'}
+    {text: 'الشحنات', icon: <Building2Icon />, link: '/shipments', canLock: true},
+    {text: 'العملاء', icon: <BanknoteIcon />, link: '/clients', canLock: true},
+    {text: 'المسارات', icon: <NotepadText />, link: '/ways', canLock: true},
+    {text: 'المستخدمين', icon: <NotepadText />, link: '/users', canLock: true},
+    {text: 'اشتراكي', icon: <BanknoteIcon />, link: '/my-subscription', canLock: false},
+    {text: 'الملاحظات', icon: <LogOut />, link: '/notes', canLock: true},
+    {text: 'الاعدادات', icon: <Settings />, link: '/settings', canLock: true}
   ],
   [enUserRoleForSaasAdmin.EMPLOYEE]: [
     {text: 'الرئيسية', icon: <LucideHome />, link: '/statistics'},
@@ -49,6 +49,7 @@ const SideBar = () => {
   const pathName = path.split('/').pop();
   const isSelected = (link?: string) => link?.split('/').pop() === pathName;
   const sideBarData = listOfSideBarItem[user?.role ?? enUserRoleForSaasAdmin.DRIVER];
+  const isLock = user?.status == 'pending';
   const [isPending, startTransition] = useTransition();
   function handleLogout() {
     startTransition(async () => {
@@ -66,7 +67,7 @@ const SideBar = () => {
       {sideBarData.length > 0 && (
         <div className='flex flex-col gap-y-1.5'>
           {sideBarData.map((item, index) => (
-            <SidebarItem key={index} item={{...item, isSelected: isSelected(item.link)}} />
+            <SidebarItem key={index} item={{...item, isSelected: isSelected(item.link), isLock}} />
           ))}
           <SidebarItem item={{icon: isPending ? <Loader2 className='animate-spin' /> : <LogOutIcon />, text: 'تسجيل الخروج', onClick: handleLogout}} />
         </div>

@@ -1,4 +1,3 @@
-import React from 'react';
 import PageDashboardHeader from '@/components/dashboard/header';
 
 import {FAQS} from './_components/plans-data';
@@ -40,15 +39,6 @@ export default async function MySubscriptionPage() {
 
       <FAQSection faqs={FAQS} />
 
-      {/* <UpgradeDialog 
-        isOpen={showUpgradeModal} 
-        onClose={() => setShowUpgradeModal(false)} 
-        selectedPlan={selectedPlan} 
-        currentPlan={currentPlan} 
-        isSubmitting={isSubmitting} 
-        isSuccess={isSuccess} 
-        onConfirm={handleConfirmUpgrade} 
-      /> */}
     </div>
   );
 }

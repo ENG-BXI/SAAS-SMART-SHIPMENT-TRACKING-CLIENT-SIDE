@@ -103,12 +103,12 @@ export default function PricingPlans({currentPlan,status, plans}: PricingPlansPr
             <div className='p-6 pt-4 mt-auto'>
               <button
                 type='button'
-                disabled={isPending || status=='active'}
+                disabled={isPending || status=='change'||currentPlan==plan.type}
                 onClick={() => {
                   handleOpenUpgrade(plan.id);
                 }}
                 title={status=='change'?'طلبك السابق تحت المراجعه':plan.type}
-                className={`w-full py-2.5 px-4 rounded-xl text-sm font-bold transition-all duration-200 cursor-pointer flex items-center justify-center gap-x-2 ${isCurrent ? 'bg-gray-50 border border-gray-200 text-gray-400 cursor-not-allowed font-medium' : isBest ? 'bg-custom-primary-color text-white hover:bg-[#156742] shadow-sm hover:shadow-md' : 'bg-white border border-gray-200 text-gray-800 hover:bg-gray-50 hover:border-gray-300'} ${status=='change'&&'cursor-not-allowed!'}`}
+                className={`w-full py-2.5 px-4 rounded-xl text-sm font-bold transition-all duration-200 cursor-pointer flex items-center justify-center gap-x-2 ${isCurrent ? 'bg-gray-50 border border-gray-200 text-gray-400 cursor-not-allowed font-medium' : isBest ? 'bg-custom-primary-color text-white hover:bg-[#156742] shadow-sm hover:shadow-md' : 'bg-white border border-gray-200 text-gray-800 hover:bg-gray-50 hover:border-gray-300'} ${'disabled:cursor-not-allowed!'}`}
               >
                 {isCurrent ? (
                   <>

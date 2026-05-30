@@ -20,7 +20,7 @@ const getAllSubscriptionTypeAsOptions = async () => {
   return data;
 };
 
-function useGetSubscriptionTypeAsOptions(enabled: boolean) {
+function useGetSubscriptionTypeAsOptions(enabled = true) {
   return useQuery({
     queryKey: ['subscriptionType'],
     queryFn: getAllSubscriptionTypeAsOptions,
