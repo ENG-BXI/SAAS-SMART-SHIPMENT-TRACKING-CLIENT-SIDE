@@ -18,7 +18,7 @@ const Page = async () => {
   // TODO : Pause and Active Company Subscription ✅
   // TODO : Disable change subscription when Company is Pending ✅
   // TODO : View Alert For Renew Subscription when Subscription in expire ✅
-  // TODO : Calculate Number of Visit
+  // TODO : Calculate Number of Visit ✅
   // TODO : Setting 
   // TODO : Multi Language Top 5 Language
   // TODO : denied Client and Driver to login in Dashboard because have a mobile app for that
@@ -27,6 +27,7 @@ const Page = async () => {
   // TODO : Landing Page for Company Register
   // TODO : Send Email Successful when Accept Subscription
   // TODO : Mobile App For Client And Driver
+  // TODO : Work in Backend and maintenance Auth and Some logic and add Repository Layer
   return (
     <div>
       <PageDashboardHeader

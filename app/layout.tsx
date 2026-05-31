@@ -5,6 +5,7 @@ import ProviderQueryClient from '@/lib/react-query';
 import {Toaster} from '@/components/ui/sonner';
 import React from 'react';
 import NextTopLoader from 'nextjs-toploader';
+import VisitCounterProvider from '@/lib/visit-counter-provider';
 
 const myFont = localFont({
   src: './../public/Fonts/IBMPlexSansArabic-Medium.ttf'
@@ -23,11 +24,13 @@ export default function RootLayout({
   return (
     <html lang='ar' dir='rtl'>
       <body className={`${myFont.className} antialiased`}>
-        <ProviderQueryClient>
-          {children}
-          <Toaster richColors position='top-right' />
-          <NextTopLoader color='#1B8354' height={4} />
-        </ProviderQueryClient>
+        <VisitCounterProvider>
+          <ProviderQueryClient>
+            {children}
+            <Toaster richColors position='top-right' />
+            <NextTopLoader color='#1B8354' height={4} />
+          </ProviderQueryClient>
+        </VisitCounterProvider>
       </body>
     </html>
   );
