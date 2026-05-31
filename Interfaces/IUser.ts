@@ -6,5 +6,6 @@ export interface IUser {
   email: string;
   companyId: string;
   role: UserRoleForSaasAdmin;
-  status?:TSubscriptionStatus
+  status?: TSubscriptionStatus;
+  endSubscriptionDate:string
 }
