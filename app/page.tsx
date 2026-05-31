@@ -78,7 +78,7 @@ export default function Home() {
                 control={formHook.control}
                 name='subscriptionType'
                 render={({field, fieldState: {invalid, error}}) => {
-                  return <CustomSelect disabled={isPending} onChange={field.onChange} value={field.value} ref={field.ref} invalid={invalid} isLoading={isSubscriptionLoading} isError={isSubscriptionError} error={subscriptionError?.message} errorMessage={error?.message} placeHolder='اختر باقه الاشتراك' required label='مسار باقه الاشتراك' options={SubscriptionData || []} />;
+                  return <CustomSelect disabled={isPending} onChange={field.onChange} value={field.value} ref={field.ref} invalid={invalid} isLoading={isSubscriptionLoading} isError={isSubscriptionError} error={subscriptionError?.message} errorMessage={error?.message} placeHolder='اختر باقه الاشتراك' required label='باقه الاشتراك' options={SubscriptionData || []} />;
                 }}
               />
               <Controller

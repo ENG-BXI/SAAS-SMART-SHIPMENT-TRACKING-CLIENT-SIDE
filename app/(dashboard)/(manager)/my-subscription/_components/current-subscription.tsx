@@ -4,7 +4,7 @@ import {CalendarDays, Check, ShieldCheck, X} from 'lucide-react';
 import {SUBSCRIPTION_TEXT, TSubscriptionStatus} from '@/lib/Constant/enum';
 import {cn, formattedDate} from '@/lib/utils';
 import {Progress} from '@/components/ui/progress';
-import { defaultFeatures } from './plans-data';
+import {defaultFeatures} from './plans-data';
 
 interface CurrentSubscriptionProps {
   status: TSubscriptionStatus;
@@ -15,6 +15,7 @@ interface CurrentSubscriptionProps {
 }
 
 export default function CurrentSubscription({status, price, endDate, startDate, isYearly}: CurrentSubscriptionProps) {
+  const isPending = status == 'pending';
   const start = formattedDate(startDate);
   const end = formattedDate(endDate);
   const today = new Date();
@@ -51,8 +52,8 @@ export default function CurrentSubscription({status, price, endDate, startDate, 
 
         <div className='flex flex-wrap gap-4'>
           <CardInfo title='السعر' description='تكلفة الباقة الحالية' value={price} />
-          <CardInfo title='تاريخ البداية' description='بداية فترة الاشتراك' value={start} />
-          <CardInfo title='موعد التجديد' description={remainingDays !== null ? `${remainingDays} يوم متبقي` : 'موعد التجديد غير متاح'} value={end} />
+          <CardInfo title='تاريخ البداية' description='بداية فترة الاشتراك' value={isPending ? 'لم يحدد بعد' : start} />
+          <CardInfo title='موعد التجديد' description={remainingDays !== null && !isPending ? `${remainingDays} يوم متبقي` : 'موعد التجديد غير متاح'} value={isPending ? 'لم يحدد بعد' : end} />
         </div>
 
         <div className='rounded-[28px] border border-slate-200 bg-slate-50 p-6'>
@@ -61,29 +62,31 @@ export default function CurrentSubscription({status, price, endDate, startDate, 
               <p className='text-xs font-semibold uppercase tracking-[0.24em] text-slate-500'>تقدم فترة الاشتراك</p>
               <p className='mt-2 text-sm font-medium text-slate-700'>{progress}% مكتمل</p>
             </div>
-            <div className='rounded-full bg-custom-primary-color/10 px-3 py-1 text-sm font-semibold text-custom-primary-color'>{elapsedDays !== totalDays ? `${elapsedDays}/${totalDays} يوم` : 'غير متاح'}</div>
+            <div className='rounded-full bg-custom-primary-color/10 px-3 py-1 text-sm font-semibold text-custom-primary-color'>{elapsedDays !== totalDays && !isPending ? `${elapsedDays}/${totalDays} يوم` : 'غير متاح'}</div>
           </div>
           <div className='mt-4 h-2 overflow-hidden rounded-full bg-slate-200'>
             <Progress value={progress} className='rotate-180' aria-label='Subscription progress' />
           </div>
         </div>
 
-        <div className='rounded-[28px] border border-slate-200 bg-[#F8FAFD] p-6'>
-          <div className='mb-4 flex items-center gap-3'>
-            <ShieldCheck className='h-5 w-5 text-custom-primary-color' />
-            <h4 className='text-base font-semibold text-slate-900'>مزايا الاشتراك</h4>
+        {!isPending && (
+          <div className='rounded-[28px] border border-slate-200 bg-[#F8FAFD] p-6'>
+            <div className='mb-4 flex items-center gap-3'>
+              <ShieldCheck className='h-5 w-5 text-custom-primary-color' />
+              <h4 className='text-base font-semibold text-slate-900'>مزايا الاشتراك</h4>
+            </div>  
+            <ul className='space-y-3 text-sm text-slate-700'>
+              {defaultFeatures.map((feature, index) => {
+                return (
+                  <li key={index} className='flex gap-3'>
+                    <span className={cn('mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full p-0.5', feature.available ? 'bg-[#D8F5E5] text-custom-primary-color' : 'bg-[#f5d8dc] text-[#831b22]')}>{feature.available ? <Check className='stroke-3' /> : <X />}</span>
+                    {feature.text}
+                  </li>
+                );
+              })}
+            </ul>
           </div>
-          <ul className='space-y-3 text-sm text-slate-700'>
-            {defaultFeatures.map((feature, index) => {
-              return (
-                <li key={index} className='flex gap-3'>
-                  <span className={cn('mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full p-0.5', feature.available ? 'bg-[#D8F5E5] text-custom-primary-color' : 'bg-[#f5d8dc] text-[#831b22]')}>{feature.available ? <Check className='stroke-3' /> : <X />}</span>
-                  {feature.text}
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+        )}
       </div>
     </section>
   );

@@ -12,6 +12,9 @@ export async function managerMiddleware(req: NextRequest, mySubscriptionPath:str
   if (user.status == 'expired' && path != mySubscriptionPath) {
     return NextResponse.redirect(new URL('/expire', req.url));
   }
+  if (user.status == 'inactive' && path !== 'in-active' && path != mySubscriptionPath) {
+    return NextResponse.redirect(new URL('/in-active', req.url));
+  }
   const res = NextResponse.next();
   addUserInfoIntoHeader(res, user);
   return res;

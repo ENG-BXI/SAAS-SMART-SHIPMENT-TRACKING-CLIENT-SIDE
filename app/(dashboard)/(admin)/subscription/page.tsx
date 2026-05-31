@@ -14,8 +14,13 @@ const Page = async () => {
   // TODO : Subscription Request Added From Landing page and Come To Admin With Pending Status Of Subscription With Bill Of Payment ✅
   // TODO : Lock Page When Subscription is expire ✅
   // TODO : Show pending Page When Subscription is Pending ✅
-  // TODO : Connect Company Details With Backend
+  // TODO : Connect Company Details With Backend ✅
+  // TODO : Pause and Active Company Subscription ✅
+  // TODO : Disable change subscription when Company is Pending ✅
   // TODO : View Alert For Renew Subscription when Subscription in expire
+  // TODO : Calculate Number of Visit
+  // TODO : Setting 
+  // TODO : Multi Language
   // TODO : Upload Bill
   // TODO : Client Page For Shipment
   // TODO : Landing Page for Company Register
