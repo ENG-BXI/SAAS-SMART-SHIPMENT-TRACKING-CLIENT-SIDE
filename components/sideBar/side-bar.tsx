@@ -1,6 +1,7 @@
 'use client';
 import {BanknoteIcon, Building2Icon, Loader2, LogOut, LogOutIcon, LucideHome, Menu, NotepadText, Settings} from 'lucide-react';
 import SideBarLogo from './side-bar-logo';
+import Link from 'next/link';
 import SidebarItem, {ISidebarItem} from './sidebar-item';
 import {useIsMobile} from '@/hooks/use-mobile';
 import {Sheet, SheetContent, SheetTrigger} from '../ui/sheet';
@@ -8,10 +9,11 @@ import {Button} from '../ui/button';
 import {enUserRoleForSaasAdmin, UserRoleForSaasAdmin} from '@/lib/Constant/user-role';
 import {useMe} from '@/services/me';
 import SideBarSkeleton from './side-bar-skeleton';
-import {usePathname} from 'next/navigation';
 import {useTransition} from 'react';
 import {logout} from '@/actions/logout';
 import {toast} from 'sonner';
+import AlertForRenewSubscription from './alert-for-renew-subscription';
+import useSidebar from '@/hooks/use-sidebar';
 const listOfSideBarItem: Record<UserRoleForSaasAdmin, ISidebarItem[]> = {
   [enUserRoleForSaasAdmin.ADMIN]: [
     {text: 'الرئيسية', icon: <LucideHome />, link: '/statistics'},
@@ -40,16 +42,10 @@ const listOfSideBarItem: Record<UserRoleForSaasAdmin, ISidebarItem[]> = {
   ],
   [enUserRoleForSaasAdmin.DRIVER]: []
 };
+
 const SideBar = () => {
-  // TODO :
-  // optimize this code
-  // Error active link in nested routes
-  const path = usePathname();
-  const {data: user, isError, isLoading, error} = useMe();
-  const pathName = path.split('/').pop();
-  const isSelected = (link?: string) => link?.split('/').pop() === pathName;
+  const {isLoading, isSelected, user, isSubscriptionEnd, isError, error, isLock} = useSidebar();
   const sideBarData = listOfSideBarItem[user?.role ?? enUserRoleForSaasAdmin.DRIVER];
-  const isLock = user?.status == 'pending' || user?.status == 'inactive';
   const [isPending, startTransition] = useTransition();
   function handleLogout() {
     startTransition(async () => {
@@ -61,7 +57,7 @@ const SideBar = () => {
     });
   }
   return (
-    <aside className='min-w-60 bg-[#F9F9F9] py-8 px-4'>
+    <aside className='min-w-60 relative bg-[#F9F9F9] py-8 px-4'>
       <SideBarLogo />
       {isLoading && <SideBarSkeleton />}
       {sideBarData.length > 0 && (
@@ -72,10 +68,12 @@ const SideBar = () => {
           <SidebarItem item={{icon: isPending ? <Loader2 className='animate-spin' /> : <LogOutIcon />, text: 'تسجيل الخروج', onClick: handleLogout}} />
         </div>
       )}
+      {isSubscriptionEnd && <AlertForRenewSubscription />}
       {isError && <p className='text-red-500 text-center'>{error?.message}</p>}
     </aside>
   );
 };
+
 function AppSideBarClient() {
   const isMobile = useIsMobile();
   if (isMobile) {
