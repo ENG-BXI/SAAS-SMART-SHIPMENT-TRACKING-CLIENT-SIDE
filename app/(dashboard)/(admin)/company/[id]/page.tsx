@@ -1,38 +1,36 @@
 import PageDashboardHeader from '@/components/dashboard/header';
 import CustomButton from '@/components/custom-button';
 import {StopCircle} from 'lucide-react';
-import {ICompanyWithSubscription} from '../_interfaces/company-with-subscription';
 import CompanyForm from '../_components/company-form';
+import GetCompanyInfo from './_services/get-company-info';
+import {cookies} from 'next/headers';
+import HeaderActions from './_components/header-actions';
 
-const company: ICompanyWithSubscription = {
-  name: 'شركة الامتياز الاول',
-  location: 'الرياض، السعودية',
-  numberOfClient: '245',
-  companyEmail: 'info@fasttrack.sa',
-  subscriptionStatus: 'active',
-  subscriptionType: 'basic',
-  subscriptionStartDate: '2022-01-01',
-  subscriptionEndDate: '2022-12-31',
-  subscriptionImage: 'https://via.placeholder.com/150'
-};
-
-const Page = () => {
+interface PageProps {
+  params: Promise<{id: string}>;
+}
+const Page = async ({params}: PageProps) => {
+  const {id} = await params;
+  const cookie = await cookies();
+  const token = cookie.get('token')?.value;
+  const companyInfo = await GetCompanyInfo({id, token});
   return (
     <div>
       <PageDashboardHeader
-        title={`تفاصيل ${company.name}`}
-        description={`تفاصيل ${company.name}`}
+        title={`تفاصيل ${companyInfo.name}`}
+        description={`تفاصيل ${companyInfo.name}`}
         breadcrumbList={[
           {text: 'الرئيسية', path: '/admin'},
           {text: 'الشركات', path: '/admin/company'},
-          {text: `تفاصيل ${company.name}`, path: '#'}
+          {text: `تفاصيل ${companyInfo.name}`, path: '#'}
         ]}
         hasAction
-        actions={<CustomButton text='توقيف اشتراك الشركة' type='danger' icon={<StopCircle className='' />} />}
+        actions={<HeaderActions id={id} status={companyInfo.subscriptionStatus} />}
       />
-      <CompanyForm company={company} />
+      <CompanyForm company={companyInfo} />
     </div>
   );
 };
 
 export default Page;
+

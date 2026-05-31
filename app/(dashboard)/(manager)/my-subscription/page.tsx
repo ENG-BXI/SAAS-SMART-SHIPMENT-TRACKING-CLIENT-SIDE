@@ -16,6 +16,9 @@ export default async function MySubscriptionPage() {
   const isYearly = subscriptionInfo.type.durationByMonth >= 12;
   const startDate = formattedDate(subscriptionInfo.startDate);
   const endDate = formattedDate(subscriptionInfo.endDate);
+  const isPending = subscriptionInfo.status == 'pending';
+  const isInActive = subscriptionInfo.status == 'inactive';
+
   return (
     <div className='w-full pb-10 font-sans' dir='rtl'>
       <PageDashboardHeader
@@ -30,15 +33,17 @@ export default async function MySubscriptionPage() {
 
       <CurrentSubscription startDate={startDate} endDate={endDate} price={subscriptionInfo.type.price} status={subscriptionInfo.status} isYearly={isYearly} />
 
-      <div className='mb-6 flex flex-col gap-1 border-b pb-4'>
-        <h3 className='text-lg font-semibold text-gray-900'>الباقات والخطط المتاحة</h3>
-        <p className='text-muted-foreground text-sm'>راجع الباقات المتاحة لشركتك مع معلومات أوضح عن المزايا وفترات الاشتراك لتسهيل اختيار الأنسب.</p>
-      </div>
+      {!isPending && !isInActive && (
+        <>
+          <div className='mb-6 flex flex-col gap-1 border-b pb-4'>
+            <h3 className='text-lg font-semibold text-gray-900'>الباقات والخطط المتاحة</h3>
+            <p className='text-muted-foreground text-sm'>راجع الباقات المتاحة لشركتك مع معلومات أوضح عن المزايا وفترات الاشتراك لتسهيل اختيار الأنسب.</p>
+          </div>
 
-      <PricingPlans currentPlan={subscriptionInfo.type.type} status={subscriptionInfo.status} plans={subscription} />
-
+          <PricingPlans currentPlan={subscriptionInfo.type.type} status={subscriptionInfo.status} plans={subscription} />
+        </>
+      )}
       <FAQSection faqs={FAQS} />
-
     </div>
   );
 }

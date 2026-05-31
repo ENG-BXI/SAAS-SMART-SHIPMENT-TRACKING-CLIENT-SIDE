@@ -98,7 +98,7 @@ function UserDialog(props: UserDialogProps) {
         </DialogHeader>
         <form onSubmit={handleSubmit(onSubmit)}>
           <FieldGroup className='gap-y-2'>
-            <Controller control={control} name='name' render={({field, fieldState: {invalid, error}}) => <CustomInput type='controller' disabled={isPending} field={field} error={error} invalid={invalid} required hasLabel label='اسم العميل' placeHolder='ادخل اسم العميل' />} />
+            <Controller control={control} name='name' render={({field, fieldState: {invalid, error}}) => <CustomInput type='controller' disabled={isPending} field={field} error={error} invalid={invalid} required hasLabel label='اسم المستخدم' placeHolder='ادخل اسم العميل' />} />
             <Controller control={control} name='email' render={({field, fieldState: {invalid, error}}) => <CustomInput type='controller' disabled={isPending} field={field} error={error} invalid={invalid} required hasLabel label='البريد الالكتروني' placeHolder='ادخل البريد الالكتروني' />} />
             <Controller control={control} name='password' render={({field, fieldState: {invalid, error}}) => <CustomInput type='controller' disabled={isPending} field={field} error={error} invalid={invalid} required hasLabel label='كلمة المرور' placeHolder='ادخل كلمة المرور' />} />
             <Controller

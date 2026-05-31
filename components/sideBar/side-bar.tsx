@@ -49,7 +49,7 @@ const SideBar = () => {
   const pathName = path.split('/').pop();
   const isSelected = (link?: string) => link?.split('/').pop() === pathName;
   const sideBarData = listOfSideBarItem[user?.role ?? enUserRoleForSaasAdmin.DRIVER];
-  const isLock = user?.status == 'pending';
+  const isLock = user?.status == 'pending' || user?.status == 'inactive';
   const [isPending, startTransition] = useTransition();
   function handleLogout() {
     startTransition(async () => {

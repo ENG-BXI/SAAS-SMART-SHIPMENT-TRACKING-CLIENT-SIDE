@@ -14,6 +14,9 @@ export async function manager_employee_sharedMiddleware(req: NextRequest) {
   if (user.status == 'expired') {
     return NextResponse.redirect(new URL('/expire', req.url));
   }
+  if (user.status == 'inactive') {
+    return NextResponse.redirect(new URL('/in-active', req.url));
+  }
   const res = NextResponse.next();
   addUserInfoIntoHeader(res, user);
   return res;

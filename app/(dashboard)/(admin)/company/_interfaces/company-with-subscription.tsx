@@ -1,8 +1,9 @@
+import {TSubscriptionStatus} from '@/lib/Constant/enum';
 import {ICompany} from './company';
 
 export interface ICompanyWithSubscription extends ICompany {
-  numberOfClient: string;
-  subscriptionStatus: string;
+  numberOfClient: number;
+  subscriptionStatus: TSubscriptionStatus;
   subscriptionType: string;
   subscriptionStartDate: string;
   subscriptionEndDate: string;

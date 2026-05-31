@@ -3,7 +3,6 @@ import {twMerge} from 'tailwind-merge';
 import jwt from 'jsonwebtoken';
 import CONFIG from '@/lib/config';
 import { IUser } from '@/Interfaces/IUser';
-import Cookies from 'universal-cookie'
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
@@ -21,8 +20,6 @@ export function getUser(token: string) {
     }
     return userDecoded as IUser;
   } catch (error) {
-    const cookie = new Cookies();
-    cookie.remove('token');
     console.log(error);
     return null;
   }

@@ -3,6 +3,7 @@ import {Separator} from '@/components/ui/separator';
 import CustomInputWithLabelForViewPage from '@/components/custom-input-with-label-for-view-page';
 import {ICompanyWithSubscription} from '../_interfaces/company-with-subscription';
 import UploadImage from '../[id]/_components/UploadImage';
+import { formattedDate } from '@/lib/utils';
 function CompanyForm({company}: {company: ICompanyWithSubscription}) {
   return (
     <Card className=''>
@@ -21,9 +22,9 @@ function CompanyForm({company}: {company: ICompanyWithSubscription}) {
         <h3>معلومات الاشتراك</h3>
         <CustomInputWithLabelForViewPage label='نوع الاشتراك' value={company.subscriptionType} />
         <Separator />
-        <CustomInputWithLabelForViewPage label='بداية الاشتراك' value={company.subscriptionStartDate} />
+        <CustomInputWithLabelForViewPage label='بداية الاشتراك' value={formattedDate(company.subscriptionStartDate)} />
         <Separator />
-        <CustomInputWithLabelForViewPage label='نهاية الاشتراك' value={company.subscriptionEndDate} />
+        <CustomInputWithLabelForViewPage label='نهاية الاشتراك' value={formattedDate(company.subscriptionEndDate)} />
         <Separator />
         <UploadImage />
       </CardContent>
