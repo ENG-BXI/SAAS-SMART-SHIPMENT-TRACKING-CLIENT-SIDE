@@ -8,6 +8,7 @@ interface ICompanyByMonth {
 interface IResponse {
   numberOfCompanies: number;
   numberOfNotes: number;
+  numberOfVisited: number;
   numberOfSubscriptionRequest: number;
   numberOfWillSubscriptionFinish: number;
   numberOfPausedCompanies: number;
@@ -15,7 +16,7 @@ interface IResponse {
 }
 export const GetAdminStatistics = async () => {
   'use cache';
-  cacheLife('days');
+  cacheLife('hours');
   cacheTag('admin-statistics');
   const response = await serverAxiosInstance.get(`${STATISTICS}/${ADMIN_STATISTICS}`);
   const data = response.data.data as IResponse;

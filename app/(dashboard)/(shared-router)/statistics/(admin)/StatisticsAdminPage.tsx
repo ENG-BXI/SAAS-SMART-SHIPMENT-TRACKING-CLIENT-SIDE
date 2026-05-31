@@ -11,8 +11,7 @@ const StatisticsAdminPage = async () => {
       <div className='flex flex-wrap gap-4 mb-5'>
         <CardStat title='عدد الشركات' value={adminStatistics.numberOfCompanies} />
         <CardStat title='عدد طلبات الاشتراك' value={adminStatistics.numberOfSubscriptionRequest} />
-        {/* // TODO: add numberOfVisited From Backend */}
-        <CardStat title='عدد الزوار' value='45' />
+        <CardStat title='عدد الزوار' value={adminStatistics.numberOfVisited} />
         <CardStat title='عدد الملاحظات' value={adminStatistics.numberOfNotes} />
         <CardStat title='الشركات التي شارفت على الانتهاء' value={adminStatistics.numberOfWillSubscriptionFinish} />
         <CardStat title='عدد الشركات المتوقفة' value={adminStatistics.numberOfPausedCompanies} />
