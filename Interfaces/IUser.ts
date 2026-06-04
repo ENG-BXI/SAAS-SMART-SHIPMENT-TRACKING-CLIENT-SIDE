@@ -3,9 +3,10 @@ import {UserRoleForSaasAdmin} from '@/lib/Constant/user-role';
 
 export interface IUser {
   id: string;
+  name: string;
   email: string;
   companyId: string;
   role: UserRoleForSaasAdmin;
   status?: TSubscriptionStatus;
-  endSubscriptionDate:string
+  endSubscriptionDate: string;
 }

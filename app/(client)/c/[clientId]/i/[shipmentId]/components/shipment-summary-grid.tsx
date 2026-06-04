@@ -1,10 +1,32 @@
-import { Badge } from '@/components/ui/badge';
+import {Badge} from '@/components/ui/badge';
 import {Card, CardContent, CardHeader, CardTitle} from '@/components/ui/card';
 import {Progress} from '@/components/ui/progress';
 import {Clock, MapPin, Package, Truck} from 'lucide-react';
-import {progressValue, remainingPoints, shipment, contactLabel} from './shipment-data';
-
-export default function ShipmentSummaryGrid() {
+import { contactLabel } from './shipment-data';
+interface IShipmentItem {
+  name: string;
+  quantity: number;
+  isBreakable: boolean;
+}
+interface IContactWays {
+  text: string;
+  contactType: string;
+  isPrimary: boolean;
+}
+interface ShipmentSummaryGridProps {
+  companyName: string;
+  firstPoint: string;
+  lastPoint: string;
+  currentPoint: string;
+  progress: number;
+  remainingPoints: number;
+  shipmentItem: IShipmentItem[];
+  clientNameAndContactWay: {
+    name: string;
+    contactWays: IContactWays[];
+  };
+}
+export default function ShipmentSummaryGrid({clientNameAndContactWay, companyName, currentPoint, firstPoint, lastPoint, progress, remainingPoints, shipmentItem}: ShipmentSummaryGridProps) {
   return (
     <div className='grid gap-6'>
       <Card>
@@ -20,21 +42,21 @@ export default function ShipmentSummaryGrid() {
                 </span>
                 <div>
                   <p className='text-sm text-slate-500'>الشركة الناقلة</p>
-                  <p className='mt-1 text-lg font-semibold text-slate-950'>{shipment.company.name}</p>
+                  <p className='mt-1 text-lg font-semibold text-slate-950'>{companyName}</p>
                 </div>
               </div>
               <div className='mt-6 space-y-3 rounded-3xl bg-slate-50 p-4'>
                 <div className='flex items-center justify-between text-sm text-slate-500'>
                   <span>من</span>
-                  <span className='font-semibold text-slate-950'>{shipment.route.from}</span>
+                  <span className='font-semibold text-slate-950'>{firstPoint}</span>
                 </div>
                 <div className='flex items-center justify-between text-sm text-slate-500'>
                   <span>إلى</span>
-                  <span className='font-semibold text-slate-950'>{shipment.route.to}</span>
+                  <span className='font-semibold text-slate-950'>{lastPoint}</span>
                 </div>
                 <div className='flex items-center justify-between text-sm text-slate-500'>
                   <span>المسافة</span>
-                  <span className='font-semibold text-slate-950'>{shipment.route.estimatedDistance}</span>
+                  <span className='font-semibold text-slate-950'>shipment.route.estimatedDistance</span>
                 </div>
               </div>
             </div>
@@ -43,14 +65,14 @@ export default function ShipmentSummaryGrid() {
               <div className='flex items-center justify-between gap-3'>
                 <div>
                   <p className='text-sm text-slate-500'>آخر نقطة</p>
-                  <p className='mt-1 text-lg font-semibold text-slate-950'>{shipment.currentPoint.name}</p>
+                  <p className='mt-1 text-lg font-semibold text-slate-950'>{currentPoint}</p>
                 </div>
                 <MapPin className='h-5 w-5 text-green-600' />
               </div>
               <div className='mt-6 rounded-3xl bg-slate-50 p-4 text-sm text-slate-500'>
                 <div className='flex items-center justify-between'>
                   <span>الوصول المتوقع</span>
-                  <span className='font-semibold text-slate-950'>{shipment.route.eta}</span>
+                  <span className='font-semibold text-slate-950'>shipment.route.eta</span>
                 </div>
               </div>
             </div>
@@ -61,14 +83,14 @@ export default function ShipmentSummaryGrid() {
               <div className='flex items-center justify-between gap-3'>
                 <div>
                   <p className='text-sm text-slate-500'>تقدم الرحلة</p>
-                  <p className='mt-1 text-2xl font-semibold text-slate-950'>{progressValue}%</p>
+                  <p className='mt-1 text-2xl font-semibold text-slate-950'>{progress}%</p>
                 </div>
                 <span className='flex h-12 w-12 items-center justify-center rounded-2xl bg-green-50 text-green-700'>
                   <Clock className='h-5 w-5' />
                 </span>
               </div>
               <div className='mt-5'>
-                <Progress value={progressValue} />
+                <Progress value={progress} />
               </div>
               <div className='mt-5 grid gap-3 rounded-3xl bg-slate-50 p-4'>
                 <div className='flex items-center justify-between text-sm text-slate-500'>
@@ -77,7 +99,7 @@ export default function ShipmentSummaryGrid() {
                 </div>
                 <div className='flex items-center justify-between text-sm text-slate-500'>
                   <span>عدد الأغراض</span>
-                  <span className='font-semibold text-slate-950'>{shipment.items.length}</span>
+                  <span className='font-semibold text-slate-950'>{shipmentItem.length}</span>
                 </div>
               </div>
             </div>
@@ -86,12 +108,12 @@ export default function ShipmentSummaryGrid() {
               <div className='flex items-center justify-between gap-3'>
                 <div>
                   <p className='text-sm text-slate-500'>معلومات العميل</p>
-                  <p className='mt-1 text-lg font-semibold text-slate-950'>{shipment.client.name}</p>
+                  <p className='mt-1 text-lg font-semibold text-slate-950'>{clientNameAndContactWay.name}</p>
                 </div>
                 <Truck className='h-5 w-5 text-green-600' />
               </div>
               <div className='mt-6 space-y-3'>
-                {shipment.client.contactWays.map(contact => (
+                {clientNameAndContactWay.contactWays.map(contact => (
                   <div key={contact.text} className='flex items-center justify-between rounded-3xl bg-slate-50 px-4 py-3 text-sm text-slate-500'>
                     <span>{contactLabel(contact.contactType)}</span>
                     <span className='font-semibold text-slate-950'>{contact.text}</span>
