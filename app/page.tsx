@@ -1,123 +1,78 @@
-'use client';
-import CustomButton from '@/components/custom-button';
-import CustomInput from '@/components/custom-input';
-import CustomSelect from '@/components/custom-select';
-import {Card, CardDescription, CardHeader, CardTitle} from '@/components/ui/card';
-import {DialogFooter} from '@/components/ui/dialog';
-import {FieldGroup} from '@/components/ui/field';
-import {Form} from '@/components/ui/form';
-import {zodResolver} from '@hookform/resolvers/zod';
-import {PlusCircle} from 'lucide-react';
-import {Controller, useForm} from 'react-hook-form';
-import z from 'zod';
-import useGetSubscriptionTypeAsOptions from './(dashboard)/(admin)/company/_services/get-all-subscription-type-as-options';
-import {useTransition} from 'react';
-import {toast} from 'sonner';
-import {requestSubscriptionCompany} from '@/actions/request-subscription-company';
+import About from '@/components/landing/about';
+import Hero from '@/components/landing/hero';
+import RegisterCompanyForm from '@/components/landing/register-company-form';
+import Services from '@/components/landing/services';
+import TrackSection from '@/components/landing/track-section';
+import {IconCheck} from '@tabler/icons-react';
 
-const createCompanyFormSchema = z.object({
-  name: z.string().min(3, 'company name must be great than 3 char'),
-  location: z.string().min(3, 'location must be great than 3'),
-  companyEmail: z.email().min(3, 'company email must be great than 3 char'),
-  companyPassword: z.string().min(8, 'password must be great than 8 char').max(100, 'password must be less than 100 char'),
-  confirmPassword: z.string().min(8, 'password must be great than 8 char').max(100, 'password must be less than 100 char'),
-  subscriptionType: z.string().min(1, 'select subscription type')
-  // Upload Bill
-});
-export type createCompanyFormData = z.infer<typeof createCompanyFormSchema>;
 export default function Home() {
-  const [isPending, startTransition] = useTransition();
-
-  const formHook = useForm<createCompanyFormData>({
-    resolver: zodResolver(createCompanyFormSchema),
-    defaultValues: {
-      name: '',
-      location: '',
-      companyEmail: '',
-      companyPassword: '',
-      confirmPassword: '',
-      subscriptionType: ''
-    }
-  });
-  const {data: SubscriptionData, isLoading: isSubscriptionLoading, isError: isSubscriptionError, error: subscriptionError} = useGetSubscriptionTypeAsOptions();
-  function onSubmit(company: createCompanyFormData) {
-    startTransition(async () => {
-      const {error, message} = await requestSubscriptionCompany(company);
-      if (error) toast.error(message);
-      else {
-        toast.success(message);
-        formHook.reset({
-          name: '',
-          location: '',
-          companyEmail: '',
-          companyPassword: '',
-          confirmPassword: ''
-        });
-      }
-    });
-  }
   return (
-    <div className='w-screen min-h-screen flex flex-col justify-center items-center'>
-      <p>Temp Landing Page For Request Subscription Company </p>
-      <Card className='mt-4 w-xl py-3 px-5'>
-        <CardHeader>
-          <CardTitle>اضافة شركة جديدة</CardTitle>
-          <CardDescription>ارسال طلب لانشاء شركة جديدة لتمكينها من استخدام النظام وإدارة عمليات الشحن الخاصة بها.</CardDescription>
-        </CardHeader>
-        <Form {...formHook}>
-          <form onSubmit={formHook.handleSubmit(onSubmit)}>
-            <FieldGroup className='gap-y-2 mb-3'>
-              <Controller
-                name='name'
-                control={formHook.control}
-                render={({field, fieldState}) => {
-                  return <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label='اسم الشركة' required placeHolder='مثال: الخط السريع للشحن' />;
-                }}
-              />
-              <Controller
-                control={formHook.control}
-                name='subscriptionType'
-                render={({field, fieldState: {invalid, error}}) => {
-                  return <CustomSelect disabled={isPending} onChange={field.onChange} value={field.value} ref={field.ref} invalid={invalid} isLoading={isSubscriptionLoading} isError={isSubscriptionError} error={subscriptionError?.message} errorMessage={error?.message} placeHolder='اختر باقه الاشتراك' required label='باقه الاشتراك' options={SubscriptionData || []} />;
-                }}
-              />
-              <Controller
-                name='location'
-                control={formHook.control}
-                render={({field, fieldState}) => {
-                  return <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label='موقع الشركة' required placeHolder='مثال: الرياض، السعودية' />;
-                }}
-              />
-              <Controller
-                name='companyEmail'
-                control={formHook.control}
-                render={({field, fieldState}) => {
-                  return <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label='ايميل الشركة' required placeHolder='مثال: example@gmail.com' />;
-                }}
-              />
-              <Controller
-                name='companyPassword'
-                control={formHook.control}
-                render={({field, fieldState}) => {
-                  return <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label='كلمة السرة' required placeHolder='***********' />;
-                }}
-              />
+    <div className='m-3 min-h-screen overflow-x-hidden'>
+      <Hero />
+      <About />
+      <Services />
+      <TrackSection />
+      <WhyChooseUs />
+      <RegisterCompanyForm />
+    </div>
+  );
+}
 
-              <Controller
-                name='confirmPassword'
-                control={formHook.control}
-                render={({field, fieldState}) => {
-                  return <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label='تاكيد كلمة السرة ' required placeHolder='***********' />;
-                }}
-              />
-            </FieldGroup>
+interface WhyChooseUsItem {
+  title: string;
+  description: string;
+}
+const listOfWhyItems: WhyChooseUsItem[] = [
+  {
+    title: 'Experienced Logistics',
+    description: 'Our specialists bring decades of experience in freight forwarding and customs clearance, ensuring smooth and efficient supply chain solutions worldwide.'
+  },
+  {
+    title: 'Fast Delivery Commitment',
+    description: 'We understand the urgency of every shipment and act quickly. Optimized routes and tracking technology ensure timely deliveries without unnecessary delays.'
+  },
+  {
+    title: 'Transparent Pricing Policy',
+    description: 'Our pricing is clear, competitive, and easy to understand for all clients. We guarantee no hidden charges and complete financial transparency every time.'
+  },
+  {
+    title: 'Reliable Cargo Handling',
+    description: 'Every shipment is managed with precision and care to avoid risks. From packing to loading, we guarantee your cargo arrives safely and intact.'
+  },
+  {
+    title: 'Comprehensive Solutions',
+    description: 'We cover every step of logistics including warehousing, distribution, and freight. Our integrated services make supply chain management simple and efficient.'
+  },
+  {
+    title: 'Satisfaction Guarantee',
+    description: 'Your trust is our highest priority across all shipments. We back our services with responsive support and a strong customer satisfaction guarantee.'
+  }
+];
 
-            <DialogFooter>
-              <CustomButton disable={isPending} IsSubmit text={isPending ?'جاري الاضافة':'اضافة'} icon={<PlusCircle />} className='bg-black' />
-            </DialogFooter>
-          </form>
-        </Form>
-      </Card>
+function WhyChooseUs() {
+  return (
+    <div className='flex flex-col items-center mt-20'>
+      <p className='text-custom-primary-color text-xl mb-2'>Why Choose Us</p>
+      <h2 className='section__title'>Trusted Logistics Partner for Worldwide Shipping</h2>
+      <div dir='ltr' className='flex flex-wrap justify-center gap-x-10 gap-y-20 mt-10'>
+        {listOfWhyItems.map(item => (
+          <WhyChooseUsItem key={item.title} {...item} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function WhyChooseUsItem({title, description}: WhyChooseUsItem) {
+  return (
+    <div className='flex gap-x-6'>
+      <div className='bg-black size-20 rounded-2xl flex justify-center items-center'>
+        <IconCheck className='text-white size-10' />
+      </div>
+      <div className='w-75'>
+        <h3 className='text-xl mb-3'>{title}</h3>
+        <p className='text-muted-foreground text-lg'>{description}</p>
+      </div>
     </div>
   );
 }
