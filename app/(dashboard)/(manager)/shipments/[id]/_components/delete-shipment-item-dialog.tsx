@@ -6,12 +6,13 @@ import {toast} from 'sonner';
 
 interface DeleteShipmentItemDialogProps {
   id: string;
+  shipmentId: string;
 }
-const DeleteShipmentItemDialog = ({id}: DeleteShipmentItemDialogProps) => {
+const DeleteShipmentItemDialog = ({id, shipmentId}: DeleteShipmentItemDialogProps) => {
   const [isPending, startTransition] = useTransition();
   function handleOnDelete() {
     startTransition(async () => {
-      const {error, message} = await DeleteShipmentItem(id);
+      const {error, message} = await DeleteShipmentItem(shipmentId, id);
       if (error) {
         toast.error(message);
       } else {

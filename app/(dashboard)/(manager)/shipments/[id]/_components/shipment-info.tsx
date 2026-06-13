@@ -14,7 +14,7 @@ async function ShipmentInfo({id}: {id: string}) {
       <ShipmentDetailsInfo title='تاريخ الوصول' value={data.endDate ? formattedDate(data.endDate) : 'لم تصل بعد'} />
       <ShipmentDetailsInfo title='المسار' value={data.way.name} />
       <ShipmentDetailsInfo title='عدد العملاء' value={data.clients} />
-      <ShipmentDetailsInfo title='عدد الاغراض' value={'Temp Data'} />
+      <ShipmentDetailsInfo title='عدد الاغراض' value={data.shipmentItem} />
       <ShipmentDetailsInfo title='النقطة الحالية' value={data.currentPoint.name || '---'} />
     </div>
   );

@@ -100,7 +100,7 @@ function RegisterCompanyForm() {
               name='companyPassword'
               control={formHook.control}
               render={({field, fieldState}) => {
-                return <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label='كلمة السرة' required placeHolder='***********' />;
+                return <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label='كلمة السر' required placeHolder='***********' />;
               }}
             />
 
@@ -108,7 +108,7 @@ function RegisterCompanyForm() {
               name='confirmPassword'
               control={formHook.control}
               render={({field, fieldState}) => {
-                return <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label='تاكيد كلمة السرة ' required placeHolder='***********' />;
+                return <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label='تاكيد كلمة السر ' required placeHolder='***********' />;
               }}
             />
           </FieldGroup>

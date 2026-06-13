@@ -53,7 +53,6 @@ function ShipmentItemDialog(props: ShipmentItemDialogProps) {
     }
   });
   function onSubmit(data: shipmentItemFormData) {
-    console.log(data);
     if (props.type == 'add') {
       startTransition(async () => {
         if (!props.shipmentId) return;
@@ -68,7 +67,7 @@ function ShipmentItemDialog(props: ShipmentItemDialogProps) {
       });
     } else {
       startTransition(async () => {
-        const {message, error} = await UpdateShipmentItem(props.id!, data);
+        const {message, error} = await UpdateShipmentItem(props.shipmentId!,props.id!, data);
         if (error) toast.error(message);
         else {
           toast.success(message);

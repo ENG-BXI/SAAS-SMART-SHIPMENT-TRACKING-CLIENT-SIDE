@@ -121,7 +121,7 @@ function WayDialog(props: WayDialogProps) {
         </DialogHeader>
         <form onSubmit={handleSubmit(onSubmit)}>
           <FieldGroup className='gap-y-2'>
-            <Controller control={control} name='name' render={({field, fieldState: {invalid, error}}) => <CustomInput disabled={isPending} type='controller' field={field} error={error} invalid={invalid} required hasLabel label='اسم الخط' placeHolder='ادخل اسم العميل' />} />
+            <Controller control={control} name='name' render={({field, fieldState: {invalid, error}}) => <CustomInput disabled={isPending} type='controller' field={field} error={error} invalid={invalid} required hasLabel label='اسم الخط' placeHolder='ادخل اسم الخط مثلا (خط المكلا - دبي)' />} />
             <ReorderList withDragHandle onReorderFinish={handleReorderFinish} itemClassName='rounded-lg'>
               {fields.map((field, index) => (
                 <div key={field.id} data-id={field.id} className='flex items-end gap-x-2'>
@@ -133,7 +133,7 @@ function WayDialog(props: WayDialogProps) {
                 </div>
               ))}
             </ReorderList>
-            <CustomButton disable={isPending} text='اضافة غرض' icon={<PlusCircle className='min-w-5 min-h-5' />} onClick={() => append({name: '', order: fields.length + 1})} className='bg-black text-white' />
+            <CustomButton disable={isPending} text='اضافة نفطة جديدة' icon={<PlusCircle className='min-w-5 min-h-5' />} onClick={() => append({name: '', order: fields.length + 1})} className='bg-black text-white' />
             {fields.length == 0 && errors.points?.root?.message && <p className='text-red-500 text-sm'>{errors.points.root.message}</p>}
             <div className='flex justify-end gap-x-2 mt-2'>
               <DialogClose>

@@ -14,9 +14,9 @@ interface IResponse {
   };
 }
 const GetSubscriptionInfo = async (token?: string) => {
-  // 'use cache'
-  // cacheLife('days')
-  // cacheTag('subscription-info')
+  'use cache'
+  cacheLife('days')
+  cacheTag('subscription-info')
   const response = await serverAxiosInstance.get(`${SUBSCRIPTION}/${COMPANY}`, {
     headers: {Authorization: `Bearer ${token}`}
   });

@@ -8,11 +8,11 @@ import {IconCheck} from '@tabler/icons-react';
 export default function Home() {
   return (
     <div className='m-3 min-h-screen overflow-x-hidden'>
-      <Hero />
+      {/* <Hero />
       <About />
       <Services />
       <TrackSection />
-      <WhyChooseUs />
+      <WhyChooseUs /> */}
       <RegisterCompanyForm />
     </div>
   );

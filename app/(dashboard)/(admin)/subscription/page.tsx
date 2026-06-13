@@ -22,11 +22,17 @@ const Page = async () => {
   // TODO : Setting ✅
   // TODO : Client Page For Shipment ✅
   // TODO : denied Client and Driver to login in Dashboard because have a mobile app for that ✅
-  // TODO : Landing Page for Company Register
-  // TODO : Work in Backend and maintenance Auth and Some logic and add Repository Layer
+  // TODO : Work in Backend and maintenance Auth and Some logic and add Repository Layer ✅
+  // TODO : Connect Setting Page ✅
+  // TODO : Fix UI Mistake ✅
+  // TODO : Add Number of Shipment item in Shipment details page ✅
   // TODO : Send Email Successful when Accept Subscription
+  // TODO : Add Real Time by Socket io
+  // TODO : Add Multi Language
+  // TODO : Add map in Client shipment Details Page For Way And Point
+  // TODO : Landing Page for Company Register
   // TODO : Mobile App For Client And Driver
-  // TODO : Work in Backend and maintenance Auth and Some logic and add Repository Layer
+  // TODO : add poster Project for social media
   return (
     <div>
       <PageDashboardHeader

@@ -140,7 +140,7 @@ function CompanyDialog({...props}: ICompanyDialog) {
               name='companyPassword'
               control={form.control}
               render={({field, fieldState}) => {
-                return <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label='كلمة السرة' required placeHolder='***********' />;
+                return <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label='كلمة السر' required placeHolder='***********' />;
               }}
             />
             {props.type == 'add' && (
@@ -148,7 +148,7 @@ function CompanyDialog({...props}: ICompanyDialog) {
                 name='confirmPassword'
                 control={form.control}
                 render={({field, fieldState}) => {
-                  return <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label='تاكيد كلمة السرة ' required placeHolder='***********' />;
+                  return <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label='تاكيد كلمة السر ' required placeHolder='***********' />;
                 }}
               />
             )}
