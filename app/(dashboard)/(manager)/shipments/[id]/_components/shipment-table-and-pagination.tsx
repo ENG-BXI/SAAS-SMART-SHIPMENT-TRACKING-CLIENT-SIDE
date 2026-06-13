@@ -44,9 +44,8 @@ async function ShipmentTableAndPagination({id, search, page}: ShipmentTableAndPa
                 <TableCell>
                   <TablePopover
                     items={[
-                      // TODO : Add View Dialog
-                      {type: 'dialog', item: <ShipmentItemDialog triggerTitle='تعديل بيانات الغرض' id={shipmentItem.id} type='edit' data={{clientId: shipmentItem.client.id, items: [{name: shipmentItem.name, quantity: shipmentItem.quantity, isBreakable: shipmentItem.isBreakable}]}} />},
-                      {type: 'dialog', item: <DeleteShipmentItemDialog id={shipmentItem.id} />}
+                      {type: 'dialog', item: <ShipmentItemDialog triggerTitle='تعديل بيانات الغرض' shipmentId={id} id={shipmentItem.id} type='edit' data={{clientId: shipmentItem.client.id, items: [{name: shipmentItem.name, quantity: shipmentItem.quantity, isBreakable: shipmentItem.isBreakable}]}} />},
+                      {type: 'dialog', item: <DeleteShipmentItemDialog id={shipmentItem.id} shipmentId={id} />}
                     ]}
                   />
                 </TableCell>

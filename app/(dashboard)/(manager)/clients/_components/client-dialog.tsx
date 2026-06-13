@@ -150,7 +150,7 @@ function ClientDialog(props: ClientDialogProps) {
                 )}
               </div>
             ))}
-            {props.type !== 'view' && <CustomButton disable={isDisabled} text='اضافة غرض' icon={<PlusCircle className='min-w-5 min-h-5' />} onClick={() => append({text: '', contactType: 'phoneNumber', isPrimary: 'false'})} className='bg-black text-white' />}
+            {props.type !== 'view' && <CustomButton disable={isDisabled} text='اضافة طريقة تواصل' icon={<PlusCircle className='min-w-5 min-h-5' />} onClick={() => append({text: '', contactType: 'phoneNumber', isPrimary: 'false'})} className='bg-black text-white' />}
             {fields.length == 0 && errors.contactWays?.root?.message && <p className='text-red-500 text-sm'>{errors.contactWays.root.message}</p>}
             <div className='flex justify-end gap-x-2 mt-2'>
               <DialogClose>

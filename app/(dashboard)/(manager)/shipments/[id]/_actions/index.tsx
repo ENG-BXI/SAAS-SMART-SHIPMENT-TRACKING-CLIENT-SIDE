@@ -28,6 +28,7 @@ export async function CreateShipmentItem(id: string, data: shipmentItemFormData)
       }
     });
     updateTag('all-shipment-item');
+    updateTag(`shipment-info-${id}`);
     return {data: response.data.data, message: response.data.message, error: null};
   } catch (error) {
     if (error instanceof AxiosError) {
@@ -36,7 +37,7 @@ export async function CreateShipmentItem(id: string, data: shipmentItemFormData)
     return {data: null, message: 'حدث خطأ ما , يرجى المحاولة مرة اخرى', error: error?.toString()};
   }
 }
-export async function UpdateShipmentItem(id: string, data: shipmentItemFormData) {
+export async function UpdateShipmentItem(shipmentId:string,id: string, data: shipmentItemFormData) {
   const cookie = await cookies();
   const token = cookie.get('token')?.value;
   try {
@@ -46,6 +47,7 @@ export async function UpdateShipmentItem(id: string, data: shipmentItemFormData)
       }
     });
     updateTag('all-shipment-item');
+    updateTag(`shipment-info-${shipmentId}`);
     return {data: response.data.data, message: response.data.message, error: null};
   } catch (error) {
     if (error instanceof AxiosError) {
@@ -54,7 +56,7 @@ export async function UpdateShipmentItem(id: string, data: shipmentItemFormData)
     return {data: null, message: 'حدث خطأ ما , يرجى المحاولة مرة اخرى', error: error?.toString()};
   }
 }
-export async function DeleteShipmentItem(id: string) {
+export async function DeleteShipmentItem(shipmentId:string,id: string) {
   const cookie = await cookies();
   const token = cookie.get('token')?.value;
   try {
@@ -64,6 +66,7 @@ export async function DeleteShipmentItem(id: string) {
       }
     });
     updateTag('all-shipment-item');
+    updateTag(`shipment-info-${shipmentId}`);
     return {data: response.data.data, message: response.data.message, error: null};
   } catch (error) {
     if (error instanceof AxiosError) {

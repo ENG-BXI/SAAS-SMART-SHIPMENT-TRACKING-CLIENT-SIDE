@@ -19,15 +19,20 @@ const Page = async () => {
   // TODO : Disable change subscription when Company is Pending ✅
   // TODO : View Alert For Renew Subscription when Subscription in expire ✅
   // TODO : Calculate Number of Visit ✅
-  // TODO : Setting 
-  // TODO : Multi Language Top 5 Language
-  // TODO : denied Client and Driver to login in Dashboard because have a mobile app for that
-  // TODO : Upload Bill
-  // TODO : Client Page For Shipment
-  // TODO : Landing Page for Company Register
+  // TODO : Setting ✅
+  // TODO : Client Page For Shipment ✅
+  // TODO : denied Client and Driver to login in Dashboard because have a mobile app for that ✅
+  // TODO : Work in Backend and maintenance Auth and Some logic and add Repository Layer ✅
+  // TODO : Connect Setting Page ✅
+  // TODO : Fix UI Mistake ✅
+  // TODO : Add Number of Shipment item in Shipment details page ✅
   // TODO : Send Email Successful when Accept Subscription
+  // TODO : Add Real Time by Socket io
+  // TODO : Add Multi Language
+  // TODO : Add map in Client shipment Details Page For Way And Point
+  // TODO : Landing Page for Company Register
   // TODO : Mobile App For Client And Driver
-  // TODO : Work in Backend and maintenance Auth and Some logic and add Repository Layer
+  // TODO : add poster Project for social media
   return (
     <div>
       <PageDashboardHeader

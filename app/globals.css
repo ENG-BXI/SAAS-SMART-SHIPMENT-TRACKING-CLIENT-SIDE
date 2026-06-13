@@ -169,3 +169,7 @@ body ::selection {
   background-color: transparent;
   width: 7px;
 }
+
+.section__title {
+  @apply text-6xl text-center max-w-180
+}

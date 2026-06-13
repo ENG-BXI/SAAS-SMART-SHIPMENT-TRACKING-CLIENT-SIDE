@@ -17,7 +17,7 @@ interface IResponse {
     name: string;
   };
   clients: number;
-
+  shipmentItem: number;
   isCompleted: boolean;
   isPaused: boolean;
 }

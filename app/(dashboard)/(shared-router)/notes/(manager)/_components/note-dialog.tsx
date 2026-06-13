@@ -24,17 +24,17 @@ interface NoteDialogProps {
 function getTitle(type: 'add' | 'edit') {
   switch (type) {
     case 'add':
-      return 'إضافة مستخدم جديد';
+      return 'إضافة ملاجظة جديدة';
     case 'edit':
-      return 'تعديل بيانات المستخدم';
+      return 'تعديل الملاحظة';
   }
 }
 function getDescription(type: 'add' | 'edit') {
   switch (type) {
     case 'add':
-      return 'إضافة مستخدم جديد إلى النظام وتحديد دوره وصلاحياته. سيتمكن المستخدم من الوصول إلى الميزات المسموح له بها حسب الدور المحدد.';
+      return 'إرسال ملاحظة جديدة إلى إدارة المنصة لمشاركة استفسار، طلب، أو أي تفاصيل متعلقة بالخدمة أو النظام.';
     case 'edit':
-      return 'تعديل بيانات المستخدم المسجل مسبقًا وتحديث دوره وصلاحياته.';
+      return 'تعديل الملاحظة المرسلة مسبقًا وتحديث محتواها أو تفاصيلها.';
   }
 }
 function NoteDialog(props: NoteDialogProps) {
