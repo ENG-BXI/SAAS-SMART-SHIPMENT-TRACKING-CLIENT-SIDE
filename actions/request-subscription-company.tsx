@@ -1,6 +1,6 @@
 'use server';
 
-import {createCompanyFormData} from '@/app/page';
+import { createCompanyFormData } from '@/components/landing/register-company-form';
 import serverAxiosInstance from '@/lib/axios/server';
 import {COMPANY, REQUEST_SUBSCRIPTION} from '@/lib/Constant/routes';
 import {AxiosError} from 'axios';
