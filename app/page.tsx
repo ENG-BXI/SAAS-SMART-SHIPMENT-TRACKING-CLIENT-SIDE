@@ -1,8 +1,8 @@
-import About from '@/components/landing/about';
-import Hero from '@/components/landing/hero';
+// import About from '@/components/landing/about';
+// import Hero from '@/components/landing/hero';
 import RegisterCompanyForm from '@/components/landing/register-company-form';
-import Services from '@/components/landing/services';
-import TrackSection from '@/components/landing/track-section';
+// import Services from '@/components/landing/services';
+// import TrackSection from '@/components/landing/track-section';
 import {IconCheck} from '@tabler/icons-react';
 
 export default function Home() {
