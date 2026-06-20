@@ -4,6 +4,7 @@ import ShipmentDetailsHeader from './_components/shipment-details-header';
 import ShipmentInfo from './_components/shipment-info';
 import ShipmentTableAndPagination from './_components/shipment-table-and-pagination';
 import ShipmentItemDialog from './_components/shipment-item-dialog';
+import ShipmentDetailsRealTime from './_components/shipment-details-real-time';
 
 interface PageProps {
   params: Promise<{id: string}>;
@@ -14,6 +15,7 @@ const Page = async ({params, searchParams}: PageProps) => {
   const {search, page} = await searchParams;
   return (
     <div>
+      <ShipmentDetailsRealTime id={id} />
       <PageDashboardHeader
         title='تفاصيل الشحنة'
         description='عرض معلومات الشحنة وحالتها الحالية، مع الاطلاع على سجل التتبع الكامل والتحديثات المرتبطة بها.'

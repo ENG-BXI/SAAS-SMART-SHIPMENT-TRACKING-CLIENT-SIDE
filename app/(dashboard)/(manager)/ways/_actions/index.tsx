@@ -54,3 +54,7 @@ export async function DeleteWay(id: string, token: string) {
     return {data: null, message: 'حدث خطأ', error: null};
   }
 }
+
+export async function RevalidateWay() {
+  updateTag('all-ways');
+}

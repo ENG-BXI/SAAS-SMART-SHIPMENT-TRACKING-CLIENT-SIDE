@@ -20,3 +20,8 @@ export async function changeCompanySubscription(subscriptionTypeId: string) {
     return {data: null, message: 'حدث خطا ما', error};
   }
 }
+
+export async function RevalidateMySubscription() {
+  updateTag('subscription-info');
+  updateTag('all-subscription');
+}

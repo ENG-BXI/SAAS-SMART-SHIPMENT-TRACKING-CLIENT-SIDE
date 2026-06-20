@@ -21,7 +21,11 @@ async function GetAllClient({token, page, search}: {token?: string; page?: strin
   if (page) searchParams.set('page', page.toString());
   if (search) searchParams.set('search', search.toString());
   const response = await serverAxiosInstance.get(`${CLIENT}?${searchParams.toString()}`, {headers: {Authorization: `Bearer ${token}`}});
-  return response.data.data as IResponse;
+  const data = response.data.data as IResponse;
+  console.log('====================================');
+  console.log(data);
+  console.log('====================================');
+  return data;
 }
 
 export default GetAllClient;

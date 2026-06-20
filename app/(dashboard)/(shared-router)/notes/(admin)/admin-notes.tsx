@@ -14,12 +14,14 @@ import {cn, formattedDate} from '@/lib/utils';
 import {NOTE_TYPE_NAMES} from '@/lib/Constant/note-type';
 import {Suspense} from 'react';
 import {NoteTableSkeleton} from '../_components/skeletons';
+import NoteRealTime from '../_components/note-real-time';
 interface IAdminNotesProps {
   searchParams: {search?: string; page?: string};
 }
 const AdminNotes = async ({searchParams}: IAdminNotesProps) => {
   return (
     <div>
+      <NoteRealTime />
       <PageDashboardHeader title='الملاحظات' description='يتيح هذا القسم للشركات إرسال ملاحظات، شكاوى، أو طلبات تغيير إلى إدارة النظام. يتم عرض جميع الملاحظات مباشرة في لوحة تحكم الأدمن لمراجعتها واتخاذ الإجراء المناسب.' breadcrumbList={[{text: 'الملاحظات', path: '/manager/notes'}]} />
       <DashboardSearchAndActionPage
         className='justify-start'

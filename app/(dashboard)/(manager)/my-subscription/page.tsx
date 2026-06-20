@@ -8,6 +8,7 @@ import GetSubscriptionInfo from './_services/get-subscription-info';
 import {cookies} from 'next/headers';
 import {formattedDate} from '@/lib/utils';
 import GetAllSubscription from '@/services/get-all-subscription';
+import MySubscriptionRealTimeListen from './_components/subscription-real-time-listen';
 
 export default async function MySubscriptionPage() {
   const cookie = await cookies();
@@ -21,6 +22,7 @@ export default async function MySubscriptionPage() {
 
   return (
     <div className='w-full pb-10 font-sans' dir='rtl'>
+      <MySubscriptionRealTimeListen/>
       <PageDashboardHeader
         title='اشتراكاتي'
         description='إدارة تفاصيل اشتراك شركتك الحالي، ومراجعة نوع الباقة والسعر وفترة الاشتراك، واستكشاف خيارات التجديد المتاحة.'

@@ -1,6 +1,5 @@
 import serverAxiosInstance from '@/lib/axios/server';
 import {COMPANY, REQUEST_SUBSCRIPTION} from '@/lib/Constant/routes';
-import {cacheLife, cacheTag} from 'next/cache';
 import {TSubscriptionStatus} from '@/lib/Constant/enum';
 
 export interface ICompany {
@@ -34,9 +33,6 @@ export interface ISubscriptionRequest {
 }
 
 const GetSubscriptionRequests = async (token?: string) => {
-  'use cache';
-  cacheLife('days');
-  cacheTag('subscription-requests');
 
   const response = await serverAxiosInstance.get(`/${COMPANY}/${REQUEST_SUBSCRIPTION}`, {
     headers: {Authorization: `Bearer ${token}`}

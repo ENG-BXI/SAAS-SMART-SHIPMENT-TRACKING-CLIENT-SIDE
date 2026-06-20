@@ -4,6 +4,7 @@ import AllSubscriptions from './_components/all-subscriptions';
 import GetAllSubscription from '../../../../services/get-all-subscription';
 import {cookies} from 'next/headers';
 import SubscriptionDialog from './_components/subscription-dialog';
+import SubscriptionRealTimeListen from './_components/subscription-real-time-listen';
 
 const Page = async () => {
   // TODO : Add Edit Delete Subscription ✅
@@ -26,7 +27,7 @@ const Page = async () => {
   // TODO : Connect Setting Page ✅
   // TODO : Fix UI Mistake ✅
   // TODO : Add Number of Shipment item in Shipment details page ✅
-  // TODO : Send Email Successful when Accept Subscription
+  // TODO : Send Email Successful when Accept Subscription ✅
   // TODO : Add Real Time by Socket io
   // TODO : Add Multi Language
   // TODO : Add map in Client shipment Details Page For Way And Point
@@ -35,6 +36,7 @@ const Page = async () => {
   // TODO : add poster Project for social media
   return (
     <div>
+      <SubscriptionRealTimeListen/>
       <PageDashboardHeader
         title='الاشتراكات'
         description='إدارة ومتابعة باقات الاشتراك'

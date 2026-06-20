@@ -24,3 +24,8 @@ export async function acceptCompany(id: string, typeId: string) {
     return {data: null, message: 'حدث خطا ما', error: error?.toString()};
   }
 }
+
+export async function RevalidateSubscriptionRequest() {
+  updateTag('subscription-requests');
+  updateTag('admin-companies');
+}

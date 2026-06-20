@@ -66,3 +66,7 @@ export const deleteSubscriptionType = async (id: string) => {
     return {message: 'حدث خطأ غير متوقع', data: null, error: error};
   }
 };
+
+export async function RevalidateSubscription() {
+  updateTag('all-subscription');
+}

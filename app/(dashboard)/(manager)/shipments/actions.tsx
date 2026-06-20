@@ -119,3 +119,7 @@ export const ResumeShipmentAction = async (id: string) => {
     return {message: null, error: (error as Error).message || 'حدث خطأ ما'};
   }
 };
+export async function RevalidateShipment() {
+  updateTag('manager-statistics');
+  updateTag('current-shipment');
+}

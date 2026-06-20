@@ -3,6 +3,7 @@ import GetSubscriptionRequests from './_services/get-subscription-requests';
 import SubscriptionRequestSummary from './_components/subscription-request-summary';
 import SubscriptionRequestCard from './_components/subscription-request-card';
 import {cookies} from 'next/headers';
+import SubscriptionRequestRealTimeListen from './_components/subscription-request-real-time-listen';
 
 const page = async () => {
   const cookieStore = await cookies();
@@ -12,6 +13,7 @@ const page = async () => {
 
   return (
     <div className='w-full pb-10 font-sans' dir='rtl'>
+      <SubscriptionRequestRealTimeListen />
       <PageDashboardHeader
         title='طلبات الاشتراك'
         description='طلبات التفعيل وتغيير الباقات الواردة من الشركات بحالة معلقة. راجع الطلبات واتخذ القرار المناسب.'

@@ -12,6 +12,7 @@ import {cookies} from 'next/headers';
 import {Suspense} from 'react';
 import DeleteClientDialog from './_components/delete-client-dialog';
 import {ClientTableSkeleton} from './_components/skeletons';
+import ClientRealTime from './_components/client-real-time';
 
 interface PageProps {
   searchParams: Promise<{
@@ -23,6 +24,7 @@ const Page = async ({searchParams}: PageProps) => {
   const sp = await searchParams;
   return (
     <div>
+      <ClientRealTime/>
       <PageDashboardHeader title='العملاء' description='عرض وإدارة قائمة العملاء المسجلين على النظام، مع إمكانية ربطهم بالشحنات ومتابعة نشاطهم المرتبط بعمليات الشحن.' breadcrumbList={[{text: 'الرئيسية', path: '/'}, {text: 'العملاء', path: '/manager/clients'}]} />
       <DashboardSearchAndActionPage
         action={
