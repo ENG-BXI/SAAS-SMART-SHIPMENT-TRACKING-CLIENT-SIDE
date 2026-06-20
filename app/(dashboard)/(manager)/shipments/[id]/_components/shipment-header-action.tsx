@@ -56,7 +56,7 @@ function ShipmentHeaderAction({id, status}: ShipmentHeaderActionProps) {
     });
   }
   return (
-    <div className='flex gap-2'>
+    <div className='flex flex-wrap gap-2'>
       {status !== SHIPMENT_STATUS.COMPLETED && (
         <>
           <CustomButton text={isPendingMoveWithNotification ? '...جارى التحريك' : 'تحريك'} icon={<ArrowRight />} type='primary' onClick={() => handleMoveShipmentWithNotification()} />
