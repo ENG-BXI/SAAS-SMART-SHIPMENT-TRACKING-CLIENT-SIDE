@@ -1,9 +1,13 @@
-import { Badge } from '@/components/ui/badge';
 import {Card, CardContent, CardHeader, CardTitle} from '@/components/ui/card';
 import {Progress} from '@/components/ui/progress';
 import {Clock, MapPin, Package, Truck} from 'lucide-react';
 import {progressValue, remainingPoints, shipment, contactLabel} from './shipment-data';
-
+interface ShipmentSummaryGridProps {
+  companyName: string;
+  firstPoint: string;
+  lastPoint: string;
+  currentPoint:string
+}
 export default function ShipmentSummaryGrid() {
   return (
     <div className='grid gap-6'>
@@ -31,10 +35,6 @@ export default function ShipmentSummaryGrid() {
                 <div className='flex items-center justify-between text-sm text-slate-500'>
                   <span>إلى</span>
                   <span className='font-semibold text-slate-950'>{shipment.route.to}</span>
-                </div>
-                <div className='flex items-center justify-between text-sm text-slate-500'>
-                  <span>المسافة</span>
-                  <span className='font-semibold text-slate-950'>{shipment.route.estimatedDistance}</span>
                 </div>
               </div>
             </div>

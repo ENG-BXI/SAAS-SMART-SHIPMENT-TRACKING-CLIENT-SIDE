@@ -42,3 +42,8 @@ export async function activeCompanySubscription(id: string) {
     return {data: null, message: error?.toString(), error: error};
   }
 }
+export async function RevalidateCompanyDetails(id: string) {
+  updateTag(`company-info/${id}`);
+  updateTag('admin-statistics');
+  updateTag('admin-companies');
+}

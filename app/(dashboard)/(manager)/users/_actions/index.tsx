@@ -64,3 +64,6 @@ export async function DeleteUser(id: string) {
     return {data: null, message: (error as Error).message || 'حدث خطأ ما', error: error?.toString()};
   }
 }
+export async function RevalidateUser() {
+  updateTag('all-users');
+}

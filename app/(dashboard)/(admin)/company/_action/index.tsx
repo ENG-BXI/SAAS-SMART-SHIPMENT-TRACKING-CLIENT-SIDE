@@ -62,3 +62,8 @@ export const deleteCompany = async (id: string) => {
     return {message: 'حدث خطأ غير متوقع', data: null, error: error};
   }
 };
+
+export async function RevalidateCompany() {
+  updateTag('admin-statistics');
+  updateTag('admin-companies');
+}

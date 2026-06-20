@@ -4,6 +4,16 @@ export const SHIPMENT_STATUS = {
   CURRENT: 'حالية'
 } as const;
 
+export enum SHIPMENT_NUMBER {
+  COMPLETED,
+  PAUSED,
+  CURRENT
+}
+export const SHIPMENT_NAME: Record<SHIPMENT_NUMBER, TShipmentStatus> = {
+  [SHIPMENT_NUMBER.CURRENT]: SHIPMENT_STATUS.CURRENT,
+  [SHIPMENT_NUMBER.PAUSED]: SHIPMENT_STATUS.PAUSED,
+  [SHIPMENT_NUMBER.COMPLETED]: SHIPMENT_STATUS.COMPLETED
+};
 export type TShipmentStatus = (typeof SHIPMENT_STATUS)[keyof typeof SHIPMENT_STATUS];
 
 export const SUBSCRIPTION_STATUS = {
@@ -19,7 +29,7 @@ export const SUBSCRIPTION_TEXT = {
   active: 'نشط',
   inactive: 'غير نشط',
   expired: 'منتهي',
-  change: 'تحت التتغير',
+  change: 'تحت التتغير'
 };
 
 export type TSubscriptionStatus = (typeof SUBSCRIPTION_STATUS)[keyof typeof SUBSCRIPTION_STATUS];

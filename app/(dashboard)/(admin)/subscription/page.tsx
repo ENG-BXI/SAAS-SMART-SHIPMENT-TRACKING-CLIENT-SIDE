@@ -26,7 +26,7 @@ const Page = async () => {
   // TODO : Connect Setting Page ✅
   // TODO : Fix UI Mistake ✅
   // TODO : Add Number of Shipment item in Shipment details page ✅
-  // TODO : Send Email Successful when Accept Subscription
+  // TODO : Send Email Successful when Accept Subscription ✅
   // TODO : Add Real Time by Socket io
   // TODO : Add Multi Language
   // TODO : Add map in Client shipment Details Page For Way And Point

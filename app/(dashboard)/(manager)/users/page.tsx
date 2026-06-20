@@ -6,6 +6,7 @@ import UserDialog from './_components/user-dialog';
 import {Suspense} from 'react';
 import UserTableAndPagination from './_components/user-table-and-pagination';
 import {UserTableSkeleton} from './_components/skeletons';
+import UserRealTime from './_components/user-real-time';
 
 interface PageProps {
   searchParams: Promise<{
@@ -17,6 +18,7 @@ const Page = async ({searchParams}: PageProps) => {
   const {page, search} = await searchParams;
   return (
     <div>
+      <UserRealTime/>
       <PageDashboardHeader title='المستخدمين' description='عرض وإدارة المستخدمين المسجلين على النظام، مع تحديد أدوارهم وصلاحياتهم المرتبطة بإدارة الشحنات والبيانات.' breadcrumbList={[{text: 'الرئيسية', path: '/'}, {text: 'المستخدمين', path: '/manager/users'}]} />
       <DashboardSearchAndActionPage
         action={

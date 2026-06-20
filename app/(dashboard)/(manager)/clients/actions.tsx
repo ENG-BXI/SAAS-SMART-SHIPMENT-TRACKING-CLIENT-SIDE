@@ -57,3 +57,6 @@ export const DeleteClient = async (id: string) => {
     if (error instanceof AxiosError) return {message: 'Delete Client Failed', error: error.response?.data.message, data: null};
   }
 };
+export async function RevalidateClient() {
+  updateTag('all-client');
+}

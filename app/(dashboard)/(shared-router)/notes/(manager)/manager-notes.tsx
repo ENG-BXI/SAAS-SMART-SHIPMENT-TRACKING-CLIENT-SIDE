@@ -15,12 +15,14 @@ import {Suspense} from 'react';
 import {NOTE_TYPE_NAMES} from '@/lib/Constant/note-type';
 import DeleteNoteDialog from './_components/delete-note-dialog';
 import {NoteTableSkeleton} from '../_components/skeletons';
+import NoteRealTime from '../_components/note-real-time';
 interface IManagerNotesProps {
   searchParams: {search?: string; page?: string};
 }
 const ManagerNotes = async ({searchParams}: IManagerNotesProps) => {
   return (
     <div>
+      <NoteRealTime />
       <PageDashboardHeader
         title='الملاحظات'
         description='يتيح هذا القسم للشركات إرسال ملاحظات، شكاوى، أو طلبات تغيير إلى إدارة النظام. يتم عرض جميع الملاحظات مباشرة في لوحة تحكم الأدمن لمراجعتها واتخاذ الإجراء المناسب.'

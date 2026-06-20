@@ -11,9 +11,9 @@ import {ConcatListOfString} from '@/lib/utils';
 import GetAllWays from './services/get-all-c-ways';
 import {cookies} from 'next/headers';
 import {Suspense} from 'react';
-import DeleteDialog from '@/components/dashboard/delete-dialog';
 import DeleteWayDialog from './_components/delete-way-dialog';
 import {WayTableSkeleton} from './_components/skeletons';
+import WayRealTimeListen from './_components/way-real-time-listen';
 
 interface PageProps {
   searchParams: Promise<{
@@ -25,6 +25,7 @@ const Page = async ({searchParams}: PageProps) => {
   const {page, search} = await searchParams;
   return (
     <div>
+      <WayRealTimeListen/>
       <PageDashboardHeader title='المسارات' description='إدارة المسارات المعتمدة لنقل الشحنات، مع تحديد نقاط الانطلاق والوصول وربطها بعمليات الشحن.' breadcrumbList={[{text: 'الرئيسية', path: '/'}, {text: 'المسارات', path: '/manager/ways'}]} />
       <DashboardSearchAndActionPage
         action={

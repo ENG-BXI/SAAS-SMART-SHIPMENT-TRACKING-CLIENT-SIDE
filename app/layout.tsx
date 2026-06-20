@@ -6,6 +6,7 @@ import {Toaster} from '@/components/ui/sonner';
 import React from 'react';
 import NextTopLoader from 'nextjs-toploader';
 import VisitCounterProvider from '@/lib/visit-counter-provider';
+import SocketProvider from '@/lib/socket-provider';
 
 const myFont = localFont({
   src: './../public/Fonts/IBMPlexSansArabic-Medium.ttf'
@@ -25,11 +26,13 @@ export default function RootLayout({
     <html lang='ar' dir='rtl'>
       <body className={`${myFont.className} antialiased`}>
         <VisitCounterProvider>
-          <ProviderQueryClient>
-            {children}
-            <Toaster richColors position='top-right' />
-            <NextTopLoader color='#1B8354' height={4} />
-          </ProviderQueryClient>
+          <SocketProvider>
+            <ProviderQueryClient>
+              {children}
+              <Toaster richColors position='top-right' />
+              <NextTopLoader color='#1B8354' height={4} />
+            </ProviderQueryClient>
+          </SocketProvider>
         </VisitCounterProvider>
       </body>
     </html>

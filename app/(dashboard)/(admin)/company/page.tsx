@@ -9,6 +9,7 @@ import GetAllCompany from './_services/getAllCompany';
 import {TableSkelton} from '@/components/table-skelton';
 import {cookies} from 'next/headers';
 import {Suspense} from 'react';
+import CompanyRealTime from './_components/company-real-time';
 interface PageProps {
   searchParams: Promise<{
     search: string;
@@ -22,6 +23,7 @@ const Page = async ({searchParams}: PageProps) => {
 
   return (
     <div>
+      <CompanyRealTime />
       <PageDashboardHeader
         title='الشركات'
         description='إدارة الشركات المسجلة على النظام وحالة تفعيلها'
