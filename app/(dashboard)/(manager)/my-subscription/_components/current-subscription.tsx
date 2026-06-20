@@ -34,8 +34,8 @@ export default function CurrentSubscription({status, price, endDate, startDate, 
     <section aria-label='Current subscription details' className='mb-10 p-5'>
       <div className='space-y-5'>
         <div className='flex flex-wrap items-start justify-between gap-4'>
-          <div className='flex items-center gap-4'>
-            <div className='rounded-3xl border border-green-600/10 bg-green-50 p-4 text-green-700'>
+          <div className='flex flex-col sm:flex-row sm:items-center gap-4'>
+            <div className='rounded-3xl border max-w-min border-green-600/10 bg-green-50 p-4 text-green-700'>
               <CalendarDays className='h-6 w-6' />
             </div>
             <div>
@@ -74,7 +74,7 @@ export default function CurrentSubscription({status, price, endDate, startDate, 
             <div className='mb-4 flex items-center gap-3'>
               <ShieldCheck className='h-5 w-5 text-custom-primary-color' />
               <h4 className='text-base font-semibold text-slate-900'>مزايا الاشتراك</h4>
-            </div>  
+            </div>
             <ul className='space-y-3 text-sm text-slate-700'>
               {defaultFeatures.map((feature, index) => {
                 return (
@@ -99,7 +99,7 @@ interface CardInfoProps {
 }
 function CardInfo({title, description, value}: CardInfoProps) {
   return (
-    <div className='flex-1 min-w-80 rounded-[24px] border border-slate-200 bg-white p-5'>
+    <div className='flex-1 min-w-60 rounded-[24px] border border-slate-200 bg-white p-5'>
       <p className='text-xs font-semibold uppercase tracking-[0.24em] text-slate-500'>{title}</p>
       <p className='mt-3 text-2xl font-bold text-slate-900'>{value}</p>
       <p className='mt-2 text-sm text-slate-500'>{description}</p>

@@ -19,17 +19,17 @@ function UserSection() {
   return (
     <>
       {/* User Name */}
-      <div className='flex items-center justify-between my-4'>
+      <div className='flex flex-col gap-3 sm:flex-row sm:items-center justify-between my-4'>
         <h4 className='text-nowrap'>اسم المستخدم</h4>
         <CustomInput className='max-w-130' type='state' value={userName} setValue={setUserName} placeHolder={isLoading ? 'جاري التحميل' : 'اسم المستخدم'} />
       </div>
       {/* Email */}
-      <div className='flex items-center justify-between my-4'>
+      <div className='flex flex-col gap-3 sm:flex-row sm:items-center justify-between my-4'>
         <h4 className='text-nowrap'>الايميل</h4>
         <CustomInput className='max-w-130' type='state' value={email} setValue={setEmail} placeHolder={isLoading ? 'جاري التحميل' : 'الايميل'} />
       </div>
       {/* Password */}
-      <div className='flex items-center justify-between my-4'>
+      <div className='flex flex-col gap-3 sm:flex-row sm:items-center justify-between my-4'>
         <h4 className='text-nowrap'>كلمة المرور</h4>
         <CustomInput className='max-w-130' type='state' value={password} setValue={setPassword} placeHolder='كلمة المرور' />
       </div>

@@ -19,22 +19,22 @@ async function SubscriptionSection() {
   const remainingDays = Math.max(0, totalDays - elapsedDays);
   return (
     <>
-      <div className='flex items-start justify-between my-4'>
+      <div className='flex gap-3 flex-col sm:flex-row sm:items-start justify-between my-4'>
         <h4 className='text-nowrap'>حالة الاشتراك</h4>
-        <div className='w-130 flex flex-col gap-y-1'>
+        <div className='max-w-130 w-full flex flex-col gap-y-1'>
           <Badge variant='outline' className='border-[#067647] text-md text-[#085D3A] rounded-sm'>
             {SUBSCRIPTION_TEXT[data.status]}
           </Badge>
           <p className='text-muted-foreground'>الاشتراك نشط ويمكن استخدام النظام بشكل كامل.</p>
         </div>
       </div>
-      <div className='flex items-start justify-between my-4'>
+      <div className='flex gap-3 flex-col sm:flex-row sm:items-start justify-between my-4'>
         <h4 className='text-nowrap'>فترة الاشتراك</h4>
-        <div className='w-130 flex flex-col gap-y-3'>
+        <div className='max-w-130 w-full flex flex-col gap-y-3'>
           <Badge variant='outline' className='border-[#067647] text-md text-[#085D3A] rounded-sm'>
             المدة المتبقية: {remainingDays} يوم
           </Badge>
-          <div className='flex items-center gap-x-2'>
+          <div className='flex flex-wrap items-center gap-x-2'>
             <Badge variant='outline' className='border-[#93370D] text-md text-[#93370D] rounded-sm'>
               بداية الاشتراك: {formattedDate(data.startDate)}
             </Badge>

@@ -34,7 +34,7 @@ const PageDashboardHeader = ({breadcrumbList, title, description, titleClassName
           </BreadcrumbList>
         </Breadcrumb>
       )}
-      <div className='flex items-center justify-between'>
+      <div className='flex flex-col gap-3 sm:flex-row sm:items-center justify-between'>
         <div>
           <h3 className={cn('text-2xl font-semibold mb-1', titleClassName)}>{title}</h3>
           <p className={cn('text-muted-foreground', descriptionClassName)}>{description}</p>

@@ -14,7 +14,7 @@ async function ShipmentDetailsHeader({id}: ShipmentDetailsHeaderProps) {
   const status:TShipmentStatus = data?.isCompleted ? SHIPMENT_STATUS.COMPLETED : data?.isPaused ? SHIPMENT_STATUS.PAUSED : SHIPMENT_STATUS.CURRENT;
 
   return (
-    <div className='flex justify-between items-center mt-5'>
+    <div className='flex gap-3 flex-col sm:flex-row justify-between sm:items-center mt-5'>
       <div className='flex items-center gap-2'>
         <h2 className='text-xl font-semibold'>شحنة رقم {data?.shipmentNumber}</h2>
         <Badge variant='outline' className={cn(' rounded-sm', status === SHIPMENT_STATUS.COMPLETED && 'border-[#067647] text-[#085D3A]', status === SHIPMENT_STATUS.PAUSED && 'border-red-500 text-red-500', status === SHIPMENT_STATUS.CURRENT && 'border-[#067647] text-[#085D3A]')}>
