@@ -1,16 +1,17 @@
 import serverAxiosInstance from '@/lib/axios/server';
 import { SHIPMENT_NUMBER } from '@/lib/Constant/enum';
 import {CLIENT, SHIPMENT} from '@/lib/Constant/routes';
+import { cacheLife, cacheTag } from 'next/cache';
 interface IShipmenItem {
   name: string;
   quantity: number;
   isBreakable: boolean;
 }
-interface IPoint {
+export interface IPoint {
   name: string;
   isCurrent: boolean;
 }
-interface IContactWay {
+export interface IContactWay {
   text: string;
   contactType: string;
   isPrimary: boolean;
@@ -35,6 +36,9 @@ interface IResponse {
   nextPoint: {id: string; name: string};
 }
 export async function GetShipmentDetailsForClient(clientId: string, shipmentId: string, token?: string) {
+  'use cache'
+  cacheLife('hours')
+  cacheTag('client-shipment-details')
   const response = await serverAxiosInstance.get(`${CLIENT}/${clientId}/${SHIPMENT}/${shipmentId}`, {
     headers: {
       Authorization: `Bearer ${token}`

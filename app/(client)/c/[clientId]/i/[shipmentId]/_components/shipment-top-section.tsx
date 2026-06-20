@@ -1,5 +1,4 @@
 import {Badge} from '@/components/ui/badge';
-import {Button} from '@/components/ui/button';
 import {Card, CardContent} from '@/components/ui/card';
 import { SHIPMENT_NAME, SHIPMENT_NUMBER } from '@/lib/Constant/enum';
 import {Truck} from 'lucide-react';
@@ -25,9 +24,6 @@ export default function ShipmentTopSection({firstPoint, lastPoint, numberOfPoint
             <Badge variant='secondary' className='rounded-full px-4 py-2 text-sm bg-green-600 text-white border-green-500'>
               {SHIPMENT_NAME[status]}
             </Badge>
-            <Button variant='outline' className='rounded-full border-green-400 px-4 py-2 text-sm text-green-400 hover:bg-green-400 hover:text-green-900'>
-              عرض الحالة
-            </Button>
           </div>
         </div>
       </div>
@@ -41,7 +37,7 @@ export default function ShipmentTopSection({firstPoint, lastPoint, numberOfPoint
           <p className='text-sm text-slate-500'>إلى</p>
           <p className='mt-2 text-lg font-semibold text-slate-950'>{lastPoint}</p>
         </div>
-        <div className='rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200'>
+        <div className='rounded-3xl md:col-span-2 bg-white p-5 shadow-sm ring-1 ring-slate-200'>
           <div className='flex items-center gap-3'>
             <Truck className='h-5 w-5 text-green-600' />
             <div>

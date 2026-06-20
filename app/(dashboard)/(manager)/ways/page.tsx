@@ -8,7 +8,7 @@ import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from '@/c
 import {Filter} from 'lucide-react';
 import WayDialog from './_components/way-dialog';
 import {ConcatListOfString} from '@/lib/utils';
-import GetAllWays from './services/get-all-c-ways';
+import GetAllWays from './services/get-all-ways';
 import {cookies} from 'next/headers';
 import {Suspense} from 'react';
 import DeleteWayDialog from './_components/delete-way-dialog';

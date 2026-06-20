@@ -37,7 +37,7 @@ export async function CreateShipmentItem(id: string, data: shipmentItemFormData)
     return {data: null, message: 'حدث خطأ ما , يرجى المحاولة مرة اخرى', error: error?.toString()};
   }
 }
-export async function UpdateShipmentItem(shipmentId:string,id: string, data: shipmentItemFormData) {
+export async function UpdateShipmentItem(shipmentId: string, id: string, data: shipmentItemFormData) {
   const cookie = await cookies();
   const token = cookie.get('token')?.value;
   try {
@@ -56,7 +56,7 @@ export async function UpdateShipmentItem(shipmentId:string,id: string, data: shi
     return {data: null, message: 'حدث خطأ ما , يرجى المحاولة مرة اخرى', error: error?.toString()};
   }
 }
-export async function DeleteShipmentItem(shipmentId:string,id: string) {
+export async function DeleteShipmentItem(shipmentId: string, id: string) {
   const cookie = await cookies();
   const token = cookie.get('token')?.value;
   try {
@@ -161,4 +161,9 @@ export async function ResumeShipment(id: string) {
     }
     return {data: null, message: 'حدث خطأ ما , يرجى المحاولة مرة اخرى', error: error?.toString()};
   }
+}
+export async function RevalidateShipmentDetails(id: string) {
+  updateTag('all-shipment-item');
+  updateTag(`shipment-info-${id}`);
+  updateTag(`current-shipment`);
 }

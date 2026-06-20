@@ -2,11 +2,13 @@ import CardStat from '@/components/dashboard/card-stat';
 import PageDashboardHeader from '@/components/dashboard/header';
 import {ChartLineLabel} from './_components/charts';
 import {GetAdminStatistics} from './_services/get-admin-statistics';
+import StatisticsRealTime from './_components/statistics-real-time';
 
 const StatisticsAdminPage = async () => {
   const adminStatistics = await GetAdminStatistics();
   return (
     <div>
+      <StatisticsRealTime />
       <PageDashboardHeader title='الصفحة الرئيسية' description='نظرة عامة على أداء عمليات الشحن، مع إحصائيات مختصرة عن الشحنات الحالية والمتوقفة، عدد العملاء، وعدد المسارات المسجلة.' breadcrumbList={[{text: 'الرئيسية', path: '#'}]} />
       <div className='flex flex-wrap gap-4 mb-5'>
         <CardStat title='عدد الشركات' value={adminStatistics.numberOfCompanies} />
