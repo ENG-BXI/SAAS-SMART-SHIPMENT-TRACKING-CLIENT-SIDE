@@ -1,6 +1,46 @@
 {
   "homePage": {
-    "title": "مرحبا"
+    "title": "الرئيسية",
+    "description": "أرسل طلب اشتراك لإنشاء حساب شركة والبدء باستخدام المنصة.",
+    "registerCompany": {
+      "title": "طلب اشتراك شركة جديدة",
+      "description": "تستخدم هذه الصفحة حالياً لإرسال طلب إنشاء شركة جديدة."
+    },
+    "registerCompanyForm": {
+      "tempNote": "صفحة مؤقتة لطلبات اشتراك الشركات",
+      "title": "اضافة شركة جديدة",
+      "description": "ارسال طلب لانشاء شركة جديدة لتمكينها من استخدام النظام وإدارة عمليات الشحن الخاصة بها.",
+      "fields": {
+        "name": {
+          "label": "اسم الشركة",
+          "placeholder": "مثال: الخط السريع للشحن"
+        },
+        "subscriptionType": {
+          "label": "باقه الاشتراك",
+          "placeholder": "اختر باقه الاشتراك"
+        },
+        "location": {
+          "label": "موقع الشركة",
+          "placeholder": "مثال: الرياض، السعودية"
+        },
+        "companyEmail": {
+          "label": "ايميل الشركة",
+          "placeholder": "مثال: example@gmail.com"
+        },
+        "companyPassword": {
+          "label": "كلمة السر",
+          "placeholder": "***********"
+        },
+        "confirmPassword": {
+          "label": "تاكيد كلمة السر",
+          "placeholder": "***********"
+        }
+      },
+      "actions": {
+        "submit": "اضافة",
+        "submitting": "جاري الاضافة"
+      }
+    }
   },
   "login": {
     "title": "تسجيل الدخول",

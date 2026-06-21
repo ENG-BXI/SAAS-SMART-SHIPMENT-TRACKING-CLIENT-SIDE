@@ -14,7 +14,7 @@ const getAllSubscriptionTypeAsOptions = async () => {
     return {
       value: subscription.id,
       label: subscription.type,
-      additionalInfo: subscription.price
+      additionalInfo: `$${subscription.price}`
     };
   });
   return data;

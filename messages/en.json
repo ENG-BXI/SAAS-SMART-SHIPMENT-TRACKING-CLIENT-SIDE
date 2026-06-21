@@ -1,6 +1,46 @@
 {
   "homePage": {
-    "title": "Hello world!"
+    "title": "Home",
+    "description": "Submit a subscription request to create a company account and start using the platform.",
+    "registerCompany": {
+      "title": "New company subscription request",
+      "description": "This page is currently used to submit a request for creating a new company."
+    },
+    "registerCompanyForm": {
+      "tempNote": "Temporary landing page for company subscription requests",
+      "title": "Create a new company",
+      "description": "Submit a request to create a new company and enable it to use the platform for shipment operations.",
+      "fields": {
+        "name": {
+          "label": "Company name",
+          "placeholder": "Example: Fast Line Shipping"
+        },
+        "subscriptionType": {
+          "label": "Subscription plan",
+          "placeholder": "Choose a subscription plan"
+        },
+        "location": {
+          "label": "Company location",
+          "placeholder": "Example: Riyadh, Saudi Arabia"
+        },
+        "companyEmail": {
+          "label": "Company email",
+          "placeholder": "Example: example@gmail.com"
+        },
+        "companyPassword": {
+          "label": "Password",
+          "placeholder": "***********"
+        },
+        "confirmPassword": {
+          "label": "Confirm password",
+          "placeholder": "***********"
+        }
+      },
+      "actions": {
+        "submit": "Create",
+        "submitting": "Creating..."
+      }
+    }
   },
   "login": {
     "title": "Login",
