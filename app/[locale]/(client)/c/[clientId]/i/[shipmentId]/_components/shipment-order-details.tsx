@@ -1,4 +1,5 @@
 import {Card, CardContent, CardHeader, CardTitle} from '@/components/ui/card';
+import {useTranslations} from 'next-intl';
 
 export interface IShipmenItem {
   name: string;
@@ -21,37 +22,38 @@ interface ShipmentOrderDetailsProps {
 }
 
 export default function ShipmentOrderDetails({firstPoint, lastPoint, currentPointName, companyName, wayPointsLength, reminderPoint, shipmentItems, driverInfo}: ShipmentOrderDetailsProps) {
+  const t = useTranslations('shipmentClientPage.orderDetails');
   return (
     <Card>
       <CardHeader>
-        <CardTitle>تفاصيل الطلب</CardTitle>
+        <CardTitle>{t('title')}</CardTitle>
       </CardHeader>
       <CardContent className='grid gap-6 lg:grid-cols-2'>
         <div className='rounded-[28px] border border-slate-200 bg-white p-5 shadow-sm'>
-          <Row label='المنطلق' value={firstPoint} />
-          <Row label='الوصول' value={lastPoint} />
-          <Row label='السائق' value={driverInfo.userName || 'غير متوفر'} />
-          <Row label='الهاتف' value={driverInfo.phoneNumber || 'غير متوفر'} />
+          <Row label={t('origin')} value={firstPoint} />
+          <Row label={t('arrival')} value={lastPoint} />
+          <Row label={t('driver')} value={driverInfo.userName || t('notAvailable')} />
+          <Row label={t('phone')} value={driverInfo.phoneNumber || t('notAvailable')} />
         </div>
 
         <div className='grid gap-4'>
           <div className='rounded-[28px] border border-slate-200 bg-white p-5 shadow-sm'>
-            <Row label='عدد الأغراض' value={`${shipmentItems.length}`} />
-            <Row label='النقطة الحالية' value={currentPointName} />
+            <Row label={t('itemsCount')} value={`${shipmentItems.length}`} />
+            <Row label={t('currentPoint')} value={currentPointName} />
           </div>
           <div className='rounded-[28px] border border-slate-200 bg-white p-5 shadow-sm'>
-            <p className='text-sm text-slate-500'>تفاصيل المسار</p>
+            <p className='text-sm text-slate-500'>{t('routeDetails')}</p>
             <div className='mt-4 space-y-3 rounded-3xl bg-slate-50 p-4 text-sm text-slate-500'>
               <div className='flex items-center justify-between'>
-                <span>الشركة الناقلة</span>
+                <span>{t('carrier')}</span>
                 <span className='font-semibold text-slate-950'>{companyName}</span>
               </div>
               <div className='flex items-center justify-between'>
-                <span>إجمالي المحطات</span>
+                <span>{t('totalStations')}</span>
                 <span className='font-semibold text-slate-950'>{wayPointsLength}</span>
               </div>
               <div className='flex items-center justify-between'>
-                <span>المحطات المتبقية</span>
+                <span>{t('remainingStations')}</span>
                 <span className='font-semibold text-slate-950'>{reminderPoint}</span>
               </div>
             </div>

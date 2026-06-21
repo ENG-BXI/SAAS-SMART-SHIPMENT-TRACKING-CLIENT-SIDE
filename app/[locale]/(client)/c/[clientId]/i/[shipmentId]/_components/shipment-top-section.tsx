@@ -2,6 +2,7 @@ import {Badge} from '@/components/ui/badge';
 import {Card, CardContent} from '@/components/ui/card';
 import { SHIPMENT_NAME, SHIPMENT_NUMBER } from '@/lib/Constant/enum';
 import {Truck} from 'lucide-react';
+import {useTranslations} from 'next-intl';
 interface IShipmentTopSectionProps {
   shipmentNumber: string;
   status: SHIPMENT_NUMBER;
@@ -10,14 +11,15 @@ interface IShipmentTopSectionProps {
   numberOfPoint: number;
 }
 export default function ShipmentTopSection({firstPoint, lastPoint, numberOfPoint, shipmentNumber, status}: IShipmentTopSectionProps) {
+  const t = useTranslations('shipmentClientPage.topSection');
   return (
     <Card className='overflow-hidden border border-slate-200 shadow-lg shadow-slate-200/20'>
       <div className='bg-gradient-to-r from-green-900 via-green-800 to-green-900 px-6 py-7 text-white'>
         <div className='flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between'>
           <div className='space-y-2'>
-            <p className='text-sm text-green-200'>رقم الشحنة</p>
+            <p className='text-sm text-green-200'>{t('shipmentNumber')}</p>
             <h1 className='text-3xl font-semibold tracking-tight text-green-100'>{shipmentNumber}</h1>
-            <p className='max-w-2xl text-sm text-green-100'>مسار الشحنة الحالي من الرياض إلى الدمام مع تحديثات وافية لتقدم الطلب والوقت المتوقع.</p>
+            <p className='max-w-2xl text-sm text-green-100'>{t('summary')}</p>
           </div>
 
           <div className='flex flex-wrap items-center gap-3'>
@@ -30,18 +32,18 @@ export default function ShipmentTopSection({firstPoint, lastPoint, numberOfPoint
 
       <CardContent className='grid gap-4 bg-slate-50 px-6 py-6 sm:grid-cols-2'>
         <div className='rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200'>
-          <p className='text-sm text-slate-500'>من</p>
+          <p className='text-sm text-slate-500'>{t('from')}</p>
           <p className='mt-2 text-lg font-semibold text-slate-950'>{firstPoint}</p>
         </div>
         <div className='rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200'>
-          <p className='text-sm text-slate-500'>إلى</p>
+          <p className='text-sm text-slate-500'>{t('to')}</p>
           <p className='mt-2 text-lg font-semibold text-slate-950'>{lastPoint}</p>
         </div>
         <div className='rounded-3xl md:col-span-2 bg-white p-5 shadow-sm ring-1 ring-slate-200'>
           <div className='flex items-center gap-3'>
             <Truck className='h-5 w-5 text-green-600' />
             <div>
-              <p className='text-sm text-slate-500'>عدد محطات التوقف</p>
+              <p className='text-sm text-slate-500'>{t('stopsCount')}</p>
               <p className='mt-1 text-lg font-semibold text-slate-950'>{numberOfPoint}</p>
             </div>
           </div>

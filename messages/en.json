@@ -59,5 +59,66 @@
       "submit": "Login",
       "submitting": "Logging in..."
     }
+  },
+  "shipmentClientPage": {
+    "eyebrow": "Shipment tracking",
+    "title": "Current order status and official tracking details",
+    "description": "A clear and organized view of the shipment status, route, and contact details in one page.",
+    "topSection": {
+      "shipmentNumber": "Shipment number",
+      "summary": "Current route overview with shipment status and stop count.",
+      "from": "From",
+      "to": "To",
+      "stopsCount": "Stop points count"
+    },
+    "summaryGrid": {
+      "title": "Overview",
+      "carrier": "Carrier",
+      "from": "From",
+      "to": "To",
+      "currentPoint": "Current point",
+      "progress": "Trip progress",
+      "remainingPoints": "Remaining points",
+      "itemsCount": "Items count",
+      "clientInfo": "Client information",
+      "email": "Email",
+      "phone": "Phone"
+    },
+    "sidebar": {
+      "title": "Quick status",
+      "currentStatus": "Current status",
+      "mainPoints": "Main points",
+      "stopPointsCount": "{count} stop points",
+      "contacts": "Contacts",
+      "email": "Email",
+      "phone": "Phone",
+      "primary": "Primary",
+      "secondary": "Secondary"
+    },
+    "timeline": {
+      "title": "Tracking timeline",
+      "description": "Each station the shipment passes through, in order.",
+      "current": "Current",
+      "done": "Passed",
+      "upcoming": "Upcoming",
+      "currentDescriptionWithNext": "The shipment is here now, then heading to {nextPointName}.",
+      "currentDescriptionLast": "The shipment has reached this station, and it is the last point in the route.",
+      "doneDescription": "This station has been passed successfully.",
+      "upcomingDescription": "The shipment has not reached this station yet."
+    },
+    "orderDetails": {
+      "title": "Order details",
+      "origin": "Origin",
+      "arrival": "Arrival",
+      "driver": "Driver",
+      "phone": "Phone",
+      "itemsCount": "Items count",
+      "currentPoint": "Current point",
+      "routeDetails": "Route details",
+      "carrier": "Carrier",
+      "totalStations": "Total stations",
+      "remainingStations": "Remaining stations",
+      "notAvailable": "Not available"
+    }
   }
 }

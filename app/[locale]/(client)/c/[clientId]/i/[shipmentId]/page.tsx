@@ -6,11 +6,13 @@ import ShipmentOrderDetails from './_components/shipment-order-details';
 import {GetShipmentDetailsForClient} from './_services/get-shipment-details-for-client';
 import {cookies} from 'next/headers';
 import ClientDetailsRealTime from './_components/client-details-real-time';
+import {getTranslations} from 'next-intl/server';
 interface PageProps {
   params: Promise<{clientId: string; shipmentId: string}>;
 }
 const Page = async ({params}: PageProps) => {
   const {clientId, shipmentId} = await params;
+  const t = await getTranslations('shipmentClientPage');
   const cookie = await cookies();
   const token = cookie.get('token')?.value;
   const data = await GetShipmentDetailsForClient(clientId, shipmentId, token);
@@ -22,10 +24,10 @@ const Page = async ({params}: PageProps) => {
       <ClientDetailsRealTime />
       <div className='space-y-8'>
         <header className='space-y-3'>
-          <p className='text-sm font-semibold uppercase tracking-[0.22em] text-green-700'>تتبع الشحنة</p>
+          <p className='text-sm font-semibold uppercase tracking-[0.22em] text-green-700'>{t('eyebrow')}</p>
           <div className='space-y-2'>
-            <h2 className='text-3xl font-semibold text-slate-950'>حالة الطلب الحالية ومعلومات التتبع الرسمية</h2>
-            <p className='max-w-3xl text-sm leading-6 text-slate-500'>عرض واضح ومنظم للوضع الحالي للشحنة، مسارها، وتفاصيل الاتصال في صفحة واحدة منسقة.</p>
+            <h2 className='text-3xl font-semibold text-slate-950'>{t('title')}</h2>
+            <p className='max-w-3xl text-sm leading-6 text-slate-500'>{t('description')}</p>
           </div>
         </header>
         <ShipmentTopSection firstPoint={data.firstPoint} lastPoint={data.lastPoint} numberOfPoint={data.allPointName.length} shipmentNumber={data.shipmentNumber} status={data.shipmentStatus} />

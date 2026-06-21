@@ -59,5 +59,66 @@
       "submit": "تسجيل الدخول",
       "submitting": "جاري تسجيل الدخول..."
     }
+  },
+  "shipmentClientPage": {
+    "eyebrow": "تتبع الشحنة",
+    "title": "حالة الطلب الحالية ومعلومات التتبع الرسمية",
+    "description": "عرض واضح ومنظم للوضع الحالي للشحنة، مسارها، وتفاصيل الاتصال في صفحة واحدة منسقة.",
+    "topSection": {
+      "shipmentNumber": "رقم الشحنة",
+      "summary": "ملخص سريع لمسار الشحنة الحالي مع الحالة وعدد نقاط التوقف.",
+      "from": "من",
+      "to": "إلى",
+      "stopsCount": "عدد محطات التوقف"
+    },
+    "summaryGrid": {
+      "title": "نظرة عامة",
+      "carrier": "الشركة الناقلة",
+      "from": "من",
+      "to": "إلى",
+      "currentPoint": "آخر نقطة",
+      "progress": "تقدم الرحلة",
+      "remainingPoints": "النقاط المتبقية",
+      "itemsCount": "عدد الأغراض",
+      "clientInfo": "معلومات العميل",
+      "email": "البريد الإلكتروني",
+      "phone": "الهاتف"
+    },
+    "sidebar": {
+      "title": "حالة سريعة",
+      "currentStatus": "الحالة الحالية",
+      "mainPoints": "النقاط الرئيسية",
+      "stopPointsCount": "{count} نقطة توقف",
+      "contacts": "جهات الاتصال",
+      "email": "البريد الإلكتروني",
+      "phone": "الهاتف",
+      "primary": "رئيسي",
+      "secondary": "ثانوي"
+    },
+    "timeline": {
+      "title": "مخطط التتبع",
+      "description": "كل محطة قطعتها الشحنة، بالترتيب.",
+      "current": "الحالية",
+      "done": "تم تجاوزها",
+      "upcoming": "قادمة",
+      "currentDescriptionWithNext": "الشحنة هنا الآن، وفي طريقها بعدها إلى {nextPointName}.",
+      "currentDescriptionLast": "الشحنة وصلت إلى هذه المحطة، وهي آخر نقطة في المسار.",
+      "doneDescription": "تم اجتياز هذه المحطة بنجاح.",
+      "upcomingDescription": "لم تصل الشحنة إلى هذه المحطة بعد."
+    },
+    "orderDetails": {
+      "title": "تفاصيل الطلب",
+      "origin": "المنطلق",
+      "arrival": "الوصول",
+      "driver": "السائق",
+      "phone": "الهاتف",
+      "itemsCount": "عدد الأغراض",
+      "currentPoint": "النقطة الحالية",
+      "routeDetails": "تفاصيل المسار",
+      "carrier": "الشركة الناقلة",
+      "totalStations": "إجمالي المحطات",
+      "remainingStations": "المحطات المتبقية",
+      "notAvailable": "غير متوفر"
+    }
   }
 }

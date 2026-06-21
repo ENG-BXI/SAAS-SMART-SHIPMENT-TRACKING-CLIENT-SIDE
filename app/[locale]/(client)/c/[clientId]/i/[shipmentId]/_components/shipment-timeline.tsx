@@ -1,5 +1,6 @@
 import {Card, CardContent, CardHeader, CardTitle} from '@/components/ui/card';
 import {CheckCircle2, Circle, MapPinned} from 'lucide-react';
+import {useTranslations} from 'next-intl';
 
 export interface IPoint {
   name: string;
@@ -13,12 +14,13 @@ interface ShipmentTimelineProps {
 
 export default function ShipmentTimeline({points, nextPointName}: ShipmentTimelineProps) {
   const currentIndex = points.findIndex(point => point.isCurrent);
+  const t = useTranslations('shipmentClientPage.timeline');
 
   return (
     <Card className='border-slate-200 bg-white shadow-lg'>
       <CardHeader className='border-b border-slate-100 bg-slate-50'>
-        <CardTitle className='text-slate-900'>مخطط التتبع</CardTitle>
-        <p className='text-sm text-slate-500'>كل محطة قطعتها الشحنة، بالترتيب، حتى وصولها إليك</p>
+        <CardTitle className='text-slate-900'>{t('title')}</CardTitle>
+        <p className='text-sm text-slate-500'>{t('description')}</p>
       </CardHeader>
       <CardContent className='space-y-4 p-6'>
         {points.map((point, index) => {
@@ -35,9 +37,9 @@ export default function ShipmentTimeline({points, nextPointName}: ShipmentTimeli
               <div className='flex-1'>
                 <div className='flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between'>
                   <p className={`font-semibold ${isDone || isCurrent ? 'text-slate-950' : 'text-slate-700'}`}>{point.name}</p>
-                  <span className='text-sm text-slate-500'>{stepLabel(isDone, isCurrent)}</span>
+                  <span className='text-sm text-slate-500'>{stepLabel(t, isDone, isCurrent)}</span>
                 </div>
-                <p className='mt-2 text-sm leading-6 text-slate-600'>{pointDescription(isDone, isCurrent, nextPointName)}</p>
+                <p className='mt-2 text-sm leading-6 text-slate-600'>{pointDescription(t, isDone, isCurrent, nextPointName)}</p>
               </div>
             </div>
           );
@@ -47,16 +49,16 @@ export default function ShipmentTimeline({points, nextPointName}: ShipmentTimeli
   );
 }
 
-function stepLabel(isDone: boolean, isCurrent: boolean) {
-  if (isCurrent) return 'الحالية';
-  if (isDone) return 'تم تجاوزها';
-  return 'قادمة';
+function stepLabel(t: (key: string, values?: Record<string, string | number>) => string, isDone: boolean, isCurrent: boolean) {
+  if (isCurrent) return t('current');
+  if (isDone) return t('done');
+  return t('upcoming');
 }
 
-function pointDescription(isDone: boolean, isCurrent: boolean, nextPointName?: string | null) {
+function pointDescription(t: (key: string, values?: Record<string, string | number>) => string, isDone: boolean, isCurrent: boolean, nextPointName?: string | null) {
   if (isCurrent) {
-    return nextPointName ? `الشحنة هنا الآن، وفي طريقها بعدها إلى ${nextPointName}.` : 'الشحنة وصلت إلى هذه المحطة، وهي آخر نقطة في المسار.';
+    return nextPointName ? t('currentDescriptionWithNext', {nextPointName}) : t('currentDescriptionLast');
   }
-  if (isDone) return 'تم اجتياز هذه المحطة بنجاح.';
-  return 'لم تصل الشحنة إلى هذه المحطة بعد.';
+  if (isDone) return t('doneDescription');
+  return t('upcomingDescription');
 }
