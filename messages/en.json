@@ -120,5 +120,23 @@
       "remainingStations": "Remaining stations",
       "notAvailable": "Not available"
     }
+  },
+  "statisticsAdminPage": {
+    "header": {
+      "title": "Dashboard",
+      "description": "An overview of platform activity with quick statistics for companies, subscriptions, visits, and notes.",
+      "breadcrumb": "Home"
+    },
+    "cards": {
+      "companies": "Companies count",
+      "subscriptionRequests": "Subscription requests",
+      "visitors": "Visitors count",
+      "notes": "Notes count",
+      "expiringCompanies": "Companies near expiration",
+      "pausedCompanies": "Paused companies"
+    },
+    "chart": {
+      "title": "Active companies chart"
+    }
   }
 }

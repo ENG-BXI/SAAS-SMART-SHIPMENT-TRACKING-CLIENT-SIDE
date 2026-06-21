@@ -3,20 +3,22 @@ import PageDashboardHeader from '@/components/dashboard/header';
 import {ChartLineLabel} from './_components/charts';
 import {GetAdminStatistics} from './_services/get-admin-statistics';
 import StatisticsRealTime from './_components/statistics-real-time';
+import {getTranslations} from 'next-intl/server';
 
 const StatisticsAdminPage = async () => {
+  const t = await getTranslations('statisticsAdminPage');
   const adminStatistics = await GetAdminStatistics();
   return (
     <div>
       <StatisticsRealTime />
-      <PageDashboardHeader title='الصفحة الرئيسية' description='نظرة عامة على أداء عمليات الشحن، مع إحصائيات مختصرة عن الشحنات الحالية والمتوقفة، عدد العملاء، وعدد المسارات المسجلة.' breadcrumbList={[{text: 'الرئيسية', path: '#'}]} />
+      <PageDashboardHeader title={t('header.title')} description={t('header.description')} breadcrumbList={[{text: t('header.breadcrumb'), path: '#'}]} />
       <div className='flex flex-wrap gap-4 mb-5'>
-        <CardStat title='عدد الشركات' value={adminStatistics.numberOfCompanies} />
-        <CardStat title='عدد طلبات الاشتراك' value={adminStatistics.numberOfSubscriptionRequest} />
-        <CardStat title='عدد الزوار' value={adminStatistics.numberOfVisited} />
-        <CardStat title='عدد الملاحظات' value={adminStatistics.numberOfNotes} />
-        <CardStat title='الشركات التي شارفت على الانتهاء' value={adminStatistics.numberOfWillSubscriptionFinish} />
-        <CardStat title='عدد الشركات المتوقفة' value={adminStatistics.numberOfPausedCompanies} />
+        <CardStat title={t('cards.companies')} value={adminStatistics.numberOfCompanies} />
+        <CardStat title={t('cards.subscriptionRequests')} value={adminStatistics.numberOfSubscriptionRequest} />
+        <CardStat title={t('cards.visitors')} value={adminStatistics.numberOfVisited} />
+        <CardStat title={t('cards.notes')} value={adminStatistics.numberOfNotes} />
+        <CardStat title={t('cards.expiringCompanies')} value={adminStatistics.numberOfWillSubscriptionFinish} />
+        <CardStat title={t('cards.pausedCompanies')} value={adminStatistics.numberOfPausedCompanies} />
       </div>
       <ChartLineLabel chartData={adminStatistics.numberOfCompanyByMonth} />
     </div>

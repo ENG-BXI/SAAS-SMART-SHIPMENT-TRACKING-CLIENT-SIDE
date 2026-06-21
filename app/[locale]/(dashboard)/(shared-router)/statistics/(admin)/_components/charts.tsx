@@ -2,6 +2,7 @@
 
 import {TrendingUp} from 'lucide-react';
 import {CartesianGrid, LabelList, Line, LineChart, XAxis} from 'recharts';
+import {useTranslations} from 'next-intl';
 
 import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from '@/components/ui/card';
 import {ChartContainer, ChartTooltip, ChartTooltipContent, type ChartConfig} from '@/components/ui/chart';
@@ -16,12 +17,13 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 export function ChartLineLabel({chartData}: {chartData: {month: string; count: number}[]}) {
+  const t = useTranslations('statisticsAdminPage.chart');
   return (
     <Card>
       <CardHeader>
         <CardTitle className='flex gap-2 leading-none font-medium'>
           <TrendingUp className='h-4 w-4' />
-          مخطط جميع الشركات النشطة
+          {t('title')}
         </CardTitle>
         <CardDescription></CardDescription>
       </CardHeader>

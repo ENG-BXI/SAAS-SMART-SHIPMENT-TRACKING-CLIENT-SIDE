@@ -120,5 +120,23 @@
       "remainingStations": "المحطات المتبقية",
       "notAvailable": "غير متوفر"
     }
+  },
+  "statisticsAdminPage": {
+    "header": {
+      "title": "الصفحة الرئيسية",
+      "description": "نظرة عامة على نشاط المنصة مع إحصائيات مختصرة عن الشركات، الاشتراكات، الزيارات، والملاحظات.",
+      "breadcrumb": "الرئيسية"
+    },
+    "cards": {
+      "companies": "عدد الشركات",
+      "subscriptionRequests": "عدد طلبات الاشتراك",
+      "visitors": "عدد الزوار",
+      "notes": "عدد الملاحظات",
+      "expiringCompanies": "الشركات التي شارفت على الانتهاء",
+      "pausedCompanies": "عدد الشركات المتوقفة"
+    },
+    "chart": {
+      "title": "مخطط جميع الشركات النشطة"
+    }
   }
 }
