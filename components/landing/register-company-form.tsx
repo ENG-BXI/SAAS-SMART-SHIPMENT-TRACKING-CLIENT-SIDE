@@ -13,9 +13,7 @@ import z from 'zod';
 import {useTransition} from 'react';
 import {toast} from 'sonner';
 import {requestSubscriptionCompany} from '@/actions/request-subscription-company';
-import useGetSubscriptionTypeAsOptions from '@/app/(dashboard)/(admin)/company/_services/get-all-subscription-type-as-options';
-
-
+import useGetSubscriptionTypeAsOptions from '@/app/[locale]/(dashboard)/(admin)/company/_services/get-all-subscription-type-as-options';
 
 const createCompanyFormSchema = z.object({
   name: z.string().min(3, 'company name must be great than 3 char'),

@@ -1,0 +1,23 @@
+{
+  "homePage": {
+    "title": "Hello world!"
+  },
+  "login": {
+    "title": "Login",
+    "description": "Access your account to continue managing shipments and operations.",
+    "fields": {
+      "email": {
+        "label": "Email",
+        "placeholder": "Enter your email"
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "Enter your password"
+      }
+    },
+    "actions": {
+      "submit": "Login",
+      "submitting": "Logging in..."
+    }
+  }
+}
