@@ -1,32 +1,35 @@
 import {Badge} from '@/components/ui/badge';
 import {cn} from '@/lib/utils';
-import {ISubscriptionRequest} from '../_services/get-subscription-requests';
+import { useTranslations } from 'next-intl';
 
 interface ISubscriptionRequestSummary {
   pendingCompanyCount: number;
   changeCompanyCount: number;
 }
 
-const summaryCards = [
-  {
-    title: 'الطلبات المعلقة',
-    description: 'طلبات التفعيل الجديدة في حالتها المعلقة',
-    badge: 'pending'
-  },
-  {
-    title: 'طلبات تغيير الباقة',
-    description: 'شركات طلبت الانتقال إلى باقة جديدة',
-    badge: 'change'
-  },
-  {
-    title: 'الطلبات الإجمالية',
-    description: 'عدد طلبات الاشتراك المعلقة حالياً',
-    badge: 'total'
-  }
-];
+
+
 
 function SubscriptionRequestSummary({pendingCompanyCount, changeCompanyCount}: ISubscriptionRequestSummary) {
+  const t = useTranslations('adminSubscriptionRequestPage');
   const totalCount = pendingCompanyCount + changeCompanyCount;
+  const summaryCards = [
+    {
+      title: t('summary.pending.title'),
+      description: t('summary.pending.description'),
+      badge: 'pending'
+    },
+    {
+      title: t('summary.change.title'),
+      description: t('summary.change.description'),
+      badge: 'change'
+    },
+    {
+      title: t('summary.total.title'),
+      description: t('summary.total.description'),
+      badge: 'total'
+    }
+  ];
 
   const getCardValue = (badge: string) => {
     if (badge === 'pending') return pendingCompanyCount;

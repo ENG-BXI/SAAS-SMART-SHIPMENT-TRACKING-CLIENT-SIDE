@@ -56,7 +56,8 @@
     },
     "tablePopover": {
       "actionsTitle": "Operations"
-    }
+    },
+    "currencyRiyal": "SAR"
   },
   "login": {
     "title": "Login",
@@ -301,5 +302,44 @@
       "title": "Are you sure you want to delete the plan {subscriptionType}?",
       "description": "The plan {subscriptionType} will be permanently deleted if it is not linked to any company."
     }
+  },
+  "adminSubscriptionRequestPage": {
+    "header": {
+      "title": "Subscription Requests",
+      "description": "Pending activation and plan change requests from companies.",
+      "breadcrumb": {
+        "home": "Home",
+        "subscriptionRequest": "Subscription Requests"
+      }
+    },
+    "summary": {
+      "pending": {
+        "title": "Pending Requests",
+        "description": "Number of pending subscription activation requests."
+      },
+      "change": {
+        "title": "Plan Change Requests",
+        "description": "Number of pending plan change requests."
+      },
+      "total": {
+        "title": "Total Requests",
+        "description": "Total number of subscription related requests."
+      }
+    },
+    "card": {
+      "requestTypeChange": "Plan Change Request",
+      "requestTypeNew": "New Subscription Request",
+      "requiredPlan": "Requested Plan",
+      "planPrice": "Plan Price",
+      "duration": "Duration",
+      "subscriptionStart": "Subscription Start",
+      "subscriptionEnd": "Subscription End",
+      "notSet": "Not set",
+      "viewCompany": "View Company",
+      "acceptAndActivate": "Accept and Activate",
+      "year": "Year",
+      "month": "Month"
+    },
+    "noPendingMessage": "There are no pending subscription or plan change requests at the moment."
   }
 }

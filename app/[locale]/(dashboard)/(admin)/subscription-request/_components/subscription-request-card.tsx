@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import {Badge} from '@/components/ui/badge';
 import {Button} from '@/components/ui/button';
+import { useTranslations } from 'next-intl';
 import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from '@/components/ui/card';
 import {formattedDate} from '@/lib/utils';
 import {SUBSCRIPTION_STATUS, SUBSCRIPTION_TEXT} from '@/lib/Constant/enum';
@@ -16,7 +17,9 @@ interface ISubscriptionRequestCard {
 // TODO : Add Show bill
 function SubscriptionRequestCard({company}: ISubscriptionRequestCard) {
   const isChangeRequest = company.subscription.status === SUBSCRIPTION_STATUS.CHANGE;
-  const label = isChangeRequest ? 'طلب تغيير باقة' : 'طلب تفعيل جديد';
+  const t = useTranslations('adminSubscriptionRequestPage');
+  const tShared = useTranslations('shared');
+  const label = isChangeRequest ? t('card.requestTypeChange') : t('card.requestTypeNew');
   const isYearly = company.subscription.type.durationByMonth >= 12;
   const duration = isYearly ? company.subscription.type.durationByMonth / 12 : company.subscription.type.durationByMonth;
   const [isPending, startTransition] = useTransition();
@@ -49,26 +52,26 @@ function SubscriptionRequestCard({company}: ISubscriptionRequestCard) {
       </CardHeader>
       <CardContent className='grid gap-4 sm:grid-cols-2'>
         <div className='rounded-2xl border border-slate-200/80 bg-slate-50 p-4'>
-          <p className='text-sm text-muted-foreground'>الباقة المطلوبة</p>
+          <p className='text-sm text-muted-foreground'>{t('card.requiredPlan')}</p>
           <p className='mt-2 text-base font-semibold text-slate-900'>{company.subscription.type.type}</p>
-          <p className='mt-4 text-sm text-muted-foreground'>سعر الباقة</p>
-          <p className='text-base font-semibold text-slate-900'>{`${company.subscription.type.price} ر.س`}</p>
+          <p className='mt-4 text-sm text-muted-foreground'>{t('card.planPrice')}</p>
+          <p className='text-base font-semibold text-slate-900'>{`${company.subscription.type.price} ${tShared('currencyRiyal')}`}</p>
         </div>
         <div className='rounded-2xl border border-slate-200/80 bg-slate-50 p-4'>
-          <p className='text-sm text-muted-foreground'>المدة</p>
-          <p className='mt-2 text-base font-semibold text-slate-900'>{isYearly ? `${duration} سنة` : `${duration} شهر`}</p>
-          <p className='mt-4 text-sm text-muted-foreground'>بداية الاشتراك</p>
-          <p className='text-base font-semibold text-slate-900'>{company.subscription.startDate ? formattedDate(company.subscription.startDate) : 'لم يحدد بعد'}</p>
-          <p className='mt-4 text-sm text-muted-foreground'>نهاية الاشتراك</p>
-          <p className='text-base font-semibold text-slate-900'>{company.subscription.endDate ? formattedDate(company.subscription.endDate) : 'لم يحدد بعد'}</p>
+          <p className='text-sm text-muted-foreground'>{t('card.duration')}</p>
+          <p className='mt-2 text-base font-semibold text-slate-900'>{isYearly ? `${duration} ${t('card.year')}` : `${duration} ${t('card.month')}`}</p>
+          <p className='mt-4 text-sm text-muted-foreground'>{t('card.subscriptionStart')}</p>
+          <p className='text-base font-semibold text-slate-900'>{company.subscription.startDate ? formattedDate(company.subscription.startDate) : t('card.notSet')}</p>
+          <p className='mt-4 text-sm text-muted-foreground'>{t('card.subscriptionEnd')}</p>
+          <p className='text-base font-semibold text-slate-900'>{company.subscription.endDate ? formattedDate(company.subscription.endDate) : t('card.notSet')}</p>
         </div>
       </CardContent>
       <CardFooter className='flex flex-wrap items-center gap-3'>
         <Button asChild variant='outline' size='sm'>
-          <Link href={`/company/${company.id}`}>عرض بيانات الشركة</Link>
+          <Link href={`/company/${company.id}`}>{t('card.viewCompany')}</Link>
         </Button>
         <Button size='sm' onClick={handleAcceptCompany} disabled={isPending} className='bg-custom-primary-color'>
-          قبول وتفعيل الشركة
+          {t('card.acceptAndActivate')}
         </Button>
       </CardFooter>
     </Card>
