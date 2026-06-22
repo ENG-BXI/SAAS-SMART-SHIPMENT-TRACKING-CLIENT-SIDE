@@ -5,19 +5,22 @@ import TablePopover from '@/components/table-popover';
 import {ICompanyForTable} from '../_interfaces/company-for-table';
 import {TableEmpty} from '@/components/table-empty';
 import DeleteCompanyDialog from './delete-company-dialog';
+import { useTranslations } from 'next-intl';
+
 interface IAllCompanies {
   companies?: ICompanyForTable[];
 }
 function AllCompanies({companies}: IAllCompanies) {
+  const t = useTranslations('adminCompaniesPage.table');
   return (
     <Table>
       <TableHeader>
         <TableRow>
-          <TableHead className='text-start'>اسم الشركة</TableHead>
-          <TableHead className='text-start'>موقع الشركة</TableHead>
-          <TableHead className='text-start'>عدد العملاء</TableHead>
-          <TableHead className='text-start'>ايميل الشركة</TableHead>
-          <TableHead className='text-start'>حالة الاشتراك</TableHead>
+          <TableHead className='text-start'>{t('columns.companyName')}</TableHead>
+          <TableHead className='text-start'>{t('columns.companyLocation')}</TableHead>
+          <TableHead className='text-start'>{t('columns.clientsCount')}</TableHead>
+          <TableHead className='text-start'>{t('columns.companyEmail')}</TableHead>
+          <TableHead className='text-start'>{t('columns.subscriptionStatus')}</TableHead>
           <TableHead className=''></TableHead>
         </TableRow>
       </TableHeader>
@@ -39,7 +42,7 @@ function AllCompanies({companies}: IAllCompanies) {
                 <TableCell>
                   <TablePopover
                     items={[
-                      {type: 'link', text: 'عرض الشركة', link: `/company/${company.id}`},
+                      {type: 'link', text: t('actions.viewCompany'), link: `/company/${company.id}`},
                       // TODO : Add Subscription Type
                       {type: 'dialog', item: <CompanyDialog type='edit' id={company.id} data={{name: company.name, location: company.location, companyEmail: company.companyEmail, subscriptionType: company?.subscriptionType}} />},
                       {

@@ -47,6 +47,12 @@
       "title": "Upload Attachments",
       "description": "The maximum allowed file size is 2MB, and supported formats include .jpg, .png, and .pdf.",
       "browseFiles": "Browse Files"
+    },
+    "buttons": {
+      "filter": "Filter"
+    },
+    "tablePopover": {
+      "actionsTitle": "Operations"
     }
   },
   "login": {
@@ -168,6 +174,75 @@
     "headerActions": {
       "pauseSubscription": "Pause Company Subscription",
       "activateSubscription": "Activate Company Subscription"
+    }
+  },
+  "adminCompaniesPage": {
+    "header": {
+      "title": "Companies",
+      "description": "Manage registered companies and their activation status",
+      "breadcrumb": {
+        "home": "Home",
+        "companies": "Companies"
+      }
+    },
+    "table": {
+      "columns": {
+        "companyName": "Company Name",
+        "companyLocation": "Company Location",
+        "clientsCount": "Number of Clients",
+        "companyEmail": "Company Email",
+        "subscriptionStatus": "Subscription Status"
+      },
+      "actions": {
+        "viewCompany": "View Company",
+        "deleteCompany": "Delete Company"
+      }
+    },
+    "deleteCompanyDialog": {
+      "triggerText": "Delete Company",
+      "title": "Are you sure you want to delete the company {companyName}?",
+      "description": "The company {companyName} will be permanently deleted."
+    },
+    "dialog": {
+      "add": {
+        "title": "Add New Company",
+        "description": "Create a new company to enable it to use the system and manage its shipping operations."
+      },
+      "edit": {
+        "title": "Edit Company",
+        "description": "Edit company details and activation status. Any changes will be applied immediately to all users of the company."
+      },
+      "fields": {
+        "companyName": {
+          "label": "Company Name",
+          "placeholder": "Example: Fast Line Shipping"
+        },
+        "subscriptionType": {
+          "label": "Subscription Plan",
+          "placeholder": "Choose a subscription plan"
+        },
+        "companyLocation": {
+          "label": "Company Location",
+          "placeholder": "Example: Riyadh, Saudi Arabia"
+        },
+        "companyEmail": {
+          "label": "Company Email",
+          "placeholder": "Example: example@gmail.com"
+        },
+        "password": {
+          "label": "Password",
+          "placeholder": "***********"
+        },
+        "confirmPassword": {
+          "label": "Confirm Password",
+          "placeholder": "***********"
+        }
+      },
+      "buttons": {
+        "cancel": "Cancel",
+        "add": "Add",
+        "edit": "Edit"
+      }
     }
   }
 }

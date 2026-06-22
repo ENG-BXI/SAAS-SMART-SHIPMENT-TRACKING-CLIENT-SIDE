@@ -10,6 +10,8 @@ import {TableSkelton} from '@/components/table-skelton';
 import {cookies} from 'next/headers';
 import {Suspense} from 'react';
 import CompanyRealTime from './_components/company-real-time';
+import { getTranslations } from 'next-intl/server';
+
 interface PageProps {
   searchParams: Promise<{
     search: string;
@@ -21,21 +23,24 @@ const Page = async ({searchParams}: PageProps) => {
   const page = sp?.page || 1;
   const search = sp?.search || '';
 
+  const t = await getTranslations('adminCompaniesPage');
+  const tShared = await getTranslations('shared');
+
   return (
     <div>
       <CompanyRealTime />
       <PageDashboardHeader
-        title='الشركات'
-        description='إدارة الشركات المسجلة على النظام وحالة تفعيلها'
+        title={t('header.title')}
+        description={t('header.description')}
         breadcrumbList={[
-          {text: 'الرئيسية', path: '#'},
-          {text: 'الشركات', path: '#'}
+          {text: t('header.breadcrumb.home'), path: '#'},
+          {text: t('header.breadcrumb.companies'), path: '#'}
         ]}
       />
       <DashboardSearchAndActionPage
         action={
           <div className=' flex gap-x-1'>
-            <CustomButton text='فلترة' type='secondary' icon={<Filter className='' />} />
+            <CustomButton text={tShared('buttons.filter')} type='secondary' icon={<Filter className='' />} />
             <CompanyDialog type='add' />
           </div>
         }

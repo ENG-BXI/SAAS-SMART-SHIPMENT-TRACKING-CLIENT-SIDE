@@ -15,9 +15,12 @@ import {useState, useTransition} from 'react';
 import {createCompany, editCompany} from '../_action';
 import CustomSelect from '@/components/custom-select';
 import useGetSubscriptionTypeAsOptions from '../_services/get-all-subscription-type-as-options';
+import { useTranslations } from 'next-intl';
+
 type ICompanyDialog = {type: 'edit'; id: string; data: ICompany} | {type: 'add'};
 
 function CompanyDialog({...props}: ICompanyDialog) {
+  const t = useTranslations('adminCompaniesPage.dialog');
   const [open, setOpen] = useState(false);
   const [isPending, startTransition] = useTransition();
   const form = useForm<ICreateCompany | IEditCompany>({
@@ -36,17 +39,17 @@ function CompanyDialog({...props}: ICompanyDialog) {
   function getTitle() {
     switch (props.type) {
       case 'add':
-        return 'اضافة شركة جديدة';
+        return t('add.title');
       case 'edit':
-        return 'تعديل شركة ';
+        return t('edit.title');
     }
   }
   function getDescription() {
     switch (props.type) {
       case 'add':
-        return 'إنشاء شركة جديدة لتمكينها من استخدام النظام وإدارة عمليات الشحن الخاصة بها.';
+        return t('add.description');
       case 'edit':
-        return 'تعديل بيانات الشركة وحالة تفعيلها. أي تغيير سيتم تطبيقه فورًا على جميع المستخدمين التابعين للشركة.';
+        return t('edit.description');
     }
   }
   function onSubmit(company: ICreateCompany | IEditCompany) {
@@ -112,35 +115,35 @@ function CompanyDialog({...props}: ICompanyDialog) {
               name='name'
               control={form.control}
               render={({field, fieldState}) => {
-                return <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label='اسم الشركة' required placeHolder='مثال: الخط السريع للشحن' />;
+                return <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label={t('fields.companyName.label')} required placeHolder={t('fields.companyName.placeholder')} />;
               }}
             />
             <Controller
               control={form.control}
               name='subscriptionType'
               render={({field, fieldState: {invalid, error}}) => {
-                return <CustomSelect disabled={isPending} onChange={field.onChange} value={field.value} ref={field.ref} invalid={invalid} isLoading={isSubscriptionLoading} isError={isSubscriptionError} error={subscriptionError?.message} errorMessage={error?.message} placeHolder='اختر باقه الاشتراك' required label='باقه الاشتراك' options={SubscriptionData || []} />;
+                return <CustomSelect disabled={isPending} onChange={field.onChange} value={field.value} ref={field.ref} invalid={invalid} isLoading={isSubscriptionLoading} isError={isSubscriptionError} error={subscriptionError?.message} errorMessage={error?.message} placeHolder={t('fields.subscriptionType.placeholder')} required label={t('fields.subscriptionType.label')} options={SubscriptionData || []} />;
               }}
             />
             <Controller
               name='location'
               control={form.control}
               render={({field, fieldState}) => {
-                return <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label='موقع الشركة' required placeHolder='مثال: الرياض، السعودية' />;
+                return <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label={t('fields.companyLocation.label')} required placeHolder={t('fields.companyLocation.placeholder')} />;
               }}
             />
             <Controller
               name='companyEmail'
               control={form.control}
               render={({field, fieldState}) => {
-                return <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label='ايميل الشركة' required placeHolder='مثال: example@gmail.com' />;
+                return <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label={t('fields.companyEmail.label')} required placeHolder={t('fields.companyEmail.placeholder')} />;
               }}
             />
             <Controller
               name='companyPassword'
               control={form.control}
               render={({field, fieldState}) => {
-                return <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label='كلمة السر' required placeHolder='***********' />;
+                return <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label={t('fields.password.label')} required placeHolder={t('fields.password.placeholder')} />;
               }}
             />
             {props.type == 'add' && (
@@ -148,7 +151,7 @@ function CompanyDialog({...props}: ICompanyDialog) {
                 name='confirmPassword'
                 control={form.control}
                 render={({field, fieldState}) => {
-                  return <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label='تاكيد كلمة السر ' required placeHolder='***********' />;
+                  return <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label={t('fields.confirmPassword.label')} required placeHolder={t('fields.confirmPassword.placeholder')} />;
                 }}
               />
             )}
@@ -156,9 +159,9 @@ function CompanyDialog({...props}: ICompanyDialog) {
 
           <DialogFooter>
             <DialogClose>
-              <CustomButton text='الغاء' icon={<ArrowRight />} type='secondary' className='flex-row-reverse' />
+              <CustomButton text={t('buttons.cancel')} icon={<ArrowRight />} type='secondary' className='flex-row-reverse' />
             </DialogClose>
-            <CustomButton disable={isPending} IsSubmit text={props.type == 'add' ? 'اضافة' : 'تعديل'} icon={<PlusCircle />} className='bg-black' />
+            <CustomButton disable={isPending} IsSubmit text={props.type == 'add' ? t('buttons.add') : t('buttons.edit')} icon={<PlusCircle />} className='bg-black' />
           </DialogFooter>
         </form>
       </DialogContent>

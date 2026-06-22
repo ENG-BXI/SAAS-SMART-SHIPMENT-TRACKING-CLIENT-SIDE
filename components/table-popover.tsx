@@ -3,18 +3,21 @@ import {Popover, PopoverContent, PopoverTrigger} from '@/components/ui/popover';
 import {buttonVariants} from '@/components/ui/button';
 import React, {ReactNode} from 'react';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
+
 type ITablePopoverItem = {type: 'dialog'; item: ReactNode} | {type: 'link'; text: string; link: string};
 interface ITablePopover {
   items: ITablePopoverItem[];
 }
 function TablePopover({items}: ITablePopover) {
+  const t = useTranslations('shared.tablePopover');
   return (
     <Popover>
       <PopoverTrigger asChild>
         <MoreVertical className='max-w-4 max-h-4 cursor-pointer' />
       </PopoverTrigger>
       <PopoverContent align='end' dir='rtl' className='w-70'>
-        <h4 className='text-[16px] mb-2'>العمليات</h4>
+        <h4 className='text-[16px] mb-2'>{t('actionsTitle')}</h4>
         {/* //TODO: add the id of the company to the link */}
         {items.map((item, index) => {
           if (item.type === 'link') {
