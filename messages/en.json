@@ -42,6 +42,13 @@
       }
     }
   },
+  "shared": {
+    "uploadImage": {
+      "title": "Upload Attachments",
+      "description": "The maximum allowed file size is 2MB, and supported formats include .jpg, .png, and .pdf.",
+      "browseFiles": "Browse Files"
+    }
+  },
   "login": {
     "title": "Login",
     "description": "Access your account to continue managing shipments and operations.",
@@ -137,6 +144,30 @@
     },
     "chart": {
       "title": "Active companies chart"
+    }
+  },
+  "adminCompanyDetailPage": {
+    "title": "Company details",
+    "description": "Company details and management",
+    "breadcrumb": {
+      "home": "Home",
+      "companies": "Companies",
+      "details": "Company details"
+    },
+    "companyForm": {
+      "basicInfo": "Basic Information",
+      "companyName": "Company Name",
+      "companyLocation": "Company Location",
+      "email": "Email",
+      "clientsCount": "Number of Clients",
+      "subscriptionInfo": "Subscription Information",
+      "subscriptionType": "Subscription Type",
+      "subscriptionStart": "Subscription Start",
+      "subscriptionEnd": "Subscription End"
+    },
+    "headerActions": {
+      "pauseSubscription": "Pause Company Subscription",
+      "activateSubscription": "Activate Company Subscription"
     }
   }
 }

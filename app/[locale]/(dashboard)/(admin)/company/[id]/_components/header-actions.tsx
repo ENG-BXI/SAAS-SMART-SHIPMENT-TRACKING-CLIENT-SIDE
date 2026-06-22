@@ -5,8 +5,10 @@ import {StopCircle} from 'lucide-react';
 import {useTransition} from 'react';
 import {activeCompanySubscription, pauseCompanySubscription} from '../_actions';
 import {toast} from 'sonner';
+import { useTranslations } from 'next-intl';
 
 const HeaderActions = ({status, id}: {status: TSubscriptionStatus; id: string}) => {
+  const t = useTranslations('adminCompanyDetailPage.headerActions');
   const [isPending, startTransition] = useTransition();
   function handleChangeStatus(status: 'active' | 'inActive') {
     if (status == 'inActive') {
@@ -27,8 +29,8 @@ const HeaderActions = ({status, id}: {status: TSubscriptionStatus; id: string}) 
   }
   return (
     <div className='flex'>
-      {status == SUBSCRIPTION_STATUS.ACTIVE && <CustomButton disable={isPending} onClick={() => handleChangeStatus('inActive')} text='توقيف اشتراك الشركة' type='danger' icon={<StopCircle className='' />} />}
-      {status == SUBSCRIPTION_STATUS.INACTIVE && <CustomButton disable={isPending} onClick={() => handleChangeStatus('active')} text='تفعيل اشتراك الشركة' type='primary' icon={<StopCircle className='' />} />}
+      {status == SUBSCRIPTION_STATUS.ACTIVE && <CustomButton disable={isPending} onClick={() => handleChangeStatus('inActive')} text={t('pauseSubscription')} type='danger' icon={<StopCircle className='' />} />}
+      {status == SUBSCRIPTION_STATUS.INACTIVE && <CustomButton disable={isPending} onClick={() => handleChangeStatus('active')} text={t('activateSubscription')} type='primary' icon={<StopCircle className='' />} />}
     </div>
   );
 };

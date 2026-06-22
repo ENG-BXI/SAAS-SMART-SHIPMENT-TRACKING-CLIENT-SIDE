@@ -4,27 +4,30 @@ import CustomInputWithLabelForViewPage from '@/components/custom-input-with-labe
 import {ICompanyWithSubscription} from '../_interfaces/company-with-subscription';
 import UploadImage from '../[id]/_components/UploadImage';
 import { formattedDate } from '@/lib/utils';
+import { useTranslations } from 'next-intl';
+
 function CompanyForm({company}: {company: ICompanyWithSubscription}) {
+  const t = useTranslations('adminCompanyDetailPage.companyForm');
   return (
     <Card className=''>
       <CardHeader>
-        <CardTitle>المعلومات الاساسية</CardTitle>
+        <CardTitle>{t('basicInfo')}</CardTitle>
       </CardHeader>
       <CardContent className='flex flex-col gap-y-3'>
-        <CustomInputWithLabelForViewPage label='اسم الشركة' value={company.name} />
+        <CustomInputWithLabelForViewPage label={t('companyName')} value={company.name} />
         <Separator />
-        <CustomInputWithLabelForViewPage label='موقع الشركة' value={company.location} />
+        <CustomInputWithLabelForViewPage label={t('companyLocation')} value={company.location} />
         <Separator />
-        <CustomInputWithLabelForViewPage label='البريد الالكتروني' value={company.companyEmail} />
+        <CustomInputWithLabelForViewPage label={t('email')} value={company.companyEmail} />
         <Separator />
-        <CustomInputWithLabelForViewPage label='عدد العملاء' value={company.numberOfClient} />
+        <CustomInputWithLabelForViewPage label={t('clientsCount')} value={company.numberOfClient} />
         <Separator />
-        <h3>معلومات الاشتراك</h3>
-        <CustomInputWithLabelForViewPage label='نوع الاشتراك' value={company.subscriptionType} />
+        <h3>{t('subscriptionInfo')}</h3>
+        <CustomInputWithLabelForViewPage label={t('subscriptionType')} value={company.subscriptionType} />
         <Separator />
-        <CustomInputWithLabelForViewPage label='بداية الاشتراك' value={formattedDate(company.subscriptionStartDate)} />
+        <CustomInputWithLabelForViewPage label={t('subscriptionStart')} value={formattedDate(company.subscriptionStartDate)} />
         <Separator />
-        <CustomInputWithLabelForViewPage label='نهاية الاشتراك' value={formattedDate(company.subscriptionEndDate)} />
+        <CustomInputWithLabelForViewPage label={t('subscriptionEnd')} value={formattedDate(company.subscriptionEndDate)} />
         <Separator />
         <UploadImage />
       </CardContent>
