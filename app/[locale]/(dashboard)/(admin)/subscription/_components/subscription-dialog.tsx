@@ -12,10 +12,13 @@ import {toast} from 'sonner';
 import {useState, useTransition} from 'react';
 import {createSubscriptionType, editSubscriptionType} from '../_actions';
 import {SubscriptionTypeFormData, subscriptionTypeSchema} from '../_schemas/subscription-schema';
+import { useTranslations } from 'next-intl';
 
 type SubscriptionDialogProps = {type: 'add'} | {type: 'edit'; id: string; data: SubscriptionTypeFormData};
 
 function SubscriptionDialog({...props}: SubscriptionDialogProps) {
+  const t = useTranslations('adminSubscriptionsPage.dialog');
+  const tShared = useTranslations('shared');
   const [open, setOpen] = useState(false);
   const [isPending, startTransition] = useTransition();
   const form = useForm<SubscriptionTypeFormData>({
@@ -33,18 +36,18 @@ function SubscriptionDialog({...props}: SubscriptionDialogProps) {
   function getTitle() {
     switch (props.type) {
       case 'add':
-        return 'اضافة باقة اشتراك';
+        return t('add.title');
       case 'edit':
-        return 'تعديل باقة اشتراك';
+        return t('edit.title');
     }
   }
 
   function getDescription() {
     switch (props.type) {
       case 'add':
-        return 'إنشاء باقة اشتراك جديدة وتحديد السعر ومدة الاشتراك بالأشهر لاستخدامها عند إضافة الشركات.';
+        return t('add.description');
       case 'edit':
-        return 'تعديل بيانات باقة الاشتراك الحالية. سيتم تطبيق التغييرات على بيانات الباقة في النظام.';
+        return t('edit.description');
     }
   }
 
@@ -102,36 +105,36 @@ function SubscriptionDialog({...props}: SubscriptionDialogProps) {
             <Controller
               name='type'
               control={form.control}
-              render={({field, fieldState}) => <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label='نوع الباقة' required placeHolder='مثال: monthly أو yearly' />}
+              render={({field, fieldState}) => <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label={t('fields.planType.label')} required placeHolder={t('fields.planType.placeholder')} />}
             />
             <Controller
               name='price'
               control={form.control}
-              render={({field, fieldState}) => <CustomInput disabled={isPending} inputType='number' type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label='سعر الباقة' required placeHolder='مثال: 150' />}
+              render={({field, fieldState}) => <CustomInput disabled={isPending} inputType='number' type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label={t('fields.price.label')} required placeHolder={t('fields.price.placeholder')} />}
             />
             <Controller
               name='durationByMonth'
               control={form.control}
-              render={({field, fieldState}) => <CustomInput disabled={isPending} inputType='number' type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label='مدة الاشتراك بالأشهر' required placeHolder='مثال: 1 أو 12' />}
+              render={({field, fieldState}) => <CustomInput disabled={isPending} inputType='number' type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label={t('fields.duration.label')} required placeHolder={t('fields.duration.placeholder')} />}
             />
           </FieldGroup>
 
           <div className='mb-4 rounded-lg border border-custom-primary-color/15 bg-[#F3FCF6] p-3'>
             <div className='flex items-start gap-x-2 text-xs leading-relaxed text-[#085D3A]'>
               <CalendarClock className='mt-0.5 h-4 w-4 shrink-0' />
-              <p>مدة الاشتراك تحفظ بالأشهر، مثل 1 للاشتراك الشهري و12 للاشتراك السنوي.</p>
+              <p>{t('hints.duration')}</p>
             </div>
             <div className='mt-2 flex items-center gap-x-2 text-xs font-medium text-gray-700'>
               <DollarSign className='h-4 w-4 text-[#1B8354]' />
-              السعر يستخدم عند ربط الباقة بالشركات.
+              {t('hints.price')}
             </div>
           </div>
 
           <DialogFooter>
             <DialogClose>
-              <CustomButton text='الغاء' icon={<ArrowRight />} type='secondary' className='flex-row-reverse' />
+              <CustomButton text={tShared('buttons.cancel')} icon={<ArrowRight />} type='secondary' className='flex-row-reverse' />
             </DialogClose>
-            <CustomButton disable={isPending} IsSubmit text={props.type == 'add' ? 'اضافة' : 'تعديل'} icon={<PlusCircle />} className='bg-black' />
+            <CustomButton disable={isPending} IsSubmit text={props.type == 'add' ? tShared('buttons.add') : tShared('buttons.edit')} icon={<PlusCircle />} className='bg-black' />
           </DialogFooter>
         </form>
       </DialogContent>

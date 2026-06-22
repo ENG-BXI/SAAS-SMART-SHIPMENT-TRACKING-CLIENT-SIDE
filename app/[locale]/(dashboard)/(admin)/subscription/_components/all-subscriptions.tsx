@@ -4,18 +4,21 @@ import {TableEmpty} from '@/components/table-empty';
 import TablePopover from '@/components/table-popover';
 import SubscriptionDialog from './subscription-dialog';
 import DeleteSubscriptionDialog from './delete-subscription-dialog';
+import { useTranslations } from 'next-intl';
+
 interface IAllSubscriptions {
   subscriptions?: ISubscriptionForTable[];
 }
 
 function AllSubscriptions({subscriptions}: IAllSubscriptions) {
+  const t = useTranslations('adminSubscriptionsPage.table');
   return (
     <Table>
       <TableHeader>
         <TableRow>
-          <TableHead className='text-start'>نوع الباقة</TableHead>
-          <TableHead className='text-start'>السعر</TableHead>
-          <TableHead className='text-start'>عدد الاشهر</TableHead>
+          <TableHead className='text-start'>{t('columns.planType')}</TableHead>
+          <TableHead className='text-start'>{t('columns.price')}</TableHead>
+          <TableHead className='text-start'>{t('columns.duration')}</TableHead>
           <TableHead className=''></TableHead>
         </TableRow>
       </TableHeader>
@@ -29,7 +32,7 @@ function AllSubscriptions({subscriptions}: IAllSubscriptions) {
                 <TableCell className='font-semibold text-gray-900'>{sub.type}</TableCell>
                 <TableCell>{sub.price}</TableCell>
                 <TableCell>
-                  {isYearly ? durationByYear : sub.durationByMonth} {isYearly ? 'سنة' : 'شهر'}
+                  {isYearly ? durationByYear : sub.durationByMonth} {isYearly ? t('format.year') : t('format.month')}
                 </TableCell>
                 <TableCell>
                   <TablePopover

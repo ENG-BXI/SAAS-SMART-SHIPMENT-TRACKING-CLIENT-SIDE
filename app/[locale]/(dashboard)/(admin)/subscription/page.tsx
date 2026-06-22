@@ -5,6 +5,7 @@ import GetAllSubscription from '../../../../../services/get-all-subscription';
 import {cookies} from 'next/headers';
 import SubscriptionDialog from './_components/subscription-dialog';
 import SubscriptionRealTimeListen from './_components/subscription-real-time-listen';
+import { getTranslations } from 'next-intl/server';
 
 const Page = async () => {
   // TODO : Add Edit Delete Subscription ✅
@@ -34,15 +35,17 @@ const Page = async () => {
   // TODO : Landing Page for Company Register
   // TODO : Mobile App For Client And Driver
   // TODO : add poster Project for social media
+  const t = await getTranslations('adminSubscriptionsPage');
+
   return (
     <div>
       <SubscriptionRealTimeListen />
       <PageDashboardHeader
-        title='الاشتراكات'
-        description='إدارة ومتابعة باقات الاشتراك'
+        title={t('header.title')}
+        description={t('header.description')}
         breadcrumbList={[
-          {text: 'الرئيسية', path: '#'},
-          {text: 'الاشتراكات', path: '#'}
+          {text: t('header.breadcrumb.home'), path: '#'},
+          {text: t('header.breadcrumb.subscriptions'), path: '#'}
         ]}
         hasAction
         actions={<SubscriptionDialog type='add' />}

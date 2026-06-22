@@ -49,7 +49,10 @@
       "browseFiles": "Browse Files"
     },
     "buttons": {
-      "filter": "Filter"
+      "filter": "Filter",
+      "cancel": "Cancel",
+      "add": "Add",
+      "edit": "Edit"
     },
     "tablePopover": {
       "actionsTitle": "Operations"
@@ -243,6 +246,60 @@
         "add": "Add",
         "edit": "Edit"
       }
+    }
+  },
+  "adminSubscriptionsPage": {
+    "header": {
+      "title": "Subscriptions",
+      "description": "Manage and track subscription plans",
+      "breadcrumb": {
+        "home": "Home",
+        "subscriptions": "Subscriptions"
+      }
+    },
+    "table": {
+      "columns": {
+        "planType": "Plan Type",
+        "price": "Price",
+        "duration": "Duration (Months)"
+      },
+      "format": {
+        "year": "Year",
+        "month": "Month"
+      }
+    },
+    "dialog": {
+      "add": {
+        "title": "Add Subscription Plan",
+        "description": "Create a new subscription plan, set the price and duration in months to be used when adding companies."
+      },
+      "edit": {
+        "title": "Edit Subscription Plan",
+        "description": "Edit current subscription plan details. Changes will be applied to the plan data in the system."
+      },
+      "fields": {
+        "planType": {
+          "label": "Plan Type",
+          "placeholder": "Example: monthly or yearly"
+        },
+        "price": {
+          "label": "Plan Price",
+          "placeholder": "Example: 150"
+        },
+        "duration": {
+          "label": "Duration (Months)",
+          "placeholder": "Example: 1 or 12"
+        }
+      },
+      "hints": {
+        "duration": "Subscription duration is saved in months, e.g., 1 for monthly and 12 for yearly subscription.",
+        "price": "The price is used when linking the plan to companies."
+      }
+    },
+    "deleteDialog": {
+      "triggerText": "Delete Plan",
+      "title": "Are you sure you want to delete the plan {subscriptionType}?",
+      "description": "The plan {subscriptionType} will be permanently deleted if it is not linked to any company."
     }
   }
 }
