@@ -425,5 +425,48 @@
         "text": "Go to My Subscription page to renew your plan or switch to a new one."
       }
     }
+  },
+  "pendingPage": {
+    "title": "Your Company is Under Review",
+    "description": "Your company data has been successfully received, and the subscription request is currently being reviewed by our team.",
+    "breadcrumb": {
+      "home": "Home",
+      "mySubscription": "My Subscription",
+      "pending": "Under Review"
+    },
+    "card": {
+      "title": "Subscription Request Under Review",
+      "description": "Our support team is reviewing your company data to ensure all information is accurate.",
+      "alert": {
+        "title": "We appreciate your patience.",
+        "description": "Verification may take some time. You will be notified once the review is completed or if additional information is required."
+      },
+      "stepsTitle": "What is happening now?",
+      "steps": {
+        "step1": "Reviewing company data and subscription information.",
+        "step2": "Verifying required documents and attachments if any.",
+        "step3": "Approving the account to activate the company again."
+      },
+      "info": {
+        "title": "Tip",
+        "text": "If you have any questions or need to update information, you can return to the subscription page or contact support at any time."
+      },
+      "actions": {
+        "viewSubscriptions": "View My Subscriptions",
+        "home": "Back to Home"
+      }
+    },
+    "statusCard": {
+      "title": "Expected Review",
+      "description": "No action is required at the moment, and we will notify you of any updates.",
+      "current": {
+        "title": "Current Status",
+        "text": "The request is currently under review by the support team."
+      },
+      "expected": {
+        "title": "Expected Time",
+        "text": "A response will be provided within 24 business hours or less."
+      }
+    }
   }
 }
