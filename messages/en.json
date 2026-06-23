@@ -468,5 +468,48 @@
         "text": "A response will be provided within 24 business hours or less."
       }
     }
+  },
+  "inactivePage": {
+    "title": "Your Account Has Been Disabled",
+    "description": "Your account has been temporarily deactivated. You cannot access the dashboard or perform any actions until it is reactivated.",
+    "breadcrumb": {
+      "home": "Home",
+      "mySubscription": "My Subscription",
+      "inactive": "Inactive"
+    },
+    "card": {
+      "title": "Your Account is Inactive",
+      "description": "Your company account has been disabled by the administrative team.",
+      "alert": {
+        "title": "Don’t worry, we will help you reactivate it.",
+        "description": "If you believe this is a mistake, you can contact support or review your subscription status for more details."
+      },
+      "reasonsTitle": "Reason for deactivation",
+      "reasons": {
+        "reason1": "Company data is under administrative review.",
+        "reason2": "Subscription expired or payment not completed.",
+        "reason3": "Violation or incompatibility with terms of service."
+      },
+      "info": {
+        "title": "What can you do now?",
+        "text": "Check your email for any instructions, or contact support to reactivate your account as soon as possible."
+      },
+      "actions": {
+        "viewSubscriptions": "View My Subscriptions",
+        "home": "Back to Home"
+      }
+    },
+    "statusCard": {
+      "title": "Account Disabled",
+      "description": "You cannot make any changes or access resources until the account is reactivated.",
+      "current": {
+        "title": "Current Status",
+        "text": "The account is temporarily inactive and all permissions are disabled."
+      },
+      "nextSteps": {
+        "title": "Next Steps",
+        "text": "Contact support or your administration team to reactivate your account and restore access."
+      }
+    }
   }
 }
