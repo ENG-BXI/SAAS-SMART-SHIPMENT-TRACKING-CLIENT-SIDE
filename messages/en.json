@@ -59,6 +59,20 @@
     },
     "currencyRiyal": "SAR"
   },
+  "sidebar": {
+    "home": "Home",
+    "companies": "Companies",
+    "subscriptions": "Subscriptions",
+    "subscriptionRequests": "Subscription Requests",
+    "notes": "Notes",
+    "shipments": "Shipments",
+    "clients": "Clients",
+    "ways": "Routes",
+    "users": "Users",
+    "mySubscription": "My Subscription",
+    "settings": "Settings",
+    "logout": "Logout"
+  },
   "login": {
     "title": "Login",
     "description": "Access your account to continue managing shipments and operations.",
@@ -316,7 +330,8 @@
         "type": "Note Type",
         "note": "Note"
       }
-    },"dialog": {
+    },
+    "dialog": {
       "title": "Add New Note",
       "description": "Send a new note to the platform administration to share an inquiry, request, complaint, or any details related to the service or system.",
       "viewDetails": "View Details",

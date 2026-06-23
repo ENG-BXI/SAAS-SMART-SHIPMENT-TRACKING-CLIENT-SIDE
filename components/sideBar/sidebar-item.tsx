@@ -1,6 +1,7 @@
 'use client';
 import {cn} from '@/lib/utils';
 import {IconLock} from '@tabler/icons-react';
+import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import {ReactNode, useState} from 'react';
 
@@ -15,14 +16,15 @@ export interface ISidebarItem {
 }
 function SidebarItem({item}: {item: ISidebarItem}) {
   const [prefetch, setPrefetch] = useState(false);
-  const {icon, text, isSelected = false, link} = item;
+  const { icon, text, isSelected = false, link } = item;
+  const textT = useTranslations('sidebar')
   const Icon = icon;
   const isLock = item.canLock && item.isLock;
   const className = cn(`flex items-center gap-x-1`, isSelected ? 'bg-custom-primary-color text-white' : 'bg-transparent', 'py-1 px-2 rounded-lg hover:bg-custom-primary-color hover:text-white cursor-pointer', isLock && 'cursor-not-allowed text-gray-400 hover:text-gray-400 hover:bg-transparent');
   return isLock ? (
     <div className={className}>
       {Icon}
-      <h4 className='text-md!'>{text}</h4>
+      <h4 className='text-md!'>{textT(text)}</h4>
       {item.isLock && item.canLock && <IconLock className='ms-auto text-custom-primary-color' size={20} />}
     </div>
   ) : (
@@ -37,7 +39,7 @@ function SidebarItem({item}: {item: ISidebarItem}) {
       className={className}
     >
       {Icon}
-      <h4 className='text-md!'>{text}</h4>
+      <h4 className='text-md!'>{textT(text)}</h4>
     </Link>
   );
 }
