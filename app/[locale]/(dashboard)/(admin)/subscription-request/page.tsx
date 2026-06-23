@@ -39,7 +39,7 @@ const page = async () => {
           ))}
         </div>
       ) : (
-        <div className='rounded-3xl border border-dashed border-slate-300 bg-card/80 p-12 text-center text-muted-foreground'>لا توجد طلبات اشتراك معلقة أو طلبات تغيير باقة في الوقت الحالي.</div>
+                <div className='rounded-3xl border border-dashed border-slate-300 bg-card/80 p-12 text-center text-muted-foreground'>{t('noPendingMessage')}</div>
       )}
     </div>
   );

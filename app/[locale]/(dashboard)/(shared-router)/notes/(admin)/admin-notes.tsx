@@ -15,19 +15,22 @@ import {NOTE_TYPE_NAMES} from '@/lib/Constant/note-type';
 import {Suspense} from 'react';
 import {NoteTableSkeleton} from '../_components/skeletons';
 import NoteRealTime from '../_components/note-real-time';
+import {getTranslations} from 'next-intl/server';
+
 interface IAdminNotesProps {
   searchParams: {search?: string; page?: string};
 }
 const AdminNotes = async ({searchParams}: IAdminNotesProps) => {
+  const t = await getTranslations('adminNotesPage');
   return (
     <div>
       <NoteRealTime />
-      <PageDashboardHeader title='الملاحظات' description='يتيح هذا القسم للشركات إرسال ملاحظات، شكاوى، أو طلبات تغيير إلى إدارة النظام. يتم عرض جميع الملاحظات مباشرة في لوحة تحكم الأدمن لمراجعتها واتخاذ الإجراء المناسب.' breadcrumbList={[{text: 'الملاحظات', path: '/manager/notes'}]} />
+      <PageDashboardHeader title={t('title')} description={t('description')} breadcrumbList={[{text: t('breadcrumb.notes'), path: '/manager/notes'}]} />
       <DashboardSearchAndActionPage
         className='justify-start'
         action={
           <div className=''>
-            <CustomButton text='فلترة' type='secondary' icon={<Filter className='' />} />
+            <CustomButton text={t('filter')} type='secondary' icon={<Filter className='' />} />
           </div>
         }
       />
@@ -45,14 +48,16 @@ async function NotesTableWithPagination({searchParams}: IAdminNotesProps) {
   const cookiesStore = await cookies();
   const token = cookiesStore.get('token')?.value;
   const notes = await GetAllNotes(token, search, page);
+  const t = await getTranslations('adminNotesPage');
+
   return (
     <>
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className='text-start'>تاريخ الانشاء</TableHead>
-            <TableHead className='text-start'>نوع الملاحظة</TableHead>
-            <TableHead className='text-start'>الملاحظة</TableHead>
+            <TableHead className='text-start'>{t('table.columns.createdAt')}</TableHead>
+            <TableHead className='text-start'>{t('table.columns.type')}</TableHead>
+            <TableHead className='text-start'>{t('table.columns.note')}</TableHead>
             <TableHead></TableHead>
           </TableRow>
         </TableHeader>

@@ -303,6 +303,32 @@
       "description": "The plan {subscriptionType} will be permanently deleted if it is not linked to any company."
     }
   },
+  "adminNotesPage": {
+    "title": "Notes",
+    "description": "Manage and view administrative notes.",
+    "breadcrumb": {
+      "notes": "Notes"
+    },
+    "filter": "Filter",
+    "table": {
+      "columns": {
+        "createdAt": "Creation Date",
+        "type": "Note Type",
+        "note": "Note"
+      }
+    },"dialog": {
+      "title": "Add New Note",
+      "description": "Send a new note to the platform administration to share an inquiry, request, complaint, or any details related to the service or system.",
+      "viewDetails": "View Details",
+      "field": {
+        "type": "Note Type",
+        "typePlaceholder": "Select a note type",
+        "note": "Note",
+        "notePlaceholder": "Enter your note"
+      },
+      "close": "Close"
+    }
+  },
   "adminSubscriptionRequestPage": {
     "header": {
       "title": "Subscription Requests",
