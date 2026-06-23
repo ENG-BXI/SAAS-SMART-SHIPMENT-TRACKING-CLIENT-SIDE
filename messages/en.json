@@ -382,5 +382,48 @@
       "month": "Month"
     },
     "noPendingMessage": "There are no pending subscription or plan change requests at the moment."
+  },
+  "expirePage": {
+    "title": "Company Subscription Expired",
+    "description": "Your company account is temporarily suspended until the subscription is renewed or the plan is updated.",
+    "breadcrumb": {
+      "home": "Home",
+      "mySubscription": "My Subscription",
+      "expire": "Subscription Expired"
+    },
+    "card": {
+      "title": "Your Subscription Has Expired",
+      "description": "Please renew your subscription to regain access to the dashboard and company data.",
+      "alert": {
+        "title": "Access Locked Until Renewal",
+        "description": "The current subscription is no longer valid, and platform services are unavailable until it is renewed."
+      },
+      "stepsTitle": "Renewal Steps",
+      "steps": {
+        "step1": "Review available subscription details on the My Subscription page.",
+        "step2": "Choose the most suitable plan and start the renewal process.",
+        "step3": "After renewal, all company features will be automatically restored."
+      },
+      "info": {
+        "title": "Note",
+        "text": "If you need assistance with renewal, you can visit the subscription page or contact support."
+      },
+      "actions": {
+        "renew": "Renew Subscription",
+        "home": "Back to Home"
+      }
+    },
+    "statusCard": {
+      "title": "Account Status",
+      "description": "Dashboard features are unavailable until renewal.",
+      "current": {
+        "title": "Current Subscription",
+        "text": "Expired and no longer usable."
+      },
+      "solution": {
+        "title": "Suggested Solution",
+        "text": "Go to My Subscription page to renew your plan or switch to a new one."
+      }
+    }
   }
 }

@@ -4,17 +4,19 @@ import PageDashboardHeader from '@/components/dashboard/header';
 import {Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter} from '@/components/ui/card';
 import {Button} from '@/components/ui/button';
 import {AlertCircle} from 'lucide-react';
+import {getTranslations} from 'next-intl/server';
 
-function ExpirePage() {
+async function ExpirePage() {
+  const t = await getTranslations('expirePage');
   return (
-    <div className='w-full pb-10 font-sans' dir='rtl'>
+    <div className='w-full pb-10 font-sans'>
       <PageDashboardHeader
-        title='انتهى اشتراك الشركة'
-        description='حساب شركتك مغلق مؤقتاً حتى يتم تجديد الاشتراك أو تحديث الباقة.'
+        title={t('title')}
+        description={t('description')}
         breadcrumbList={[
-          {text: 'الرئيسية', path: '/'},
-          {text: 'اشتراكاتي', path: '/my-subscription'},
-          {text: 'انتهى الاشتراك', path: '/expire'}
+          {text: t('breadcrumb.home'), path: '/'},
+          {text: t('breadcrumb.mySubscription'), path: '/my-subscription'},
+          {text: t('breadcrumb.expire'), path: '/expire'}
         ]}
       />
 
@@ -26,56 +28,57 @@ function ExpirePage() {
                 <AlertCircle className='h-6 w-6' />
               </div>
               <div>
-                <CardTitle>انتهى اشتراك شركتك</CardTitle>
-                <CardDescription>الرجاء تجديد الاشتراك للوصول إلى لوحة التحكم وبيانات الشركة مرة أخرى.</CardDescription>
+                <CardTitle>{t('card.title')}</CardTitle>
+                <CardDescription>{t('card.description')}</CardDescription>
               </div>
             </div>
           </CardHeader>
 
           <CardContent className='space-y-6'>
             <div className='rounded-3xl border border-red-200 bg-red-50 p-6 text-red-900'>
-              <p className='text-sm font-medium'>الوصول مقفل حتى التجديد</p>
-              <p className='mt-2 text-sm leading-7 text-slate-700'>الاشتراك الحالي لم يعد صالحاً، ولا يمكن استخدام خدمات المنصة حتى يتم تجديده.</p>
+              <p className='text-sm font-medium'>{t('card.alert.title')}</p>
+              <p className='mt-2 text-sm leading-7 text-slate-700'>{t('card.alert.description')}</p>
             </div>
 
             <div className='space-y-4 text-slate-700'>
-              <p className='text-base font-semibold text-slate-900'>خطوات التجديد</p>
+              <p className='text-base font-semibold text-slate-900'>{t('card.stepsTitle')}</p>
+
               <ul className='space-y-3 list-inside list-disc text-sm leading-7'>
-                <li>راجع تفاصيل الاشتراك المتاحة في صفحة اشتراكاتي.</li>
-                <li>اختر الباقة الأنسب وابدأ عملية التجديد سريعاً.</li>
-                <li>بعد التجديد، ستعود جميع ميزات الشركة للعمل تلقائياً.</li>
+                <li>{t('card.steps.step1')}</li>
+                <li>{t('card.steps.step2')}</li>
+                <li>{t('card.steps.step3')}</li>
               </ul>
             </div>
 
             <div className='rounded-3xl bg-slate-50 p-6 text-sm leading-7 text-slate-600'>
-              <p className='font-semibold text-slate-900'>معلومة</p>
-              <p>إذا كنت تحتاج مساعدة في التجديد، يمكنك الانتقال إلى صفحة الاشتراك أو التواصل مع فريق الدعم.</p>
+              <p className='font-semibold text-slate-900'>{t('card.info.title')}</p>
+              <p>{t('card.info.text')}</p>
             </div>
           </CardContent>
 
           <CardFooter className='flex flex-col gap-3 px-6 py-5 sm:flex-row sm:items-center sm:justify-between'>
             <Link href='/my-subscription'>
-              <Button className='bg-black text-white'>تجديد الاشتراك</Button>
+              <Button className='bg-black text-white'>{t('card.actions.renew')}</Button>
             </Link>
             <Link href='/'>
-              <Button variant='outline'>العودة إلى الصفحة الرئيسية</Button>
+              <Button variant='outline'>{t('card.actions.home')}</Button>
             </Link>
           </CardFooter>
         </Card>
 
         <Card className='overflow-hidden'>
           <CardHeader>
-            <CardTitle>حالة الحساب</CardTitle>
-            <CardDescription>لا يمكن الوصول إلى وظائف لوحة التحكم حتى يتم التجديد.</CardDescription>
+            <CardTitle>{t('statusCard.title')}</CardTitle>
+            <CardDescription>{t('statusCard.description')}</CardDescription>
           </CardHeader>
           <CardContent className='grid gap-4 text-sm text-slate-700'>
             <div className='rounded-3xl border border-slate-200 bg-white p-5'>
-              <p className='font-semibold text-slate-900'>الاشتراك الحالي</p>
-              <p className='mt-2'>منتهي وغير صالح للاستخدام.</p>
+              <p className='font-semibold text-slate-900'>{t('statusCard.current.title')}</p>
+              <p>{t('statusCard.current.text')}</p>
             </div>
             <div className='rounded-3xl border border-slate-200 bg-white p-5'>
-              <p className='font-semibold text-slate-900'>الحل المقترح</p>
-              <p className='mt-2'>انتقل إلى صفحة اشتراكاتي لتجديد الباقة أو التغيير إلى خطة جديدة.</p>
+              <p className='font-semibold text-slate-900'>{t('statusCard.solution.title')}</p>
+              <p>{t('statusCard.solution.text')}</p>
             </div>
           </CardContent>
         </Card>
