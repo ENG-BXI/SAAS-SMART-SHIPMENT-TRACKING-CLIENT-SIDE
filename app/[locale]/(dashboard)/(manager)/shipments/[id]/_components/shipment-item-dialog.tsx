@@ -13,6 +13,7 @@ import GetAllClientForSelect from '../_services/get-all-client-for-select';
 import {useState, useTransition} from 'react';
 import {CreateShipmentItem, UpdateShipmentItem} from '../_actions';
 import {toast} from 'sonner';
+import { useTranslations } from 'next-intl';
 
 interface ShipmentItemDialogProps {
   type: 'add' | 'edit';
@@ -24,22 +25,23 @@ interface ShipmentItemDialogProps {
 function getTitle(type: 'add' | 'edit') {
   switch (type) {
     case 'add':
-      return 'تحديد العميل ومحتويات الشحنة';
+      return 'title.add';
     case 'edit':
-      return 'تعديل بيانات العميل ومحتويات الشحنة';
+      return 'title.edit';
   }
 }
 function getDescription(type: 'add' | 'edit') {
   switch (type) {
     case 'add':
-      return 'اختيار عميل مسجل مسبقًا وربطه بهذه الشحنة، مع تحديد أغراض الشحنة وإمكانية إضافة أكثر من غرض حسب الحاجة.';
+      return 'description.add'
     case 'edit':
-      return 'تعديل بيانات العميل المسجل مسبقًا وربطه بهذه الشحنة، مع تحديد أغراض الشحنة وإمكانية إضافة أكثر من غرض حسب الحاجة.';
+      return 'description.edit'
   }
 }
 function ShipmentItemDialog(props: ShipmentItemDialogProps) {
   const [isPending, startTransition] = useTransition();
   const [open, setOpen] = useState(false);
+  const t = useTranslations('shipmentDetails.dialog.items');
   const {
     control,
     handleSubmit,
@@ -93,18 +95,18 @@ function ShipmentItemDialog(props: ShipmentItemDialogProps) {
           </Button>
         )}
       </DialogTrigger>
-      <DialogContent dir='rtl'>
+      <DialogContent>
         <DialogHeader>
-          <DialogTitle>{getTitle(props.type)}</DialogTitle>
-          <DialogDescription>{getDescription(props.type)}</DialogDescription>
+          <DialogTitle>{t(getTitle(props.type))}</DialogTitle>
+          <DialogDescription>{t(getDescription(props.type))}</DialogDescription>
         </DialogHeader>
         <form onSubmit={handleSubmit(onSubmit)}>
           <FieldGroup className='gap-y-2'>
-            <Controller control={control} name='clientId' render={({field, fieldState: {invalid, error}}) => <CustomSelect isLoading={isLoading} isError={isError} errorMessage={error?.message || remoteError?.message} onChange={field.onChange} value={field.value} ref={field.ref} invalid={invalid} required label='اسم العميل' placeHolder='اختر العميل' options={data || []} />} />
+            <Controller control={control} name='clientId' render={({field, fieldState: {invalid, error}}) => <CustomSelect isLoading={isLoading} isError={isError} errorMessage={error?.message || remoteError?.message} onChange={field.onChange} value={field.value} ref={field.ref} invalid={invalid} required label={t('fields.client')} placeHolder={t('placeholders.client')} options={data || []} />} />
             {fields.map((field, index) => (
               <div key={field.id} className='flex items-end gap-x-2'>
-                <Controller control={control} name={`items.${index}.name`} render={({field, fieldState: {invalid}}) => <CustomInput disabled={isPending} type='controller' field={field} error={undefined} invalid={invalid} required hasLabel label='الغرض' placeHolder='ادخل الغرض' />} />
-                <Controller control={control} name={`items.${index}.quantity`} render={({field, fieldState: {invalid}}) => <CustomInput disabled={isPending} type='controller' inputType='number' field={field} error={undefined} invalid={invalid} required hasLabel label='الكمية' placeHolder='ادخل الكمية' />} />
+                <Controller control={control} name={`items.${index}.name`} render={({field, fieldState: {invalid}}) => <CustomInput disabled={isPending} type='controller' field={field} error={undefined} invalid={invalid} required hasLabel label={t('fields.item')} placeHolder={t('placeholders.item')} />} />
+                <Controller control={control} name={`items.${index}.quantity`} render={({field, fieldState: {invalid}}) => <CustomInput disabled={isPending} type='controller' inputType='number' field={field} error={undefined} invalid={invalid} required hasLabel label={t('fields.quantity')} placeHolder={t('placeholders.quantity')} />} />
                 <Controller
                   control={control}
                   name={`items.${index}.isBreakable`}
@@ -117,27 +119,26 @@ function ShipmentItemDialog(props: ShipmentItemDialogProps) {
                       invalid={invalid}
                       errorMessage={undefined}
                       required
-                      label='قابل للكسر'
-                      placeHolder='اختر قابل للكسر'
+                      label={t('fields.breakable')}
+                      placeHolder={t('placeholders.breakable')}
                       options={[
-                        {value: 'true', label: 'نعم'},
-                        {value: 'false', label: 'لا'}
+                        {value: 'true', label: t('breakableValues.yes')},
+                        {value: 'false', label: t('breakableValues.no')}
                       ]}
                     />
                   )}
                 />
-                <Button disabled={isPending} variant={'destructive'} onClick={() => remove(index)}>
-                  حذف
+                <Button disabled={isPending} variant='destructive' onClick={() => remove(index)}>
+                  {t('actions.remove')}
                 </Button>
               </div>
             ))}
-            <CustomButton disable={isPending} text='اضافة غرض' icon={<PlusCircle className='min-w-5 min-h-5' />} onClick={() => append({name: '', quantity: 0, isBreakable: false})} className='bg-black text-white' />
-            {fields.length == 0 && errors.items?.root?.message && <p className='text-red-500 text-sm'>{errors.items.root.message}</p>}
+            <CustomButton disable={isPending} text={t('actions.addItem')} icon={<PlusCircle className='min-w-5 min-h-5' />} onClick={() => append({name: '', quantity: 0, isBreakable: false})} className='bg-black text-white' /> {fields.length == 0 && errors.items?.root?.message && <p className='text-red-500 text-sm'>{errors.items.root.message}</p>}
             <div className='flex justify-end gap-x-2 mt-2'>
               <DialogClose>
-                <CustomButton disable={isPending} text='الغاء' icon={<ArrowRight className='min-w-5 min-h-5' />} className=' flex-row-reverse' type='secondary' />
+                <CustomButton disable={isPending} text={t('actions.cancel')} icon={<ArrowRight className='min-w-5 min-h-5' />} type='secondary' />
               </DialogClose>
-              <CustomButton disable={isPending} text={isPending ? 'جاري ' + (props.type == 'add' ? 'اضافة' : 'تعديل') : props.type == 'add' ? 'اضافة' : 'تعديل'} icon={<PlusCircle className='min-w-5 min-h-5' />} type='primary' className='bg-black text-white' IsSubmit />
+              <CustomButton disable={isPending} text={isPending ? (props.type === 'add' ? t('actions.loadingAdd') : t('actions.loadingEdit')) : props.type === 'add' ? t('actions.submitAdd') : t('actions.submitEdit')} icon={<PlusCircle className='min-w-5 min-h-5' />} type='primary' className='bg-black text-white' IsSubmit />
             </div>
           </FieldGroup>
         </form>

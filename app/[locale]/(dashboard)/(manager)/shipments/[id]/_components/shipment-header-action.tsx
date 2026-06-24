@@ -5,6 +5,7 @@ import {useTransition} from 'react';
 import {MoveShipmentWithNotification, MoveShipmentWithoutNotification, PauseShipment, ResumeShipment} from '../_actions';
 import {toast} from 'sonner';
 import {SHIPMENT_STATUS, TShipmentStatus} from '@/lib/Constant/enum';
+import { useTranslations } from 'next-intl';
 interface ShipmentHeaderActionProps {
   id: string;
   status: TShipmentStatus;
@@ -14,7 +15,7 @@ function ShipmentHeaderAction({id, status}: ShipmentHeaderActionProps) {
   const [isPendingMoveWithoutNotification, startTransitionMoveWithoutNotification] = useTransition();
   const [isPendingPause, startTransitionPause] = useTransition();
   const [isPendingResume, startTransitionResume] = useTransition();
-
+  const t = useTranslations('shipmentDetails.header.actions');
   function handleMoveShipmentWithNotification() {
     startTransitionMoveWithNotification(async () => {
       const {message, error} = await MoveShipmentWithNotification(id);
@@ -59,12 +60,12 @@ function ShipmentHeaderAction({id, status}: ShipmentHeaderActionProps) {
     <div className='flex flex-wrap gap-2'>
       {status !== SHIPMENT_STATUS.COMPLETED && (
         <>
-          <CustomButton text={isPendingMoveWithNotification ? '...جارى التحريك' : 'تحريك'} icon={<ArrowRight />} type='primary' onClick={() => handleMoveShipmentWithNotification()} />
-          <CustomButton text={isPendingMoveWithoutNotification ? '...جارى التحريك بدون اشعار' : 'تحريك بدون اشعار'} type='primary' className='bg-[#104631]' onClick={() => handleMoveShipmentWithoutNotification()} />
+          <CustomButton text={isPendingMoveWithNotification ? t('move.withNotification.loading') : t('move.withNotification.text')} icon={<ArrowRight />} type='primary' onClick={() => handleMoveShipmentWithNotification()} />
+          <CustomButton text={isPendingMoveWithoutNotification ? t('move.withoutNotification.loading') : t('move.withoutNotification.text')} type='primary' className='bg-[#104631]' onClick={() => handleMoveShipmentWithoutNotification()} />
         </>
       )}
-      {status === SHIPMENT_STATUS.CURRENT && <CustomButton text={isPendingPause ? '...جارى التوقيف' : 'توقيف'} type='danger' onClick={() => handleStopShipment()} />}
-      {status === SHIPMENT_STATUS.PAUSED && <CustomButton text={isPendingResume ? '...جارى الاستئناف' : 'استئناف'} type='primary' className='bg-[#104631]' onClick={() => handleResumeShipment()} />}
+      {status === SHIPMENT_STATUS.CURRENT && <CustomButton text={isPendingPause ? t('pause.loading') : t('pause.text')} type='danger' onClick={() => handleStopShipment()} />}
+      {status === SHIPMENT_STATUS.PAUSED && <CustomButton text={isPendingResume ? t('resume.loading') : t('resume.text')} type='primary' className='bg-[#104631]' onClick={() => handleResumeShipment()} />}
     </div>
   );
 }

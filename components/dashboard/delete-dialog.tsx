@@ -13,7 +13,7 @@ interface IDeleteDialog {
   open?: boolean;
   setOpen?: (open: boolean) => void;
 }
-function DeleteDialog({title, actionText='حذف', triggerText, description, onclick, isLoading = false, open, setOpen}: IDeleteDialog) {
+function DeleteDialog({title, actionText = 'حذف', triggerText, description, onclick, isLoading = false, open, setOpen}: IDeleteDialog) {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
@@ -21,7 +21,7 @@ function DeleteDialog({title, actionText='حذف', triggerText, description, onc
           <File className='min-w-6 min-h-6' /> {triggerText}
         </Button>
       </DialogTrigger>
-      <DialogContent dir='rtl'>
+      <DialogContent>
         <DialogHeader>
           <DialogTitle>{title}</DialogTitle>
           <DialogDescription>{description}</DialogDescription>

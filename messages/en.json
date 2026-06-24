@@ -618,5 +618,136 @@
         }
       }
     }
+  },
+  "shipmentDetails": {
+    "page": {
+      "title": "Shipment Details",
+      "description": "View shipment information and items included in the shipment."
+    },
+    "breadcrumb": {
+      "shipments": "Shipments",
+      "details": "Details"
+    },
+    "sections": {
+      "overview": {
+        "title": "Shipment Overview"
+      },
+      "info": {
+        "title": "Shipment Information"
+      },
+      "items": {
+        "title": "Shipment Items",
+        "description": "View all items included in the shipment with quantity and details."
+      }
+    },
+    "actions": {
+      "addItem": "Add Shipment Item"
+    },
+    "header": {
+      "status": {
+        "completed": "Completed",
+        "paused": "Paused",
+        "current": "Active"
+      },
+      "title": "Shipment #{number}",
+      "actions": {
+        "move": {
+          "withNotification": {
+            "text": "Move",
+            "loading": "Moving..."
+          },
+          "withoutNotification": {
+            "text": "Move Without Notification",
+            "loading": "Moving silently..."
+          }
+        },
+        "pause": {
+          "text": "Pause",
+          "loading": "Pausing..."
+        },
+        "resume": {
+          "text": "Resume",
+          "loading": "Resuming..."
+        }
+      }
+    },
+    "info": {
+      "fields": {
+        "launchDate": "Launch Date",
+        "driverPhone": "Driver Phone",
+        "endDate": "Arrival Date",
+        "route": "Route",
+        "clientsCount": "Clients Count",
+        "itemsCount": "Items Count",
+        "currentPoint": "Current Point"
+      },
+      "values": {
+        "notArrived": "Not arrived yet",
+        "unknown": "---"
+      }
+    },
+    "table": {
+      "headers": {
+        "client": "Client Name",
+        "item": "Item",
+        "quantity": "Quantity",
+        "breakable": "Breakable",
+        "actions": ""
+      },
+      "empty": "No shipment items found",
+      "breakableValues": {
+        "yes": "Yes",
+        "no": "No"
+      },
+      "actions": {
+        "edit": "Edit Item",
+        "delete": "Delete Item"
+      }
+    },
+    "dialog": {
+      "items": {
+        "title": {
+          "add": "Assign Client & Shipment Items",
+          "edit": "Edit Client & Shipment Items"
+        },
+        "description": {
+          "add": "Select a registered client and assign items to this shipment.",
+          "edit": "Edit client and shipment items."
+        },
+        "fields": {
+          "client": "Client Name",
+          "item": "Item",
+          "quantity": "Quantity",
+          "breakable": "Breakable"
+        },
+        "placeholders": {
+          "client": "Select client",
+          "item": "Enter item",
+          "quantity": "Enter quantity",
+          "breakable": "Select breakable option"
+        },
+        "actions": {
+          "addItem": "Add Item",
+          "remove": "Remove",
+          "submitAdd": "Add",
+          "submitEdit": "Update",
+          "loadingAdd": "Adding...",
+          "loadingEdit": "Updating...",
+          "cancel": "Cancel"
+        },
+        "breakableValues": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      
+      },
+      "deleteItem": {
+        "title": "Delete Shipment Item",
+        "description": "Are you sure you want to delete this item? This action cannot be undone.",
+        "trigger": "Delete Item",
+        "action": "Delete",
+        "loading": "Deleting..."
+      }
+    }
   }
 }

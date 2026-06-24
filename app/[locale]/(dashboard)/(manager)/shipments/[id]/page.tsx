@@ -5,6 +5,7 @@ import ShipmentInfo from './_components/shipment-info';
 import ShipmentTableAndPagination from './_components/shipment-table-and-pagination';
 import ShipmentItemDialog from './_components/shipment-item-dialog';
 import ShipmentDetailsRealTime from './_components/shipment-details-real-time';
+import { getTranslations } from 'next-intl/server';
 
 interface PageProps {
   params: Promise<{id: string}>;
@@ -12,21 +13,25 @@ interface PageProps {
 }
 const Page = async ({params, searchParams}: PageProps) => {
   const {id} = await params;
-  const {search, page} = await searchParams;
+  const { search, page } = await searchParams;
+  const t = await getTranslations('shipmentDetails.page');
+  const tBread = await getTranslations('shipmentDetails.breadcrumb');
+  const tSections = await getTranslations('shipmentDetails.sections');
+  const tActions = await getTranslations('shipmentDetails.actions');
   return (
     <div>
       <ShipmentDetailsRealTime id={id} />
       <PageDashboardHeader
-        title='تفاصيل الشحنة'
-        description='عرض معلومات الشحنة وحالتها الحالية، مع الاطلاع على سجل التتبع الكامل والتحديثات المرتبطة بها.'
+        title={t('title')}
+        description={t('description')}
         breadcrumbList={[
-          {text: 'الشحنات', path: '/shipments'},
-          {text: 'تفاصيل الشحنة', path: '1'}
+          {text: tBread('shipments'), path: '/shipments'},
+          {text: tBread('details'), path: `/shipments/${id}`}
         ]}
       />
       <ShipmentDetailsHeader id={id} />
       <ShipmentInfo id={id} />
-      <PageDashboardHeader title='اغراض الشحنة' description='عرض قائمة الأغراض المرفقة ضمن الشحنة، مع تفاصيل كل غرض من حيث الوصف والكمية وأي ملاحظات مرتبطة به.' hasAction actions={<ShipmentItemDialog shipmentId={id} triggerTitle='اضافة عميل للشحنة' type='add' />} />
+      <PageDashboardHeader title={tSections('items.title')} description={tSections('items.description')} hasAction actions={<ShipmentItemDialog shipmentId={id} triggerTitle={tActions('addItem')} type='add' />} />
       <DashboardSearchAndActionPage />
       <ShipmentTableAndPagination id={id} search={search} page={page} />
     </div>
