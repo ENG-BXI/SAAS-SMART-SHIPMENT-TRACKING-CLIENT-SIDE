@@ -3,9 +3,12 @@ import DeleteDialog from '@/components/dashboard/delete-dialog';
 import {toast} from 'sonner';
 import {useTransition} from 'react';
 import {DeleteShipmentAction} from '../actions';
+import { useTranslations } from 'next-intl';
 
 const DeleteShipmentDialog = ({id}: {id: string}) => {
   const [isPending, startTransition] = useTransition();
+    const t = useTranslations('shipments.dialog.confirm.delete');
+
   const handleDeleteShipment = () => {
     startTransition(async () => {
       const {error, message} = await DeleteShipmentAction(id);
@@ -16,7 +19,7 @@ const DeleteShipmentDialog = ({id}: {id: string}) => {
       }
     });
   };
-  return <DeleteDialog title='حذف الشحنة' triggerText='حذف الشحنة' description='هل انت متاكد من حذف الشحنة' onclick={handleDeleteShipment} isLoading={isPending} />;
+  return <DeleteDialog title={t('title')} triggerText={t('trigger')} description={t('description')} actionText={t('action')} onclick={handleDeleteShipment} isLoading={isPending} />;
 };
 
 export default DeleteShipmentDialog;

@@ -18,20 +18,30 @@ import {SHIPMENT_STATUS} from '@/lib/Constant/enum';
 import {Badge} from '@/components/ui/badge';
 
 import {CurrentShipmentTableSkeleton} from './skeletons';
+import { getTranslations } from 'next-intl/server';
 
 interface CurrentShipmentsProps {
   search?: string;
   page?: string;
 }
-async function CurrentShipments({search, page}: CurrentShipmentsProps) {
+async function CurrentShipments({ search, page }: CurrentShipmentsProps) {
+  const t = await getTranslations('shipments.current.page');
+  const tShared = await getTranslations('shared.buttons');
   return (
     <div>
-      <PageDashboardHeader title='الشحنات' description='عرض وإدارة جميع الشحنات المسجلة على النظام، مع إمكانية متابعة حالتها وسجل التحديثات المرتبطة بكل شحنة.' breadcrumbList={[{text: 'الرئيسية', path: '/'}, {text: 'الشحنات', path: '/'}]} />
+      <PageDashboardHeader
+        title={t('title')}
+        description={t('description')}
+        breadcrumbList={[
+          {text: t('breadcrumb.home'), path: '/'},
+          {text: t('breadcrumb.shipments'), path: '/shipments'}
+        ]}
+      />
       <DashboardSearchAndActionPage
         searchParamsKey='cs'
         action={
           <div className='self-start flex gap-x-1'>
-            <CustomButton text='فلترة' type='secondary' icon={<Filter className='' />} />
+            <CustomButton text={tShared('filter')} type='secondary' icon={<Filter />} />
             <ShipmentDialog type='add' />
           </div>
         }
@@ -48,18 +58,21 @@ async function TableAndPagination({search, page}: CurrentShipmentsProps) {
   const cookie = await cookies();
   const token = cookie.get('token')?.value;
   const data = await getCurrentShipments(token, search, page);
+  const t = await getTranslations('shipments.current.table.headers');
+  const tState = await getTranslations('shipments.current.status');
+  const tActions = await getTranslations('shipments.current.table.actions');
   return (
     <>
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className='text-start'>رقم الشحنة</TableHead>
-            <TableHead className='text-start'>تاريخ الانطلاق</TableHead>
-            <TableHead className='text-start'>المسار</TableHead>
-            <TableHead className='text-start'>النقطة الحالية</TableHead>
-            <TableHead className='text-start'>سائق الشحنة</TableHead>
-            <TableHead className='text-start'>الحالة</TableHead>
-            <TableHead className=''></TableHead>
+            <TableHead>{t('shipmentNumber')}</TableHead>
+            <TableHead>{t('launchDate')}</TableHead>
+            <TableHead>{t('route')}</TableHead>
+            <TableHead>{t('currentPoint')}</TableHead>
+            <TableHead>{t('driver')}</TableHead>
+            <TableHead>{t('status')}</TableHead>
+            <TableHead>{t('actions')}</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -78,12 +91,12 @@ async function TableAndPagination({search, page}: CurrentShipmentsProps) {
                 <TableCell>{shipment.currentPoint?.name}</TableCell>
                 <TableCell>{shipment.driver.userName}</TableCell>
                 <TableCell>
-                  <Badge className={cn(shipment.isPaused ? 'bg-gray-500' : 'bg-green-500')}>{shipment.isPaused ? SHIPMENT_STATUS.PAUSED : SHIPMENT_STATUS.CURRENT}</Badge>
+                  <Badge className={cn(shipment.isPaused ? 'bg-gray-500' : 'bg-green-500')}>{shipment.isPaused ? tState('paused') : tState('current')}</Badge>
                 </TableCell>
                 <TableCell>
                   <TablePopover
                     items={[
-                      {type: 'link', link: `/shipments/${shipment.id}`, text: 'عرض التفاصيل'},
+                      {type: 'link', link: `/shipments/${shipment.id}`, text: tActions('viewDetails')},
                       {type: 'dialog', item: <ShipmentDialog type='edit' id={shipment.id} data={{shipmentNumber: shipment.shipmentNumber, wayId: shipment.way.id, driverId: shipment.driver.id, launchDate: shipment.launchDate}} />},
                       shipment.isPaused ? {type: 'dialog', item: <ResumeShipmentDialog id={shipment.id} />} : {type: 'dialog', item: <PauseShipmentDialog id={shipment.id} />},
                       {

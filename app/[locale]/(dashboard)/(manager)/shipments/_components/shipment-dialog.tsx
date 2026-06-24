@@ -15,6 +15,7 @@ import {toast} from 'sonner';
 import useGetAllWaysAsOptions from '../services/get-all-ways-as-options';
 import useGetAllDriversAsOptions from '../services/get-all-driver-as-options';
 import CustomCalender from '@/components/custom-calender';
+import { useTranslations } from 'next-intl';
 interface IShipment {
   shipmentNumber: string;
   wayId: string;
@@ -29,23 +30,24 @@ interface ShipmentDialogProps {
 function getTitle(type: 'add' | 'edit') {
   switch (type) {
     case 'add':
-      return 'اضافة شحنة جديدة';
+      return 'add.title';
     case 'edit':
-      return 'تعديل شحنة';
+      return 'edit.title';
   }
 }
 function getDescription(type: 'add' | 'edit') {
   switch (type) {
     case 'add':
-      return 'تسجيل شحنة جديدة وتحديد العميل والمسار لبدء التتبع.';
+      return 'add.description';
     case 'edit':
-      return 'تعديل بيانات الشحنة وتحديث حالتها أو نقاط التتبع.';
+      return 'edit.description';
   }
 }
 
 function ShipmentDialog(props: ShipmentDialogProps) {
   const [isPending, startTransition] = useTransition();
   const [open, setOpen] = useState(false);
+  const t = useTranslations('shipments.dialog');
   const {control, handleSubmit, reset} = useForm<shipmentFormData>({
     resolver: zodResolver(shipmentSchema),
     defaultValues: {
@@ -89,48 +91,48 @@ function ShipmentDialog(props: ShipmentDialogProps) {
       <DialogTrigger asChild>
         {props.type == 'add' ? (
           <Button className='bg-custom-primary-color'>
-            <PlusCircle className='min-w-5 min-h-5' /> {getTitle(props.type)}
+            <PlusCircle className='min-w-5 min-h-5' /> {t(getTitle(props.type))}
           </Button>
         ) : (
           <Button variant={'ghost'} className='w-full justify-start text-[15px]'>
-            <File className='min-w-6 min-h-6' /> {getTitle(props.type)}
+            <File className='min-w-6 min-h-6' /> {t(getTitle(props.type))}
           </Button>
         )}
       </DialogTrigger>
-      <DialogContent dir='rtl'>
+      <DialogContent>
         <DialogHeader>
-          <DialogTitle>{getTitle(props.type)}</DialogTitle>
-          <DialogDescription>{getDescription(props.type)}</DialogDescription>
+          <DialogTitle>{t(getTitle(props.type))}</DialogTitle>
+          <DialogDescription>{t(getDescription(props.type))}</DialogDescription>
         </DialogHeader>
         <form onSubmit={handleSubmit(onSubmit)}>
           <FieldGroup className='gap-y-2'>
-            <Controller control={control} name='shipmentNumber' render={({field, fieldState: {invalid, error}}) => <CustomInput disabled={isPending} type='controller' field={field} error={error} invalid={invalid} required hasLabel label='رقم الشحنة' placeHolder='ادخل رقم الشحنة' />} />
+            <Controller control={control} name='shipmentNumber' render={({field, fieldState: {invalid, error}}) => <CustomInput disabled={isPending} type='controller' field={field} error={error} invalid={invalid} required hasLabel label={t('fields.shipmentNumber')} placeHolder={t('placeholders.shipmentNumber')} />} />
             <Controller
               control={control}
               name='wayId'
               render={({field, fieldState: {invalid, error}}) => {
-                return <CustomSelect disabled={isPending} onChange={field.onChange} value={field.value} ref={field.ref} invalid={invalid} isLoading={wayIsLoading} isError={isWayError} error={wayError?.message} errorMessage={error?.message} placeHolder='اختر المسار' required label='مسار الشحنة' options={ways || []} />;
+                return <CustomSelect disabled={isPending} onChange={field.onChange} value={field.value} ref={field.ref} invalid={invalid} isLoading={wayIsLoading} isError={isWayError} error={wayError?.message} errorMessage={error?.message} required label={t('fields.way')} placeHolder={t('placeholders.way')} options={ways || []} />;
               }}
             />
             <Controller
               control={control}
               name='driverId'
               render={({field, fieldState: {invalid, error}}) => {
-                return <CustomSelect disabled={isPending} isLoading={driverIsLoading} isError={isDriverError} error={driverError?.message} onChange={field.onChange} value={field.value} ref={field.ref} invalid={invalid} errorMessage={error?.message} placeHolder='اختر السائق' required label='سائق الشحنة' options={drivers || []} />;
+                return <CustomSelect disabled={isPending} isLoading={driverIsLoading} isError={isDriverError} error={driverError?.message} onChange={field.onChange} value={field.value} ref={field.ref} invalid={invalid} errorMessage={error?.message} required label={t('fields.driver')} placeHolder={t('placeholders.driver')} options={drivers || []} />;
               }}
             />
             <Controller
               control={control}
               name='launchDate'
               render={({field, fieldState: {invalid, error}}) => {
-                return <CustomCalender disabled={isPending} value={field.value} onChange={field.onChange} invalid={invalid} errorMessage={error?.message} required label='تاريخ الانطلاق' placeHolder='ادخل تاريخ الانطلاق' />;
+                return <CustomCalender disabled={isPending} value={field.value} onChange={field.onChange} invalid={invalid} errorMessage={error?.message} required label={t('fields.launchDate')} placeHolder={t('placeholders.launchDate')} />;
               }}
             />
             <div className='flex justify-end gap-x-2'>
               <DialogClose>
-                <CustomButton text='الغاء' icon={<ArrowRight className='min-w-5 min-h-5' />} className=' flex-row-reverse' type='secondary' />
+                <CustomButton text={t('actions.cancel')} icon={<ArrowRight className='min-w-5 min-h-5' />} className='flex-row-reverse' type='secondary' />
               </DialogClose>
-              <CustomButton disable={isPending} text={props.type == 'add' ? (isPending ? '....جاري الاضافة' : 'اضافة شحنة') : (isPending ? '....جاري التعديل' : 'تعديل شحنة')} icon={<PlusCircle className='min-w-5 min-h-5' />} type='primary' className='bg-black text-white' IsSubmit />
+              <CustomButton disable={isPending} text={props.type === 'add' ? (isPending ? t('add.loading') : t('add.button')) : isPending ? t('edit.loading') : t('edit.button')} icon={<PlusCircle className='min-w-5 min-h-5' />} type='primary' className='bg-black text-white' IsSubmit />
             </div>
           </FieldGroup>
         </form>

@@ -3,9 +3,12 @@ import {PauseShipment} from '@/app/[locale]/(dashboard)/(manager)/shipments/[id]
 import DeleteDialog from '@/components/dashboard/delete-dialog';
 import {toast} from 'sonner';
 import {useState, useTransition} from 'react';
+import { useTranslations } from 'next-intl';
 
 const PauseShipmentDialog = ({id}: {id: string}) => {
   const [isPending, startTransition] = useTransition();
+  const t = useTranslations('shipments.dialog.confirm.pause');
+
   const [open, setOpen] = useState(false);
   const handlePauseShipment = () => {
     startTransition(async () => {
@@ -18,7 +21,7 @@ const PauseShipmentDialog = ({id}: {id: string}) => {
       }
     });
   };
-  return <DeleteDialog title='توقيف الشحنة' actionText='توقيف' triggerText='توقيف الشحنة' description='هل انت متاكد من توقيف الشحنة' onclick={handlePauseShipment} isLoading={isPending} open={open} setOpen={setOpen} />;
+  return <DeleteDialog title={t('title')} triggerText={t('trigger')} description={t('description')} actionText={t('action')} onclick={handlePauseShipment} isLoading={isPending} open={open} setOpen={setOpen} />;
 };
 
 export default PauseShipmentDialog;
