@@ -13,6 +13,7 @@ import {Suspense} from 'react';
 import DeleteClientDialog from './_components/delete-client-dialog';
 import {ClientTableSkeleton} from './_components/skeletons';
 import ClientRealTime from './_components/client-real-time';
+import { getTranslations } from 'next-intl/server';
 
 interface PageProps {
   searchParams: Promise<{
@@ -22,15 +23,23 @@ interface PageProps {
 }
 const Page = async ({searchParams}: PageProps) => {
   const sp = await searchParams;
+  const t = await getTranslations('clientsPage');
   return (
     <div>
-      <ClientRealTime/>
-      <PageDashboardHeader title='العملاء' description='عرض وإدارة قائمة العملاء المسجلين على النظام، مع إمكانية ربطهم بالشحنات ومتابعة نشاطهم المرتبط بعمليات الشحن.' breadcrumbList={[{text: 'الرئيسية', path: '/'}, {text: 'العملاء', path: '/manager/clients'}]} />
+      <ClientRealTime />
+      <PageDashboardHeader
+        title={t('page.title')}
+        description={t('page.description')}
+        breadcrumbList={[
+          {text: t('page.breadcrumb.home'), path: '/'},
+          {text: t('page.breadcrumb.clients'), path: '/manager/clients'}
+        ]}
+      />
       <DashboardSearchAndActionPage
         action={
           <div className='self-start flex gap-x-1'>
-            <CustomButton text='فلترة' type='secondary' icon={<Filter className='' />} />
-            <ClientDialog type='add' triggerTitle='اضافة عميل جديدة' />
+            <CustomButton text={t('actions.filter')} type='secondary' icon={<Filter />} />
+            <ClientDialog type='add' triggerTitle={t('dialog.add.title')} />{' '}
           </div>
         }
       />
@@ -50,15 +59,16 @@ interface ClientTableAndPaginationProps {
 async function ClientTableAndPagination({search, page}: ClientTableAndPaginationProps) {
   const cookie = await cookies();
   const token = cookie.get('token')?.value;
-  const clients = await GetAllClient({token, search, page});
+  const clients = await GetAllClient({ token, search, page });
+  const t = await getTranslations('clientsPage');
   return (
     <>
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className='text-start'>اسم العميل</TableHead>
-            <TableHead className='text-start'>طرق التواصل</TableHead>
-            <TableHead></TableHead>
+            <TableHead>{t('table.headers.name')}</TableHead>
+            <TableHead>{t('table.headers.contacts')}</TableHead>
+            <TableHead>{t('table.headers.actions')}</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -76,14 +86,14 @@ async function ClientTableAndPagination({search, page}: ClientTableAndPagination
                 <TableRow key={client.id}>
                   <TableCell className=''>{client.name}</TableCell>
                   <TableCell className=''>
-                    {client.contactWays.length == 0 && 'لا يوجد طرق تواصل'}
+                    {client.contactWays.length == 0 && t('table.empty')}
                     {contactWaysAsText.slice(0, 40)} {contactWaysAsText.length > 40 && '...'}
                   </TableCell>
                   <TableCell>
                     <TablePopover
                       items={[
-                        {type: 'dialog', item: <ClientDialog type='view' triggerTitle='عرض بيانات العميل' id={client.id} data={{name: client.name, contactWays: contactWays}} />},
-                        {type: 'dialog', item: <ClientDialog type='edit' triggerTitle='تعديل بيانات العميل' id={client.id} data={{name: client.name, contactWays: contactWays}} />},
+                        {type: 'dialog', item: <ClientDialog type='view' triggerTitle={t('dialog.view.title')} id={client.id} data={{name: client.name, contactWays: contactWays}} />},
+                        {type: 'dialog', item: <ClientDialog type='edit' triggerTitle={t('dialog.edit.title')} id={client.id} data={{name: client.name, contactWays: contactWays}} />},
                         {
                           type: 'dialog',
                           item: <DeleteClientDialog id={client.id} name={client.name} />

@@ -4,9 +4,12 @@ import DeleteDialog from '@/components/dashboard/delete-dialog';
 import {DeleteClient} from '../actions';
 import {toast} from 'sonner';
 import {useTransition} from 'react';
+import { useTranslations } from 'next-intl';
 
 function DeleteClientDialog({id, name}: {id: string; name: string}) {
   const [isPending, startTransition] = useTransition();
+  const t = useTranslations('clientsPage.dialog.delete');
+
   const deleteClient = async () => {
     startTransition(async () => {
       const response = await DeleteClient(id);
@@ -16,9 +19,10 @@ function DeleteClientDialog({id, name}: {id: string; name: string}) {
   };
   return (
     <DeleteDialog
-      title={`حذف العميل ${name}`}
-      triggerText='حذف العميل'
-      description={`هل انت متاكد من حذف العميل ${name}`}
+      title={t('title',{name})}
+      triggerText={t('trigger')}
+      description={t('description', { name })}
+      actionText={t('action')}
       isLoading={isPending}
       onclick={() => {
         deleteClient();

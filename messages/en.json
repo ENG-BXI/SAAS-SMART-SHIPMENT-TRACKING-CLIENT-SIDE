@@ -739,7 +739,6 @@
           "yes": "Yes",
           "no": "No"
         }
-      
       },
       "deleteItem": {
         "title": "Delete Shipment Item",
@@ -747,6 +746,84 @@
         "trigger": "Delete Item",
         "action": "Delete",
         "loading": "Deleting..."
+      }
+    }
+  },
+  "clientsPage": {
+    "page": {
+      "title": "Clients",
+      "description": "View and manage all registered clients in the system, including their contact details and activity.",
+      "breadcrumb": {
+        "home": "Home",
+        "clients": "Clients"
+      }
+    },
+    "table": {
+      "headers": {
+        "name": "Client Name",
+        "contacts": "Contact Methods",
+        "actions": ""
+      },
+      "empty": "No clients found",
+      "actions": {
+        "viewDetails": "View Details",
+        "edit": "Edit Client",
+        "delete": "Delete Client"
+      }
+    },
+    "actions": {
+      "filter": "Filter"
+    },
+    "dialog": {
+      "add": {
+        "title": "Add New Client",
+        "description": "Register a new client and add their contact methods used for shipment notifications.",
+        "button": "Add Client",
+        "loading": "Adding..."
+      },
+      "edit": {
+        "title": "Edit Client Information",
+        "description": "Update existing client data and manage their contact methods used for shipment notifications.",
+        "button": "Update Client",
+        "loading": "Updating..."
+      },
+      "view": {
+        "title": "Client Information",
+        "description": "View the client’s stored data and their registered contact methods used for shipment notifications."
+      },
+      "fields": {
+        "name": "Client Name",
+        "contactWays": "Contact Methods",
+        "contactType": "Contact Type",
+        "isPrimary": "Is Primary Contact"
+      },
+      "placeholders": {
+        "name": "Enter client name",
+        "contactWays": "Add contact method",
+        "contactType": "Select contact type",
+        "isPrimary": "Select if primary"
+      },
+      "options": {
+        "contactType": {
+          "phoneNumber": "Phone Number",
+          "email": "Email"
+        },
+        "isPrimary": {
+          "true": "Yes",
+          "false": "No"
+        }
+      },
+      "actions": {
+        "cancel": "Cancel",
+        "save": "Save",
+        "remove": "Remove",
+        "addContactWay": "Add Contact Method"
+      },
+      "delete": {
+        "title": "Delete Client {name}",
+        "description": "Are you sure you want to delete this client {name}? This action cannot be undone.",
+        "action": "Delete",
+        "trigger": "Delete Client"
       }
     }
   }
