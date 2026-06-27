@@ -4,9 +4,11 @@ import {useTransition} from 'react';
 import {DeleteUser} from '../_actions';
 import {toast} from 'sonner';
 import {useMe} from '@/services/me';
+import { useTranslations } from 'next-intl';
 
 const DeleteUserDialog = ({id}: {id: string}) => {
   const [isPending, startTransition] = useTransition();
+  const t = useTranslations('usersPage.deleteDialog');
   const {data} = useMe();
   function handleOnDelete() {
     startTransition(async () => {
@@ -16,7 +18,7 @@ const DeleteUserDialog = ({id}: {id: string}) => {
     });
   }
   if (id == data?.id) return null;
-  return <DeleteDialog title='حذف المستخدم' triggerText='حذف المستخدم' description='هل انت متاكد من حذف المستخدم' isLoading={isPending} onclick={handleOnDelete} />;
+  return <DeleteDialog title={t('title')} triggerText={t('triggerText')} description={t('description')} isLoading={isPending} onclick={handleOnDelete} />;
 };
 
 export default DeleteUserDialog;

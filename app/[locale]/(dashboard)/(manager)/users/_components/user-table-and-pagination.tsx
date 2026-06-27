@@ -8,9 +8,11 @@ import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from '@/c
 import CustomPagination from '@/components/custom-pagination';
 import UserDialog from './user-dialog';
 import DeleteUserDialog from './delete-user-dialog';
+import { getTranslations } from 'next-intl/server';
 
 async function UserTableAndPagination({search, page}: {search: string; page: string}) {
   const cookie = await cookies();
+  const t = await getTranslations('usersPage');
   const token = cookie.get('token')?.value;
   const response = await GetAllUsers(token, search, page);
 
@@ -19,9 +21,9 @@ async function UserTableAndPagination({search, page}: {search: string; page: str
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className='text-start'>اسم المستخدم</TableHead>
-            <TableHead className='text-start'>البريد الالكتروني</TableHead>
-            <TableHead className='text-start'>الصلاحية</TableHead>
+            <TableHead className='text-start'>{t('table.columns.name')}</TableHead>
+            <TableHead className='text-start'>{t('table.columns.email')}</TableHead>
+            <TableHead className='text-start'>{t('table.columns.role')}</TableHead>
             <TableHead></TableHead>
           </TableRow>
         </TableHeader>
@@ -44,7 +46,7 @@ async function UserTableAndPagination({search, page}: {search: string; page: str
                     items={[
                       // TODO : add dialog for show Details
                       //   {type: 'link', link: `/manager/ways/${way.id}`, text: 'عرض التفاصيل'},
-                      {type: 'dialog', item: <UserDialog type='edit' id={user.id} triggerTitle='تعديل بيانات المستخدم' data={{name: user.userName, email: user.email, password: '', role: user.role}} />},
+                      {type: 'dialog', item: <UserDialog type='edit' id={user.id} triggerTitle={t('dialog.actions.triggerEdit')} data={{name: user.userName, email: user.email, password: '', role: user.role}} />},
                       {
                         type: 'dialog',
                         item: <DeleteUserDialog id={user.id} />

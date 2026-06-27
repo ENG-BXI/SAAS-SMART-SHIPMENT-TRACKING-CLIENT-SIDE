@@ -14,6 +14,7 @@ import CustomSelect from '@/components/custom-select';
 import {useState, useTransition} from 'react';
 import {CreateUser, UpdateUser} from '../_actions';
 import {toast} from 'sonner';
+import { useTranslations } from 'next-intl';
 
 interface UserDialogProps {
   type: 'add' | 'edit';
@@ -24,22 +25,23 @@ interface UserDialogProps {
 function getTitle(type: 'add' | 'edit') {
   switch (type) {
     case 'add':
-      return 'إضافة مستخدم جديد';
+      return 'add.title';
     case 'edit':
-      return 'تعديل بيانات المستخدم';
+      return 'edit.title';
   }
 }
 function getDescription(type: 'add' | 'edit') {
   switch (type) {
     case 'add':
-      return 'إضافة مستخدم جديد إلى النظام وتحديد دوره وصلاحياته. سيتمكن المستخدم من الوصول إلى الميزات المسموح له بها حسب الدور المحدد.';
+      return 'add.description';
     case 'edit':
-      return 'تعديل بيانات المستخدم المسجل مسبقًا وتحديث دوره وصلاحياته.';
+      return 'edit.description';
   }
 }
 function UserDialog(props: UserDialogProps) {
   const schema = props.type == 'add' ? createUserSchema : editUserSchema;
   const [open, setOpen] = useState(false);
+  const t = useTranslations('usersPage.dialog');
   const {control, handleSubmit, reset} = useForm<createUserFormData | editUserFormData>({
     resolver: zodResolver(schema),
     defaultValues: {
@@ -91,16 +93,16 @@ function UserDialog(props: UserDialogProps) {
           </Button>
         )}
       </DialogTrigger>
-      <DialogContent dir='rtl'>
+      <DialogContent>
         <DialogHeader>
-          <DialogTitle>{getTitle(props.type)}</DialogTitle>
-          <DialogDescription>{getDescription(props.type)}</DialogDescription>
+          <DialogTitle>{t(getTitle(props.type))}</DialogTitle>
+          <DialogDescription>{t(getDescription(props.type))}</DialogDescription>
         </DialogHeader>
         <form onSubmit={handleSubmit(onSubmit)}>
           <FieldGroup className='gap-y-2'>
-            <Controller control={control} name='name' render={({field, fieldState: {invalid, error}}) => <CustomInput type='controller' disabled={isPending} field={field} error={error} invalid={invalid} required hasLabel label='اسم المستخدم' placeHolder='ادخل اسم العميل' />} />
-            <Controller control={control} name='email' render={({field, fieldState: {invalid, error}}) => <CustomInput type='controller' disabled={isPending} field={field} error={error} invalid={invalid} required hasLabel label='البريد الالكتروني' placeHolder='ادخل البريد الالكتروني' />} />
-            <Controller control={control} name='password' render={({field, fieldState: {invalid, error}}) => <CustomInput type='controller' disabled={isPending} field={field} error={error} invalid={invalid} required hasLabel label='كلمة المرور' placeHolder='ادخل كلمة المرور' />} />
+            <Controller control={control} name='name' render={({field, fieldState: {invalid, error}}) => <CustomInput type='controller' disabled={isPending} field={field} error={error} invalid={invalid} required hasLabel label={t('fields.name.label')} placeHolder={t('fields.name.placeholder')} />} />
+            <Controller control={control} name='email' render={({field, fieldState: {invalid, error}}) => <CustomInput type='controller' disabled={isPending} field={field} error={error} invalid={invalid} required hasLabel label={t('fields.email.label')} placeHolder={t('fields.email.placeholder')} />} />
+            <Controller control={control} name='password' render={({field, fieldState: {invalid, error}}) => <CustomInput type='controller' disabled={isPending} field={field} error={error} invalid={invalid} required hasLabel label={t('fields.password.label')} placeHolder={t('fields.password.placeholder')} />} />
             <Controller
               control={control}
               name='role'
@@ -114,8 +116,8 @@ function UserDialog(props: UserDialogProps) {
                   errorMessage={error?.message}
                   invalid={invalid}
                   required
-                  label='الصلاحية'
-                  placeHolder='اختر الصلاحية'
+                  label={t('fields.role.label')}
+                  placeHolder={t('fields.role.placeholder')}
                   options={Object.entries(userRoleName).map(([key, value]) => {
                     return {value: key, label: value};
                   })}
@@ -124,9 +126,9 @@ function UserDialog(props: UserDialogProps) {
             />
             <div className='flex justify-end gap-x-2 mt-2'>
               <DialogClose>
-                <CustomButton disable={isPending} text='الغاء' icon={<ArrowRight className='min-w-5 min-h-5' />} className=' flex-row-reverse' type='secondary' />
+                <CustomButton disable={isPending} text={t('actions.cancel')} icon={<ArrowRight className='min-w-5 min-h-5' />} className=' flex-row-reverse' type='secondary' />
               </DialogClose>
-              <CustomButton disable={isPending} text={props.type == 'add' ? 'اضافة' : 'تعديل'} icon={<PlusCircle className='min-w-5 min-h-5' />} type='primary' className='bg-black text-white' IsSubmit />
+              <CustomButton disable={isPending} text={props.type == 'add' ? t('actions.add') : t('actions.edit')} icon={<PlusCircle className='min-w-5 min-h-5' />} type='primary' className='bg-black text-white' IsSubmit />
             </div>
           </FieldGroup>
         </form>
