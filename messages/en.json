@@ -826,5 +826,162 @@
         "trigger": "Delete Client"
       }
     }
+  },
+  "waysPage": {
+    "header": {
+      "title": "Routes",
+      "description": "Manage approved routes for transporting shipments, defining start and end points and linking them to shipping operations.",
+      "breadcrumb": {
+        "home": "Home",
+        "ways": "Routes"
+      }
+    },
+    "actions": {
+      "filter": "Filter",
+      "add": "Add New Route"
+    },
+    "table": {
+      "columns": {
+        "name": "Route Name",
+        "points": "Points"
+      },
+      "actions": {
+        "edit": "Edit Route Data"
+      }
+    },
+    "dialog": {
+      "add": {
+        "title": "Add New Route",
+        "description": "Create a new shipping route by defining the route points in the correct order. Multiple points can be added to clarify the movement path and use it later in shipping operations.",
+        "button": "Add Route",
+        "loading": "Adding..."
+      },
+      "edit": {
+        "title": "Edit Route Data",
+        "description": "Modify previously registered route data and update its points or order as needed.",
+        "button": "Update Route",
+        "loading": "Updating..."
+      },
+      "fields": {
+        "name": "Route Name",
+        "pointName": "Point Name",
+        "pointOrder": "Point Order"
+      },
+      "placeholders": {
+        "name": "Enter route name e.g. (Mukalla - Dubai Line)",
+        "pointName": "Enter point name",
+        "pointOrder": "Enter point order"
+      },
+      "actions": {
+        "addPoint": "Add New Point",
+        "remove": "Remove",
+        "cancel": "Cancel"
+      }
+    },
+    "deleteDialog": {
+      "title": "Delete Route",
+      "triggerText": "Delete Route",
+      "description": "Are you sure you want to delete this route?",
+      "action":"Delete"
+    }
+  },
+  "usersPage": {
+    "header": {
+      "title": "Users",
+      "description": "View and manage registered users in the system, and define their roles and permissions related to shipment and data management.",
+      "breadcrumb": {
+        "home": "Home",
+        "users": "Users"
+      }
+    },
+    "actions": {
+      "filter": "Filter",
+      "add": "Add New User"
+    },
+    "table": {
+      "columns": {
+        "name": "Username",
+        "email": "Email",
+        "role": "Role"
+      }
+    },
+    "dialog": {
+      "add": {
+        "title": "Add New User",
+        "description": "Add a new user to the system and define their role and permissions. The user will be able to access the features allowed based on the assigned role."
+      },
+      "edit": {
+        "title": "Edit User",
+        "description": "Edit the previously registered user's data and update their role and permissions."
+      },
+      "fields": {
+        "name": {
+          "label": "Username",
+          "placeholder": "Enter username"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Enter email"
+        },
+        "password": {
+          "label": "Password",
+          "placeholder": "Enter password"
+        },
+        "role": {
+          "label": "Role",
+          "placeholder": "Select role"
+        }
+      },
+      "actions": {
+        "cancel": "Cancel",
+        "add": "Add",
+        "edit": "Edit",
+        "triggerEdit": "Edit User"
+      }
+    },
+    "deleteDialog": {
+      "title": "Delete User",
+      "triggerText": "Delete User",
+      "description": "Are you sure you want to delete this user?"
+    }
+  },
+  "settingsPage": {
+    "header": {
+      "title": "Settings",
+      "description": "Manage account settings, including changing the language, updating basic information, and reviewing subscription details linked to the system.",
+      "breadcrumb": "Settings"
+    },
+    "systemSettings": {
+      "title": "System Settings",
+      "description": "Select the system interface language according to your preference. The change will be applied to all system pages."
+    },
+    "language": {
+      "label": "System Language",
+      "placeholder": "System Language",
+      "arabic": "Arabic",
+      "english": "English"
+    },
+    "accountSettings": {
+      "title": "Personal Account Settings",
+      "description": "Update the basic information linked to your personal account."
+    },
+    "userSection": {
+      "name": "Username",
+      "email": "Email",
+      "password": "Password",
+      "loading": "Loading..."
+    },
+    "subscriptionSettings": {
+      "title": "Subscription Status",
+      "description": "View current subscription information and usage limits associated with the plan."
+    },
+    "subscriptionSection": {
+      "status": "Subscription Status",
+      "activeText": "The subscription is active and the system can be used fully.",
+      "period": "Subscription Period",
+      "remaining": "Remaining: {days} days",
+      "start": "Subscription Start: {date}",
+      "end": "Subscription End: {date}"
+    }
   }
 }

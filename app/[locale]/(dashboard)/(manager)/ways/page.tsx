@@ -15,6 +15,8 @@ import DeleteWayDialog from './_components/delete-way-dialog';
 import {WayTableSkeleton} from './_components/skeletons';
 import WayRealTimeListen from './_components/way-real-time-listen';
 
+import {getTranslations} from 'next-intl/server';
+
 interface PageProps {
   searchParams: Promise<{
     page?: string;
@@ -23,15 +25,23 @@ interface PageProps {
 }
 const Page = async ({searchParams}: PageProps) => {
   const {page, search} = await searchParams;
+  const t = await getTranslations('waysPage');
   return (
     <div>
-      <WayRealTimeListen/>
-      <PageDashboardHeader title='المسارات' description='إدارة المسارات المعتمدة لنقل الشحنات، مع تحديد نقاط الانطلاق والوصول وربطها بعمليات الشحن.' breadcrumbList={[{text: 'الرئيسية', path: '/'}, {text: 'المسارات', path: '/manager/ways'}]} />
+      <WayRealTimeListen />
+      <PageDashboardHeader
+        title={t('header.title')}
+        description={t('header.description')}
+        breadcrumbList={[
+          {text: t('header.breadcrumb.home'), path: '/'},
+          {text: t('header.breadcrumb.ways'), path: '/manager/ways'}
+        ]}
+      />
       <DashboardSearchAndActionPage
         action={
           <div className='self-start flex gap-x-1'>
-            <CustomButton text='فلترة' type='secondary' icon={<Filter className='' />} />
-            <WayDialog type='add' triggerTitle='اضافة مسار جديد' />
+            <CustomButton text={t('actions.filter')} type='secondary' icon={<Filter className='' />} />
+            <WayDialog type='add' triggerTitle={t('actions.add')} />
           </div>
         }
       />
@@ -48,13 +58,14 @@ async function WaysTableAndPagination({page, search}: {page?: string; search?: s
   const cookie = await cookies();
   const token = cookie.get('token')?.value;
   const ways = await GetAllWays({token, page, search});
+  const t = await getTranslations('waysPage');
   return (
     <>
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className='text-start'>اسم المسار</TableHead>
-            <TableHead className='text-start'>عدد النقاط</TableHead>
+            <TableHead className='text-start'>{t('table.columns.name')}</TableHead>
+            <TableHead className='text-start'>{t('table.columns.points')}</TableHead>
             <TableHead></TableHead>
           </TableRow>
         </TableHeader>
@@ -75,7 +86,7 @@ async function WaysTableAndPagination({page, search}: {page?: string; search?: s
                     items={[
                       // TODO : add dialog for show Details
                       //   {type: 'link', link: `/manager/ways/${way.id}`, text: 'عرض التفاصيل'},
-                      {type: 'dialog', item: <WayDialog id={way.id} type='edit' triggerTitle='تعديل بيانات المسار' data={{name: way.name, points: way.points}} />},
+                      {type: 'dialog', item: <WayDialog id={way.id} type='edit' triggerTitle={t('table.actions.edit')} data={{name: way.name, points: way.points}} />},
                       {
                         type: 'dialog',
                         item: <DeleteWayDialog id={way.id} />

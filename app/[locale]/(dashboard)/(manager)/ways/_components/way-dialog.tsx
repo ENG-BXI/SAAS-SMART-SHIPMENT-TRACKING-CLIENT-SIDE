@@ -14,6 +14,7 @@ import {useState, useTransition} from 'react';
 import {CreateWay, UpdateWays} from '../_actions';
 import Cookies from 'universal-cookie';
 import {toast} from 'sonner';
+import {useTranslations} from 'next-intl';
 
 interface WayDialogProps {
   type: 'add' | 'edit';
@@ -24,17 +25,17 @@ interface WayDialogProps {
 function getTitle(type: 'add' | 'edit') {
   switch (type) {
     case 'add':
-      return 'إضافة مسار جديد';
+      return 'add.title';
     case 'edit':
-      return 'تعديل بيانات المسار';
+      return 'edit.title';
   }
 }
 function getDescription(type: 'add' | 'edit') {
   switch (type) {
     case 'add':
-      return 'إنشاء مسار شحن جديد من خلال تحديد نقاط المسار بالترتيب الصحيح. يمكن إضافة أكثر من نقطة لتوضيح مسار الحركة واستخدامه لاحقًا في عمليات الشحن.';
+      return 'add.description';
     case 'edit':
-      return 'تعديل بيانات المسار المسجل مسبقًا وتحديث نقاطه أو ترتيبها حسب الحاجة.';
+      return 'edit.description';
   }
 }
 
@@ -44,6 +45,7 @@ interface Props {
 function WayDialog(props: WayDialogProps) {
   const [isPending, startTransitions] = useTransition();
   const [open, setOpen] = useState(false);
+  const t = useTranslations('waysPage.dialog');
   const cookie = new Cookies();
   const {
     control,
@@ -51,7 +53,6 @@ function WayDialog(props: WayDialogProps) {
     getValues,
     formState: {errors}
   } = useForm<wayFormData>({
-    // TODO Fix This Error
     resolver: zodResolver(waySchema),
     defaultValues: {
       name: props.data?.name || '',
@@ -114,32 +115,32 @@ function WayDialog(props: WayDialogProps) {
           </Button>
         )}
       </DialogTrigger>
-      <DialogContent dir='rtl'>
+      <DialogContent>
         <DialogHeader>
-          <DialogTitle>{getTitle(props.type)}</DialogTitle>
-          <DialogDescription>{getDescription(props.type)}</DialogDescription>
+          <DialogTitle>{t(getTitle(props.type))}</DialogTitle>
+          <DialogDescription>{t(getDescription(props.type))}</DialogDescription>
         </DialogHeader>
         <form onSubmit={handleSubmit(onSubmit)}>
           <FieldGroup className='gap-y-2'>
-            <Controller control={control} name='name' render={({field, fieldState: {invalid, error}}) => <CustomInput disabled={isPending} type='controller' field={field} error={error} invalid={invalid} required hasLabel label='اسم الخط' placeHolder='ادخل اسم الخط مثلا (خط المكلا - دبي)' />} />
+            <Controller control={control} name='name' render={({field, fieldState: {invalid, error}}) => <CustomInput disabled={isPending} type='controller' field={field} error={error} invalid={invalid} required hasLabel label={t('fields.name')} placeHolder={t('placeholders.name')} />} />
             <ReorderList withDragHandle onReorderFinish={handleReorderFinish} itemClassName='rounded-lg'>
               {fields.map((field, index) => (
                 <div key={field.id} data-id={field.id} className='flex items-end gap-x-2'>
-                  <Controller control={control} name={`points.${index}.name`} render={({field, fieldState: {invalid}}) => <CustomInput disabled={isPending} type='controller' field={field} error={undefined} invalid={invalid} required hasLabel label='اسم النقطة' placeHolder='ادخل اسم النقطة' />} />
-                  <Controller control={control} name={`points.${index}.order`} render={({field, fieldState: {invalid}}) => <CustomInput disabled={isPending} type='controller' inputType='number' field={field} error={undefined} invalid={invalid} required label='ترتيب النقطة' placeHolder='ادخل ترتيب النقطة' />} />
+                  <Controller control={control} name={`points.${index}.name`} render={({field, fieldState: {invalid}}) => <CustomInput disabled={isPending} type='controller' field={field} error={undefined} invalid={invalid} required hasLabel label={t('fields.pointName')} placeHolder={t('placeholders.pointName')} />} />
+                  <Controller control={control} name={`points.${index}.order`} render={({field, fieldState: {invalid}}) => <CustomInput disabled={isPending} type='controller' inputType='number' field={field} error={undefined} invalid={invalid} required label={t('fields.pointOrder')} placeHolder={t('placeholders.pointOrder')} />} />
                   <Button disabled={isPending} variant={'destructive'} onClick={() => remove(index)}>
-                    حذف
+                    {t('actions.remove')}
                   </Button>
                 </div>
               ))}
             </ReorderList>
-            <CustomButton disable={isPending} text='اضافة نفطة جديدة' icon={<PlusCircle className='min-w-5 min-h-5' />} onClick={() => append({name: '', order: fields.length + 1})} className='bg-black text-white' />
+            <CustomButton disable={isPending} text={t('actions.addPoint')} icon={<PlusCircle className='min-w-5 min-h-5' />} onClick={() => append({name: '', order: fields.length + 1})} className='bg-black text-white' />
             {fields.length == 0 && errors.points?.root?.message && <p className='text-red-500 text-sm'>{errors.points.root.message}</p>}
             <div className='flex justify-end gap-x-2 mt-2'>
               <DialogClose>
-                <CustomButton disable={isPending} text='الغاء' icon={<ArrowRight className='min-w-5 min-h-5' />} className=' flex-row-reverse' type='secondary' />
+                <CustomButton disable={isPending} text={t('actions.cancel')} icon={<ArrowRight className='min-w-5 min-h-5' />} className=' flex-row-reverse' type='secondary' />
               </DialogClose>
-              <CustomButton disable={isPending} text={props.type == 'add' ? (isPending ? 'جاري الاضافة...' : 'اضافة') : isPending ? 'جاري التعديل...' : 'تعديل'} icon={<PlusCircle className='min-w-5 min-h-5' />} type='primary' className='bg-black text-white' IsSubmit />
+              <CustomButton disable={isPending} text={props.type == 'add' ? (isPending ? t('add.loading') : t('add.button')) : isPending ? t('edit.loading') : t('edit.button')} icon={<PlusCircle className='min-w-5 min-h-5' />} type='primary' className='bg-black text-white' IsSubmit />
             </div>
           </FieldGroup>
         </form>
