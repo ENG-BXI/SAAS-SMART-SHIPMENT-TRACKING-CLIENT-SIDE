@@ -968,6 +968,9 @@
             "label": "系统语言",
             "placeholder": "系统语言"
         },
+        "theme": {
+            "label": "系统主题"
+        },
         "accountSettings": {
             "title": "个人账户设置",
             "description": "更新与您个人账户关联的基本信息。"

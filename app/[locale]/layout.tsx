@@ -11,6 +11,7 @@ import {hasLocale, NextIntlClientProvider} from 'next-intl';
 import {routing} from '@/i18n/routing';
 import {notFound} from 'next/navigation';
 import {setRequestLocale} from 'next-intl/server';
+import { ThemeProvider } from '@/lib/theme-provider';
 
 const myFont = localFont({
   src: './../../public/Fonts/IBMPlexSansArabic-Medium.ttf'
@@ -43,11 +44,13 @@ export default async function RootLayout({
         <NextIntlClientProvider>
           <VisitCounterProvider>
             <SocketProvider>
-              <ProviderQueryClient>
-                {children}
-                <Toaster richColors position='top-right' />
-                <NextTopLoader color='#1B8354' height={4} />
-              </ProviderQueryClient>
+              <ThemeProvider attribute='class' defaultTheme='light' enableSystem disableTransitionOnChange>
+                <ProviderQueryClient>
+                  {children}
+                  <Toaster richColors position='top-right' />
+                  <NextTopLoader color='#1B8354' height={4} />
+                </ProviderQueryClient>
+              </ThemeProvider>
             </SocketProvider>
           </VisitCounterProvider>
         </NextIntlClientProvider>

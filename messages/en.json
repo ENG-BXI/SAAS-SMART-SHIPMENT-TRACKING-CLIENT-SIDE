@@ -968,6 +968,9 @@
       "label": "System Language",
       "placeholder": "System Language"
     },
+    "theme": {
+      "label": "System Theme"
+    },
     "accountSettings": {
       "title": "Personal Account Settings",
       "description": "Update the basic information linked to your personal account."

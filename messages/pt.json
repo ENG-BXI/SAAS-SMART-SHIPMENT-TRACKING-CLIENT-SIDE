@@ -968,6 +968,9 @@
             "label": "Idioma do sistema",
             "placeholder": "Idioma do sistema"
         },
+        "theme": {
+            "label": "Tema do sistema"
+        },
         "accountSettings": {
             "title": "Configurações da conta pessoal",
             "description": "Atualize as informações básicas vinculadas à sua conta pessoal."
