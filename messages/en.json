@@ -1043,5 +1043,92 @@
       "description": "Are you sure you want to delete this note?",
       "action": "Delete"
     }
+  },
+  "subscriptionPage": {
+    "header": {
+      "title": "My Subscriptions",
+      "description": "Manage your company's current subscription details, review plan type, pricing, subscription period, and explore available renewal options.",
+      "breadcrumb": {
+        "home": "Home",
+        "settings": "System Settings",
+        "subscriptions": "My Subscriptions"
+      }
+    },
+    "currentSubscription": {
+      "title": "Company Subscription Status",
+      "yearly": {
+        "label": "Annual Subscription",
+        "hint": "Provides the best long-term value for your company."
+      },
+      "monthly": {
+        "label": "Monthly Subscription",
+        "hint": "Ideal for companies that need monthly flexibility."
+      },
+      "progress": {
+        "title": "Subscription Progress",
+        "remaining": "{days} days remaining",
+        "notAvailable": "Not available"
+      },
+      "featuresTitle": "Subscription Features",
+      "cards": {
+        "price": {
+          "title": "Price",
+          "description": "Current subscription cost"
+        },
+        "startDate": {
+          "title": "Start Date",
+          "description": "Subscription start date"
+        },
+        "endDate": {
+          "title": "Renewal Date",
+          "description": "{days} days remaining",
+          "descriptionNoDate": "Renewal date not available"
+        }
+      }
+    },
+    "pricing": {
+      "title": "Available Plans",
+      "description": "Review available plans with clearer details about features and subscription periods to help you choose the best option.",
+      "bestValue": "Best Value",
+      "currentPlan": "Current Plan",
+      "selectPlan": "Choose this plan",
+      "selected": "Your active plan",
+      "billing": "Billing Cycle",
+      "monthly": "Monthly",
+      "yearly": "Yearly",
+      "duration": "Duration"
+    },
+    "status": {
+      "pending": "Pending",
+      "active": "Active",
+      "inactive": "Inactive",
+      "change": "Change request under review"
+    },
+    "features": {
+      "title": "Subscription Features",
+      "items": [
+        "Direct technical support for companies",
+        "Daily reports and subscription tracking",
+        "User and shipment management dashboard",
+        "Easy plan upgrade or downgrade"
+      ]
+    },
+    "faq": {
+      "title": "Subscription FAQs",
+      "items": [
+        {
+          "q": "Can I change my subscription plan anytime?",
+          "a": "Yes, you can switch between monthly and yearly plans based on system rules."
+        },
+        {
+          "q": "What data is shown in the plan details?",
+          "a": "The page displays subscription type, price, and duration based on available plan data."
+        },
+        {
+          "q": "Are there hidden fees or long-term contracts?",
+          "a": "All pricing shown is transparent; additional payment details depend on system settings."
+        }
+      ]
+    }
   }
 }

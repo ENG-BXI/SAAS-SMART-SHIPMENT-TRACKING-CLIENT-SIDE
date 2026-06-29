@@ -1,6 +1,5 @@
 import PageDashboardHeader from '@/components/dashboard/header';
 
-import {FAQS} from './_components/plans-data';
 import CurrentSubscription from './_components/current-subscription';
 import PricingPlans from './_components/pricing-plans';
 import FAQSection from './_components/faq-section';
@@ -9,8 +8,11 @@ import {cookies} from 'next/headers';
 import {formattedDate} from '@/lib/utils';
 import GetAllSubscription from '@/services/get-all-subscription';
 import MySubscriptionRealTimeListen from './_components/subscription-real-time-listen';
+import {getTranslations} from 'next-intl/server';
 
 export default async function MySubscriptionPage() {
+  const t = await getTranslations('subscriptionPage.header');
+  const tPrice = await getTranslations('subscriptionPage.pricing');
   const cookie = await cookies();
   const token = cookie.get('token')?.value;
   const [subscriptionInfo, subscription] = await Promise.all([GetSubscriptionInfo(token), GetAllSubscription(token)]);
@@ -21,31 +23,30 @@ export default async function MySubscriptionPage() {
   const isInActive = subscriptionInfo.status == 'inactive';
 
   return (
-    <div className='w-full pb-10 font-sans' dir='rtl'>
-      <MySubscriptionRealTimeListen/>
+    <div className='w-full pb-10 font-sans'>
+      <MySubscriptionRealTimeListen />
+
       <PageDashboardHeader
-        title='اشتراكاتي'
-        description='إدارة تفاصيل اشتراك شركتك الحالي، ومراجعة نوع الباقة والسعر وفترة الاشتراك، واستكشاف خيارات التجديد المتاحة.'
+        title={t('title')}
+        description={t('description')}
         breadcrumbList={[
-          {text: 'الرئيسية', path: '/'},
-          {text: 'إدارة النظام', path: '/settings'},
-          {text: 'اشتراكاتي', path: '/my-subscription'}
+          {text: t('breadcrumb.home'), path: '/'},
+          {text: t('breadcrumb.settings'), path: '/settings'},
+          {text: t('breadcrumb.subscriptions'), path: '/my-subscription'}
         ]}
       />
-
       <CurrentSubscription startDate={startDate} endDate={endDate} price={subscriptionInfo.type.price} status={subscriptionInfo.status} isYearly={isYearly} />
-
       {!isPending && !isInActive && (
         <>
           <div className='mb-6 flex flex-col gap-1 border-b pb-4'>
-            <h3 className='text-lg font-semibold text-gray-900'>الباقات والخطط المتاحة</h3>
-            <p className='text-muted-foreground text-sm'>راجع الباقات المتاحة لشركتك مع معلومات أوضح عن المزايا وفترات الاشتراك لتسهيل اختيار الأنسب.</p>
+            <h3 className='text-lg font-semibold text-gray-900'>{tPrice('title')}</h3>
+            <p className='text-muted-foreground text-sm'>{tPrice('description')}</p>
           </div>
-
           <PricingPlans currentPlan={subscriptionInfo.type.type} status={subscriptionInfo.status} plans={subscription} />
         </>
       )}
-      <FAQSection faqs={FAQS} />
+
+      <FAQSection />
     </div>
   );
 }

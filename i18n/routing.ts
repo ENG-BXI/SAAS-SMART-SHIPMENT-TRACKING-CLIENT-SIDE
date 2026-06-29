@@ -7,3 +7,8 @@ export const routing = defineRouting({
   // Used when no locale matches
   defaultLocale: 'en'
 });
+// add a name language her by a native letter for each language
+export const LocalsNames = {
+  en: 'english',
+  ar: 'العربية'
+};
