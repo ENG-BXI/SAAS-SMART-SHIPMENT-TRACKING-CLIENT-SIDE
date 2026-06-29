@@ -18,7 +18,7 @@ const DeleteUserDialog = ({id}: {id: string}) => {
     });
   }
   if (id == data?.id) return null;
-  return <DeleteDialog title={t('title')} triggerText={t('triggerText')} description={t('description')} isLoading={isPending} onclick={handleOnDelete} />;
+  return <DeleteDialog title={t('title')} triggerText={t('triggerText')} description={t('description')} actionText={t('action')} isLoading={isPending} onclick={handleOnDelete} />;
 };
 
 export default DeleteUserDialog;
