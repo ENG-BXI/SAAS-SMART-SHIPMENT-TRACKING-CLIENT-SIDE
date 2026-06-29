@@ -57,7 +57,15 @@
     "tablePopover": {
       "actionsTitle": "Operations"
     },
-    "currencyRiyal": "SAR"
+    "currencyRiyal": "SAR",
+    "pagination": {
+      "next": "Next",
+      "previous": "Previous",
+      "showing": "Showing",
+      "to": "to",
+      "of": "of",
+      "items": "items"
+    }
   },
   "sidebar": {
     "home": "Home",
@@ -1134,7 +1142,10 @@
   "managerDashboard": {
     "header": {
       "title": "Dashboard",
-      "description": "Overview of shipping operations performance, including current shipments, clients, and routes."
+      "description": "Overview of shipping operations performance, including current shipments, clients, and routes.",
+      "breadcrumb": {
+        "home": "Home"
+      }
     },
     "currentShipments": {
       "title": "Current Shipments",

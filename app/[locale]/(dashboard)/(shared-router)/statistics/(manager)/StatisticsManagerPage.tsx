@@ -18,7 +18,7 @@ const StatisticsManagerPage = async ({searchParams}: StatisticsManagerPageProps)
   return (
     <div>
       <StatisticsRealTime />
-      <PageDashboardHeader title={t('title')} description={t('description')} breadcrumbList={[{text: 'الرئيسية', path: '#'}]} />
+      <PageDashboardHeader title={t('title')} description={t('description')} breadcrumbList={[{text: t('breadcrumb.home'), path: '#'}]} />
       <Suspense fallback={<CardsSkeleton />}>
         <StatisticsCards />
       </Suspense>
