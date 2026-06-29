@@ -16,26 +16,28 @@ import {NOTE_TYPE_NAMES} from '@/lib/Constant/note-type';
 import DeleteNoteDialog from './_components/delete-note-dialog';
 import {NoteTableSkeleton} from '../_components/skeletons';
 import NoteRealTime from '../_components/note-real-time';
+import {getTranslations} from 'next-intl/server';
 interface IManagerNotesProps {
   searchParams: {search?: string; page?: string};
 }
 const ManagerNotes = async ({searchParams}: IManagerNotesProps) => {
+  const t = await getTranslations('notesPage');
   return (
     <div>
       <NoteRealTime />
       <PageDashboardHeader
-        title='الملاحظات'
-        description='يتيح هذا القسم للشركات إرسال ملاحظات، شكاوى، أو طلبات تغيير إلى إدارة النظام. يتم عرض جميع الملاحظات مباشرة في لوحة تحكم الأدمن لمراجعتها واتخاذ الإجراء المناسب.'
+        title={t('header.title')}
+        description={t('header.description')}
         breadcrumbList={[
-          {text: 'الرئيسية', path: '/'},
-          {text: 'الملاحظات', path: '/manager/notes'}
+          {text: t('header.breadcrumb.home'), path: '/'},
+          {text: t('header.breadcrumb.notes'), path: '/notes'}
         ]}
       />
       <DashboardSearchAndActionPage
         action={
           <div className='self-start flex gap-x-1'>
-            <CustomButton text='فلترة' type='secondary' icon={<Filter className='' />} />
-            <NoteDialog type='add' triggerTitle='اضافة ملاحظة جديدة' />
+            <CustomButton text={t('actions.filter')} type='secondary' icon={<Filter className='' />} />
+            <NoteDialog type='add' triggerTitle={t('actions.add')} />
           </div>
         }
       />
@@ -53,14 +55,16 @@ async function NoteTableAndPagination({searchParams}: IManagerNotesProps) {
   const cookie = await cookies();
   const token = cookie.get('token')?.value;
   const response = await GetAllNotes(token, search, page);
+  const t = await getTranslations('notesPage.table');
+  const tDialog = await getTranslations('notesPage.dialog');
   return (
     <>
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className='text-start'>تاريخ الانشاء</TableHead>
-            <TableHead className='text-start'>نوع الملاحظة</TableHead>
-            <TableHead className='text-start'>الملاحظة</TableHead>
+            <TableHead className='text-start'>{t('columns.createdAt')}</TableHead>
+            <TableHead className='text-start'>{t('columns.type')}</TableHead>
+            <TableHead className='text-start'>{t('columns.text')}</TableHead>
             <TableHead></TableHead>
           </TableRow>
         </TableHeader>
@@ -85,7 +89,7 @@ async function NoteTableAndPagination({searchParams}: IManagerNotesProps) {
                     items={[
                       // TODO : add dialog for show Details
                       //   {type: 'link', link: `/manager/ways/${way.id}`, text: 'عرض التفاصيل'},
-                      {type: 'dialog', item: <NoteDialog type='edit' id={note.id} triggerTitle='تعديل بيانات الملاحظة' data={{type: note.type, text: note.text}} />},
+                      {type: 'dialog', item: <NoteDialog type='edit' id={note.id} triggerTitle={tDialog('actions.triggerEdit')} data={{type: note.type, text: note.text}} />},
                       {
                         type: 'dialog',
                         item: <DeleteNoteDialog id={note.id} />

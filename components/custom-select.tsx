@@ -4,6 +4,7 @@ import {Label} from '@/components/ui/label';
 import {RefCallBack} from 'react-hook-form';
 import {cn} from '@/lib/utils';
 import {Ban, Loader2} from 'lucide-react';
+import {useLocale} from 'next-intl';
 export interface IOption {
   value: string;
   label: string;
@@ -26,7 +27,9 @@ interface CustomSelectProps {
   isError?: boolean;
   error?: string;
 }
-function CustomSelect({onChange, label, required, value, ref, invalid, errorMessage, options, placeHolder, className, dir = 'rtl', disabled = false, isLoading = false, isError = false, error}: CustomSelectProps) {
+function CustomSelect({onChange, label, required, value, ref, invalid, errorMessage, options, placeHolder, className, disabled = false, isLoading = false, isError = false, error}: CustomSelectProps) {
+  const locale = useLocale();
+  const dir = locale == 'ar' ? 'rtl' : 'ltr';
   return (
     <Field className={cn(className)} data-invalid={invalid}>
       {label && (

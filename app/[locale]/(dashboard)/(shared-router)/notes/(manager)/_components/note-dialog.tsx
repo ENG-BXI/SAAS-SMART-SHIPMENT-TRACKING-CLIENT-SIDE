@@ -14,6 +14,7 @@ import {useState, useTransition} from 'react';
 import {CreateNote, UpdateNote} from '../_actions';
 import {toast} from 'sonner';
 import {NOTE_TYPE, NOTE_TYPE_NAMES} from '@/lib/Constant/note-type';
+import {useTranslations} from 'next-intl';
 
 interface NoteDialogProps {
   type: 'add' | 'edit';
@@ -24,20 +25,21 @@ interface NoteDialogProps {
 function getTitle(type: 'add' | 'edit') {
   switch (type) {
     case 'add':
-      return 'إضافة ملاجظة جديدة';
+      return 'add.title';
     case 'edit':
-      return 'تعديل الملاحظة';
+      return 'edit.title';
   }
 }
 function getDescription(type: 'add' | 'edit') {
   switch (type) {
     case 'add':
-      return 'إرسال ملاحظة جديدة إلى إدارة المنصة لمشاركة استفسار، طلب، أو أي تفاصيل متعلقة بالخدمة أو النظام.';
+      return 'add.description';
     case 'edit':
-      return 'تعديل الملاحظة المرسلة مسبقًا وتحديث محتواها أو تفاصيلها.';
+      return 'edit.description';
   }
 }
 function NoteDialog(props: NoteDialogProps) {
+  const t = useTranslations('notesPage.dialog');
   const {control, reset, handleSubmit} = useForm<noteFormData>({
     resolver: zodResolver(noteSchema),
     defaultValues: {
@@ -48,7 +50,7 @@ function NoteDialog(props: NoteDialogProps) {
   const [open, setOpen] = useState(false);
   const [isPending, startTransition] = useTransition();
 
-  const typeOption = Object.entries(NOTE_TYPE).map(([, val]) => ({label: NOTE_TYPE_NAMES[val], value: val}));
+  const typeOption = Object.entries(NOTE_TYPE).map(([, val]) => ({label: t(`noteTypes.${val}`), value: val}));
 
   function onSubmit(data: noteFormData) {
     if (props.type == 'add') {
@@ -92,20 +94,20 @@ function NoteDialog(props: NoteDialogProps) {
           </Button>
         )}
       </DialogTrigger>
-      <DialogContent dir='rtl'>
+      <DialogContent>
         <DialogHeader>
-          <DialogTitle>{getTitle(props.type)}</DialogTitle>
-          <DialogDescription>{getDescription(props.type)}</DialogDescription>
+          <DialogTitle>{t(getTitle(props.type))}</DialogTitle>
+          <DialogDescription>{t(getDescription(props.type))}</DialogDescription>
         </DialogHeader>
         <form onSubmit={handleSubmit(onSubmit)}>
           <FieldGroup className='gap-y-2'>
-            <Controller control={control} name='type' render={({field, fieldState: {invalid, error}}) => <CustomSelect disabled={isPending} onChange={field.onChange} value={field.value.toString()} ref={field.ref} errorMessage={error?.message} invalid={invalid} required label='نوع الملاحظة' placeHolder='اختر نوع الملاحظة' options={typeOption} />} />
-            <Controller control={control} name='text' render={({field, fieldState: {invalid, error}}) => <CustomInput disabled={isPending} type='controller' inputType='textarea' field={field} error={error} invalid={invalid} hasLabel label='الملاحظة' placeHolder='ادخل الملاحظة' />} />
+            <Controller control={control} name='type' render={({field, fieldState: {invalid, error}}) => <CustomSelect disabled={isPending}  onChange={field.onChange} value={field.value.toString()} ref={field.ref} errorMessage={error?.message} invalid={invalid} required label={t('fields.type.label')} placeHolder={t('fields.type.placeholder')} options={typeOption} />} />
+            <Controller control={control} name='text' render={({field, fieldState: {invalid, error}}) => <CustomInput disabled={isPending} type='controller' inputType='textarea' field={field} error={error} invalid={invalid} hasLabel label={t('fields.text.label')} placeHolder={t('fields.text.placeholder')} />} />
             <div className='flex justify-end gap-x-2 mt-2'>
               <DialogClose>
-                <CustomButton disable={isPending} text='الغاء' icon={<ArrowRight className='min-w-5 min-h-5' />} className=' flex-row-reverse' type='secondary' />
+                <CustomButton disable={isPending} text={t('actions.cancel')} icon={<ArrowRight className='min-w-5 min-h-5' />} className=' flex-row-reverse' type='secondary' />
               </DialogClose>
-              <CustomButton disable={isPending} text={props.type == 'add' ? 'اضافة' : 'تعديل'} icon={<PlusCircle className='min-w-5 min-h-5' />} type='primary' className='bg-black text-white' IsSubmit />
+              <CustomButton disable={isPending} text={props.type == 'add' ? t('actions.add') : t('actions.edit')} icon={<PlusCircle className='min-w-5 min-h-5' />} type='primary' className='bg-black text-white' IsSubmit />
             </div>
           </FieldGroup>
         </form>

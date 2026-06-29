@@ -982,5 +982,66 @@
       "start": "Subscription Start: {date}",
       "end": "Subscription End: {date}"
     }
+  },
+  "notesPage": {
+    "header": {
+      "title": "Notes",
+      "description": "This section allows companies to send notes, complaints, feedback, or change requests to the system administration. All notes are displayed in the admin dashboard for review and appropriate action.",
+      "breadcrumb": {
+        "home": "Home",
+        "notes": "Notes"
+      }
+    },
+    "actions": {
+      "filter": "Filter",
+      "add": "Add New Note"
+    },
+    "table": {
+      "columns": {
+        "createdAt": "Created At",
+        "type": "Note Type",
+        "text": "Note"
+      }
+    },
+    "dialog": {
+      "add": {
+        "title": "Add New Note",
+        "description": "Send a new note to the system administration to share an inquiry, request, or any service/system-related details."
+      },
+      "edit": {
+        "title": "Edit Note",
+        "description": "Update a previously submitted note and modify its content or details."
+      },
+      "fields": {
+        "type": {
+          "label": "Note Type",
+          "placeholder": "Select note type"
+        },
+        "text": {
+          "label": "Note",
+          "placeholder": "Enter your note"
+        }
+      },
+      "actions": {
+        "cancel": "Cancel",
+        "add": "Add",
+        "edit": "Edit",
+        "triggerEdit": "Edit Note"
+      },
+      "noteTypes": {
+        "complaint": "Complaint",
+        "inquiry": "Inquiry",
+        "suggestion": "Suggestion",
+        "compliment": "Compliment",
+        "feedback": "Feedback",
+        "other": "Other"
+      }
+    },
+    "deleteDialog": {
+      "title": "Delete Note",
+      "triggerText": "Delete Note",
+      "description": "Are you sure you want to delete this note?",
+      "action": "Delete"
+    }
   }
 }
