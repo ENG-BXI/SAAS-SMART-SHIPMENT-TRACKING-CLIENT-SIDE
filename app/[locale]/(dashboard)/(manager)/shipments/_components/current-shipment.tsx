@@ -66,13 +66,13 @@ async function TableAndPagination({search, page}: CurrentShipmentsProps) {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>{t('shipmentNumber')}</TableHead>
-            <TableHead>{t('launchDate')}</TableHead>
-            <TableHead>{t('route')}</TableHead>
-            <TableHead>{t('currentPoint')}</TableHead>
-            <TableHead>{t('driver')}</TableHead>
-            <TableHead>{t('status')}</TableHead>
-            <TableHead>{t('actions')}</TableHead>
+            <TableHead className='text-start'>{t('shipmentNumber')}</TableHead>
+            <TableHead className='text-start'>{t('launchDate')}</TableHead>
+            <TableHead className='text-start'>{t('route')}</TableHead>
+            <TableHead className='text-start'>{t('currentPoint')}</TableHead>
+            <TableHead className='text-start'>{t('driver')}</TableHead>
+            <TableHead className='text-start'>{t('status')}</TableHead>
+            <TableHead className='text-start'>{t('actions')}</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>

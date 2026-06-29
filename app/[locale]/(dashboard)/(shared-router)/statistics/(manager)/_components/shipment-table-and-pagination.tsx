@@ -16,11 +16,11 @@ async function ShipmentTableAndPagination({page}: {page?: string}) {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>{t('shipmentNumber')}</TableHead>
-            <TableHead>{t('launchDate')}</TableHead>
-            <TableHead>{t('route')}</TableHead>
-            <TableHead>{t('currentPoint')}</TableHead>
-            <TableHead>{t('driver')}</TableHead>
+            <TableHead className='text-start'>{t('shipmentNumber')}</TableHead>
+            <TableHead className='text-start'>{t('launchDate')}</TableHead>
+            <TableHead className='text-start'>{t('route')}</TableHead>
+            <TableHead className='text-start'>{t('currentPoint')}</TableHead>
+            <TableHead className='text-start'>{t('driver')}</TableHead>
             <TableHead className=''></TableHead>
           </TableRow>
         </TableHeader>

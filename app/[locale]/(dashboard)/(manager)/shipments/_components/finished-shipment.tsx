@@ -52,13 +52,13 @@ async function TableAndPagination({search, page}: FinishedShipmentsProps) {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>{tTable('shipmentNumber')}</TableHead>
-            <TableHead>{tTable('launchDate')}</TableHead>
-            <TableHead>{tTable('endDate')}</TableHead>
-            <TableHead>{tTable('route')}</TableHead>
-            <TableHead>{tTable('currentPoint')}</TableHead>
-            <TableHead>{tTable('driver')}</TableHead>
-            <TableHead>{tTable('actions')}</TableHead>
+            <TableHead className='text-start'>{tTable('shipmentNumber')}</TableHead>
+            <TableHead className='text-start'>{tTable('launchDate')}</TableHead>
+            <TableHead className='text-start'>{tTable('endDate')}</TableHead>
+            <TableHead className='text-start'>{tTable('route')}</TableHead>
+            <TableHead className='text-start'>{tTable('currentPoint')}</TableHead>
+            <TableHead className='text-start'>{tTable('driver')}</TableHead>
+            <TableHead className='text-start'>{tTable('actions')}</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>

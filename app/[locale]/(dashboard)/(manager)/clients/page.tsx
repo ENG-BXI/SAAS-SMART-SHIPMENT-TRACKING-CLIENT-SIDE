@@ -13,7 +13,7 @@ import {Suspense} from 'react';
 import DeleteClientDialog from './_components/delete-client-dialog';
 import {ClientTableSkeleton} from './_components/skeletons';
 import ClientRealTime from './_components/client-real-time';
-import { getTranslations } from 'next-intl/server';
+import {getTranslations} from 'next-intl/server';
 
 interface PageProps {
   searchParams: Promise<{
@@ -59,16 +59,16 @@ interface ClientTableAndPaginationProps {
 async function ClientTableAndPagination({search, page}: ClientTableAndPaginationProps) {
   const cookie = await cookies();
   const token = cookie.get('token')?.value;
-  const clients = await GetAllClient({ token, search, page });
+  const clients = await GetAllClient({token, search, page});
   const t = await getTranslations('clientsPage');
   return (
     <>
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>{t('table.headers.name')}</TableHead>
-            <TableHead>{t('table.headers.contacts')}</TableHead>
-            <TableHead>{t('table.headers.actions')}</TableHead>
+            <TableHead className='text-start'>{t('table.headers.name')}</TableHead>
+            <TableHead className='text-start'>{t('table.headers.contacts')}</TableHead>
+            <TableHead className='text-start'>{t('table.headers.actions')}</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
