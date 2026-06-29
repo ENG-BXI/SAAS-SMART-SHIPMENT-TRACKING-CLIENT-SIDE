@@ -1130,5 +1130,30 @@
         }
       ]
     }
+  },
+  "managerDashboard": {
+    "header": {
+      "title": "Dashboard",
+      "description": "Overview of shipping operations performance, including current shipments, clients, and routes."
+    },
+    "currentShipments": {
+      "title": "Current Shipments",
+      "description": "View all active shipments and track their latest updates."
+    },
+    "table": {
+      "shipmentNumber": "Shipment Number",
+      "launchDate": "Launch Date",
+      "route": "Route",
+      "currentPoint": "Current Point",
+      "driver": "Driver",
+      "empty": "No shipments available"
+    },
+    "stats": {
+      "shipments": "Total Shipments",
+      "current": "Current Shipments",
+      "finished": "Finished Shipments",
+      "clients": "Clients",
+      "ways": "Routes"
+    }
   }
 }

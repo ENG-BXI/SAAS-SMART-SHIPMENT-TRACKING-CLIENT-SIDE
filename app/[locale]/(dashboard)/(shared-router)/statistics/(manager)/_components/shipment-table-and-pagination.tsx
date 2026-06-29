@@ -4,21 +4,23 @@ import {Table, TableHeader, TableRow, TableHead, TableBody, TableCell} from '@/c
 import {TableEmpty} from '@/components/table-empty';
 import {formattedDate} from '@/lib/utils';
 import CustomPagination from '@/components/custom-pagination';
+import {getTranslations} from 'next-intl/server';
 
 async function ShipmentTableAndPagination({page}: {page?: string}) {
   const cookie = await cookies();
   const token = cookie.get('token')?.value;
   const currentShipment = await getCurrentShipments(token, '', page);
+  const t = await getTranslations('managerDashboard.table');
   return (
     <>
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className='text-start'>رقم الشحنة</TableHead>
-            <TableHead className='text-start'>تاريخ الانطلاق</TableHead>
-            <TableHead className='text-start'>المسار</TableHead>
-            <TableHead className='text-start'>النقطة الحالية</TableHead>
-            <TableHead className='text-start'>سائق الشحنة</TableHead>
+            <TableHead>{t('shipmentNumber')}</TableHead>
+            <TableHead>{t('launchDate')}</TableHead>
+            <TableHead>{t('route')}</TableHead>
+            <TableHead>{t('currentPoint')}</TableHead>
+            <TableHead>{t('driver')}</TableHead>
             <TableHead className=''></TableHead>
           </TableRow>
         </TableHeader>
