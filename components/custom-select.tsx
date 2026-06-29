@@ -29,7 +29,7 @@ interface CustomSelectProps {
 }
 function CustomSelect({onChange, label, required, value, ref, invalid, errorMessage, options, placeHolder, className, disabled = false, isLoading = false, isError = false, error}: CustomSelectProps) {
   const locale = useLocale();
-  const dir = locale == 'ar' ? 'rtl' : 'ltr';
+  const dir = locale == 'ar' || locale == 'ur' ? 'rtl' : 'ltr';
   return (
     <Field className={cn(className)} data-invalid={invalid}>
       {label && (

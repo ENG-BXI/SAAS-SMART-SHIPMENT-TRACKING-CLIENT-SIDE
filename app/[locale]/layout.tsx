@@ -34,7 +34,7 @@ export default async function RootLayout({
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
-  const isRtl = locale == 'ar';
+  const isRtl = locale == 'ar' || locale == 'ur';
   setRequestLocale(locale);
 
   return (
