@@ -5,8 +5,10 @@ import GetSubscriptionInfo from '../../my-subscription/_services/get-subscriptio
 import {cookies} from 'next/headers';
 import {SUBSCRIPTION_TEXT} from '@/lib/Constant/enum';
 import {formattedDate} from '@/lib/utils';
+import { getTranslations } from 'next-intl/server';
 
 async function SubscriptionSection() {
+  const t = await getTranslations('settingsPage.subscriptionSection');
   const cookie = await cookies();
   const token = cookie.get('token')?.value;
   const data = await GetSubscriptionInfo(token);
@@ -20,27 +22,27 @@ async function SubscriptionSection() {
   return (
     <>
       <div className='flex gap-3 flex-col sm:flex-row sm:items-start justify-between my-4'>
-        <h4 className='text-nowrap'>حالة الاشتراك</h4>
+        <h4 className='text-nowrap'>{t('status')}</h4>
         <div className='max-w-130 w-full flex flex-col gap-y-1'>
           <Badge variant='outline' className='border-[#067647] text-md text-[#085D3A] rounded-sm'>
             {SUBSCRIPTION_TEXT[data.status]}
           </Badge>
-          <p className='text-muted-foreground'>الاشتراك نشط ويمكن استخدام النظام بشكل كامل.</p>
+          <p className='text-muted-foreground'>{t('activeText')}</p>
         </div>
       </div>
       <div className='flex gap-3 flex-col sm:flex-row sm:items-start justify-between my-4'>
-        <h4 className='text-nowrap'>فترة الاشتراك</h4>
+        <h4 className='text-nowrap'>{t('period')}</h4>
         <div className='max-w-130 w-full flex flex-col gap-y-3'>
           <Badge variant='outline' className='border-[#067647] text-md text-[#085D3A] rounded-sm'>
-            المدة المتبقية: {remainingDays} يوم
+            {t('remaining', {days: remainingDays})}
           </Badge>
           <div className='flex flex-wrap items-center gap-x-2'>
             <Badge variant='outline' className='border-[#93370D] text-md text-[#93370D] rounded-sm'>
-              بداية الاشتراك: {formattedDate(data.startDate)}
+              {t('start', {date: formattedDate(data.startDate)})}
             </Badge>
             <IconArrowNarrowLeft className='text-[#93370D]' />
             <Badge variant='outline' className='border-[#93370D] text-md text-[#93370D] rounded-sm'>
-              نهاية الاشتراك: {formattedDate(data.endDate)}
+              {t('end', {date: formattedDate(data.endDate)})}
             </Badge>
           </div>
         </div>

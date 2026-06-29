@@ -2,16 +2,18 @@ import PageDashboardHeader from '@/components/dashboard/header';
 import LanguageSection from './_components/language-section';
 import UserSection from './_components/user-section';
 import SubscriptionSection from './_components/subscription-section';
+import {getTranslations} from 'next-intl/server';
 
-const Page = () => {
+const Page = async () => {
+  const t = await getTranslations('settingsPage');
   return (
     <div>
-      <PageDashboardHeader title='الاعدادات' description='إدارة إعدادات الحساب، بما يشمل تغيير اللغة، تحديث البيانات الأساسية، ومراجعة معلومات الاشتراك المرتبطة بالنظام.' breadcrumbList={[{text: 'الاعدادات', path: '/manager/settings'}]} />
+      <PageDashboardHeader title={t('header.title')} description={t('header.description')} breadcrumbList={[{text: t('header.breadcrumb'), path: '/settings'}]} />
       <div className='p-3 w-full max-w-200'>
         <LanguageSection />
-        <PageDashboardHeader title='اعدادات الحساب الشخصي' titleClassName='font-semibold text-lg' description='تحديث المعلومات الأساسية المرتبطة بحسابك الشخصي.تحديث المعلومات الأساسية المرتبطة بحسابك الشخصي.' />
+        <PageDashboardHeader title={t('accountSettings.title')} titleClassName='font-semibold text-lg' description={t('accountSettings.description')} />
         <UserSection />
-        <PageDashboardHeader title='حالة الاشتراك' titleClassName='font-semibold text-lg' description='عرض معلومات الاشتراك الحالية وحدود الاستخدام المرتبطة بالخطة.' />
+        <PageDashboardHeader title={t('subscriptionSettings.title')} titleClassName='font-semibold text-lg' description={t('subscriptionSettings.description')} />
         <SubscriptionSection />
       </div>
     </div>

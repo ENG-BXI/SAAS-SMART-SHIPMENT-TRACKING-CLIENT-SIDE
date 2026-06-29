@@ -958,9 +958,7 @@
     },
     "language": {
       "label": "System Language",
-      "placeholder": "System Language",
-      "arabic": "Arabic",
-      "english": "English"
+      "placeholder": "System Language"
     },
     "accountSettings": {
       "title": "Personal Account Settings",
