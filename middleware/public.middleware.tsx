@@ -1,12 +1,13 @@
 import addUserInfoIntoHeader from '@/lib/add-user-info-into-header';
 import {parseReq} from '@/lib/parse-req';
 import {getUser} from '@/lib/utils';
-import {cookies} from 'next/headers';
 import {NextRequest, NextResponse} from 'next/server';
 
 export async function publicMiddleware(req: NextRequest) {
-  const cookie = await cookies();
-  const token = cookie.get('token')?.value;
+  const token = req.cookies.get('token')?.value;
+  console.log('====================================');
+  console.log(token);
+  console.log('====================================');
   const {pathName} = parseReq(req);
   if (token) {
     const user = getUser(token);
