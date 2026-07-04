@@ -17,9 +17,6 @@ const admin_manager_employee_SharedRoute = ['statistics', 'notes'];
 const intlMiddleware = createMiddleware(routing);
 export default async function Proxy(req: NextRequest) {
   const { pathName } = parseReq(req);
-  console.log('====================================');
-  console.log(pathName);
-  console.log('====================================');
   let response: NextResponse | undefined;
   const responseI18 = intlMiddleware(req);
   if (adminRoute.includes(pathName)) {
