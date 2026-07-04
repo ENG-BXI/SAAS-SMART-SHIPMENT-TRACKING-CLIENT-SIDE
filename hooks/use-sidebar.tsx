@@ -10,7 +10,7 @@ const useSidebar = () => {
   const pathName = path.split('/').pop();
   const isSelected = (link?: string) => link?.split('/').pop() === pathName;
   const {data: user, isError, isLoading, error} = useMe();
-  const isLock = user?.status == 'pending' || user?.status == 'inactive';
+  const isLock = user?.status == 'expired' || user?.status == 'pending' || user?.status == 'inactive';
   const currentDate = new Date();
   const expireDate = new Date(user?.endSubscriptionDate || '');
   const differentDateByMs = expireDate.getTime() - currentDate.getTime();

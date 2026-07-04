@@ -1,0 +1,1175 @@
+{
+    "homePage": {
+        "title": "Inicio",
+        "description": "Envíe una solicitud de suscripción para crear una cuenta de empresa y comenzar a utilizar la plataforma.",
+        "registerCompany": {
+            "title": "Nueva solicitud de suscripción de empresa",
+            "description": "Esta página se utiliza actualmente para enviar una solicitud para crear una nueva empresa."
+        },
+        "registerCompanyForm": {
+            "tempNote": "Página de destino temporal para solicitudes de suscripción de empresas",
+            "title": "Crear una nueva empresa",
+            "description": "Envíe una solicitud para crear una nueva empresa y permitirle utilizar la plataforma para operaciones de envío.",
+            "fields": {
+                "name": {
+                    "label": "Nombre de la empresa",
+                    "placeholder": "Ejemplo: Fast Line Shipping"
+                },
+                "subscriptionType": {
+                    "label": "Plan de suscripción",
+                    "placeholder": "Elija un plan de suscripción"
+                },
+                "location": {
+                    "label": "Ubicación de la empresa",
+                    "placeholder": "Ejemplo: Riad, Arabia Saudita"
+                },
+                "companyEmail": {
+                    "label": "Correo electrónico de la empresa",
+                    "placeholder": "Ejemplo: example@gmail.com"
+                },
+                "companyPassword": {
+                    "label": "Contraseña",
+                    "placeholder": "***********"
+                },
+                "confirmPassword": {
+                    "label": "Confirmar contraseña",
+                    "placeholder": "***********"
+                }
+            },
+            "actions": {
+                "submit": "Crear",
+                "submitting": "Creando..."
+            }
+        }
+    },
+    "shared": {
+        "uploadImage": {
+            "title": "Subir archivos adjuntos",
+            "description": "El tamaño máximo permitido es de 2 MB, y los formatos compatibles incluyen .jpg, .png y .pdf.",
+            "browseFiles": "Examinar archivos"
+        },
+        "buttons": {
+            "filter": "Filtrar",
+            "cancel": "Cancelar",
+            "add": "Agregar",
+            "edit": "Editar"
+        },
+        "tablePopover": {
+            "actionsTitle": "Operaciones"
+        },
+        "currencyRiyal": "SAR",
+        "pagination": {
+            "next": "Siguiente",
+            "previous": "Anterior",
+            "showing": "Mostrando",
+            "to": "a",
+            "of": "de",
+            "items": "elementos"
+        }
+    },
+    "sidebar": {
+        "home": "Inicio",
+        "companies": "Empresas",
+        "subscriptions": "Suscripciones",
+        "subscriptionRequests": "Solicitudes de suscripción",
+        "notes": "Notas",
+        "shipments": "Envíos",
+        "clients": "Clientes",
+        "ways": "Rutas",
+        "users": "Usuarios",
+        "mySubscription": "Mi suscripción",
+        "settings": "Configuración",
+        "logout": "Cerrar sesión"
+    },
+    "login": {
+        "title": "Iniciar sesión",
+        "description": "Acceda a su cuenta para continuar gestionando envíos y operaciones.",
+        "fields": {
+            "email": {
+                "label": "Correo electrónico",
+                "placeholder": "Ingrese su correo electrónico"
+            },
+            "password": {
+                "label": "Contraseña",
+                "placeholder": "Ingrese su contraseña"
+            }
+        },
+        "actions": {
+            "submit": "Iniciar sesión",
+            "submitting": "Iniciando sesión..."
+        }
+    },
+    "shipmentClientPage": {
+        "eyebrow": "Seguimiento de envíos",
+        "title": "Estado actual del pedido y detalles de seguimiento oficial",
+        "description": "Una vista clara y organizada del estado del envío, la ruta y los detalles de contacto en una sola página.",
+        "topSection": {
+            "shipmentNumber": "Número de envío",
+            "summary": "Descripción general de la ruta actual con el estado del envío y el número de paradas.",
+            "from": "Desde",
+            "to": "Hasta",
+            "stopsCount": "Número de puntos de parada"
+        },
+        "summaryGrid": {
+            "title": "Descripción general",
+            "carrier": "Transportista",
+            "from": "Desde",
+            "to": "Hasta",
+            "currentPoint": "Punto actual",
+            "progress": "Progreso del viaje",
+            "remainingPoints": "Puntos restantes",
+            "itemsCount": "Número de artículos",
+            "clientInfo": "Información del cliente",
+            "email": "Correo electrónico",
+            "phone": "Teléfono"
+        },
+        "sidebar": {
+            "title": "Estado rápido",
+            "currentStatus": "Estado actual",
+            "mainPoints": "Puntos principales",
+            "stopPointsCount": "{count} puntos de parada",
+            "contacts": "Contactos",
+            "email": "Correo electrónico",
+            "phone": "Teléfono",
+            "primary": "Principal",
+            "secondary": "Secundario"
+        },
+        "timeline": {
+            "title": "Línea de tiempo de seguimiento",
+            "description": "Cada estación por la que pasa el envío, en orden.",
+            "current": "Actual",
+            "done": "Pasado",
+            "upcoming": "Próximo",
+            "currentDescriptionWithNext": "El envío está aquí ahora, luego se dirige a {nextPointName}.",
+            "currentDescriptionLast": "El envío ha llegado a esta estación y es el último punto de la ruta.",
+            "doneDescription": "Esta estación se ha pasado con éxito.",
+            "upcomingDescription": "El envío aún no ha llegado a esta estación."
+        },
+        "orderDetails": {
+            "title": "Detalles del pedido",
+            "origin": "Origen",
+            "arrival": "Llegada",
+            "driver": "Conductor",
+            "phone": "Teléfono",
+            "itemsCount": "Número de artículos",
+            "currentPoint": "Punto actual",
+            "routeDetails": "Detalles de la ruta",
+            "carrier": "Transportista",
+            "totalStations": "Total de estaciones",
+            "remainingStations": "Estaciones restantes",
+            "notAvailable": "No disponible"
+        }
+    },
+    "statisticsAdminPage": {
+        "header": {
+            "title": "Panel de control",
+            "description": "Una visión general de la actividad de la plataforma con estadísticas rápidas para empresas, suscripciones, visitas y notas.",
+            "breadcrumb": "Inicio"
+        },
+        "cards": {
+            "companies": "Número de empresas",
+            "subscriptionRequests": "Solicitudes de suscripción",
+            "visitors": "Número de visitantes",
+            "notes": "Número de notas",
+            "expiringCompanies": "Empresas próximas a vencer",
+            "pausedCompanies": "Empresas pausadas"
+        },
+        "chart": {
+            "title": "Gráfico de empresas activas"
+        }
+    },
+    "adminCompanyDetailPage": {
+        "title": "Detalles de la empresa",
+        "description": "Detalles y gestión de la empresa",
+        "breadcrumb": {
+            "home": "Inicio",
+            "companies": "Empresas",
+            "details": "Detalles de la empresa"
+        },
+        "companyForm": {
+            "basicInfo": "Información básica",
+            "companyName": "Nombre de la empresa",
+            "companyLocation": "Ubicación de la empresa",
+            "email": "Correo electrónico",
+            "clientsCount": "Número de clientes",
+            "subscriptionInfo": "Información de suscripción",
+            "subscriptionType": "Tipo de suscripción",
+            "subscriptionStart": "Inicio de suscripción",
+            "subscriptionEnd": "Fin de suscripción"
+        },
+        "headerActions": {
+            "pauseSubscription": "Pausar suscripción de la empresa",
+            "activateSubscription": "Activar suscripción de la empresa"
+        }
+    },
+    "adminCompaniesPage": {
+        "header": {
+            "title": "Empresas",
+            "description": "Gestionar empresas registradas y su estado de activación",
+            "breadcrumb": {
+                "home": "Inicio",
+                "companies": "Empresas"
+            }
+        },
+        "table": {
+            "columns": {
+                "companyName": "Nombre de la empresa",
+                "companyLocation": "Ubicación de la empresa",
+                "clientsCount": "Número de clientes",
+                "companyEmail": "Correo electrónico de la empresa",
+                "subscriptionStatus": "Estado de suscripción"
+            },
+            "actions": {
+                "viewCompany": "Ver empresa",
+                "deleteCompany": "Eliminar empresa"
+            }
+        },
+        "deleteCompanyDialog": {
+            "triggerText": "Eliminar empresa",
+            "title": "¿Está seguro de que desea eliminar la empresa {companyName}?",
+            "description": "La empresa {companyName} será eliminada permanentemente."
+        },
+        "dialog": {
+            "add": {
+                "title": "Agregar nueva empresa",
+                "description": "Cree una nueva empresa para permitirle utilizar el sistema y gestionar sus operaciones de envío."
+            },
+            "edit": {
+                "title": "Editar empresa",
+                "description": "Edite los detalles de la empresa y el estado de activación. Cualquier cambio se aplicará inmediatamente a todos los usuarios de la empresa."
+            },
+            "fields": {
+                "companyName": {
+                    "label": "Nombre de la empresa",
+                    "placeholder": "Ejemplo: Fast Line Shipping"
+                },
+                "subscriptionType": {
+                    "label": "Plan de suscripción",
+                    "placeholder": "Elija un plan de suscripción"
+                },
+                "companyLocation": {
+                    "label": "Ubicación de la empresa",
+                    "placeholder": "Ejemplo: Riad, Arabia Saudita"
+                },
+                "companyEmail": {
+                    "label": "Correo electrónico de la empresa",
+                    "placeholder": "Ejemplo: example@gmail.com"
+                },
+                "password": {
+                    "label": "Contraseña",
+                    "placeholder": "***********"
+                },
+                "confirmPassword": {
+                    "label": "Confirmar contraseña",
+                    "placeholder": "***********"
+                }
+            },
+            "buttons": {
+                "cancel": "Cancelar",
+                "add": "Agregar",
+                "edit": "Editar"
+            }
+        }
+    },
+    "adminSubscriptionsPage": {
+        "header": {
+            "title": "Suscripciones",
+            "description": "Gestionar y rastrear planes de suscripción",
+            "breadcrumb": {
+                "home": "Inicio",
+                "subscriptions": "Suscripciones"
+            }
+        },
+        "table": {
+            "columns": {
+                "planType": "Tipo de plan",
+                "price": "Precio",
+                "duration": "Duración (meses)"
+            },
+            "format": {
+                "year": "Año",
+                "month": "Mes"
+            }
+        },
+        "dialog": {
+            "add": {
+                "title": "Agregar plan de suscripción",
+                "description": "Cree un nuevo plan de suscripción, establezca el precio y la duración en meses para usarlo al agregar empresas."
+            },
+            "edit": {
+                "title": "Editar plan de suscripción",
+                "description": "Edite los detalles del plan de suscripción actual. Los cambios se aplicarán a los datos del plan en el sistema."
+            },
+            "fields": {
+                "planType": {
+                    "label": "Tipo de plan",
+                    "placeholder": "Ejemplo: mensual o anual"
+                },
+                "price": {
+                    "label": "Precio del plan",
+                    "placeholder": "Ejemplo: 150"
+                },
+                "duration": {
+                    "label": "Duración (meses)",
+                    "placeholder": "Ejemplo: 1 o 12"
+                }
+            },
+            "hints": {
+                "duration": "La duración de la suscripción se guarda en meses, ej., 1 para suscripción mensual y 12 para suscripción anual.",
+                "price": "El precio se utiliza al vincular el plan con las empresas."
+            }
+        },
+        "deleteDialog": {
+            "triggerText": "Eliminar plan",
+            "title": "¿Está seguro de que desea eliminar el plan {subscriptionType}?",
+            "description": "El plan {subscriptionType} será eliminado permanentemente si no está vinculado a ninguna empresa."
+        }
+    },
+    "adminNotesPage": {
+        "title": "Notas",
+        "description": "Gestionar y ver notas administrativas.",
+        "breadcrumb": {
+            "notes": "Notas"
+        },
+        "filter": "Filtrar",
+        "table": {
+            "columns": {
+                "createdAt": "Fecha de creación",
+                "type": "Tipo de nota",
+                "note": "Nota"
+            }
+        },
+        "dialog": {
+            "title": "Agregar nueva nota",
+            "description": "Envíe una nueva nota a la administración de la plataforma para compartir una consulta, solicitud, queja o cualquier detalle relacionado con el servicio o sistema.",
+            "viewDetails": "Ver detalles",
+            "field": {
+                "type": "Tipo de nota",
+                "typePlaceholder": "Seleccione un tipo de nota",
+                "note": "Nota",
+                "notePlaceholder": "Ingrese su nota"
+            },
+            "close": "Cerrar"
+        }
+    },
+    "adminSubscriptionRequestPage": {
+        "header": {
+            "title": "Solicitudes de suscripción",
+            "description": "Solicitudes pendientes de activación y cambio de plan de las empresas.",
+            "breadcrumb": {
+                "home": "Inicio",
+                "subscriptionRequest": "Solicitudes de suscripción"
+            }
+        },
+        "summary": {
+            "pending": {
+                "title": "Solicitudes pendientes",
+                "description": "Número de solicitudes de activación de suscripción pendientes."
+            },
+            "change": {
+                "title": "Solicitudes de cambio de plan",
+                "description": "Número de solicitudes de cambio de plan pendientes."
+            },
+            "total": {
+                "title": "Solicitudes totales",
+                "description": "Número total de solicitudes relacionadas con suscripciones."
+            }
+        },
+        "card": {
+            "requestTypeChange": "Solicitud de cambio de plan",
+            "requestTypeNew": "Nueva solicitud de suscripción",
+            "requiredPlan": "Plan solicitado",
+            "planPrice": "Precio del plan",
+            "duration": "Duración",
+            "subscriptionStart": "Inicio de suscripción",
+            "subscriptionEnd": "Fin de suscripción",
+            "notSet": "No establecido",
+            "viewCompany": "Ver empresa",
+            "acceptAndActivate": "Aceptar y activar",
+            "year": "Año",
+            "month": "Mes"
+        },
+        "noPendingMessage": "No hay solicitudes de suscripción o cambio de plan pendientes en este momento."
+    },
+    "expirePage": {
+        "title": "Suscripción de empresa expirada",
+        "description": "Su cuenta de empresa está suspendida temporalmente hasta que se renueve la suscripción o se actualice el plan.",
+        "breadcrumb": {
+            "home": "Inicio",
+            "mySubscription": "Mi suscripción",
+            "expire": "Suscripción expirada"
+        },
+        "card": {
+            "title": "Su suscripción ha expirado",
+            "description": "Renueve su suscripción para recuperar el acceso al panel de control y los datos de la empresa.",
+            "alert": {
+                "title": "Acceso bloqueado hasta la renovación",
+                "description": "La suscripción actual ya no es válida y los servicios de la plataforma no están disponibles hasta que se renueve."
+            },
+            "stepsTitle": "Pasos para la renovación",
+            "steps": {
+                "step1": "Revise los detalles de suscripción disponibles en la página Mi suscripción.",
+                "step2": "Elija el plan más adecuado y comience el proceso de renovación.",
+                "step3": "Después de la renovación, todas las funciones de la empresa se restaurarán automáticamente."
+            },
+            "info": {
+                "title": "Nota",
+                "text": "Si necesita ayuda con la renovación, puede visitar la página de suscripción o contactar al soporte."
+            },
+            "actions": {
+                "renew": "Renovar suscripción",
+                "home": "Volver al inicio"
+            }
+        },
+        "statusCard": {
+            "title": "Estado de la cuenta",
+            "description": "Las funciones del panel de control no están disponibles hasta la renovación.",
+            "current": {
+                "title": "Suscripción actual",
+                "text": "Expirada y ya no utilizable."
+            },
+            "solution": {
+                "title": "Solución sugerida",
+                "text": "Vaya a la página Mi suscripción para renovar su plan o cambiar a uno nuevo."
+            }
+        }
+    },
+    "pendingPage": {
+        "title": "Su empresa está en revisión",
+        "description": "Los datos de su empresa se han recibido correctamente y la solicitud de suscripción está siendo revisada por nuestro equipo.",
+        "breadcrumb": {
+            "home": "Inicio",
+            "mySubscription": "Mi suscripción",
+            "pending": "En revisión"
+        },
+        "card": {
+            "title": "Solicitud de suscripción en revisión",
+            "description": "Nuestro equipo de soporte está revisando los datos de su empresa para asegurarse de que toda la información sea precisa.",
+            "alert": {
+                "title": "Agradecemos su paciencia.",
+                "description": "La verificación puede tomar algún tiempo. Se le notificará una vez que se complete la revisión o si se requiere información adicional."
+            },
+            "stepsTitle": "¿Qué está sucediendo ahora?",
+            "steps": {
+                "step1": "Revisando los datos de la empresa y la información de suscripción.",
+                "step2": "Verificando los documentos y archivos adjuntos requeridos si los hay.",
+                "step3": "Aprobando la cuenta para activar la empresa nuevamente."
+            },
+            "info": {
+                "title": "Consejo",
+                "text": "Si tiene alguna pregunta o necesita actualizar información, puede volver a la página de suscripción o contactar al soporte en cualquier momento."
+            },
+            "actions": {
+                "viewSubscriptions": "Ver mis suscripciones",
+                "home": "Volver al inicio"
+            }
+        },
+        "statusCard": {
+            "title": "Revisión esperada",
+            "description": "No se requiere ninguna acción en este momento y le notificaremos sobre cualquier actualización.",
+            "current": {
+                "title": "Estado actual",
+                "text": "La solicitud está actualmente en revisión por el equipo de soporte."
+            },
+            "expected": {
+                "title": "Tiempo estimado",
+                "text": "Se proporcionará una respuesta dentro de las 24 horas hábiles o menos."
+            }
+        }
+    },
+    "inactivePage": {
+        "title": "Su cuenta ha sido desactivada",
+        "description": "Su cuenta ha sido desactivada temporalmente. No puede acceder al panel de control ni realizar ninguna acción hasta que se reactive.",
+        "breadcrumb": {
+            "home": "Inicio",
+            "mySubscription": "Mi suscripción",
+            "inactive": "Inactiva"
+        },
+        "card": {
+            "title": "Su cuenta está inactiva",
+            "description": "Su cuenta de empresa ha sido desactivada por el equipo administrativo.",
+            "alert": {
+                "title": "No se preocupe, le ayudaremos a reactivarla.",
+                "description": "Si cree que esto es un error, puede contactar al soporte o revisar el estado de su suscripción para obtener más detalles."
+            },
+            "reasonsTitle": "Motivo de desactivación",
+            "reasons": {
+                "reason1": "Los datos de la empresa están bajo revisión administrativa.",
+                "reason2": "Suscripción expirada o pago no completado.",
+                "reason3": "Violación o incompatibilidad con los términos del servicio."
+            },
+            "info": {
+                "title": "¿Qué puede hacer ahora?",
+                "text": "Revise su correo electrónico para ver instrucciones, o contacte al soporte para reactivar su cuenta lo antes posible."
+            },
+            "actions": {
+                "viewSubscriptions": "Ver mis suscripciones",
+                "home": "Volver al inicio"
+            }
+        },
+        "statusCard": {
+            "title": "Cuenta desactivada",
+            "description": "No puede realizar cambios ni acceder a recursos hasta que la cuenta se reactive.",
+            "current": {
+                "title": "Estado actual",
+                "text": "La cuenta está temporalmente inactiva y todos los permisos están desactivados."
+            },
+            "nextSteps": {
+                "title": "Próximos pasos",
+                "text": "Contacte al soporte o a su equipo de administración para reactivar su cuenta y restaurar el acceso."
+            }
+        }
+    },
+    "shipments": {
+        "current": {
+            "page": {
+                "title": "Envíos",
+                "description": "Vea y gestione todos los envíos activos en el sistema, rastree su estado y actualizaciones.",
+                "breadcrumb": {
+                    "home": "Inicio",
+                    "shipments": "Envíos"
+                }
+            },
+            "table": {
+                "headers": {
+                    "shipmentNumber": "Número de envío",
+                    "launchDate": "Fecha de lanzamiento",
+                    "route": "Ruta",
+                    "currentPoint": "Punto actual",
+                    "driver": "Conductor",
+                    "status": "Estado",
+                    "actions": ""
+                },
+                "empty": "No se encontraron envíos",
+                "actions": {
+                    "viewDetails": "Ver detalles"
+                }
+            },
+            "actions": {
+                "filter": "Filtrar"
+            },
+            "status": {
+                "paused": "Pausado",
+                "current": "Activo"
+            }
+        },
+        "finished": {
+            "page": {
+                "title": "Envíos finalizados",
+                "description": "Vea los envíos que se han completado o cerrado, incluido el estado final y el historial de seguimiento completo."
+            },
+            "table": {
+                "headers": {
+                    "shipmentNumber": "Número de envío",
+                    "launchDate": "Fecha de lanzamiento",
+                    "endDate": "Fecha de finalización",
+                    "route": "Ruta",
+                    "currentPoint": "Punto actual",
+                    "driver": "Conductor",
+                    "actions": ""
+                },
+                "empty": "No se encontraron envíos finalizados",
+                "actions": {
+                    "viewDetails": "Ver detalles"
+                }
+            },
+            "actions": {
+                "filter": "Filtrar"
+            }
+        },
+        "dialog": {
+            "add": {
+                "title": "Agregar nuevo envío",
+                "description": "Registre un nuevo envío y asigne conductor y ruta para comenzar el seguimiento.",
+                "button": "Agregar envío",
+                "loading": "Agregando..."
+            },
+            "edit": {
+                "title": "Editar envío",
+                "description": "Actualice los detalles del envío y la información de seguimiento.",
+                "button": "Actualizar envío",
+                "loading": "Actualizando..."
+            },
+            "fields": {
+                "shipmentNumber": "Número de envío",
+                "way": "Ruta del envío",
+                "driver": "Conductor del envío",
+                "launchDate": "Fecha de lanzamiento"
+            },
+            "placeholders": {
+                "shipmentNumber": "Ingrese el número de envío",
+                "way": "Seleccione la ruta",
+                "driver": "Seleccione el conductor",
+                "launchDate": "Seleccione la fecha de lanzamiento"
+            },
+            "actions": {
+                "cancel": "Cancelar"
+            },
+            "confirm": {
+                "pause": {
+                    "title": "Pausar envío",
+                    "description": "¿Está seguro de que desea pausar este envío?",
+                    "action": "Pausar",
+                    "trigger": "Pausar envío"
+                },
+                "resume": {
+                    "title": "Reanudar envío",
+                    "description": "¿Está seguro de que desea reanudar este envío?",
+                    "action": "Reanudar",
+                    "trigger": "Reanudar envío"
+                },
+                "delete": {
+                    "title": "Eliminar envío",
+                    "description": "¿Está seguro de que desea eliminar este envío? Esta acción no se puede deshacer.",
+                    "action": "Eliminar",
+                    "trigger": "Eliminar envío"
+                }
+            }
+        }
+    },
+    "shipmentDetails": {
+        "page": {
+            "title": "Detalles del envío",
+            "description": "Vea la información del envío y los artículos incluidos en el envío."
+        },
+        "breadcrumb": {
+            "shipments": "Envíos",
+            "details": "Detalles"
+        },
+        "sections": {
+            "overview": {
+                "title": "Descripción general del envío"
+            },
+            "info": {
+                "title": "Información del envío"
+            },
+            "items": {
+                "title": "Artículos del envío",
+                "description": "Vea todos los artículos incluidos en el envío con cantidad y detalles."
+            }
+        },
+        "actions": {
+            "addItem": "Agregar artículo al envío"
+        },
+        "header": {
+            "status": {
+                "completed": "Completado",
+                "paused": "Pausado",
+                "current": "Activo"
+            },
+            "title": "Envío #{number}",
+            "actions": {
+                "move": {
+                    "withNotification": {
+                        "text": "Mover",
+                        "loading": "Moviendo..."
+                    },
+                    "withoutNotification": {
+                        "text": "Mover sin notificación",
+                        "loading": "Moviendo silenciosamente..."
+                    }
+                },
+                "pause": {
+                    "text": "Pausar",
+                    "loading": "Pausando..."
+                },
+                "resume": {
+                    "text": "Reanudar",
+                    "loading": "Reanudando..."
+                }
+            }
+        },
+        "info": {
+            "fields": {
+                "launchDate": "Fecha de lanzamiento",
+                "driverPhone": "Teléfono del conductor",
+                "endDate": "Fecha de llegada",
+                "route": "Ruta",
+                "clientsCount": "Número de clientes",
+                "itemsCount": "Número de artículos",
+                "currentPoint": "Punto actual"
+            },
+            "values": {
+                "notArrived": "Aún no ha llegado",
+                "unknown": "---"
+            }
+        },
+        "table": {
+            "headers": {
+                "client": "Nombre del cliente",
+                "item": "Artículo",
+                "quantity": "Cantidad",
+                "breakable": "Frágil",
+                "actions": ""
+            },
+            "empty": "No se encontraron artículos en el envío",
+            "breakableValues": {
+                "yes": "Sí",
+                "no": "No"
+            },
+            "actions": {
+                "edit": "Editar artículo",
+                "delete": "Eliminar artículo"
+            }
+        },
+        "dialog": {
+            "items": {
+                "title": {
+                    "add": "Asignar cliente y artículos del envío",
+                    "edit": "Editar cliente y artículos del envío"
+                },
+                "description": {
+                    "add": "Seleccione un cliente registrado y asigne artículos a este envío.",
+                    "edit": "Editar cliente y artículos del envío."
+                },
+                "fields": {
+                    "client": "Nombre del cliente",
+                    "item": "Artículo",
+                    "quantity": "Cantidad",
+                    "breakable": "Frágil"
+                },
+                "placeholders": {
+                    "client": "Seleccione el cliente",
+                    "item": "Ingrese el artículo",
+                    "quantity": "Ingrese la cantidad",
+                    "breakable": "Seleccione la opción de fragilidad"
+                },
+                "actions": {
+                    "addItem": "Agregar artículo",
+                    "remove": "Eliminar",
+                    "submitAdd": "Agregar",
+                    "submitEdit": "Actualizar",
+                    "loadingAdd": "Agregando...",
+                    "loadingEdit": "Actualizando...",
+                    "cancel": "Cancelar"
+                },
+                "breakableValues": {
+                    "yes": "Sí",
+                    "no": "No"
+                }
+            },
+            "deleteItem": {
+                "title": "Eliminar artículo del envío",
+                "description": "¿Está seguro de que desea eliminar este artículo? Esta acción no se puede deshacer.",
+                "trigger": "Eliminar artículo",
+                "action": "Eliminar",
+                "loading": "Eliminando..."
+            }
+        }
+    },
+    "clientsPage": {
+        "page": {
+            "title": "Clientes",
+            "description": "Vea y gestione todos los clientes registrados en el sistema, incluidos sus datos de contacto y actividad.",
+            "breadcrumb": {
+                "home": "Inicio",
+                "clients": "Clientes"
+            }
+        },
+        "table": {
+            "headers": {
+                "name": "Nombre del cliente",
+                "contacts": "Métodos de contacto",
+                "actions": ""
+            },
+            "empty": "No se encontraron clientes",
+            "actions": {
+                "viewDetails": "Ver detalles",
+                "edit": "Editar cliente",
+                "delete": "Eliminar cliente"
+            }
+        },
+        "actions": {
+            "filter": "Filtrar"
+        },
+        "dialog": {
+            "add": {
+                "title": "Agregar nuevo cliente",
+                "description": "Registre un nuevo cliente y agregue sus métodos de contacto utilizados para las notificaciones de envío.",
+                "button": "Agregar cliente",
+                "loading": "Agregando..."
+            },
+            "edit": {
+                "title": "Editar información del cliente",
+                "description": "Actualice los datos existentes del cliente y gestione sus métodos de contacto utilizados para las notificaciones de envío.",
+                "button": "Actualizar cliente",
+                "loading": "Actualizando..."
+            },
+            "view": {
+                "title": "Información del cliente",
+                "description": "Vea los datos almacenados del cliente y sus métodos de contacto registrados utilizados para las notificaciones de envío."
+            },
+            "fields": {
+                "name": "Nombre del cliente",
+                "contactWays": "Métodos de contacto",
+                "contactType": "Tipo de contacto",
+                "isPrimary": "Es contacto principal"
+            },
+            "placeholders": {
+                "name": "Ingrese el nombre del cliente",
+                "contactWays": "Agregar método de contacto",
+                "contactType": "Seleccione el tipo de contacto",
+                "isPrimary": "Seleccione si es principal"
+            },
+            "options": {
+                "contactType": {
+                    "phoneNumber": "Número de teléfono",
+                    "email": "Correo electrónico"
+                },
+                "isPrimary": {
+                    "true": "Sí",
+                    "false": "No"
+                }
+            },
+            "actions": {
+                "cancel": "Cancelar",
+                "save": "Guardar",
+                "remove": "Eliminar",
+                "addContactWay": "Agregar método de contacto"
+            },
+            "delete": {
+                "title": "Eliminar cliente {name}",
+                "description": "¿Está seguro de que desea eliminar este cliente {name}? Esta acción no se puede deshacer.",
+                "action": "Eliminar",
+                "trigger": "Eliminar cliente"
+            }
+        }
+    },
+    "waysPage": {
+        "header": {
+            "title": "Rutas",
+            "description": "Gestione las rutas aprobadas para el transporte de envíos, definiendo puntos de inicio y fin y vinculándolos a las operaciones de envío.",
+            "breadcrumb": {
+                "home": "Inicio",
+                "ways": "Rutas"
+            }
+        },
+        "actions": {
+            "filter": "Filtrar",
+            "add": "Agregar nueva ruta"
+        },
+        "table": {
+            "columns": {
+                "name": "Nombre de la ruta",
+                "points": "Puntos"
+            },
+            "actions": {
+                "edit": "Editar datos de la ruta"
+            }
+        },
+        "dialog": {
+            "add": {
+                "title": "Agregar nueva ruta",
+                "description": "Cree una nueva ruta de envío definiendo los puntos de la ruta en el orden correcto. Se pueden agregar múltiples puntos para aclarar la ruta de movimiento y usarla más tarde en las operaciones de envío.",
+                "button": "Agregar ruta",
+                "loading": "Agregando..."
+            },
+            "edit": {
+                "title": "Editar datos de la ruta",
+                "description": "Modifique los datos de la ruta previamente registrada y actualice sus puntos o el orden según sea necesario.",
+                "button": "Actualizar ruta",
+                "loading": "Actualizando..."
+            },
+            "fields": {
+                "name": "Nombre de la ruta",
+                "pointName": "Nombre del punto",
+                "pointOrder": "Orden del punto",
+                "locationTitle": "Mostrar ubicación en el mapa",
+                "locationDescription": "Habilitar selector de ubicación para los puntos"
+            },
+            "placeholders": {
+                "name": "Ingrese el nombre de la ruta ej. (Línea Mukalla - Dubái)",
+                "pointName": "Ingrese el nombre del punto",
+                "pointOrder": "Ingrese el orden del punto"
+            },
+            "actions": {
+                "addPoint": "Agregar nuevo punto",
+                "remove": "Eliminar",
+                "cancel": "Cancelar"
+            }
+        },
+        "deleteDialog": {
+            "title": "Eliminar ruta",
+            "triggerText": "Eliminar ruta",
+            "description": "¿Está seguro de que desea eliminar esta ruta?",
+            "action": "Eliminar"
+        }
+    },
+    "usersPage": {
+        "header": {
+            "title": "Usuarios",
+            "description": "Vea y gestione los usuarios registrados en el sistema, y defina sus roles y permisos relacionados con la gestión de envíos y datos.",
+            "breadcrumb": {
+                "home": "Inicio",
+                "users": "Usuarios"
+            }
+        },
+        "actions": {
+            "filter": "Filtrar",
+            "add": "Agregar nuevo usuario"
+        },
+        "table": {
+            "columns": {
+                "name": "Nombre de usuario",
+                "email": "Correo electrónico",
+                "role": "Rol"
+            }
+        },
+        "dialog": {
+            "add": {
+                "title": "Agregar nuevo usuario",
+                "description": "Agregue un nuevo usuario al sistema y defina su rol y permisos. El usuario podrá acceder a las funciones permitidas según el rol asignado."
+            },
+            "edit": {
+                "title": "Editar usuario",
+                "description": "Edite los datos del usuario registrado anteriormente y actualice su rol y permisos."
+            },
+            "fields": {
+                "name": {
+                    "label": "Nombre de usuario",
+                    "placeholder": "Ingrese el nombre de usuario"
+                },
+                "email": {
+                    "label": "Correo electrónico",
+                    "placeholder": "Ingrese el correo electrónico"
+                },
+                "password": {
+                    "label": "Contraseña",
+                    "placeholder": "Ingrese la contraseña"
+                },
+                "role": {
+                    "label": "Rol",
+                    "placeholder": "Seleccione el rol"
+                }
+            },
+            "actions": {
+                "cancel": "Cancelar",
+                "add": "Agregar",
+                "edit": "Editar",
+                "triggerEdit": "Editar usuario"
+            }
+        },
+        "deleteDialog": {
+            "title": "Eliminar usuario",
+            "triggerText": "Eliminar usuario",
+            "description": "¿Está seguro de que desea eliminar este usuario?",
+            "action": "Eliminar"
+        }
+    },
+    "settingsPage": {
+        "header": {
+            "title": "Configuración",
+            "description": "Administre la configuración de la cuenta, incluido el cambio de idioma, la actualización de información básica y la revisión de los detalles de suscripción vinculados al sistema.",
+            "breadcrumb": "Configuración"
+        },
+        "systemSettings": {
+            "title": "Configuración del sistema",
+            "description": "Seleccione el idioma de la interfaz del sistema según su preferencia. El cambio se aplicará a todas las páginas del sistema."
+        },
+        "language": {
+            "label": "Idioma del sistema",
+            "placeholder": "Idioma del sistema"
+        },
+        "theme": {
+            "label": "Tema del sistema"
+        },
+        "accountSettings": {
+            "title": "Configuración de cuenta personal",
+            "description": "Actualice la información básica vinculada a su cuenta personal."
+        },
+        "userSection": {
+            "name": "Nombre de usuario",
+            "email": "Correo electrónico",
+            "password": "Contraseña",
+            "loading": "Cargando..."
+        },
+        "subscriptionSettings": {
+            "title": "Estado de suscripción",
+            "description": "Vea la información de suscripción actual y los límites de uso asociados al plan."
+        },
+        "subscriptionSection": {
+            "status": "Estado de suscripción",
+            "activeText": "La suscripción está activa y el sistema se puede utilizar por completo.",
+            "period": "Período de suscripción",
+            "remaining": "Restante: {days} días",
+            "start": "Inicio de suscripción: {date}",
+            "end": "Fin de suscripción: {date}"
+        }
+    },
+    "notesPage": {
+        "header": {
+            "title": "Notas",
+            "description": "Esta sección permite a las empresas enviar notas, quejas, comentarios o solicitudes de cambio a la administración del sistema. Todas las notas se muestran en el panel de administración para su revisión y acción correspondiente.",
+            "breadcrumb": {
+                "home": "Inicio",
+                "notes": "Notas"
+            }
+        },
+        "actions": {
+            "filter": "Filtrar",
+            "add": "Agregar nueva nota"
+        },
+        "table": {
+            "columns": {
+                "createdAt": "Fecha de creación",
+                "type": "Tipo de nota",
+                "text": "Nota"
+            }
+        },
+        "dialog": {
+            "add": {
+                "title": "Agregar nueva nota",
+                "description": "Envíe una nueva nota a la administración del sistema para compartir una consulta, solicitud o cualquier detalle relacionado con el servicio/sistema."
+            },
+            "edit": {
+                "title": "Editar nota",
+                "description": "Actualice una nota enviada anteriormente y modifique su contenido o detalles."
+            },
+            "fields": {
+                "type": {
+                    "label": "Tipo de nota",
+                    "placeholder": "Seleccione el tipo de nota"
+                },
+                "text": {
+                    "label": "Nota",
+                    "placeholder": "Ingrese su nota"
+                }
+            },
+            "actions": {
+                "cancel": "Cancelar",
+                "add": "Agregar",
+                "edit": "Editar",
+                "triggerEdit": "Editar nota"
+            },
+            "noteTypes": {
+                "complaint": "Queja",
+                "inquiry": "Consulta",
+                "suggestion": "Sugerencia",
+                "compliment": "Elogio",
+                "feedback": "Comentario",
+                "other": "Otro"
+            }
+        },
+        "deleteDialog": {
+            "title": "Eliminar nota",
+            "triggerText": "Eliminar nota",
+            "description": "¿Está seguro de que desea eliminar esta nota?",
+            "action": "Eliminar"
+        }
+    },
+    "subscriptionPage": {
+        "header": {
+            "title": "Mis suscripciones",
+            "description": "Administre los detalles de la suscripción actual de su empresa, revise el tipo de plan, precios, período de suscripción y explore las opciones de renovación disponibles.",
+            "breadcrumb": {
+                "home": "Inicio",
+                "settings": "Configuración del sistema",
+                "subscriptions": "Mis suscripciones"
+            }
+        },
+        "currentSubscription": {
+            "title": "Estado de suscripción de la empresa",
+            "yearly": {
+                "label": "Suscripción anual",
+                "hint": "Proporciona el mejor valor a largo plazo para su empresa."
+            },
+            "monthly": {
+                "label": "Suscripción mensual",
+                "hint": "Ideal para empresas que necesitan flexibilidad mensual."
+            },
+            "progress": {
+                "title": "Progreso de la suscripción",
+                "remaining": "{days} días restantes",
+                "notAvailable": "No disponible"
+            },
+            "featuresTitle": "Características de la suscripción",
+            "cards": {
+                "price": {
+                    "title": "Precio",
+                    "description": "Costo actual de la suscripción"
+                },
+                "startDate": {
+                    "title": "Fecha de inicio",
+                    "description": "Fecha de inicio de la suscripción"
+                },
+                "endDate": {
+                    "title": "Fecha de renovación",
+                    "description": "{days} días restantes",
+                    "descriptionNoDate": "Fecha de renovación no disponible"
+                }
+            }
+        },
+        "pricing": {
+            "title": "Planes disponibles",
+            "description": "Revise los planes disponibles con detalles más claros sobre las características y los períodos de suscripción para ayudarle a elegir la mejor opción.",
+            "bestValue": "Mejor valor",
+            "currentPlan": "Plan actual",
+            "selectPlan": "Elegir este plan",
+            "selected": "Su plan activo",
+            "billing": "Ciclo de facturación",
+            "monthly": "Mensual",
+            "yearly": "Anual",
+            "duration": "Duración"
+        },
+        "status": {
+            "pending": "Pendiente",
+            "active": "Activo",
+            "inactive": "Inactivo",
+            "change": "Solicitud de cambio en revisión"
+        },
+        "features": {
+            "title": "Características de la suscripción",
+            "items": [
+                "Soporte técnico directo para empresas",
+                "Informes diarios y seguimiento de suscripciones",
+                "Panel de gestión de usuarios y envíos",
+                "Actualización o degradación fácil del plan"
+            ]
+        },
+        "faq": {
+            "title": "Preguntas frecuentes sobre suscripciones",
+            "items": [
+                {
+                    "q": "¿Puedo cambiar mi plan de suscripción en cualquier momento?",
+                    "a": "Sí, puede cambiar entre planes mensuales y anuales según las reglas del sistema."
+                },
+                {
+                    "q": "¿Qué datos se muestran en los detalles del plan?",
+                    "a": "La página muestra el tipo de suscripción, el precio y la duración según los datos del plan disponible."
+                },
+                {
+                    "q": "¿Hay tarifas ocultas o contratos a largo plazo?",
+                    "a": "Todos los precios mostrados son transparentes; los detalles de pago adicionales dependen de la configuración del sistema."
+                }
+            ]
+        }
+    },
+    "managerDashboard": {
+        "header": {
+            "title": "Panel de control",
+            "description": "Descripción general del rendimiento de las operaciones de envío, incluidos los envíos actuales, clientes y rutas.",
+            "breadcrumb": {
+                "home": "Inicio"
+            }
+        },
+        "currentShipments": {
+            "title": "Envíos actuales",
+            "description": "Vea todos los envíos activos y rastree sus últimas actualizaciones."
+        },
+        "table": {
+            "shipmentNumber": "Número de envío",
+            "launchDate": "Fecha de lanzamiento",
+            "route": "Ruta",
+            "currentPoint": "Punto actual",
+            "driver": "Conductor",
+            "empty": "No hay envíos disponibles"
+        },
+        "stats": {
+            "shipments": "Total de envíos",
+            "current": "Envíos actuales",
+            "finished": "Envíos finalizados",
+            "clients": "Clientes",
+            "ways": "Rutas"
+        }
+    }
+}

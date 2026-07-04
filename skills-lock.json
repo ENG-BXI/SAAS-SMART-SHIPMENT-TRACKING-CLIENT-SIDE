@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "skills": {
+    "frontend-design": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "skillPath": "skills/frontend-design/SKILL.md",
+      "computedHash": "93f53fd1c0352d3d7ec17b8f73d7351bf76f4821e55d123c9d2abc2c53ba48e4"
+    },
+    "preview-leaflet": {
+      "source": "veelenga/preview-skills",
+      "sourceType": "github",
+      "skillPath": "skills/preview-leaflet/SKILL.md",
+      "computedHash": "8428e91424528fd7a94a57a5563ba2b553be399ab355e548b154da58f6a69569"
+    },
+    "typescript-clean-code": {
+      "source": "bmad-labs/skills",
+      "sourceType": "github",
+      "skillPath": "skills/typescript-clean-code/SKILL.md",
+      "computedHash": "422961f924c79b3466000347fa9a3b824a05e869c1456b0800219a4929f026df"
+    }
+  }
+}

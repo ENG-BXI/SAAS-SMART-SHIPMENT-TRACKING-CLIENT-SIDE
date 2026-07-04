@@ -13,32 +13,34 @@ import {logout} from '@/actions/logout';
 import {toast} from 'sonner';
 import AlertForRenewSubscription from './alert-for-renew-subscription';
 import useSidebar from '@/hooks/use-sidebar';
+import {useLocale} from 'next-intl';
 const listOfSideBarItem: Record<UserRoleForSaasAdmin, ISidebarItem[]> = {
   [enUserRoleForSaasAdmin.ADMIN]: [
-    {text: 'الرئيسية', icon: <LucideHome />, link: '/statistics'},
-    {text: 'الشركات', icon: <Building2Icon />, link: '/company'},
-    {text: 'الاشتراكات', icon: <BanknoteIcon />, link: '/subscription'},
-    {text: 'طلبات الاشتراك', icon: <BanknoteIcon />, link: '/subscription-request'},
-    {text: 'الملاحظات', icon: <NotepadText />, link: '/notes'}
+    {text: 'home', icon: <LucideHome />, link: '/statistics'},
+    {text: 'companies', icon: <Building2Icon />, link: '/company'},
+    {text: 'subscriptions', icon: <BanknoteIcon />, link: '/subscription'},
+    {text: 'subscriptionRequests', icon: <BanknoteIcon />, link: '/subscription-request'},
+    {text: 'notes', icon: <NotepadText />, link: '/notes'}
   ],
   [enUserRoleForSaasAdmin.MANAGER]: [
-    {text: 'الرئيسية', icon: <LucideHome />, link: '/statistics'},
-    {text: 'الشحنات', icon: <Building2Icon />, link: '/shipments', canLock: true},
-    {text: 'العملاء', icon: <BanknoteIcon />, link: '/clients', canLock: true},
-    {text: 'المسارات', icon: <NotepadText />, link: '/ways', canLock: true},
-    {text: 'المستخدمين', icon: <NotepadText />, link: '/users', canLock: true},
-    {text: 'اشتراكي', icon: <BanknoteIcon />, link: '/my-subscription', canLock: false},
-    {text: 'الملاحظات', icon: <LogOut />, link: '/notes', canLock: true},
-    {text: 'الاعدادات', icon: <Settings />, link: '/settings', canLock: true}
+    {text: 'home', icon: <LucideHome />, link: '/statistics'},
+    {text: 'shipments', icon: <Building2Icon />, link: '/shipments', canLock: true},
+    {text: 'clients', icon: <BanknoteIcon />, link: '/clients', canLock: true},
+    {text: 'ways', icon: <NotepadText />, link: '/ways', canLock: true},
+    {text: 'users', icon: <NotepadText />, link: '/users', canLock: true},
+    {text: 'mySubscription', icon: <BanknoteIcon />, link: '/my-subscription', canLock: false},
+    {text: 'notes', icon: <LogOut />, link: '/notes', canLock: true},
+    {text: 'settings', icon: <Settings />, link: '/settings', canLock: true}
   ],
   [enUserRoleForSaasAdmin.EMPLOYEE]: [
-    {text: 'الرئيسية', icon: <LucideHome />, link: '/statistics'},
-    {text: 'الشحنات', icon: <Building2Icon />, link: '/shipments'},
-    {text: 'العملاء', icon: <BanknoteIcon />, link: '/clients'},
-    {text: 'المسارات', icon: <NotepadText />, link: '/ways'},
-    {text: 'الملاحظات', icon: <LogOut />, link: '/notes'},
-    {text: 'الاعدادات', icon: <Settings />, link: '/settings'}
+    {text: 'home', icon: <LucideHome />, link: '/statistics'},
+    {text: 'shipments', icon: <Building2Icon />, link: '/shipments'},
+    {text: 'clients', icon: <BanknoteIcon />, link: '/clients'},
+    {text: 'ways', icon: <NotepadText />, link: '/ways'},
+    {text: 'notes', icon: <LogOut />, link: '/notes'},
+    {text: 'settings', icon: <Settings />, link: '/settings'}
   ],
+
   [enUserRoleForSaasAdmin.DRIVER]: []
 };
 
@@ -64,7 +66,7 @@ const SideBar = () => {
           {sideBarData.map((item, index) => (
             <SidebarItem key={index} item={{...item, isSelected: isSelected(item.link), isLock}} />
           ))}
-          <SidebarItem item={{icon: isPending ? <Loader2 className='animate-spin' /> : <LogOutIcon />, text: 'تسجيل الخروج', onClick: handleLogout}} />
+          <SidebarItem item={{icon: isPending ? <Loader2 className='animate-spin' /> : <LogOutIcon />, text: 'logout', onClick: handleLogout}} />
         </div>
       )}
       {isSubscriptionEnd && <AlertForRenewSubscription />}
@@ -75,15 +77,17 @@ const SideBar = () => {
 
 function AppSideBarClient() {
   const isMobile = useIsMobile();
+  const locale = useLocale();
+  const isRtl = locale == 'ar' ||locale == 'mo';
   if (isMobile) {
     return (
       <Sheet>
-        <SheetTrigger asChild className='absolute right-0 top-0'>
+        <SheetTrigger asChild className='absolute rtl:right-0 ltr:left-0 top-0'>
           <Button variant='outline' className='m-2'>
             <Menu />
           </Button>
         </SheetTrigger>
-        <SheetContent dir='rtl' side='right' className='w-60'>
+        <SheetContent side={isRtl ? 'right' : 'left'} className='w-60'>
           <SideBar />
         </SheetContent>
       </Sheet>

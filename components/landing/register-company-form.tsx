@@ -13,9 +13,8 @@ import z from 'zod';
 import {useTransition} from 'react';
 import {toast} from 'sonner';
 import {requestSubscriptionCompany} from '@/actions/request-subscription-company';
-import useGetSubscriptionTypeAsOptions from '@/app/(dashboard)/(admin)/company/_services/get-all-subscription-type-as-options';
-
-
+import useGetSubscriptionTypeAsOptions from '@/app/[locale]/(dashboard)/(admin)/company/_services/get-all-subscription-type-as-options';
+import {useTranslations} from 'next-intl';
 
 const createCompanyFormSchema = z.object({
   name: z.string().min(3, 'company name must be great than 3 char'),
@@ -29,6 +28,7 @@ const createCompanyFormSchema = z.object({
 export type createCompanyFormData = z.infer<typeof createCompanyFormSchema>;
 function RegisterCompanyForm() {
   const [isPending, startTransition] = useTransition();
+  const t = useTranslations('homePage.registerCompanyForm');
 
   const formHook = useForm<createCompanyFormData>({
     resolver: zodResolver(createCompanyFormSchema),
@@ -60,10 +60,10 @@ function RegisterCompanyForm() {
   }
   return (
     <Card className='mx-auto mt-4 w-xl py-3 px-5'>
-      <p className='mx-auto'>Temp Landing Page For Request Subscription Company </p>
+      <p className='mx-auto'>{t('tempNote')}</p>
       <CardHeader>
-        <CardTitle>اضافة شركة جديدة</CardTitle>
-        <CardDescription>ارسال طلب لانشاء شركة جديدة لتمكينها من استخدام النظام وإدارة عمليات الشحن الخاصة بها.</CardDescription>
+        <CardTitle>{t('title')}</CardTitle>
+        <CardDescription>{t('description')}</CardDescription>
       </CardHeader>
       <Form {...formHook}>
         <form onSubmit={formHook.handleSubmit(onSubmit)}>
@@ -72,35 +72,35 @@ function RegisterCompanyForm() {
               name='name'
               control={formHook.control}
               render={({field, fieldState}) => {
-                return <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label='اسم الشركة' required placeHolder='مثال: الخط السريع للشحن' />;
+                return <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label={t('fields.name.label')} required placeHolder={t('fields.name.placeholder')} />;
               }}
             />
             <Controller
               control={formHook.control}
               name='subscriptionType'
               render={({field, fieldState: {invalid, error}}) => {
-                return <CustomSelect disabled={isPending} onChange={field.onChange} value={field.value} ref={field.ref} invalid={invalid} isLoading={isSubscriptionLoading} isError={isSubscriptionError} error={subscriptionError?.message} errorMessage={error?.message} placeHolder='اختر باقه الاشتراك' required label='باقه الاشتراك' options={SubscriptionData || []} />;
+                return <CustomSelect disabled={isPending} onChange={field.onChange} value={field.value} ref={field.ref} invalid={invalid} isLoading={isSubscriptionLoading} isError={isSubscriptionError} error={subscriptionError?.message} errorMessage={error?.message} placeHolder={t('fields.subscriptionType.placeholder')} required label={t('fields.subscriptionType.label')} options={SubscriptionData || []} />;
               }}
             />
             <Controller
               name='location'
               control={formHook.control}
               render={({field, fieldState}) => {
-                return <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label='موقع الشركة' required placeHolder='مثال: الرياض، السعودية' />;
+                return <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label={t('fields.location.label')} required placeHolder={t('fields.location.placeholder')} />;
               }}
             />
             <Controller
               name='companyEmail'
               control={formHook.control}
               render={({field, fieldState}) => {
-                return <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label='ايميل الشركة' required placeHolder='مثال: example@gmail.com' />;
+                return <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label={t('fields.companyEmail.label')} required placeHolder={t('fields.companyEmail.placeholder')} />;
               }}
             />
             <Controller
               name='companyPassword'
               control={formHook.control}
               render={({field, fieldState}) => {
-                return <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label='كلمة السر' required placeHolder='***********' />;
+                return <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label={t('fields.companyPassword.label')} required placeHolder={t('fields.companyPassword.placeholder')} />;
               }}
             />
 
@@ -108,13 +108,13 @@ function RegisterCompanyForm() {
               name='confirmPassword'
               control={formHook.control}
               render={({field, fieldState}) => {
-                return <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label='تاكيد كلمة السر ' required placeHolder='***********' />;
+                return <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label={t('fields.confirmPassword.label')} required placeHolder={t('fields.confirmPassword.placeholder')} />;
               }}
             />
           </FieldGroup>
 
           <DialogFooter>
-            <CustomButton disable={isPending} IsSubmit text={isPending ? 'جاري الاضافة' : 'اضافة'} icon={<PlusCircle />} className='bg-black' />
+            <CustomButton disable={isPending} IsSubmit text={isPending ? t('actions.submitting') : t('actions.submit')} icon={<PlusCircle />} className='bg-black' />
           </DialogFooter>
         </form>
       </Form>
