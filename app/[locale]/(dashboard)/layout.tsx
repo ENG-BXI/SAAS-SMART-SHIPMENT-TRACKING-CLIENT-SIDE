@@ -1,6 +1,5 @@
 import AppSideBar from '@/components/sideBar/app-side-bar';
 import {ReactNode} from 'react';
-
 export default function layout({children}: {children: ReactNode}) {
   return (
     <main className='flex h-screen overflow-y-hidden'>

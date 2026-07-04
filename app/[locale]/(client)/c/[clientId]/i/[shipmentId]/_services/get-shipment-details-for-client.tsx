@@ -1,7 +1,7 @@
 import serverAxiosInstance from '@/lib/axios/server';
-import { SHIPMENT_NUMBER } from '@/lib/Constant/enum';
+import {SHIPMENT_NUMBER} from '@/lib/Constant/enum';
 import {CLIENT, SHIPMENT} from '@/lib/Constant/routes';
-import { cacheLife, cacheTag } from 'next/cache';
+import {cacheLife, cacheTag} from 'next/cache';
 interface IShipmenItem {
   name: string;
   quantity: number;
@@ -10,6 +10,8 @@ interface IShipmenItem {
 export interface IPoint {
   name: string;
   isCurrent: boolean;
+  lat?: number;
+  lng?: number;
 }
 export interface IContactWay {
   text: string;
@@ -36,9 +38,9 @@ interface IResponse {
   nextPoint: {id: string; name: string};
 }
 export async function GetShipmentDetailsForClient(clientId: string, shipmentId: string, token?: string) {
-  'use cache'
-  cacheLife('hours')
-  cacheTag('client-shipment-details')
+  // 'use cache'
+  // cacheLife('hours')
+  // cacheTag('client-shipment-details')
   const response = await serverAxiosInstance.get(`${CLIENT}/${clientId}/${SHIPMENT}/${shipmentId}`, {
     headers: {
       Authorization: `Bearer ${token}`
@@ -46,7 +48,7 @@ export async function GetShipmentDetailsForClient(clientId: string, shipmentId: 
   });
   const data = response.data.data as IResponse;
   console.log('====================================');
-  console.log(data.clientNameAndContactWay.contactWays);
+  console.log(data);
   console.log('====================================');
   return data;
 }

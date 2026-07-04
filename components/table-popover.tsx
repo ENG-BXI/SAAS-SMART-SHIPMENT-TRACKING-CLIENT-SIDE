@@ -16,7 +16,7 @@ function TablePopover({items}: ITablePopover) {
       <PopoverTrigger asChild>
         <MoreVertical className='max-w-4 max-h-4 cursor-pointer' />
       </PopoverTrigger>
-      <PopoverContent align='end' dir='rtl' className='w-70'>
+      <PopoverContent align='end' className='w-70'>
         <h4 className='text-[16px] mb-2'>{t('actionsTitle')}</h4>
         {/* //TODO: add the id of the company to the link */}
         {items.map((item, index) => {

@@ -13,6 +13,7 @@ import {logout} from '@/actions/logout';
 import {toast} from 'sonner';
 import AlertForRenewSubscription from './alert-for-renew-subscription';
 import useSidebar from '@/hooks/use-sidebar';
+import {useLocale} from 'next-intl';
 const listOfSideBarItem: Record<UserRoleForSaasAdmin, ISidebarItem[]> = {
   [enUserRoleForSaasAdmin.ADMIN]: [
     {text: 'home', icon: <LucideHome />, link: '/statistics'},
@@ -76,15 +77,17 @@ const SideBar = () => {
 
 function AppSideBarClient() {
   const isMobile = useIsMobile();
+  const locale = useLocale();
+  const isRtl = locale == 'ar' ||locale == 'mo';
   if (isMobile) {
     return (
       <Sheet>
-        <SheetTrigger asChild className='absolute right-0 top-0'>
+        <SheetTrigger asChild className='absolute rtl:right-0 ltr:left-0 top-0'>
           <Button variant='outline' className='m-2'>
             <Menu />
           </Button>
         </SheetTrigger>
-        <SheetContent dir='rtl' side='right' className='w-60'>
+        <SheetContent side={isRtl ? 'right' : 'left'} className='w-60'>
           <SideBar />
         </SheetContent>
       </Sheet>

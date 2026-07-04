@@ -86,7 +86,7 @@ async function WaysTableAndPagination({page, search}: {page?: string; search?: s
                     items={[
                       // TODO : add dialog for show Details
                       //   {type: 'link', link: `/manager/ways/${way.id}`, text: 'عرض التفاصيل'},
-                      {type: 'dialog', item: <WayDialog id={way.id} type='edit' triggerTitle={t('table.actions.edit')} data={{name: way.name, points: way.points}} />},
+                      {type: 'dialog', item: <WayDialog id={way.id} type='edit' triggerTitle={t('table.actions.edit')} data={{name: way.name, points: way.points, showMapLocation: !!way.points[0].lat}} />},
                       {
                         type: 'dialog',
                         item: <DeleteWayDialog id={way.id} />

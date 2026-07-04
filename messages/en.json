@@ -873,7 +873,9 @@
       "fields": {
         "name": "Route Name",
         "pointName": "Point Name",
-        "pointOrder": "Point Order"
+        "pointOrder": "Point Order",
+        "locationTitle": "Show Map Location",
+        "locationDescription":"Enable map picker for points"
       },
       "placeholders": {
         "name": "Enter route name e.g. (Mukalla - Dubai Line)",

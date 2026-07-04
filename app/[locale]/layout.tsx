@@ -1,5 +1,5 @@
 import type {Metadata} from 'next';
-import './globals.css';
+import '../globals.css';
 import localFont from 'next/font/local';
 import ProviderQueryClient from '@/lib/react-query';
 import {Toaster} from '@/components/ui/sonner';
@@ -12,7 +12,7 @@ import {routing} from '@/i18n/routing';
 import {notFound} from 'next/navigation';
 import {setRequestLocale} from 'next-intl/server';
 import { ThemeProvider } from '@/lib/theme-provider';
-
+// import '@/lib/leaflet';
 const myFont = localFont({
   src: './../../public/Fonts/IBMPlexSansArabic-Medium.ttf'
 });

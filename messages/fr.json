@@ -873,7 +873,9 @@
             "fields": {
                 "name": "Nom de l'itinéraire",
                 "pointName": "Nom du point",
-                "pointOrder": "Ordre du point"
+                "pointOrder": "Ordre du point",
+                "locationTitle": "Afficher l'emplacement sur la carte",
+                "locationDescription": "Activer la sélection d'emplacement pour les points"
             },
             "placeholders": {
                 "name": "Entrez le nom de l'itinéraire ex. (Ligne Mukalla - Dubaï)",

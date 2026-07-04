@@ -873,7 +873,9 @@
             "fields": {
                 "name": "Nombre de la ruta",
                 "pointName": "Nombre del punto",
-                "pointOrder": "Orden del punto"
+                "pointOrder": "Orden del punto",
+                "locationTitle": "Mostrar ubicación en el mapa",
+                "locationDescription": "Habilitar selector de ubicación para los puntos"
             },
             "placeholders": {
                 "name": "Ingrese el nombre de la ruta ej. (Línea Mukalla - Dubái)",

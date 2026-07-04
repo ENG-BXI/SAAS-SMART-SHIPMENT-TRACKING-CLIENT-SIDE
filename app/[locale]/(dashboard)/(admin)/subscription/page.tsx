@@ -31,7 +31,10 @@ const Page = async () => {
   // TODO : Send Email Successful when Accept Subscription ✅
   // TODO : Add Real Time by Socket io ✅
   // TODO : Add Multi Language ✅
-  // TODO : Add map in Client shipment Details Page For Way And Point
+  // TODO : Add map in Client shipment Details Page For Way And Point ✅
+  // TODO : Fix Renew Error ✅
+  // TODO : Fix Expire Error ✅
+  // TODO : Fix Delete Shipment when Delete Way ✅
   // TODO : Landing Page for Company Register
   // TODO : Mobile App For Client And Driver
   // TODO : add poster Project for social media

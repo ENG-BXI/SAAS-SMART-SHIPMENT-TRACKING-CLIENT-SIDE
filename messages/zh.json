@@ -873,7 +873,9 @@
             "fields": {
                 "name": "路线名称",
                 "pointName": "站点名称",
-                "pointOrder": "站点顺序"
+                "pointOrder": "站点顺序",
+                "locationTitle": "显示地图位置",
+                "locationDescription": "启用地图选点功能"
             },
             "placeholders": {
                 "name": "输入路线名称，例如（穆卡拉-迪拜线）",

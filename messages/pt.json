@@ -873,7 +873,9 @@
             "fields": {
                 "name": "Nome da rota",
                 "pointName": "Nome do ponto",
-                "pointOrder": "Ordem do ponto"
+                "pointOrder": "Ordem do ponto",
+                "locationTitle": "Mostrar localização no mapa",
+                "locationDescription": "Ativar seleção de localização no mapa para os pontos"
             },
             "placeholders": {
                 "name": "Digite o nome da rota ex. (Linha Mukalla - Dubai)",

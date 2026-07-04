@@ -22,6 +22,7 @@ export default function PricingPlans({currentPlan, status, plans}: PricingPlansP
   const tFeature = useTranslations('subscriptionPage.features');
   const [isPending, startTransition] = useTransition();
   const features = tFeature.raw('items') as string[];
+  const isExpire = status == 'expired';
   const handleOpenUpgrade = (subscriptionTypeId: string) => {
     if (!subscriptionTypeId) return;
     startTransition(async () => {
@@ -100,12 +101,14 @@ export default function PricingPlans({currentPlan, status, plans}: PricingPlansP
             </div>
             {/* Button */}
             <div className='p-6 pt-4 mt-auto'>
-              <button type='button' disabled={isPending || status === 'change' || currentPlan === plan.type} onClick={() => handleOpenUpgrade(plan.id)} title={status === 'change' ? t('status.change') : plan.type} className={`w-full py-2.5 px-4 rounded-xl text-sm font-bold transition-all duration-200 flex items-center justify-center gap-x-2 ${isCurrent ? 'bg-gray-50 border border-gray-200 text-gray-400 cursor-not-allowed' : 'bg-custom-primary-color text-white hover:bg-[#156742]'}`}>
-                {isCurrent ? (
+              <button type='button' disabled={isPending || status === 'change' || (currentPlan === plan.type && !isExpire)} onClick={() => handleOpenUpgrade(plan.id)} title={status === 'change' ? t('status.change') : plan.type} className={`w-full py-2.5 px-4 rounded-xl text-sm font-bold transition-all duration-200 flex items-center justify-center gap-x-2 ${isCurrent && !isExpire ? 'bg-gray-50 border border-gray-200 text-gray-400 cursor-not-allowed' : 'bg-custom-primary-color text-white hover:bg-[#156742]'}`}>
+                {isCurrent && !isExpire ? (
                   <>
                     <ShieldCheck className='h-4 w-4' />
                     {t('selected')}
                   </>
+                ) : isExpire ? (
+                  'تجديد الاشتراك'
                 ) : (
                   t('selectPlan')
                 )}

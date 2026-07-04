@@ -12,7 +12,7 @@ import {toast} from 'sonner';
 import {useState, useTransition} from 'react';
 import {createSubscriptionType, editSubscriptionType} from '../_actions';
 import {SubscriptionTypeFormData, subscriptionTypeSchema} from '../_schemas/subscription-schema';
-import { useTranslations } from 'next-intl';
+import {useTranslations} from 'next-intl';
 
 type SubscriptionDialogProps = {type: 'add'} | {type: 'edit'; id: string; data: SubscriptionTypeFormData};
 
@@ -91,7 +91,7 @@ function SubscriptionDialog({...props}: SubscriptionDialogProps) {
           </Button>
         )}
       </DialogTrigger>
-      <DialogContent dir='rtl'>
+      <DialogContent>
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <DialogHeader>
             <div className='max-w-min rounded-full bg-[#dbecfa] p-2 text-[#175CD3]'>
@@ -102,21 +102,9 @@ function SubscriptionDialog({...props}: SubscriptionDialogProps) {
           </DialogHeader>
 
           <FieldGroup className='mb-3 gap-y-2'>
-            <Controller
-              name='type'
-              control={form.control}
-              render={({field, fieldState}) => <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label={t('fields.planType.label')} required placeHolder={t('fields.planType.placeholder')} />}
-            />
-            <Controller
-              name='price'
-              control={form.control}
-              render={({field, fieldState}) => <CustomInput disabled={isPending} inputType='number' type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label={t('fields.price.label')} required placeHolder={t('fields.price.placeholder')} />}
-            />
-            <Controller
-              name='durationByMonth'
-              control={form.control}
-              render={({field, fieldState}) => <CustomInput disabled={isPending} inputType='number' type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label={t('fields.duration.label')} required placeHolder={t('fields.duration.placeholder')} />}
-            />
+            <Controller name='type' control={form.control} render={({field, fieldState}) => <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label={t('fields.planType.label')} required placeHolder={t('fields.planType.placeholder')} />} />
+            <Controller name='price' control={form.control} render={({field, fieldState}) => <CustomInput disabled={isPending} inputType='number' type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label={t('fields.price.label')} required placeHolder={t('fields.price.placeholder')} />} />
+            <Controller name='durationByMonth' control={form.control} render={({field, fieldState}) => <CustomInput disabled={isPending} inputType='number' type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label={t('fields.duration.label')} required placeHolder={t('fields.duration.placeholder')} />} />
           </FieldGroup>
 
           <div className='mb-4 rounded-lg border border-custom-primary-color/15 bg-[#F3FCF6] p-3'>

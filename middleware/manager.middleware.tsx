@@ -5,7 +5,7 @@ import {enUserRoleForSaasAdmin} from '@/lib/Constant/user-role';
 
 export async function managerMiddleware(req: NextRequest, mySubscriptionPath: string) {
   const user = await baseProtectedMiddleWare(req);
-  const path = req.nextUrl.pathname.split('/')[1];
+  const path = req.nextUrl.pathname.split('/')[2];
   if (user?.role !== enUserRoleForSaasAdmin.MANAGER) {
     return NextResponse.redirect(new URL('/unauthorized', req.url));
   }

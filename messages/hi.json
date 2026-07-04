@@ -873,7 +873,9 @@
             "fields": {
                 "name": "मार्ग का नाम",
                 "pointName": "बिंदु का नाम",
-                "pointOrder": "बिंदु क्रम"
+                "pointOrder": "बिंदु क्रम",
+                "locationTitle": "मानचित्र स्थान दिखाएँ",
+                "locationDescription": "बिंदुओं के लिए मानचित्र चयन सक्षम करें"
             },
             "placeholders": {
                 "name": "मार्ग का नाम दर्ज करें जैसे (मुकल्ला - दुबई लाइन)",

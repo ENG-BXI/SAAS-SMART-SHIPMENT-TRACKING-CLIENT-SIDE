@@ -7,6 +7,7 @@ import {GetShipmentDetailsForClient} from './_services/get-shipment-details-for-
 import {cookies} from 'next/headers';
 import ClientDetailsRealTime from './_components/client-details-real-time';
 import {getTranslations} from 'next-intl/server';
+import {BasicMapExample} from './_components/map-mapcn';
 interface PageProps {
   params: Promise<{clientId: string; shipmentId: string}>;
 }
@@ -36,6 +37,7 @@ const Page = async ({params}: PageProps) => {
           <ShipmentSidebar allPointName={data.allPointName} clientNameAndContactWay={data.clientNameAndContactWay} shipmentStatus={data.shipmentStatus} />
         </div>
         <ShipmentTimeline points={data.allPointName} nextPointName={data.nextPoint?.name} />
+        <BasicMapExample allPoint={data.allPointName} />
         <ShipmentOrderDetails firstPoint={data.firstPoint} lastPoint={data.lastPoint} currentPointName={data.allPointName.find(p => p.isCurrent)?.name ?? data.lastPoint} companyName={data.companyName} wayPointsLength={data.wayPointsLength} reminderPoint={data.reminderPoint} shipmentItems={data.shipmentItem} driverInfo={{userName: data.driverInfo.userName, phoneNumber: data.driverInfo.phoneNumber}} />
       </div>
     </div>

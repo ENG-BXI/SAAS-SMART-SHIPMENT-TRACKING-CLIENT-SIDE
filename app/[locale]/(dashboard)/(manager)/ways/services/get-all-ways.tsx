@@ -3,8 +3,11 @@ import serverAxiosInstance from '@/lib/axios/server';
 import {WAY} from '@/lib/Constant/routes';
 import {cacheLife, cacheTag} from 'next/cache';
 interface IPoint {
+  id?: string;
   name: string;
   order: number;
+  lat?: number;
+  lng?: number;
 }
 interface IWay {
   id: string;

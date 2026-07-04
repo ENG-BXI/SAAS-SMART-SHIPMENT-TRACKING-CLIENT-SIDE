@@ -873,7 +873,9 @@
       "fields": {
         "name": "اسم المسار",
         "pointName": "اسم النقطة",
-        "pointOrder": "ترتيب النقطة"
+        "pointOrder": "ترتيب النقطة",
+        "locationTitle": "إظهار موقع الخريطة",
+        "locationDescription": "تمكين اختيار المواقع للنقاط"
       },
       "placeholders": {
         "name": "أدخل اسم المسار مثلاً (خط المكلا - دبي)",

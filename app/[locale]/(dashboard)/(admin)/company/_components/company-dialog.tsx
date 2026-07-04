@@ -100,7 +100,7 @@ function CompanyDialog({...props}: ICompanyDialog) {
           </Button>
         )}
       </DialogTrigger>
-      <DialogContent dir='rtl'>
+      <DialogContent>
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <DialogHeader>
             <div className='bg-[#dbecfa] max-w-min p-2 rounded-full text-[#175CD3]'>

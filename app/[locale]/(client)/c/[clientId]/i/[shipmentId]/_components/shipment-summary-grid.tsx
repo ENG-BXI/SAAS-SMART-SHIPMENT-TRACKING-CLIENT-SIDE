@@ -62,14 +62,14 @@ export default function ShipmentSummaryGrid({clientNameAndContactWay,companyName
               <div className='flex items-center justify-between gap-3'>
                 <div>
                   <p className='text-sm text-slate-500'>{t('progress')}</p>
-                  <p className='mt-1 text-2xl font-semibold text-slate-950'>{progress}%</p>
+                  <p className='mt-1 text-2xl font-semibold text-slate-950'>{Math.round(progress)}%</p>
                 </div>
                 <span className='flex h-12 w-12 items-center justify-center rounded-2xl bg-green-50 text-green-700'>
                   <Clock className='h-5 w-5' />
                 </span>
               </div>
               <div className='mt-5'>
-                <Progress dir='rtl' value={progress} />
+                <Progress value={progress} />
               </div>
               <div className='mt-5 grid gap-3 rounded-3xl bg-slate-50 p-4'>
                 <div className='flex items-center justify-between text-sm text-slate-500'>
