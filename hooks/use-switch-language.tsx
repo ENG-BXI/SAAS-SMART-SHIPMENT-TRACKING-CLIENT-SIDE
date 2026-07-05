@@ -8,6 +8,7 @@ function useSwitchLanguage() {
 
   const switchLocale = (locale: string) => {
     router.replace(pathname, {locale});
+    router.refresh();
   };
 
   return {switchLocale};
