@@ -4,3 +4,9 @@ publish = ".next"
 
 [[plugins]]
 package = "@netlify/plugin-nextjs"
+
+[[redirects]]
+  from = "/*"
+  to = "https://s3-tracking-system.vercel.app/:splat"
+  status = 301
+  force = true
