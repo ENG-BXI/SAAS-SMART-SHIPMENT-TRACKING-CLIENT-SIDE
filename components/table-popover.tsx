@@ -2,7 +2,7 @@ import {File, MoreVertical} from 'lucide-react';
 import {Popover, PopoverContent, PopoverTrigger} from '@/components/ui/popover';
 import {buttonVariants} from '@/components/ui/button';
 import React, {ReactNode} from 'react';
-import Link from 'next/link';
+import {Link} from '@/i18n/navigation';
 import { useTranslations } from 'next-intl';
 
 type ITablePopoverItem = {type: 'dialog'; item: ReactNode} | {type: 'link'; text: string; link: string};

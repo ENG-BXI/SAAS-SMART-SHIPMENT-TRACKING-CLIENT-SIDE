@@ -1,10 +1,10 @@
-import Link from 'next/link';
+import {Link} from '@/i18n/navigation';
 import React from 'react';
 import PageDashboardHeader from '@/components/dashboard/header';
 import {Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter} from '@/components/ui/card';
 import {Button} from '@/components/ui/button';
 import {Clock3} from 'lucide-react';
-import { getTranslations } from 'next-intl/server';
+import {getTranslations} from 'next-intl/server';
 
 const PendingPage = async () => {
   const t = await getTranslations('pendingPage');
