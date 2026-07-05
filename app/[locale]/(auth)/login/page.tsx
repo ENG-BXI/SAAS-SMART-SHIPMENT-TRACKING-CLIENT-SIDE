@@ -25,8 +25,12 @@ const Login = () => {
       const res = await loginAction(data.email, data.password);
       if (res?.error) {
         toast.error(res.error);
-      } else {
-        toast.success('Login successful');
+      }
+      if (res?.success) {
+        toast.success(res.message);
+        if (res.user) {
+          location.reload();
+        }
       }
     });
   }
