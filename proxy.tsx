@@ -35,8 +35,7 @@ export default async function Proxy(req: NextRequest) {
     response = await admin_manager__employee_sharedMiddleware(req);
   }
   if (publicRoute.includes(pathName)) {
-    console.log('[In Scope Of Public Route]');
-    response = await publicMiddleware(req);
+   response = await publicMiddleware(req);
   }
   if (!response) {
     return responseI18;
