@@ -41,21 +41,13 @@ export default async function Proxy(req: NextRequest) {
   if (!response) {
     return responseI18;
   }
-  // console.log('[RESPONSE I18]', responseI18);
+  if (responseI18.headers.get('location')) {
+    return responseI18;
+  }
   responseI18.headers.forEach((value, key) => {
-    if (key !== 'location') {
-      response!.headers.set(key, value);
-    }
+    response!.headers.set(key, value);
   });
 
-  if (response.headers.get('location')) {
-    return response;
-  }
-  // console.log('[RESPONSE]', response);
-  console.log({
-    status: response.status,
-    location: response.headers.get('location')
-  });
   return response;
 }
 

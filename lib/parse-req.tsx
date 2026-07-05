@@ -11,12 +11,6 @@ export function parseReq(req: NextRequest) {
   const protocol = req.nextUrl.protocol;
   const subdomain = host.split(':')[0].split('.').length > 1 ? host.split(':')[0].split('.')[0] : undefined;
   const rootDomain = host.split('.')[1] ?? host.split('.')[0];
-  console.log('[PROXY DEBUG]', {
-    url: req.nextUrl.pathname,
-    pathName,
-    hasCookie: !!req.cookies.get('token')?.value,
-    locale
-  });
   return {
     locale,
     host,
