@@ -1,6 +1,6 @@
 'use client';
 
-import {useRouter, usePathname} from '@/i18n/navigation';
+import {usePathname, useRouter} from '@/i18n/navigation';
 
 function useSwitchLanguage() {
   const router = useRouter();

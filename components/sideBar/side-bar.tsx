@@ -1,7 +1,6 @@
 'use client';
 import {BanknoteIcon, Building2Icon, Loader2, LogOut, LogOutIcon, LucideHome, Menu, NotepadText, Settings} from 'lucide-react';
 import SideBarLogo from './side-bar-logo';
-import Link from 'next/link';
 import SidebarItem, {ISidebarItem} from './sidebar-item';
 import {useIsMobile} from '@/hooks/use-mobile';
 import {Sheet, SheetContent, SheetTrigger} from '../ui/sheet';

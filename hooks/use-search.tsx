@@ -1,4 +1,6 @@
-import {usePathname, useRouter, useSearchParams as useNextSearchParams} from 'next/navigation';
+import { usePathname, useRouter } from '@/i18n/navigation';
+import { useSearchParams as useNextSearchParams} from 'next/navigation';
+
 import useDebounce from '@/lib/debounce';
 import {useEffect} from 'react';
 

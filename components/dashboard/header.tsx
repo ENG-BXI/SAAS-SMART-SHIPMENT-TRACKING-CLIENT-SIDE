@@ -1,7 +1,7 @@
-import Link from 'next/link';
+import {Link} from '@/i18n/navigation';
 import {Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator} from '../ui/breadcrumb';
 import React, {ReactNode} from 'react';
-import { cn } from '@/lib/utils';
+import {cn} from '@/lib/utils';
 
 interface IBreadcrumbList {
   text: string;
