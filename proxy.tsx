@@ -19,9 +19,6 @@ export default async function Proxy(req: NextRequest) {
   const {pathName} = parseReq(req);
   let response: NextResponse | undefined;
   const responseI18 = intlMiddleware(req);
-  if (req.headers.get('next-action')) {
-    return NextResponse.next();
-  }
   if (adminRoute.includes(pathName)) {
     response = await adminMiddleware(req);
   }

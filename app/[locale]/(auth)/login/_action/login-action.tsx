@@ -5,7 +5,6 @@ import {cookies} from 'next/headers';
 import {AxiosError} from 'axios';
 import {getUser} from '@/lib/utils';
 import serverAxiosInstance from '@/lib/axios/server';
-import {redirect} from 'next/navigation';
 
 export async function loginAction(email: string, password: string) {
   const user = loginSchema.safeParse({email, password});
@@ -35,5 +34,5 @@ export async function loginAction(email: string, password: string) {
     cookie.delete('token');
     return {error: 'Invalid token'};
   }
-  redirect('/statistics');
+  return {success: true, user: userDecoded, message: 'Login successful'};
 }
