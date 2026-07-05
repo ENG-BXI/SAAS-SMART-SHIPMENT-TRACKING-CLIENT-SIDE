@@ -18,7 +18,9 @@ export async function publicMiddleware(req: NextRequest) {
       if (pathName == 'login') {
         console.log('[REDIRECT TO STATSTICS]', req.url);
         return NextResponse.redirect(new URL(`/${locale}/statistics`, req.url));
-      } else return res;
+      } else {
+        return res;
+      }
     }
   }
   return NextResponse.next();
