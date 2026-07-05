@@ -10,9 +10,6 @@ export async function baseProtectedMiddleWare(req: NextRequest) {
     return null;
   }
   const user = getUser(token);
-  console.log('====================================');
-  console.log('[USER IN BASE MIDDLEWARE]', user);
-  console.log('====================================');
   if (!user) {
     cookie.delete('token');
     NextResponse.redirect(new URL('/login', req.url));
