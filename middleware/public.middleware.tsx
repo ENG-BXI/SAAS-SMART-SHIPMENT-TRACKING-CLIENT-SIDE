@@ -18,7 +18,7 @@ export async function publicMiddleware(req: NextRequest) {
       addUserInfoIntoHeader(res, user);
       if (pathName == 'login') {
         console.log('[REDIRECT TO STATSTICS]', req.url);
-        return NextResponse.redirect(new URL('/statistics', req.url));
+        return NextResponse.redirect(new URL('/en/statistics', req.url));
       } else return res;
     }
   }
