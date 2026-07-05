@@ -16,7 +16,7 @@ const admin_manager_employee_SharedRoute = ['statistics', 'notes'];
 
 const intlMiddleware = createMiddleware(routing);
 export default async function Proxy(req: NextRequest) {
-  const { pathName } = parseReq(req);
+  const {pathName} = parseReq(req);
   let response: NextResponse | undefined;
   const responseI18 = intlMiddleware(req);
   if (adminRoute.includes(pathName)) {
@@ -35,6 +35,7 @@ export default async function Proxy(req: NextRequest) {
     response = await admin_manager__employee_sharedMiddleware(req);
   }
   if (publicRoute.includes(pathName)) {
+    console.log('[In Scope Of Public Route]');
     response = await publicMiddleware(req);
   }
   if (!response) {
@@ -43,9 +44,12 @@ export default async function Proxy(req: NextRequest) {
   if (responseI18.headers.get('location')) {
     return responseI18;
   }
+  // console.log('[RESPONSE I18]', responseI18);
   responseI18.headers.forEach((value, key) => {
     response!.headers.set(key, value);
   });
+  // console.log('[RESPONSE]', response);
+
   return response;
 }
 
