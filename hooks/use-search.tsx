@@ -1,7 +1,7 @@
 import { usePathname, useRouter } from '@/i18n/navigation';
 import { useSearchParams as useNextSearchParams} from 'next/navigation';
 
-import useDebounce from '@/lib/debounce';
+import useDebounce from '@/hooks/use-debounce';
 import {useEffect} from 'react';
 
 export function useSearchParams({key, search, time = 500}: {key: string; search: string | number; time?: number}) {
