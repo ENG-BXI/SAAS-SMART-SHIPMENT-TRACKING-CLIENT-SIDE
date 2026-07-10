@@ -19,7 +19,8 @@ const listOfSideBarItem: Record<UserRoleForSaasAdmin, ISidebarItem[]> = {
     {text: 'companies', icon: <Building2Icon />, link: '/company'},
     {text: 'subscriptions', icon: <BanknoteIcon />, link: '/subscription'},
     {text: 'subscriptionRequests', icon: <BanknoteIcon />, link: '/subscription-request'},
-    {text: 'notes', icon: <NotepadText />, link: '/notes'}
+    {text: 'notes', icon: <NotepadText />, link: '/notes'},
+    {text: 'settings', icon: <Settings />, link: '/settings', canLock: true}
   ],
   [enUserRoleForSaasAdmin.MANAGER]: [
     {text: 'home', icon: <LucideHome />, link: '/statistics'},
@@ -39,7 +40,6 @@ const listOfSideBarItem: Record<UserRoleForSaasAdmin, ISidebarItem[]> = {
     {text: 'notes', icon: <LogOut />, link: '/notes'},
     {text: 'settings', icon: <Settings />, link: '/settings'}
   ],
-
   [enUserRoleForSaasAdmin.DRIVER]: []
 };
 
@@ -77,7 +77,7 @@ const SideBar = () => {
 function AppSideBarClient() {
   const isMobile = useIsMobile();
   const locale = useLocale();
-  const isRtl = locale == 'ar' ||locale == 'mo';
+  const isRtl = locale == 'ar' || locale == 'mo';
   if (isMobile) {
     return (
       <Sheet>

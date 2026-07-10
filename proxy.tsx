@@ -10,9 +10,9 @@ import {routing} from './i18n/routing';
 const publicRoute = ['', 'login'];
 const adminRoute = ['company', 'subscription', 'subscription-request'];
 const managerRoute = ['my-subscription', 'users'];
-const manager_employee_sharedRoute = ['shipments', 'clients', 'ways', 'settings'];
+const manager_employee_sharedRoute = ['shipments', 'clients', 'ways'];
 // const admin_manager_sharedRoute = [];
-const admin_manager_employee_SharedRoute = ['statistics', 'notes'];
+const admin_manager_employee_SharedRoute = ['statistics', 'notes', 'settings'];
 
 const intlMiddleware = createMiddleware(routing);
 export default async function Proxy(req: NextRequest) {

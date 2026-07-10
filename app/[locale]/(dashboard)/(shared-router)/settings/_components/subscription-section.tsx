@@ -1,11 +1,11 @@
 import {Badge} from '@/components/ui/badge';
 import {IconArrowNarrowLeft} from '@tabler/icons-react';
 import React from 'react';
-import GetSubscriptionInfo from '../../my-subscription/_services/get-subscription-info';
 import {cookies} from 'next/headers';
 import {SUBSCRIPTION_TEXT} from '@/lib/Constant/enum';
 import {formattedDate} from '@/lib/utils';
 import { getTranslations } from 'next-intl/server';
+import GetSubscriptionInfo from '../../../(manager)/my-subscription/_services/get-subscription-info';
 
 async function SubscriptionSection() {
   const t = await getTranslations('settingsPage.subscriptionSection');
