@@ -3,7 +3,7 @@ import Header from "./header";
 
 function Hero() {
   return (
-    <div className='py-5 px-20 bg-custom-primary-color max-w-full h-screen rounded-3xl mb-3'>
+    <div className='py-5 m-3 px-20 bg-custom-primary-color max-w-full rounded-3xl mb-3'>
       <Header />
       <div className='h-full w-full flex items-center'>
         <div className='flex flex-col gap-y-2'>

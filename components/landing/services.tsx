@@ -31,7 +31,7 @@ const listServiceItems: ServicesItem[] = [
 const Services = () => {
   return (
     <div className='flex flex-col items-center my-20'>
-      <p className='text-custom-primary-color text-xl mb-2'>Our Services</p>
+      <h6 className='text-custom-primary-color text-xl mb-2'>Our Services</h6>
       <h2 className='section__title'>Trusted Logistics Partner for Worldwide Shipping</h2>
       <div className='flex gap-x-10 mt-10 mx-10'>
         {listServiceItems.map(item => (
