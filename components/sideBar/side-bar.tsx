@@ -15,30 +15,30 @@ import useSidebar from '@/hooks/use-sidebar';
 import {useLocale} from 'next-intl';
 const listOfSideBarItem: Record<UserRoleForSaasAdmin, ISidebarItem[]> = {
   [enUserRoleForSaasAdmin.ADMIN]: [
-    {text: 'home', icon: <LucideHome />, link: '/statistics'},
-    {text: 'companies', icon: <Building2Icon />, link: '/company'},
-    {text: 'subscriptions', icon: <BanknoteIcon />, link: '/subscription'},
-    {text: 'subscriptionRequests', icon: <BanknoteIcon />, link: '/subscription-request'},
-    {text: 'notes', icon: <NotepadText />, link: '/notes'},
-    {text: 'settings', icon: <Settings />, link: '/settings', canLock: true}
+    {text: 'home', icon: <LucideHome className='w-5 h-5'/>, link: '/statistics'},
+    {text: 'companies', icon: <Building2Icon className='w-5 h-5'/>, link: '/company'},
+    {text: 'subscriptions', icon: <BanknoteIcon className='w-5 h-5'/>, link: '/subscription'},
+    {text: 'subscriptionRequests', icon: <BanknoteIcon className='w-5 h-5'/>, link: '/subscription-request'},
+    {text: 'notes', icon: <NotepadText className='w-5 h-5'/>, link: '/notes'},
+    {text: 'settings', icon: <Settings className='w-5 h-5'/>, link: '/settings', canLock: true}
   ],
   [enUserRoleForSaasAdmin.MANAGER]: [
-    {text: 'home', icon: <LucideHome />, link: '/statistics'},
-    {text: 'shipments', icon: <Building2Icon />, link: '/shipments', canLock: true},
-    {text: 'clients', icon: <BanknoteIcon />, link: '/clients', canLock: true},
-    {text: 'ways', icon: <NotepadText />, link: '/ways', canLock: true},
-    {text: 'users', icon: <NotepadText />, link: '/users', canLock: true},
-    {text: 'mySubscription', icon: <BanknoteIcon />, link: '/my-subscription', canLock: false},
-    {text: 'notes', icon: <LogOut />, link: '/notes', canLock: true},
-    {text: 'settings', icon: <Settings />, link: '/settings', canLock: true}
+    {text: 'home', icon: <LucideHome className='w-5 h-5'/>, link: '/statistics'},
+    {text: 'shipments', icon: <Building2Icon className='w-5 h-5'/>, link: '/shipments', canLock: true},
+    {text: 'clients', icon: <BanknoteIcon className='w-5 h-5'/>, link: '/clients', canLock: true},
+    {text: 'ways', icon: <NotepadText className='w-5 h-5'/>, link: '/ways', canLock: true},
+    {text: 'users', icon: <NotepadText className='w-5 h-5'/>, link: '/users', canLock: true},
+    {text: 'mySubscription', icon: <BanknoteIcon className='w-5 h-5'/>, link: '/my-subscription', canLock: false},
+    {text: 'notes', icon: <LogOut className='w-5 h-5'/>, link: '/notes', canLock: true},
+    {text: 'settings', icon: <Settings className='w-5 h-5'/>, link: '/settings', canLock: true}
   ],
   [enUserRoleForSaasAdmin.EMPLOYEE]: [
-    {text: 'home', icon: <LucideHome />, link: '/statistics'},
-    {text: 'shipments', icon: <Building2Icon />, link: '/shipments'},
-    {text: 'clients', icon: <BanknoteIcon />, link: '/clients'},
-    {text: 'ways', icon: <NotepadText />, link: '/ways'},
-    {text: 'notes', icon: <LogOut />, link: '/notes'},
-    {text: 'settings', icon: <Settings />, link: '/settings'}
+    {text: 'home', icon: <LucideHome className='w-5 h-5'/>, link: '/statistics'},
+    {text: 'shipments', icon: <Building2Icon className='w-5 h-5'/>, link: '/shipments'},
+    {text: 'clients', icon: <BanknoteIcon className='w-5 h-5'/>, link: '/clients'},
+    {text: 'ways', icon: <NotepadText className='w-5 h-5'/>, link: '/ways'},
+    {text: 'notes', icon: <LogOut className='w-5 h-5'/>, link: '/notes'},
+    {text: 'settings', icon: <Settings className='w-5 h-5'/>, link: '/settings'}
   ],
   [enUserRoleForSaasAdmin.DRIVER]: []
 };
@@ -57,7 +57,7 @@ const SideBar = () => {
     });
   }
   return (
-    <aside className='min-w-60 relative bg-[#F9F9F9] py-8 px-4'>
+    <aside className='min-w-60 relative py-8 px-4'>
       <SideBarLogo />
       {isLoading && <SideBarSkeleton />}
       {sideBarData.length > 0 && (

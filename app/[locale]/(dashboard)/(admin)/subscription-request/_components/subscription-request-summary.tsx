@@ -46,11 +46,11 @@ function SubscriptionRequestSummary({pendingCompanyCount, changeCompanyCount}: I
   return (
     <div className='grid gap-4 sm:grid-cols-3 mb-6'>
       {summaryCards.map(card => (
-        <div key={card.title} className='rounded-3xl border border-slate-200 bg-card p-5'>
+        <div key={card.title} className='rounded-3xl border border-slate-200 dark:border-slate-500 bg-card p-5'>
           <div className='flex items-center justify-between gap-4'>
             <div>
               <p className='text-sm text-muted-foreground'>{card.description}</p>
-              <h4 className='mt-3 text-2xl font-semibold text-slate-900'>{getCardValue(card.badge)}</h4>
+              <h4 className='mt-3 text-2xl font-semibold text-slate-900 dark:text-white'>{getCardValue(card.badge)}</h4>
             </div>
             <Badge className={cn('text-xs uppercase tracking-[0.16em]', getBadgeClass(card.badge))}>{card.title}</Badge>
           </div>

@@ -5,6 +5,7 @@ import {SUBSCRIPTION_TEXT, TSubscriptionStatus} from '@/lib/Constant/enum';
 import {cn, formattedDate} from '@/lib/utils';
 import {Progress} from '@/components/ui/progress';
 import {useTranslations} from 'next-intl';
+import {Card, CardContent} from '@/components/ui/card';
 
 interface CurrentSubscriptionProps {
   status: TSubscriptionStatus;
@@ -42,8 +43,8 @@ export default function CurrentSubscription({status, price, endDate, startDate, 
             </div>
             <div>
               <p className='text-xs font-semibold uppercase tracking-[0.24em] text-slate-400'>{t('title')}</p>
-              <h3 className='mt-2 text-3xl font-extrabold tracking-tight text-slate-900'>{planLabel}</h3>
-              <p className='mt-2 max-w-2xl text-sm leading-6 text-slate-600'>{planHint}</p>
+              <h3 className='mt-2 text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white'>{planLabel}</h3>
+              <p className='mt-2 max-w-2xl text-sm leading-6 text-slate-600 dark:text-slate-400'>{planHint}</p>
             </div>
           </div>
           <Badge className='rounded-full bg-green-700 px-4 py-2 text-sm font-semibold text-white'>{SUBSCRIPTION_TEXT[status]}</Badge>
@@ -55,38 +56,42 @@ export default function CurrentSubscription({status, price, endDate, startDate, 
           <CardInfo title={t('cards.endDate.title')} description={!isPending ? t('cards.endDate.description', {days: remainingDays}) : t('cards.endDate.descriptionNoDate')} value={isPending ? '-' : end} />
         </div>
         {/* Progress */}
-        <div className='rounded-[28px] border border-slate-200 bg-slate-50 p-6'>
-          <div className='flex items-center justify-between gap-4'>
-            <div>
-              <p className='text-xs font-semibold uppercase tracking-[0.24em] text-slate-500'>{t('progress.title')}</p>
-              <p className='mt-2 text-sm font-medium text-slate-700'>
-                {progress}% {tPrice('selected')}
-              </p>
+        <Card className='rounded-[28px] p-6'>
+          <CardContent>
+            <div className='flex items-center justify-between gap-4'>
+              <div>
+                <p className='text-xs font-semibold uppercase tracking-[0.24em] text-slate-500'>{t('progress.title')}</p>
+                <p className='mt-2 text-sm font-medium'>
+                  {progress}% {tPrice('selected')}
+                </p>
+              </div>
+              <div className='rounded-full bg-custom-primary-color/10 px-3 py-1 text-sm font-semibold text-custom-primary-color'>{elapsedDays !== totalDays && !isPending ? `${elapsedDays}/${totalDays}` : t('progress.notAvailable')}</div>
             </div>
-            <div className='rounded-full bg-custom-primary-color/10 px-3 py-1 text-sm font-semibold text-custom-primary-color'>{elapsedDays !== totalDays && !isPending ? `${elapsedDays}/${totalDays}` : t('progress.notAvailable')}</div>
-          </div>
-          <div className='mt-4 h-2 overflow-hidden rounded-full bg-slate-200'>
-            <Progress value={progress} className='rotate-180' />
-          </div>
-        </div>
+            <div className='mt-4 h-2 overflow-hidden rounded-full bg-slate-200'>
+              <Progress value={progress} />
+            </div>
+          </CardContent>
+        </Card>
         {/* Features */}
         {!isPending && (
-          <div className='rounded-[28px] border border-slate-200 bg-[#F8FAFD] p-6'>
-            <div className='mb-4 flex items-center gap-3'>
-              <ShieldCheck className='h-5 w-5 text-custom-primary-color' />
-              <h4 className='text-base font-semibold text-slate-900'>{t('featuresTitle')}</h4>
-            </div>
-            <ul className='space-y-3 text-sm text-slate-700'>
-              {features.map((feature, index) => (
-                <li key={index} className='flex gap-3'>
-                  <span className={cn('mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full p-0.5 bg-[#D8F5E5] text-custom-primary-color')}>
-                    <Check />
-                  </span>
-                  {feature}
-                </li>
-              ))}
-            </ul>
-          </div>
+          <Card className='rounded-[28px] p-6'>
+            <CardContent>
+              <div className='mb-4 flex items-center gap-3'>
+                <ShieldCheck className='h-5 w-5 text-custom-primary-color' />
+                <h4 className='text-base font-semibold'>{t('featuresTitle')}</h4>
+              </div>
+              <ul className='space-y-3 text-sm '>
+                {features.map((feature, index) => (
+                  <li key={index} className='flex gap-3'>
+                    <span className={cn('mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full p-0.5 bg-[#D8F5E5] text-custom-primary-color')}>
+                      <Check />
+                    </span>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </CardContent>
+          </Card>
         )}
       </div>
     </section>
@@ -100,10 +105,12 @@ interface CardInfoProps {
 }
 function CardInfo({title, description, value}: CardInfoProps) {
   return (
-    <div className='flex-1 min-w-60 rounded-[24px] border border-slate-200 bg-white p-5'>
-      <p className='text-xs font-semibold uppercase tracking-[0.24em] text-slate-500'>{title}</p>
-      <p className='mt-3 text-2xl font-bold text-slate-900'>{value}</p>
-      <p className='mt-2 text-sm text-slate-500'>{description}</p>
-    </div>
+    <Card className='flex-1 min-w-60 rounded-[24px] p-5'>
+      <CardContent>
+        <p className='text-xs font-semibold uppercase tracking-[0.24em] text-slate-500'>{title}</p>
+        <p className='mt-3 text-2xl font-bold '>{value}</p>
+        <p className='mt-2 text-sm text-slate-500'>{description}</p>
+      </CardContent>
+    </Card>
   );
 }
