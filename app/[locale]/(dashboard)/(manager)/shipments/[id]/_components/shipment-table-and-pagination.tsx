@@ -20,7 +20,7 @@ async function ShipmentTableAndPagination({id, search, page}: ShipmentTableAndPa
   return (
     <>
       <Table>
-        <TableHeader className='bg-[#FCFCFD]'>
+        <TableHeader className=''>
           <TableRow>
             <TableHead>{t('headers.client')}</TableHead>
             <TableHead>{t('headers.item')}</TableHead>

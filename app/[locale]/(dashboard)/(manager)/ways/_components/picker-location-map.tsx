@@ -4,6 +4,7 @@ import * as React from 'react';
 import {Button} from '@/components/ui/button';
 import {Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle, DrawerTrigger} from '@/components/ui/drawer';
 import {BasicMapExample} from './map-mapcn';
+import CustomButton from '@/components/custom-button';
 interface PickerLocationMapProps {
   pointName: string;
   lat?: number;
@@ -24,7 +25,7 @@ const PickerLocationMap = ({pointName, onSelect, lat, lng}: PickerLocationMapPro
             <DrawerTitle>Select Location For {pointName} Point</DrawerTitle>
             <DrawerDescription>{location?.join(' ,')}</DrawerDescription>
           </DrawerHeader>
-          <div className='h-100' onPointerDown={e => e.stopPropagation()} onTouchStart={e => e.stopPropagation()}>
+          <div className='h-100 mb-4' onPointerDown={e => e.stopPropagation()} onTouchStart={e => e.stopPropagation()}>
             <BasicMapExample
               pointName={pointName}
               onSelect={(lat, lng) => {
@@ -35,7 +36,7 @@ const PickerLocationMap = ({pointName, onSelect, lat, lng}: PickerLocationMapPro
           </div>
           <DrawerFooter>
             <DrawerClose asChild>
-              <Button>Submit</Button>
+              <CustomButton text='Submit' type='primary' />
             </DrawerClose>
             <DrawerClose asChild>
               <Button

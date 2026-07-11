@@ -8,7 +8,7 @@ function CustomPagination({hasPrevious, hasNext, pageSize, currentPage, totalCou
   const [page, setPage] = useState(currentPage);
   useSearchParams({key: searchParamsKey, search: page, time: 0});
   return (
-    <div dir='ltr' className='flex items-center justify-between bg-white p-2 mt-4 rounded-2xl'>
+    <div dir='ltr' className='flex items-center justify-between bg-white dark:bg-[#18191b] p-2 mt-4 rounded-2xl'>
       <Pagination className='mx-0 w-auto'>
         <PaginationContent className='gap-2'>
           {/* NEXT */}
@@ -17,7 +17,7 @@ function CustomPagination({hasPrevious, hasNext, pageSize, currentPage, totalCou
               if (hasNext && page < totalPages) setPage(prev => prev + 1);
             }}
           >
-            <PaginationLink className={`${hasNext && page < totalPages ? 'cursor-pointer text-gray-400 border border-gray-100 hover:bg-gray-50' : 'cursor-not-allowed text-gray-400 border border-gray-100'} px-4 select-none`} size='default'>
+            <PaginationLink className={`${hasNext && page < totalPages ? 'cursor-pointer text-gray-400  hover:bg-gray-50' : 'cursor-not-allowed text-gray-400'} px-4 select-none border border-gray-100 dark:border-[#2c2c2c]`} size='default'>
               {t('next')}
             </PaginationLink>
           </PaginationItem>
@@ -33,7 +33,7 @@ function CustomPagination({hasPrevious, hasNext, pageSize, currentPage, totalCou
               if (hasPrevious && page > 1) setPage(prev => prev - 1);
             }}
           >
-            <PaginationLink className={`${hasPrevious && page > 1 ? 'cursor-pointer text-gray-400 border border-gray-100 hover:bg-gray-50' : 'cursor-not-allowed text-gray-400 border border-gray-100'} px-4 select-none`} size='default'>
+            <PaginationLink className={`${hasPrevious && page > 1 ? 'cursor-pointer text-gray-400 ' : 'cursor-not-allowed text-gray-400 '} px-4 select-none border border-gray-100 dark:border-[#2c2c2c]`} size='default'>
               {t('previous')}
             </PaginationLink>
           </PaginationItem>

@@ -6,8 +6,8 @@ interface CardStatProps {
 }
 function CardStat({title, value}: CardStatProps) {
   return (
-    <div className='border rounded-lg flex-1 min-w-80  p-4'>
-      <div className='rounded-full bg-[#F3FCF6] p-2 max-w-min'>
+    <div className='border rounded-lg flex-1 min-w-60  p-4'>
+      <div className='rounded-full bg-[#F3FCF6] dark:bg-[#262626] p-2 max-w-min'>
         <IconCircleCheck />
       </div>
       <h3 className='font-bold mt-2'>{title}</h3>

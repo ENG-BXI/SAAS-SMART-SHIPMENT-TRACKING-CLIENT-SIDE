@@ -1,13 +1,16 @@
-import { Infinity } from "lucide-react";
-
-function SideBarLogo() {
+import {cn} from '@/lib/utils';
+import {Infinity} from 'lucide-react';
+interface SideBarLogoProps {
+  className?: string;
+}
+function SideBarLogo({className}: SideBarLogoProps) {
   return (
-    <div className='flex ms-2 items-center gap-x-1 mb-5'>
-      <div className='bg-custom-primary-color rounded-full p-0.5'>
+    <div className={cn('flex ms-2 items-center gap-x-1 mb-5', className)}>
+      <div className='bg-custom-primary-color rounded-lg p-0.5'>
         <Infinity className='text-white' />
       </div>
-      <span className='text-xl font-semibold mb-1'>3S Tracking</span>
+      <span className='text-xl mb-0.5'>3S Tracking</span>
     </div>
   );
 }
-export default SideBarLogo
+export default SideBarLogo;
