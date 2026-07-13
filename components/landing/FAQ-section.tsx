@@ -14,13 +14,6 @@ interface FaqTab {
   items: FaqItem[];
 }
 
-interface FaqSectionProps {
-  badge?: string;
-  title: string;
-
-  defaultTab?: string;
-}
-
 const cargoFaqData: FaqTab[] = [
   {
     value: 'shipping',
@@ -45,20 +38,18 @@ const cargoFaqData: FaqTab[] = [
   }
 ];
 
-export const FaqSection: React.FC<FaqSectionProps> = ({badge = 'FAQ', title, defaultTab}) => {
-  const fallbackTab = defaultTab || cargoFaqData[0]?.value;
+export const FaqSection = () => {
+  const fallbackTab = cargoFaqData[0]?.value;
 
   return (
     <section className='w-full max-w-7xl mx-auto px-4 py-16 md:py-24'>
       <div className='grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8'>
-        {/* الجزء الأيسر: العناوين */}
-        <div className='lg:col-span-5 flex flex-col justify-start'>
-          <span className='text-custom-primary-color font-bold text-sm uppercase tracking-wider mb-4'>{badge}</span>
-          <h2 className='text-3xl md:text-5xl font-bold text-slate-900 tracking-tight leading-tight max-w-md'>{title}</h2>
+        <div className='lg:col-span-6 flex flex-col justify-start'>
+          <span className='text-custom-primary-color font-bold text-sm uppercase tracking-wider mb-4'>FAQ</span>
+          <h2 className='text-3xl md:text-5xl text-slate-900 tracking-tight leading-tight max-w-md'>Everything You Should Know About Cargo Logistics</h2>
         </div>
 
-        {/* الجزء الأيمن: التبويبات والأسئلة */}
-        <div className='lg:col-span-7'>
+        <div className='lg:col-span-6'>
           <Tabs defaultValue={fallbackTab} className='w-full'>
             {/* أشرطة التبويب المخصصة لتطابق التصميم */}
             <TabsList className='w-full justify-start h-auto bg-transparent p-0 border-b border-gray-100 rounded-none flex-wrap gap-2 md:gap-4 mb-8'>

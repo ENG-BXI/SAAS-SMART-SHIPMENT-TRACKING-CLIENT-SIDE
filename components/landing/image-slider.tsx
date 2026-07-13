@@ -18,7 +18,7 @@ export interface SliderItem {
 export function SliderCard({image, title, className}: SliderCardProps) {
   return (
     <div className={cn('relative h-150 overflow-hidden rounded-3xl', className)}>
-      <Image src={image} alt={title} fill priority className='object-cover transition duration-500 hover:scale-105' />
+      <Image src={image} alt={title} fill sizes='100' priority className='object-cover transition duration-500 hover:scale-105' />
       <div className='absolute inset-0 bg-linear-to-t from-black/60 via-black/10 to-transparent' />
       <h3 className='absolute bottom-10 left-10 text-2xl font-bold text-white'>{title}</h3>
     </div>

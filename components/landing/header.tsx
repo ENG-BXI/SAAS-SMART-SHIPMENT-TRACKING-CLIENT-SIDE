@@ -1,8 +1,11 @@
-import React from 'react';
+import {cn} from '@/lib/utils';
 
-const Header = () => {
+interface HeaderProps {
+  className?: string;
+}
+const Header = ({className}: HeaderProps) => {
   return (
-    <div className='flex justify-between items-center'>
+    <div className={cn('flex z-1 justify-between items-center', className)}>
       <div>Logo</div>
       <ul className='flex items-center gap-x-4'>
         <li>Home</li>

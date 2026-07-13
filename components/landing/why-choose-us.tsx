@@ -57,7 +57,7 @@ function FeatureCard({title, description, className}: FeatureCardProps) {
 const WhyChooseUs = () => {
   return (
     <section className='flex container mx-auto flex-col items-center my-20'>
-      <h6 className='text-custom-primary-color text-xl mb-2'>Our Services</h6>
+      <h6 className='text-custom-primary-color text-xl mb-2'>Why Choose Us</h6>
       <h2 className='section__title'>Trusted Logistics Partner for Worldwide Shipping</h2>
       <div className='grid gap-x-16 gap-y-14 lg:grid-cols-3 mt-10'>
         {FEATURES.map(feature => (

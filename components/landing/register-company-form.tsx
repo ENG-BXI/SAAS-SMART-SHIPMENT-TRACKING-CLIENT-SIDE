@@ -2,9 +2,7 @@
 import CustomButton from '@/components/custom-button';
 import CustomInput from '@/components/custom-input';
 import CustomSelect from '@/components/custom-select';
-import {Card, CardDescription, CardHeader, CardTitle} from '@/components/ui/card';
-import {DialogFooter} from '@/components/ui/dialog';
-import {FieldGroup} from '@/components/ui/field';
+import {Separator} from '@/components/ui/separator';
 import {Form} from '@/components/ui/form';
 import {zodResolver} from '@hookform/resolvers/zod';
 import {PlusCircle} from 'lucide-react';
@@ -17,15 +15,16 @@ import useGetSubscriptionTypeAsOptions from '@/app/[locale]/(dashboard)/(admin)/
 import {useTranslations} from 'next-intl';
 
 const createCompanyFormSchema = z.object({
-  name: z.string().min(3, 'company name must be great than 3 char'),
-  location: z.string().min(3, 'location must be great than 3'),
-  companyEmail: z.email().min(3, 'company email must be great than 3 char'),
-  companyPassword: z.string().min(8, 'password must be great than 8 char').max(100, 'password must be less than 100 char'),
-  confirmPassword: z.string().min(8, 'password must be great than 8 char').max(100, 'password must be less than 100 char'),
-  subscriptionType: z.string().min(1, 'select subscription type')
-  // Upload Bill
+  name: z.string().min(3),
+  location: z.string().min(3),
+  companyEmail: z.email(),
+  companyPassword: z.string().min(8),
+  confirmPassword: z.string().min(8),
+  subscriptionType: z.string().min(1)
 });
+
 export type createCompanyFormData = z.infer<typeof createCompanyFormSchema>;
+
 function RegisterCompanyForm() {
   const [isPending, startTransition] = useTransition();
   const t = useTranslations('homePage.registerCompanyForm');
@@ -42,83 +41,59 @@ function RegisterCompanyForm() {
     }
   });
   const {data: SubscriptionData, isLoading: isSubscriptionLoading, isError: isSubscriptionError, error: subscriptionError} = useGetSubscriptionTypeAsOptions();
-  function onSubmit(company: createCompanyFormData) {
+  function onSubmit(data: createCompanyFormData) {
     startTransition(async () => {
-      const {error, message} = await requestSubscriptionCompany(company);
+      const {error, message} = await requestSubscriptionCompany(data);
       if (error) toast.error(message);
       else {
         toast.success(message);
-        formHook.reset({
-          name: '',
-          location: '',
-          companyEmail: '',
-          companyPassword: '',
-          confirmPassword: ''
-        });
+
+        formHook.reset();
       }
     });
   }
   return (
-    <Card className='mx-auto mt-4 w-xl py-3 px-5'>
-      <p className='mx-auto'>{t('tempNote')}</p>
-      <CardHeader>
-        <CardTitle>{t('title')}</CardTitle>
-        <CardDescription>{t('description')}</CardDescription>
-      </CardHeader>
+    <div className='w-full max-w-4xl mx-auto space-y-10 my-15'>
+      {/* Header */}
+      <div className='space-y-2'>
+        <h1 className='text-2xl font-bold'>{t('title')}</h1>
+        <p className='text-sm text-muted-foreground'>{t('description')}</p>
+      </div>
       <Form {...formHook}>
-        <form onSubmit={formHook.handleSubmit(onSubmit)}>
-          <FieldGroup className='gap-y-2 mb-3'>
-            <Controller
-              name='name'
-              control={formHook.control}
-              render={({field, fieldState}) => {
-                return <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label={t('fields.name.label')} required placeHolder={t('fields.name.placeholder')} />;
-              }}
-            />
-            <Controller
-              control={formHook.control}
-              name='subscriptionType'
-              render={({field, fieldState: {invalid, error}}) => {
-                return <CustomSelect disabled={isPending} onChange={field.onChange} value={field.value} ref={field.ref} invalid={invalid} isLoading={isSubscriptionLoading} isError={isSubscriptionError} error={subscriptionError?.message} errorMessage={error?.message} placeHolder={t('fields.subscriptionType.placeholder')} required label={t('fields.subscriptionType.label')} options={SubscriptionData || []} />;
-              }}
-            />
-            <Controller
-              name='location'
-              control={formHook.control}
-              render={({field, fieldState}) => {
-                return <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label={t('fields.location.label')} required placeHolder={t('fields.location.placeholder')} />;
-              }}
-            />
-            <Controller
-              name='companyEmail'
-              control={formHook.control}
-              render={({field, fieldState}) => {
-                return <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label={t('fields.companyEmail.label')} required placeHolder={t('fields.companyEmail.placeholder')} />;
-              }}
-            />
-            <Controller
-              name='companyPassword'
-              control={formHook.control}
-              render={({field, fieldState}) => {
-                return <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label={t('fields.companyPassword.label')} required placeHolder={t('fields.companyPassword.placeholder')} />;
-              }}
-            />
-
-            <Controller
-              name='confirmPassword'
-              control={formHook.control}
-              render={({field, fieldState}) => {
-                return <CustomInput disabled={isPending} type='controller' invalid={fieldState.invalid} error={fieldState.error} field={field} hasLabel label={t('fields.confirmPassword.label')} required placeHolder={t('fields.confirmPassword.placeholder')} />;
-              }}
-            />
-          </FieldGroup>
-
-          <DialogFooter>
+        <form onSubmit={formHook.handleSubmit(onSubmit)} className='space-y-10'>
+          {/* Company Information */}
+          <section className='space-y-5'>
+            <div className='space-y-1'>
+              <h2 className='text-lg font-semibold'>{t('sections.companyInfo')}</h2>
+              <p className='text-sm text-muted-foreground'>{t('sections.companyInfoDescription')}</p>
+            </div>
+            <Separator />
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
+              <Controller name='name' control={formHook.control} render={({field, fieldState}) => <CustomInput disabled={isPending} type='controller' field={field} invalid={fieldState.invalid} error={fieldState.error} hasLabel required label={t('fields.name.label')} placeHolder={t('fields.name.placeholder')} />} />
+              <Controller name='location' control={formHook.control} render={({field, fieldState}) => <CustomInput disabled={isPending} type='controller' field={field} invalid={fieldState.invalid} error={fieldState.error} hasLabel required label={t('fields.location.label')} placeHolder={t('fields.location.placeholder')} />} />
+              <Controller name='subscriptionType' control={formHook.control} render={({field, fieldState}) => <CustomSelect disabled={isPending} value={field.value} onChange={field.onChange} ref={field.ref} invalid={fieldState.invalid} errorMessage={fieldState.error?.message} isLoading={isSubscriptionLoading} isError={isSubscriptionError} error={subscriptionError?.message} options={SubscriptionData || []} required label={t('fields.subscriptionType.label')} placeHolder={t('fields.subscriptionType.placeholder')} className='col-span-2' />} />
+            </div>
+          </section>
+          {/* Account Information */}
+          <section className='space-y-5'>
+            <div className='space-y-1'>
+              <h2 className='text-lg font-semibold'>{t('sections.accountInfo')}</h2>
+              <p className='text-sm text-muted-foreground'>{t('sections.accountInfoDescription')}</p>
+            </div>
+            <Separator />
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
+              <Controller name='companyEmail' control={formHook.control} render={({field, fieldState}) => <CustomInput disabled={isPending} type='controller' field={field} invalid={fieldState.invalid} error={fieldState.error} hasLabel required label={t('fields.companyEmail.label')} placeHolder={t('fields.companyEmail.placeholder')} className='col-span-2' />} />
+              <Controller name='companyPassword' control={formHook.control} render={({field, fieldState}) => <CustomInput disabled={isPending} type='controller' field={field} invalid={fieldState.invalid} error={fieldState.error} hasLabel required label={t('fields.companyPassword.label')} placeHolder={t('fields.companyPassword.placeholder')} />} />
+              <Controller name='confirmPassword' control={formHook.control} render={({field, fieldState}) => <CustomInput disabled={isPending} type='controller' field={field} invalid={fieldState.invalid} error={fieldState.error} hasLabel required label={t('fields.confirmPassword.label')} placeHolder={t('fields.confirmPassword.placeholder')} />} />
+            </div>
+          </section>
+          {/* Submit */}
+          <div className='flex justify-end pt-4'>
             <CustomButton disable={isPending} IsSubmit text={isPending ? t('actions.submitting') : t('actions.submit')} icon={<PlusCircle />} className='bg-black' />
-          </DialogFooter>
+          </div>
         </form>
       </Form>
-    </Card>
+    </div>
   );
 }
 export default RegisterCompanyForm;
