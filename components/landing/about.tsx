@@ -3,21 +3,24 @@ import Image from 'next/image';
 const aboutItems = [
   {
     title: 'إدارة الشحنات',
-    description: 'تحكم بجميع عمليات الشحن من الإنشاء حتى التسليم مع متابعة كاملة.'
+    description: 'تحكم بجميع عمليات الشحن من الإنشاء حتى التسليم مع متابعة كاملة.',
+    image: '/assets/manage-shipment.jpg'
   },
   {
     title: 'التتبع الذكي',
-    description: 'تابع حالة الشحنات ومواقعها بشكل مباشر وسهل.'
+    description: 'تابع حالة الشحنات ومواقعها بشكل مباشر وسهل.',
+    image: '/assets/track-shipment.jpg'
   },
   {
     title: 'إدارة العملاء',
-    description: 'نظم بيانات العملاء وحسن تجربة التعامل معهم.'
+    description: 'نظم بيانات العملاء وحسن تجربة التعامل معهم.',
+    image: '/assets/manager-clients.jpg '
   }
 ];
 
 const About = () => {
   return (
-    <section className='m-3 grid grid-cols-1 gap-5 md:grid-cols-3'>
+    <section id='about' className='m-3 grid grid-cols-1 gap-5 md:grid-cols-3'>
       {aboutItems.map((item, index) => (
         <div
           key={index}
@@ -30,7 +33,7 @@ const About = () => {
           '
         >
           <Image
-            src='/assets/hero-image.jpg'
+            src={item.image}
             alt={item.title}
             fill
             className='

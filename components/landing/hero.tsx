@@ -1,18 +1,15 @@
 import Image from 'next/image';
 import CustomButton from '../custom-button';
-import Header from './header';
 import {Link} from '@/i18n/navigation';
 
 function Hero() {
   return (
-    <section className='relative m-3 min-h-175 overflow-hidden rounded-3xl px-6 py-5 md:px-20'>
+    <section id='hero' className='relative m-3 min-h-175 overflow-hidden rounded-3xl px-6 py-5 md:px-20'>
       {/* Background */}
-      <Image src='/assets/hero3-image.png' priority alt='Shipping platform' fill className='object-cover' />
-      {/* Overlay */}
-      <div className='absolute inset-0 bg-black/50' />
+      <Image src='/assets/hero3-image.png' priority alt='Shipping platform' fill className='pointer-events-none object-cover' /> {/* Overlay */}
+      <div className='pointer-events-none absolute inset-0 bg-black/50' />
       {/* Content */}
       <div className='relative z-10 flex h-full min-h-162.5 flex-col'>
-        <Header className='text-white' />
         <div className='flex flex-1 items-center'>
           <div className='max-w-2xl space-y-6 text-white'>
             <span className='inline-flex rounded-full bg-white/10 px-4 py-2 text-sm backdrop-blur'>منصة إدارة الشحن الذكية</span>

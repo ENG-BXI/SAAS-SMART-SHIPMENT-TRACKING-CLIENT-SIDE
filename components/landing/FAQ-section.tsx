@@ -2,6 +2,7 @@
 
 import {Tabs, TabsContent, TabsList, TabsTrigger} from '@/components/ui/tabs';
 import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from '@/components/ui/accordion';
+
 export interface FaqItem {
   id: string;
   question: string;
@@ -14,60 +15,97 @@ interface FaqTab {
   items: FaqItem[];
 }
 
-const cargoFaqData: FaqTab[] = [
+const faqData: FaqTab[] = [
   {
-    value: 'shipping',
-    label: 'Shipping & Delivery',
+    value: 'system',
+    label: 'النظام',
     items: [
-      {id: 'q1', question: 'What services do you offer?', answer: 'We offer comprehensive cargo logistics, ocean freight, air freight, and local warehousing solutions.'},
-      {id: 'q2', question: 'How do I get started to get service?', answer: 'You can click on the Book Shipment button below or contact our sales team to set up an account.'},
-      {id: 'q3', question: 'Do you handle international shipments?', answer: 'Yes, we clear customs and deliver cargo across more than 150 countries worldwide.'},
-      {id: 'q4', question: 'What is included in the shipping process?', answer: 'Our process includes pick-up, secure packaging check, customs clearance, tracking, and final destination delivery.'},
-      {id: 'q5', question: 'How long does shipping usually take?', answer: 'Standard sea shipping takes 14-30 days, while air freight typically takes 3-7 business days.'}
+      {
+        id: 'system-1',
+        question: 'ما هو نظام إدارة الشحنات؟',
+        answer: 'منصة SaaS تساعد شركات الشحن والنقل على إدارة الشحنات والعملاء والسائقين والرحلات والتقارير من خلال لوحة تحكم واحدة سهلة الاستخدام.'
+      },
+      {
+        id: 'system-2',
+        question: 'هل يمكن استخدام النظام لأكثر من شركة؟',
+        answer: 'نعم، يدعم النظام تعدد الشركات Multi Tenant بحيث تمتلك كل شركة حسابًا مستقلًا مع فصل كامل للبيانات والصلاحيات.'
+      },
+      {
+        id: 'system-3',
+        question: 'هل يمكن إدارة المستخدمين والصلاحيات؟',
+        answer: 'يمكنك إنشاء مستخدمين متعددين وتحديد صلاحيات مختلفة حسب دور كل مستخدم داخل الشركة.'
+      }
     ]
   },
   {
-    value: 'tracking',
-    label: 'Tracking & Support',
-    items: [{id: 't1', question: 'How can I track my shipment in real-time?', answer: 'Use our live tracking portal with your tracking ID sent via email.'}]
+    value: 'shipments',
+    label: 'الشحنات',
+    items: [
+      {
+        id: 'shipment-1',
+        question: 'كيف يتم إنشاء ومتابعة الشحنات؟',
+        answer: 'يمكنك إنشاء شحنة جديدة وإضافة بيانات العميل ونقاط الاستلام والتسليم وتعيين السائق ومتابعة حالة الشحنة حتى التسليم.'
+      },
+      {
+        id: 'shipment-2',
+        question: 'هل يوفر النظام تتبعًا مباشرًا للشحنات؟',
+        answer: 'نعم، يمكنك متابعة حالة الشحنة والرحلة ومعرفة آخر التحديثات المتعلقة بها بسهولة.'
+      },
+      {
+        id: 'shipment-3',
+        question: 'هل يمكن إدارة السائقين والرحلات؟',
+        answer: 'يمكنك إدارة السائقين وتوزيع الرحلات ومتابعة أداء عمليات النقل من خلال لوحة التحكم.'
+      }
+    ]
   },
   {
-    value: 'billing',
-    label: 'Billing & Documentation',
-    items: [{id: 'b1', question: 'What documents are required for cargo clearance?', answer: "You'll need a commercial invoice, packing list, and bill of lading."}]
+    value: 'subscription',
+    label: 'الاشتراكات',
+    items: [
+      {
+        id: 'subscription-1',
+        question: 'هل النظام يعمل بنظام الاشتراكات؟',
+        answer: 'نعم، النظام يعتمد على نموذج SaaS ويمكن للشركات اختيار الباقة المناسبة حسب احتياجاتها.'
+      },
+      {
+        id: 'subscription-2',
+        question: 'هل يمكن تغيير الباقة لاحقًا؟',
+        answer: 'يمكن ترقية أو تغيير الباقة في أي وقت حسب نمو الشركة وزيادة احتياجاتها.'
+      }
+    ]
   }
 ];
 
 export const FaqSection = () => {
-  const fallbackTab = cargoFaqData[0]?.value;
-
   return (
-    <section className='w-full max-w-7xl mx-auto px-4 py-16 md:py-24'>
-      <div className='grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8'>
-        <div className='lg:col-span-6 flex flex-col justify-start'>
-          <span className='text-custom-primary-color font-bold text-sm uppercase tracking-wider mb-4'>FAQ</span>
-          <h2 className='text-3xl md:text-5xl text-slate-900 tracking-tight leading-tight max-w-md'>Everything You Should Know About Cargo Logistics</h2>
+    <section id='faq' className='mx-auto w-full max-w-7xl px-4 py-16 md:py-24'>
+      <div className='grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-10'>
+        <div className='lg:col-span-5'>
+          <span className='mb-4 block text-sm font-bold uppercase tracking-wider text-custom-primary-color'>FAQ</span>
+
+          <h2 className='max-w-lg text-3xl font-bold leading-tight tracking-tight text-slate-900 md:text-5xl'>كل ما تحتاج معرفته عن نظام إدارة الشحنات الذكي</h2>
+
+          <p className='mt-6 max-w-md text-base leading-8 text-gray-600'>تعرف على طريقة عمل المنصة، إدارة الشحنات، الاشتراكات، والصلاحيات قبل البدء باستخدام النظام.</p>
         </div>
 
-        <div className='lg:col-span-6'>
-          <Tabs defaultValue={fallbackTab} className='w-full'>
-            {/* أشرطة التبويب المخصصة لتطابق التصميم */}
-            <TabsList className='w-full justify-start h-auto bg-transparent p-0 border-b border-gray-100 rounded-none flex-wrap gap-2 md:gap-4 mb-8'>
-              {cargoFaqData.map(tab => (
-                <TabsTrigger key={tab.value} value={tab.value} className='data-[state=active]:bg-custom-primary-color data-[state=active]:text-white data-[state=inactive]:text-gray-500 hover:text-gray-900 px-5 py-2.5 rounded-none font-medium text-sm transition-all shadow-none border-none h-auto'>
+        <div className='lg:col-span-7'>
+          <Tabs defaultValue={faqData[0].value} className='w-full'>
+            <TabsList className='mb-10 flex h-auto w-fit flex-wrap gap-2 rounded-full bg-gray-100 p-1'>
+              {faqData.map(tab => (
+                <TabsTrigger key={tab.value} value={tab.value} className='rounded-full px-6 py-2.5 text-sm font-medium text-gray-600 transition-all data-[state=active]:bg-custom-primary-color data-[state=active]:text-white'>
                   {tab.label}
                 </TabsTrigger>
               ))}
             </TabsList>
 
-            {/* محتوى الأسئلة لكل تبويب */}
-            {cargoFaqData.map(tab => (
-              <TabsContent key={tab.value} value={tab.value} className='mt-0 focus-visible:outline-none'>
-                <Accordion type='single' collapsible className='w-full space-y-2'>
+            {faqData.map(tab => (
+              <TabsContent key={tab.value} value={tab.value} className='mt-0'>
+                <Accordion type='single' collapsible className='w-full space-y-3'>
                   {tab.items.map(item => (
-                    <AccordionItem key={item.id} value={item.id} className='border-b border-gray-200 py-2'>
-                      <AccordionTrigger className='text-left text-slate-800 hover:text-custom-primary-color font-medium text-base md:text-lg hover:no-underline transition-colors py-4'>{item.question}</AccordionTrigger>
-                      <AccordionContent className='text-gray-600 text-sm md:text-base leading-relaxed pt-2 pb-4'>{item.answer}</AccordionContent>
+                    <AccordionItem key={item.id} value={item.id} className='rounded-xl border border-gray-200 px-5 transition-colors hover:border-custom-primary-color'>
+                      <AccordionTrigger className='py-5 text-right text-base font-medium text-slate-800 hover:text-custom-primary-color hover:no-underline md:text-lg'>{item.question}</AccordionTrigger>
+
+                      <AccordionContent className='pb-5 text-sm leading-7 text-gray-600 md:text-base'>{item.answer}</AccordionContent>
                     </AccordionItem>
                   ))}
                 </Accordion>

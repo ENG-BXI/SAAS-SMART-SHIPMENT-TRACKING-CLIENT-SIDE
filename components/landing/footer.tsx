@@ -1,146 +1,139 @@
-import React from 'react';
 import Link from 'next/link';
 import {ArrowUpRight, Facebook, Twitter, Instagram, Youtube, PhoneCall} from 'lucide-react';
 
+import FooterBrand from './footer-brand';
+
+const platformLinks = [
+  {
+    label: 'About Us',
+    href: '#about'
+  },
+  {
+    label: 'Services',
+    href: '#services'
+  },
+  {
+    label: 'Explore',
+    href: '#explore'
+  },
+  {
+    label: 'FAQ',
+    href: '#faq'
+  }
+];
+
+const companyLinks = [
+  {
+    label: 'Register Company',
+    href: '/register'
+  },
+  {
+    label: 'Login',
+    href: '/login'
+  }
+];
+
 export const Footer = () => {
   return (
-    <footer className='bg-[#0B0B0B] text-white pt-16 pb-8 border-t border-zinc-900 font-sans'>
-      <div className='max-w-7xl mx-auto px-6 md:px-12'>
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 pb-16'>
-          <div className='lg:col-span-3 flex flex-col justify-between space-y-8'>
+    <footer className='overflow-hidden border-t border-zinc-900 bg-[#0B0B0B] pt-16 pb-8 font-sans text-white'>
+      <div className='mx-auto max-w-7xl px-6 md:px-12'>
+        <div className='grid grid-cols-1 gap-12 pb-16 md:grid-cols-2 lg:grid-cols-12 lg:gap-8'>
+          {/* Brand */}
+          <div className='flex flex-col justify-between space-y-8 lg:col-span-3'>
             <div className='flex items-center gap-2'>
-              <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' className='text-custom-primary-color fill-current'>
-                <path d='M2 21L22 12L2 3V10L16 12L2 14V21Z' />
-              </svg>
-              <span className='font-bold text-xl tracking-tight text-white'>
-                S3 <span className='text-zinc-200 font-medium'>Tracking</span>
+              <div className='flex h-8 w-8 items-center justify-center rounded-lg bg-custom-primary-color'>
+                <svg width='18' height='18' viewBox='0 0 24 24' fill='white'>
+                  <path d='M2 21L22 12L2 3V10L16 12L2 14V21Z' />
+                </svg>
+              </div>
+              <span className='text-xl font-bold'>
+                S3 <span className='font-medium text-zinc-300'>Tracking System</span>
               </span>
             </div>
-
-            <div className='flex items-center gap-5 text-zinc-400'>
-              <Link href='#' aria-label='Facebook' className='hover:text-custom-primary-color transition-colors'>
-                <Facebook className='h-4 w-4' />
-              </Link>
-              <Link href='#' aria-label='Twitter' className='hover:text-custom-primary-color transition-colors'>
-                <Twitter className='h-4 w-4' />
-              </Link>
-              <Link href='#' aria-label='Instagram' className='hover:text-custom-primary-color transition-colors'>
-                <Instagram className='h-4 w-4' />
-              </Link>
-              <Link href='#' aria-label='Youtube' className='hover:text-custom-primary-color transition-colors'>
-                <Youtube className='h-4 w-4' />
-              </Link>
-              <Link href='#' aria-label='Whatsapp' className='hover:text-custom-primary-color transition-colors'>
-                <PhoneCall className='h-4 w-4' />
-              </Link>
+            <div className='flex gap-5 text-zinc-400'>
+              {[Facebook, Twitter, Instagram, Youtube, PhoneCall].map((Icon, index) => (
+                <Link key={index} href='#' className='transition hover:text-custom-primary-color'>
+                  <Icon className='h-4 w-4' />
+                </Link>
+              ))}
             </div>
           </div>
-
-          <div className='lg:col-span-2 flex flex-col space-y-4'>
-            <h4 className='text-sm font-bold tracking-wider text-white uppercase'>Services</h4>
-            <ul className='space-y-3'>
-              <li>
-                <Link href='/services/air' className='text-zinc-400 hover:text-white text-sm transition-colors'>
-                  Air Freight
-                </Link>
-              </li>
-              <li>
-                <Link href='/services/truck' className='text-zinc-400 hover:text-white text-sm transition-colors'>
-                  Truck Freight
-                </Link>
-              </li>
-              <li>
-                <Link href='/services/warehousing' className='text-zinc-400 hover:text-white text-sm transition-colors'>
-                  Warehousing
-                </Link>
-              </li>
-              <li>
-                <Link href='/services/rail' className='text-zinc-400 hover:text-white text-sm transition-colors'>
-                  Rail Freight
-                </Link>
-              </li>
-              <li>
-                <Link href='/services/ship' className='text-zinc-400 hover:text-white text-sm transition-colors'>
-                  Ship freight
-                </Link>
-              </li>
-              <li>
-                <Link href='/services/customs' className='text-zinc-400 hover:text-white text-sm transition-colors'>
-                  Customs Brokerage
-                </Link>
-              </li>
+          {/* Navigation */}
+          <div className='space-y-4 lg:col-span-2'>
+            <h4 className='text-sm font-bold uppercase tracking-wider'>Platform</h4>
+            <ul className='space-y-3 text-sm text-zinc-400'>
+              {platformLinks.map(item => (
+                <li key={item.href}>
+                  <Link href={item.href} className='transition hover:text-white'>
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
+          {/* Company */}
+          <div className='space-y-4 lg:col-span-2'>
+            <h4 className='text-sm font-bold uppercase tracking-wider'>Company</h4>
 
-          <div className='lg:col-span-2 flex flex-col space-y-4'>
-            <h4 className='text-sm font-bold tracking-wider text-white uppercase'>Company</h4>
-            <ul className='space-y-3'>
-              <li>
-                <Link href='/' className='text-zinc-400 hover:text-white text-sm transition-colors'>
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href='/about' className='text-zinc-400 hover:text-white text-sm transition-colors'>
-                  About us
-                </Link>
-              </li>
-              <li>
-                <Link href='/team' className='text-zinc-400 hover:text-white text-sm transition-colors'>
-                  Our team
-                </Link>
-              </li>
-              <li>
-                <Link href='/careers' className='text-zinc-400 hover:text-white text-sm transition-colors'>
-                  Careers
-                </Link>
-              </li>
-              <li>
-                <Link href='/blog' className='text-zinc-400 hover:text-white text-sm transition-colors'>
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link href='/contact' className='text-zinc-400 hover:text-white text-sm transition-colors'>
-                  Contact
-                </Link>
-              </li>
+            <ul className='space-y-3 text-sm text-zinc-400'>
+              {companyLinks.map(item => (
+                <li key={item.href}>
+                  <Link href={item.href} className='transition hover:text-white'>
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
+          {/* Contact */}
+          <div className='space-y-6 lg:col-span-5 lg:pl-12'>
+            <div className='flex justify-between'>
+              <h3 className='text-3xl font-normal md:text-4xl'>Get in Touch</h3>
 
-          <div className='lg:col-span-5 flex flex-col justify-between space-y-6 lg:pl-12'>
-            <div className='flex items-start justify-between'>
-              <h3 className='text-3xl md:text-4xl font-normal tracking-tight text-white'>Get in Touch</h3>
-              <div className='text-zinc-500 hover:text-white cursor-pointer p-1 transition-colors'>
-                <ArrowUpRight className='h-8 w-8 stroke-[1.5]' />
-              </div>
+              <Link href='/register-company'>
+                <ArrowUpRight className='h-8 w-8 text-zinc-500 transition hover:text-white' />
+              </Link>
             </div>
 
             <div className='space-y-5'>
               <div>
-                <span className='text-xs text-zinc-500 uppercase tracking-wider block mb-1'>Email</span>
-                <a href='mailto:contact@S3 Tracking.com' className='text-lg md:text-xl font-medium hover:text-custom-primary-color transition-colors'>
-                  contact@S3TrackingSystem.com
+                <span className='text-xs uppercase text-zinc-500'>Email</span>
+
+                <a href='mailto:abdalrhman.muneer.info@gmail.com' className='block text-lg font-medium transition hover:text-custom-primary-color'>
+                  abdalrhman.muneer.info@gmail.com
                 </a>
               </div>
 
               <div>
-                <span className='text-xs text-zinc-500 uppercase tracking-wider block mb-1'>Phone</span>
-                <a href='tel:+9293339296' className='text-lg md:text-xl font-medium hover:text-custom-primary-color transition-colors'>
-                  +999999999
+                <span className='text-xs uppercase text-zinc-500'>Phone</span>
+
+                <a href='tel:+967776935953' className='block text-lg font-medium transition hover:text-custom-primary-color'>
+                  +967776935953
                 </a>
               </div>
 
               <div>
-                <span className='text-xs text-zinc-500 uppercase tracking-wider block mb-1'>Office Location</span>
-                <p className='text-lg md:text-xl font-medium text-zinc-200'>100 S Main St, New York, NY</p>
+                <span className='text-xs uppercase text-zinc-500'>Location</span>
+
+                <p className='text-lg text-zinc-200'>Yemen</p>
               </div>
             </div>
+
+            <Link href='/register-company' className='inline-flex items-center gap-2 rounded-full bg-custom-primary-color px-7 py-3 text-sm font-semibold transition hover:opacity-90'>
+              Start Your Company
+              <ArrowUpRight className='h-4 w-4' />
+            </Link>
           </div>
         </div>
-        <div className='border-t border-zinc-900 pt-8 mt-4 text-center'>
-          <p className='text-xs tracking-wide text-zinc-500'>Copyright 2025 S3 Tracking by Abdo</p>
-        </div>
+      </div>
+      <FooterBrand />
+      <div className='mt-8 border-t border-zinc-900 pt-8 text-center'>
+        <p className='text-xs tracking-wide text-zinc-500'>
+          Copyright {new Date().getFullYear()} S3 Tracking System by{' '}
+          <Link className='text-custom-primary-color hover:underline' target='_blank' href={'https://abdulrhman-portfolio-code.vercel.app/'}>
+            Abdulrhman Muneer
+          </Link>
+        </p>
       </div>
     </footer>
   );

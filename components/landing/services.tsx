@@ -45,7 +45,7 @@ const listServiceItems: ServicesItem[] = [
 ];
 const Services = () => {
   return (
-    <section className='my-20 flex flex-col items-center px-5 container mx-auto'>
+    <section id='services' className='my-20 flex flex-col items-center px-5 container mx-auto'>
       <h6 className='mb-2 text-xl text-custom-primary-color'>Our Services</h6>
 
       <h2 className='section__title text-center'>Trusted Logistics Partner for Worldwide Shipping</h2>
@@ -67,8 +67,7 @@ function ServicesItem({title, icon, description, index}: ServicesItem & {index: 
   return (
     <div className={`group relative overflow-hidden rounded-3xl border bg-background p-8 transition-all duration-500 hover:shadow-xl ${index === 0 || index == 4 ? 'md:row-span-2' : ''} ${index == listServiceItems.length - 1 ? 'col-span-2' : ''}`}>
       {/* Hover background */}
-
-      <div className='absolute inset-0 bg-gradient-to-br from-custom-primary-color/10 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100' />
+      <div className='pointer-events-none absolute inset-0 bg-linear-to-br from-custom-primary-color/10 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100' />{' '}
       <div className='relative z-10 flex h-full flex-col justify-between'>
         <div>
           <div className='mb-8 flex size-16 items-center justify-center rounded-2xl bg-custom-primary-color/10'>

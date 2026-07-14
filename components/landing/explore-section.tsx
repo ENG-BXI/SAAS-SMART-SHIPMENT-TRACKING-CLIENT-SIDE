@@ -27,7 +27,7 @@ const previewItems = [
 
 function ExploreSection() {
   return (
-    <section className='container mx-auto my-28 px-5'>
+    <section id='explore' className='container mx-auto my-28 px-5'>
       <div className='mb-12 text-center'>
         <h6 className='mb-2 text-xl text-custom-primary-color'>واجهات المنصة</h6>
 

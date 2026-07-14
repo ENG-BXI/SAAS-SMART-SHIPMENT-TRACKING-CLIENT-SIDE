@@ -1,6 +1,6 @@
 import React from 'react';
-import {LucideIcon} from 'lucide-react';
-import {Check} from 'lucide-react';
+import {Check, LucideIcon} from 'lucide-react';
+
 import {cn} from '@/lib/utils';
 
 export interface FeatureItem {
@@ -15,51 +15,61 @@ interface FeatureCardProps extends FeatureItem {
 
 export const FEATURES: FeatureItem[] = [
   {
-    title: 'Experienced Logistics',
-    description: 'Our specialists bring decades of experience in freight forwarding and customs clearance, ensuring smooth and efficient supply chain solutions worldwide.'
+    title: 'تتبع الشحنات لحظة بلحظة',
+    description: 'تابع مسار كل شحنة بشكل مباشر، واعرف حالتها الحالية منذ إنشائها وحتى تسليمها للعميل.'
   },
   {
-    title: 'Fast Delivery Commitment',
-    description: 'We understand the urgency of every shipment and act quickly. Optimized routes and tracking technology ensure timely deliveries without unnecessary delays.'
+    title: 'إدارة الفروع والمستودعات',
+    description: 'نظم عمليات جميع الفروع والمستودعات من لوحة تحكم واحدة مع متابعة حركة الشحنات بينها.'
   },
   {
-    title: 'Transparent Pricing Policy',
-    description: 'Our pricing is clear, competitive, and easy to understand for all clients. We guarantee no hidden charges and complete financial transparency every time.'
+    title: 'إدارة السائقين والمركبات',
+    description: 'خصص الشحنات للسائقين، وتابع الرحلات، وأدر أسطول النقل بكفاءة وسهولة.'
   },
   {
-    title: 'Reliable Cargo Handling',
-    description: 'Every shipment is managed with precision and care to avoid risks. From packing to loading, we guarantee your cargo arrives safely and intact.'
+    title: 'إدارة المسارات ونقاط التسليم',
+    description: 'أنشئ مسارات الرحلات وحدد نقاط التسليم والاستلام لضمان وصول الشحنات بأفضل مسار ممكن.'
   },
   {
-    title: 'Comprehensive Solutions',
-    description: 'We cover every step of logistics including warehousing, distribution, and freight. Our integrated services make supply chain management simple and efficient.'
+    title: 'إشعارات وتحديثات فورية',
+    description: 'أرسل تحديثات تلقائية للعملاء والموظفين عند تغير حالة الشحنة أو بدء الرحلة أو اكتمال التسليم.'
   },
   {
-    title: 'Satisfaction Guarantee',
-    description: 'Your trust is our highest priority across all shipments. We back our services with responsive support and a strong customer satisfaction guarantee.'
+    title: 'تقارير تشغيلية وإحصائيات',
+    description: 'استعرض أداء الشركة، عدد الشحنات، الإيرادات، الرحلات، ونسب الإنجاز من خلال تقارير ورسوم بيانية.'
   }
 ];
+
 function FeatureCard({title, description, className}: FeatureCardProps) {
   return (
-    <div className={cn('flex gap-6', className)}>
-      <div className='flex h-24 w-24 shrink-0 items-center justify-center rounded-3xl bg-black text-white'>
-        <Check className='h-10 w-10 stroke-[3]' />
-      </div>
+    <div className={cn('group rounded-3xl border border-border bg-background p-6 transition-all duration-300 hover:-translate-y-1 hover:border-custom-primary-color/30 hover:shadow-xl', className)}>
+      <div className='flex gap-5'>
+        <div className='flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-custom-primary-color/10 text-custom-primary-color transition-all duration-300 group-hover:bg-custom-primary-color group-hover:text-white'>
+          <Check className='h-8 w-8 stroke-[2.5]' />
+        </div>
 
-      <div className='space-y-3'>
-        <h3 className='text-2xl font-semibold tracking-tight'>{title}</h3>
+        <div className='space-y-3'>
+          <h3 className='text-xl font-bold transition-colors duration-300 group-hover:text-custom-primary-color'>{title}</h3>
 
-        <p className='max-w-sm text-base leading-8 text-muted-foreground'>{description}</p>
+          <p className='text-sm leading-7 text-muted-foreground'>{description}</p>
+        </div>
       </div>
     </div>
   );
 }
+
 const WhyChooseUs = () => {
   return (
-    <section className='flex container mx-auto flex-col items-center my-20'>
-      <h6 className='text-custom-primary-color text-xl mb-2'>Why Choose Us</h6>
-      <h2 className='section__title'>Trusted Logistics Partner for Worldwide Shipping</h2>
-      <div className='grid gap-x-16 gap-y-14 lg:grid-cols-3 mt-10'>
+    <section id='why-choose-us' className='container mx-auto my-24 px-4'>
+      <div className='mx-auto max-w-3xl text-center'>
+        <span className='text-sm font-semibold uppercase tracking-[0.25em] text-custom-primary-color'>لماذا تختار نظامنا؟</span>
+
+        <h2 className='mt-4 text-4xl font-bold leading-tight lg:text-5xl'>منصة سحابية متكاملة لإدارة شركات الشحن والخدمات اللوجستية</h2>
+
+        <p className='mt-6 text-lg leading-8 text-muted-foreground'>صُمم نظامنا لمساعدة شركات الشحن على إدارة عملياتها اليومية بكفاءة، بدءًا من إدارة الشحنات والعملاء والسائقين، وصولًا إلى التقارير والمحاسبة، كل ذلك من خلال منصة واحدة سهلة الاستخدام وآمنة.</p>
+      </div>
+
+      <div className='mt-16 grid gap-6 md:grid-cols-2 xl:grid-cols-3'>
         {FEATURES.map(feature => (
           <FeatureCard key={feature.title} {...feature} />
         ))}
