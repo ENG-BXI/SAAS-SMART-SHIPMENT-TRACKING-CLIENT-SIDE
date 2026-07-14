@@ -3,36 +3,42 @@
     "title": "Home",
     "description": "Submit a subscription request to create a company account and start using the platform.",
     "registerCompany": {
-      "title": "New company subscription request",
+      "title": "New Company Subscription Request",
       "description": "This page is currently used to submit a request for creating a new company."
     },
     "registerCompanyForm": {
-      "tempNote": "Temporary landing page for company subscription requests",
-      "title": "Create a new company",
-      "description": "Submit a request to create a new company and enable it to use the platform for shipment operations.",
+      "tempNote": "Temporary page for company subscription requests",
+      "title": "Create a New Company",
+      "description": "Submit a request to create a new company and enable it to use the platform for shipping operations.",
+      "sections": {
+        "companyInfo": "Company Information",
+        "companyInfoDescription": "Enter the basic company details and subscription plan.",
+        "accountInfo": "Account Details",
+        "accountInfoDescription": "Enter the login credentials that will be used to access the platform."
+      },
       "fields": {
         "name": {
-          "label": "Company name",
-          "placeholder": "Example: Fast Line Shipping"
+          "label": "Company Name",
+          "placeholder": "e.g.: Fast Line Shipping Company"
         },
         "subscriptionType": {
-          "label": "Subscription plan",
-          "placeholder": "Choose a subscription plan"
+          "label": "Subscription Plan",
+          "placeholder": "Select a subscription plan"
         },
         "location": {
-          "label": "Company location",
-          "placeholder": "Example: Riyadh, Saudi Arabia"
+          "label": "Company Location",
+          "placeholder": "e.g.: Riyadh, Saudi Arabia"
         },
         "companyEmail": {
-          "label": "Company email",
-          "placeholder": "Example: example@gmail.com"
+          "label": "Company Email",
+          "placeholder": "e.g.: example@gmail.com"
         },
         "companyPassword": {
           "label": "Password",
           "placeholder": "***********"
         },
         "confirmPassword": {
-          "label": "Confirm password",
+          "label": "Confirm Password",
           "placeholder": "***********"
         }
       },
@@ -875,7 +881,7 @@
         "pointName": "Point Name",
         "pointOrder": "Point Order",
         "locationTitle": "Show Map Location",
-        "locationDescription":"Enable map picker for points"
+        "locationDescription": "Enable map picker for points"
       },
       "placeholders": {
         "name": "Enter route name e.g. (Mukalla - Dubai Line)",

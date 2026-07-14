@@ -10,6 +10,12 @@
             "tempNote": "公司订阅请求临时着陆页",
             "title": "创建新公司",
             "description": "提交创建新公司的请求，并使其能够使用平台进行货运操作。",
+            "sections": {
+                "companyInfo": "公司信息",
+                "companyInfoDescription": "输入公司基本信息和订阅计划。",
+                "accountInfo": "账户信息",
+                "accountInfoDescription": "输入用于登录平台的凭证。"
+            },
             "fields": {
                 "name": {
                     "label": "公司名称",
