@@ -6,6 +6,7 @@ import ImageSlider from '@/components/landing/image-slider';
 import Services from '@/components/landing/services';
 import ExploreSection from '@/components/landing/explore-section';
 import WhyChooseUs from '@/components/landing/why-choose-us';
+import DriverAppSection from '@/components/landing/driver-app-section';
 export default function Home() {
   return (
     <>
@@ -14,6 +15,7 @@ export default function Home() {
       <Services />
       <ExploreSection />
       <WhyChooseUs />
+      <DriverAppSection />
       <ImageSlider />
       <FaqSection />
       <CtaBanner />
