@@ -1,3 +1,4 @@
+'use client';
 import Link from 'next/link';
 import {ArrowUpRight, Facebook, Twitter, Instagram, Youtube, PhoneCall} from 'lucide-react';
 
