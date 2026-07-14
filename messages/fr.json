@@ -10,6 +10,12 @@
             "tempNote": "Page de destination temporaire pour les demandes d'abonnement d'entreprise",
             "title": "Créer une nouvelle entreprise",
             "description": "Soumettez une demande pour créer une nouvelle entreprise et lui permettre d'utiliser la plateforme pour les opérations d'expédition.",
+            "sections": {
+                "companyInfo": "Informations de l'entreprise",
+                "companyInfoDescription": "Entrez les informations de base de l'entreprise et le plan d'abonnement.",
+                "accountInfo": "Informations du compte",
+                "accountInfoDescription": "Entrez les identifiants de connexion qui seront utilisés pour accéder à la plateforme."
+            },
             "fields": {
                 "name": {
                     "label": "Nom de l'entreprise",

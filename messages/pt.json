@@ -10,6 +10,12 @@
             "tempNote": "Página de destino temporária para solicitações de assinatura de empresa",
             "title": "Criar uma nova empresa",
             "description": "Envie uma solicitação para criar uma nova empresa e permitir que ela use a plataforma para operações de envio.",
+            "sections": {
+                "companyInfo": "Informações da empresa",
+                "companyInfoDescription": "Insira os dados básicos da empresa e o plano de assinatura.",
+                "accountInfo": "Dados da conta",
+                "accountInfoDescription": "Insira as credenciais de login que serão usadas para acessar a plataforma."
+            },
             "fields": {
                 "name": {
                     "label": "Nome da empresa",

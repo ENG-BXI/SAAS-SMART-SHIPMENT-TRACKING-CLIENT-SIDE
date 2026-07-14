@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "@hookform/resolvers": "^5.2.2",
     "@netlify/next": "^1.4.9",
     "@netlify/plugin-nextjs": "^5.15.12",
@@ -19,6 +20,9 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
+    "embla-carousel-autoplay": "^8.6.0",
+    "embla-carousel-react": "^8.6.0",
+    "gsap": "^3.15.0",
     "jsonwebtoken": "^9.0.3",
     "leaflet": "^1.9.4",
     "leaflet-defaulticon-compatibility": "^0.1.2",
@@ -41,6 +45,7 @@
     "tailwind-merge": "^3.4.0",
     "universal-cookie": "^8.1.0",
     "vaul": "^1.1.2",
+    "yet-another-react-lightbox": "^3.32.1",
     "zod": "^4.3.6"
   },
   "devDependencies": {
