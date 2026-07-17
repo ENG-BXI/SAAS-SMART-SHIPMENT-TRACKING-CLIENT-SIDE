@@ -13,6 +13,7 @@ import {toast} from 'sonner';
 import {requestSubscriptionCompany} from '@/actions/request-subscription-company';
 import useGetSubscriptionTypeAsOptions from '@/app/[locale]/(dashboard)/(admin)/company/_services/get-all-subscription-type-as-options';
 import {useTranslations} from 'next-intl';
+import Attachment from './attachment';
 
 const createCompanyFormSchema = z.object({
   name: z.string().min(3),
@@ -20,7 +21,13 @@ const createCompanyFormSchema = z.object({
   companyEmail: z.email(),
   companyPassword: z.string().min(8),
   confirmPassword: z.string().min(8),
-  subscriptionType: z.string().min(1)
+  subscriptionType: z.string().min(1),
+  receipt: z
+    .custom<File>(file => file instanceof File, {
+      message: 'Receipt is required'
+    })
+    .refine(file => file.size <= 5 * 1024 * 1024, 'Max file size is 5MB')
+    .refine(file => ['image/jpeg', 'image/png', 'image/webp'].includes(file.type), 'Only JPG, PNG, WEBP allowed')
 });
 
 export type createCompanyFormData = z.infer<typeof createCompanyFormSchema>;
@@ -37,13 +44,22 @@ function RegisterCompanyForm() {
       companyEmail: '',
       companyPassword: '',
       confirmPassword: '',
-      subscriptionType: ''
+      subscriptionType: '',
+      receipt: undefined as unknown as File
     }
   });
   const {data: SubscriptionData, isLoading: isSubscriptionLoading, isError: isSubscriptionError, error: subscriptionError} = useGetSubscriptionTypeAsOptions();
   function onSubmit(data: createCompanyFormData) {
     startTransition(async () => {
-      const {error, message} = await requestSubscriptionCompany(data);
+      const formData = new FormData();
+      Object.entries(data).forEach(([key, value]) => {
+        if (value instanceof File) {
+          formData.append(key, value);
+        } else {
+          formData.append(key, String(value));
+        }
+      });
+      const {error, message} = await requestSubscriptionCompany(formData);
       if (error) toast.error(message);
       else {
         toast.success(message);
@@ -87,6 +103,17 @@ function RegisterCompanyForm() {
               <Controller name='confirmPassword' control={formHook.control} render={({field, fieldState}) => <CustomInput disabled={isPending} type='controller' field={field} invalid={fieldState.invalid} error={fieldState.error} hasLabel required label={t('fields.confirmPassword.label')} placeHolder={t('fields.confirmPassword.placeholder')} />} />
             </div>
           </section>
+          <Controller
+            name='receipt'
+            control={formHook.control}
+            render={({field, fieldState}) => (
+              <div className='space-y-2'>
+                <Attachment value={field.value} onChange={field.onChange} accept='image/*' disabled={isPending} />
+
+                {fieldState.error && <p className='text-sm text-destructive'>{fieldState.error.message}</p>}
+              </div>
+            )}
+          />
           {/* Submit */}
           <div className='flex justify-end pt-4'>
             <CustomButton disable={isPending} IsSubmit text={isPending ? t('actions.submitting') : t('actions.submit')} icon={<PlusCircle />} className='bg-black' />
