@@ -10,6 +10,7 @@ import {ICompany} from '../_services/get-subscription-requests';
 import {useTransition} from 'react';
 import {acceptCompany} from '../_actions';
 import {toast} from 'sonner';
+import SubscriptionVoucher from '../../../../../../components/subscription-voucher';
 
 interface ISubscriptionRequestCard {
   company: ICompany;
@@ -57,14 +58,21 @@ function SubscriptionRequestCard({company}: ISubscriptionRequestCard) {
           <p className='mt-4 text-sm text-muted-foreground'>{t('card.planPrice')}</p>
           <p className='text-base font-semibold'>{`${company.subscription.type.price} ${tShared('currencyRiyal')}`}</p>
         </div>
+
         <div className='rounded-2xl border border-slate-200/80 dark:border-slate-500 p-4'>
           <p className='text-sm text-muted-foreground'>{t('card.duration')}</p>
-          <p className='mt-2 text-base font-semibold '>{isYearly ? `${duration} ${t('card.year')}` : `${duration} ${t('card.month')}`}</p>
+          <p className='mt-2 text-base font-semibold'>{isYearly ? `${duration} ${t('card.year')}` : `${duration} ${t('card.month')}`}</p>
           <p className='mt-4 text-sm text-muted-foreground'>{t('card.subscriptionStart')}</p>
-          <p className='text-base font-semibold '>{company.subscription.startDate ? formattedDate(company.subscription.startDate) : t('card.notSet')}</p>
+          <p className='text-base font-semibold'>{company.subscription.startDate ? formattedDate(company.subscription.startDate) : t('card.notSet')}</p>
           <p className='mt-4 text-sm text-muted-foreground'>{t('card.subscriptionEnd')}</p>
-          <p className='text-base font-semibold '>{company.subscription.endDate ? formattedDate(company.subscription.endDate) : t('card.notSet')}</p>
+          <p className='text-base font-semibold'>{company.subscription.endDate ? formattedDate(company.subscription.endDate) : t('card.notSet')}</p>
         </div>
+        {/* هنا ضع السند */}
+        {company.subscription.voucherSecureUrl && (
+          <div className='sm:col-span-2'>
+            <SubscriptionVoucher url={company.subscription.voucherSecureUrl} />
+          </div>
+        )}
       </CardContent>
       <CardFooter className='flex flex-wrap items-center gap-3'>
         <Button asChild variant='outline' size='sm'>

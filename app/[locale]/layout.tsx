@@ -39,7 +39,7 @@ export default async function RootLayout({
   setRequestLocale(locale);
 
   return (
-    <html lang={locale} dir={isRtl ? 'rtl' : 'ltr'}>
+    <html lang={locale} dir={isRtl ? 'rtl' : 'ltr'} suppressHydrationWarning>
       <body className={`${myFont.className} antialiased`}>
         <NextIntlClientProvider>
           <VisitCounterProvider>
