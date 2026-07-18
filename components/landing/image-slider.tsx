@@ -57,7 +57,7 @@ const ImageSlider = () => {
     []
   );
   return (
-    <Carousel id='image-slider' opts={{align: 'start', loop: true, direction: isRtl ? 'rtl' : 'ltr'}} plugins={[autoplay]} className='w-full'>
+    <Carousel id='image-slider' opts={{align: 'start', loop: true, direction: isRtl ? 'rtl' : 'ltr'}} plugins={[autoplay]} className='px-3 md:px-0 w-full'>
       <CarouselContent className='-ml-6'>
         {sliderData.map((item, index) => (
           <CarouselItem key={`${item.title}-${index}`} className='basis-full pl-6 md:basis-1/2'>
