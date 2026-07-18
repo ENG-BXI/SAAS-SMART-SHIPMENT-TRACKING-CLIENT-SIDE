@@ -89,7 +89,7 @@ function RegisterCompanyForm() {
             <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
               <Controller name='name' control={formHook.control} render={({field, fieldState}) => <CustomInput disabled={isPending} type='controller' field={field} invalid={fieldState.invalid} error={fieldState.error} hasLabel required label={t('fields.name.label')} placeHolder={t('fields.name.placeholder')} />} />
               <Controller name='location' control={formHook.control} render={({field, fieldState}) => <CustomInput disabled={isPending} type='controller' field={field} invalid={fieldState.invalid} error={fieldState.error} hasLabel required label={t('fields.location.label')} placeHolder={t('fields.location.placeholder')} />} />
-              <Controller name='subscriptionType' control={formHook.control} render={({field, fieldState}) => <CustomSelect disabled={isPending} value={field.value} onChange={field.onChange} ref={field.ref} invalid={fieldState.invalid} errorMessage={fieldState.error?.message} isLoading={isSubscriptionLoading} isError={isSubscriptionError} error={subscriptionError?.message} options={SubscriptionData || []} required label={t('fields.subscriptionType.label')} placeHolder={t('fields.subscriptionType.placeholder')} className='col-span-2' />} />
+              <Controller name='subscriptionType' control={formHook.control} render={({field, fieldState}) => <CustomSelect disabled={isPending} value={field.value} onChange={field.onChange} ref={field.ref} invalid={fieldState.invalid} errorMessage={fieldState.error?.message} isLoading={isSubscriptionLoading} isError={isSubscriptionError} error={subscriptionError?.message} options={SubscriptionData || []} required label={t('fields.subscriptionType.label')} placeHolder={t('fields.subscriptionType.placeholder')} className='md:col-span-2' />} />
             </div>
           </section>
           {/* Account Information */}
@@ -100,7 +100,7 @@ function RegisterCompanyForm() {
             </div>
             <Separator />
             <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
-              <Controller name='companyEmail' control={formHook.control} render={({field, fieldState}) => <CustomInput disabled={isPending} type='controller' field={field} invalid={fieldState.invalid} error={fieldState.error} hasLabel required label={t('fields.companyEmail.label')} placeHolder={t('fields.companyEmail.placeholder')} className='col-span-2' />} />
+              <Controller name='companyEmail' control={formHook.control} render={({field, fieldState}) => <CustomInput disabled={isPending} type='controller' field={field} invalid={fieldState.invalid} error={fieldState.error} hasLabel required label={t('fields.companyEmail.label')} placeHolder={t('fields.companyEmail.placeholder')} className='md:col-span-2' />} />
               <Controller name='companyPassword' control={formHook.control} render={({field, fieldState}) => <CustomInput disabled={isPending} type='controller' field={field} invalid={fieldState.invalid} error={fieldState.error} hasLabel required label={t('fields.companyPassword.label')} placeHolder={t('fields.companyPassword.placeholder')} />} />
               <Controller name='confirmPassword' control={formHook.control} render={({field, fieldState}) => <CustomInput disabled={isPending} type='controller' field={field} invalid={fieldState.invalid} error={fieldState.error} hasLabel required label={t('fields.confirmPassword.label')} placeHolder={t('fields.confirmPassword.placeholder')} />} />
             </div>
