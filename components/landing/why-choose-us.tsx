@@ -1,5 +1,6 @@
 import React from 'react';
 import {Check, LucideIcon} from 'lucide-react';
+import {useTranslations} from 'next-intl';
 
 import {cn} from '@/lib/utils';
 
@@ -12,33 +13,6 @@ export interface FeatureItem {
 interface FeatureCardProps extends FeatureItem {
   className?: string;
 }
-
-export const FEATURES: FeatureItem[] = [
-  {
-    title: 'تتبع الشحنات لحظة بلحظة',
-    description: 'تابع مسار كل شحنة بشكل مباشر، واعرف حالتها الحالية منذ إنشائها وحتى تسليمها للعميل.'
-  },
-  {
-    title: 'إدارة الفروع والمستودعات',
-    description: 'نظم عمليات جميع الفروع والمستودعات من لوحة تحكم واحدة مع متابعة حركة الشحنات بينها.'
-  },
-  {
-    title: 'إدارة السائقين والمركبات',
-    description: 'خصص الشحنات للسائقين، وتابع الرحلات، وأدر أسطول النقل بكفاءة وسهولة.'
-  },
-  {
-    title: 'إدارة المسارات ونقاط التسليم',
-    description: 'أنشئ مسارات الرحلات وحدد نقاط التسليم والاستلام لضمان وصول الشحنات بأفضل مسار ممكن.'
-  },
-  {
-    title: 'إشعارات وتحديثات فورية',
-    description: 'أرسل تحديثات تلقائية للعملاء والموظفين عند تغير حالة الشحنة أو بدء الرحلة أو اكتمال التسليم.'
-  },
-  {
-    title: 'تقارير تشغيلية وإحصائيات',
-    description: 'استعرض أداء الشركة، عدد الشحنات، الإيرادات، الرحلات، ونسب الإنجاز من خلال تقارير ورسوم بيانية.'
-  }
-];
 
 function FeatureCard({title, description, className}: FeatureCardProps) {
   return (
@@ -59,18 +33,21 @@ function FeatureCard({title, description, className}: FeatureCardProps) {
 }
 
 const WhyChooseUs = () => {
+  const t = useTranslations('landingPage.whyChooseUs');
+  const features = t.raw('features') as FeatureItem[];
+
   return (
     <section id='why-choose-us' className='container mx-auto my-24 px-4'>
       <div className='mx-auto max-w-3xl text-center'>
-        <span className='text-sm font-semibold uppercase tracking-[0.25em] text-custom-primary-color'>لماذا تختار نظامنا؟</span>
+        <span className='text-sm font-semibold uppercase tracking-[0.25em] text-custom-primary-color'>{t('eyebrow')}</span>
 
-        <h2 className='mt-4 text-4xl font-bold leading-tight lg:text-5xl'>منصة سحابية متكاملة لإدارة شركات الشحن والخدمات اللوجستية</h2>
+        <h2 className='mt-4 text-4xl font-bold leading-tight lg:text-5xl'>{t('title')}</h2>
 
-        <p className='mt-6 text-lg leading-8 text-muted-foreground'>صُمم نظامنا لمساعدة شركات الشحن على إدارة عملياتها اليومية بكفاءة، بدءًا من إدارة الشحنات والعملاء والسائقين، وصولًا إلى التقارير والمحاسبة، كل ذلك من خلال منصة واحدة سهلة الاستخدام وآمنة.</p>
+        <p className='mt-6 text-lg leading-8 text-muted-foreground'>{t('description')}</p>
       </div>
 
       <div className='mt-16 grid gap-6 md:grid-cols-2 xl:grid-cols-3'>
-        {FEATURES.map(feature => (
+        {features.map(feature => (
           <FeatureCard key={feature.title} {...feature} />
         ))}
       </div>

@@ -1,24 +1,24 @@
 import Image from 'next/image';
+import {useTranslations} from 'next-intl';
 
-const aboutItems = [
-  {
-    title: 'إدارة الشحنات',
-    description: 'تحكم بجميع عمليات الشحن من الإنشاء حتى التسليم مع متابعة كاملة.',
-    image: '/assets/manage-shipment.jpg'
-  },
-  {
-    title: 'التتبع الذكي',
-    description: 'تابع حالة الشحنات ومواقعها بشكل مباشر وسهل.',
-    image: '/assets/track-shipment.jpg'
-  },
-  {
-    title: 'إدارة العملاء',
-    description: 'نظم بيانات العملاء وحسن تجربة التعامل معهم.',
-    image: '/assets/manager-clients.jpg '
-  }
+const aboutImages = [
+  '/assets/manage-shipment.jpg',
+  '/assets/track-shipment.jpg',
+  '/assets/manager-clients.jpg '
 ];
 
+interface AboutItem {
+  title: string;
+  description: string;
+}
+
 const About = () => {
+  const t = useTranslations('landingPage.about');
+  const aboutItems = (t.raw('items') as AboutItem[]).map((item, index) => ({
+    ...item,
+    image: aboutImages[index]
+  }));
+
   return (
     <section id='about' className='m-3 grid grid-cols-1 gap-5 md:grid-cols-3'>
       {aboutItems.map((item, index) => (

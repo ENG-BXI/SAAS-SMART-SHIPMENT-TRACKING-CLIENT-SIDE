@@ -15,9 +15,11 @@ type Props = {
   onChange: (file?: File) => void;
   accept?: string;
   disabled?: boolean;
+  uploadLabel: string;
+  removeLabel: string;
 };
 
-export default function Attachment({value, onChange, accept = 'image/*', disabled}: Props) {
+export default function Attachment({value, onChange, accept = 'image/*', disabled, uploadLabel, removeLabel}: Props) {
   const inputRef = useRef<HTMLInputElement>(null);
   const [open, setOpen] = useState(false);
 
@@ -55,7 +57,7 @@ export default function Attachment({value, onChange, accept = 'image/*', disable
           '
         >
           <FileImage className='h-8 w-8 mb-2' />
-          <span className='text-sm'>Upload document image</span>
+          <span className='text-sm'>{uploadLabel}</span>
         </button>
       ) : (
         <>
@@ -73,7 +75,7 @@ export default function Attachment({value, onChange, accept = 'image/*', disable
             <AttachmentActions>
               <AttachmentAction
                 type='button'
-                aria-label='Remove file'
+                aria-label={removeLabel}
                 onClick={() => {
                   onChange(undefined);
 

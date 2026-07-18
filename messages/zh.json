@@ -48,6 +48,297 @@
             }
         }
     },
+    "landingPage": {
+        "hero": {
+            "imageAlt": "货运平台",
+            "eyebrow": "智能货运管理平台",
+            "titleLine1": "管理您的货运",
+            "titleLine2": "更简单、更快捷",
+            "description": "一个集成的平台，帮助货运公司在一个地方追踪货运、管理客户并优化配送运营。",
+            "actions": {
+                "subscribe": "立即订阅",
+                "learnMore": "了解更多"
+            }
+        },
+        "about": {
+            "items": [
+                {
+                    "title": "货运管理",
+                    "description": "从创建到交付全程掌控所有货运操作，并实现全面追踪。"
+                },
+                {
+                    "title": "智能追踪",
+                    "description": "直接轻松地追踪货运状态和位置。"
+                },
+                {
+                    "title": "客户管理",
+                    "description": "组织客户数据并提升他们的体验。"
+                }
+            ]
+        },
+        "services": {
+            "eyebrow": "我们的服务",
+            "title": "您在货运和物流管理方面值得信赖的合作伙伴",
+            "items": [
+                {
+                    "title": "货运追踪",
+                    "description": "为客户提供专属页面，查看货运状态、当前位置、下一站以及行程总站点数。"
+                },
+                {
+                    "title": "客户管理",
+                    "description": "让每家公司都能管理所有客户、数据、货运，并轻松追踪配送运营。"
+                },
+                {
+                    "title": "货运路线管理",
+                    "description": "创建包含多个站点和区域的自定义货运路线，以组织货运流动。"
+                },
+                {
+                    "title": "司机管理",
+                    "description": "添加司机并将其分配至其负责的货运，配备专属移动应用程序进行行程追踪。"
+                },
+                {
+                    "title": "轻松创建货运",
+                    "description": "以有序快捷的方式创建货运、选择路线和司机，并添加客户及其物品。"
+                },
+                {
+                    "title": "客户自动通知",
+                    "description": "当货运从一个站点移动到另一个站点时，向客户发送包含货运追踪链接的消息。"
+                },
+                {
+                    "title": "备注与建议",
+                    "description": "能够发送备注、建议和问题，以改进平台和开发服务。"
+                }
+            ]
+        },
+        "explore": {
+            "eyebrow": "平台界面",
+            "title": "使用前探索系统",
+            "description": "以下所有图片均来自真实系统，以说明管理货运、客户和司机的体验。",
+            "items": [
+                {
+                    "title": "仪表盘",
+                    "description": "从一个仪表盘追踪统计数据、货运、客户和司机。"
+                },
+                {
+                    "title": "创建货运",
+                    "description": "在几秒钟内创建新货运、选择路线、司机和客户。"
+                },
+                {
+                    "title": "货运追踪",
+                    "description": "为客户显示货运状态、当前位置和即将到达的站点。"
+                }
+            ]
+        },
+        "whyChooseUs": {
+            "eyebrow": "为什么选择我们的系统？",
+            "title": "一个集成的云端平台，用于管理货运和物流公司",
+            "description": "我们的系统旨在帮助货运公司高效管理日常运营，从货运、客户和司机管理，到报告和会计，全部通过一个易于使用且安全的平台完成。",
+            "features": [
+                {
+                    "title": "实时货运追踪",
+                    "description": "直接追踪每个货运的路线，并了解其从创建到交付给客户的当前状态。"
+                },
+                {
+                    "title": "分支机构和仓库管理",
+                    "description": "从一个仪表盘组织所有分支机构和仓库的运营，并追踪它们之间的货运流动。"
+                },
+                {
+                    "title": "司机和车辆管理",
+                    "description": "将货运分配给司机，追踪行程，并高效轻松地管理您的运输车队。"
+                },
+                {
+                    "title": "路线和配送点管理",
+                    "description": "创建行程路线并定义配送和取货点，以确保货运以最佳可能路线送达。"
+                },
+                {
+                    "title": "即时通知和更新",
+                    "description": "当货运状态改变、行程开始或交付完成时，向客户和员工发送自动更新。"
+                },
+                {
+                    "title": "运营报告和统计",
+                    "description": "通过报告和图表查看公司绩效、货运数量、收入、行程和完成率。"
+                }
+            ]
+        },
+        "driverApp": {
+            "eyebrow": "司机移动应用程序",
+            "titleLine1": "智能司机应用程序",
+            "titleLine2": "让每一次行程更高效",
+            "description": "通过专用于行程管理、货运追踪和与系统直接通信的应用程序，为您的司机提供专业的工作体验。",
+            "download": "下载司机应用程序",
+            "screenAlt": "司机应用程序屏幕",
+            "features": [
+                "查看分配给司机的所有货运和行程",
+                "在交付过程中一键更新货运状态",
+                "追踪行程详情、站点和货运当前状态",
+                "支持10多种语言，界面简单易用"
+            ]
+        },
+        "imageSlider": {
+            "items": [
+                {
+                    "title": "智能货运管理",
+                    "description": "轻松创建货运、追踪运输阶段，并通过单一仪表盘管理所有配送运营，帮助您提高工作效率和速度。"
+                },
+                {
+                    "title": "直接货运追踪",
+                    "description": "实时监控每个货运的状态，并在持续更新中了解其当前位置和路线，直至送达客户。"
+                },
+                {
+                    "title": "司机和行程管理",
+                    "description": "在司机之间分配货运、追踪行程，并组织运输运营以确保最佳运营绩效。"
+                },
+                {
+                    "title": "客户和账户管理",
+                    "description": "组织客户数据、订单、付款和余额，并提供系统内所有操作的完整历史记录。"
+                },
+                {
+                    "title": "多公司SaaS平台",
+                    "description": "在系统内支持多家公司，具有完整的数据隔离、用户管理和安全权限控制。"
+                }
+            ]
+        },
+        "faq": {
+            "eyebrow": "常见问题",
+            "title": "关于智能货运管理系统您需要了解的一切",
+            "description": "在开始使用系统之前，了解平台的工作原理、货运管理、订阅和权限。",
+            "tabs": [
+                {
+                    "value": "system",
+                    "label": "系统",
+                    "items": [
+                        {
+                            "id": "system-1",
+                            "question": "什么是货运管理系统？",
+                            "answer": "一个SaaS平台，帮助货运和运输公司通过易于使用的仪表盘管理货运、客户、司机、行程和报告。"
+                        },
+                        {
+                            "id": "system-2",
+                            "question": "该系统是否可以用于多家公司？",
+                            "answer": "是的，该系统支持多租户（Multi Tenant），使每家公司拥有独立的账户，并实现数据和权限的完全隔离。"
+                        },
+                        {
+                            "id": "system-3",
+                            "question": "我可以管理用户和权限吗？",
+                            "answer": "您可以创建多个用户，并根据公司内每个用户的角色定义不同的权限。"
+                        }
+                    ]
+                },
+                {
+                    "value": "shipments",
+                    "label": "货运",
+                    "items": [
+                        {
+                            "id": "shipment-1",
+                            "question": "如何创建和追踪货运？",
+                            "answer": "您可以创建新货运、添加客户数据和取送点、分配司机，并追踪货运状态直至交付。"
+                        },
+                        {
+                            "id": "shipment-2",
+                            "question": "系统是否提供直接货运追踪？",
+                            "answer": "是的，您可以轻松追踪货运状态和行程，并了解与其相关的最新更新。"
+                        },
+                        {
+                            "id": "shipment-3",
+                            "question": "我可以管理司机和行程吗？",
+                            "answer": "您可以通过仪表盘管理司机、分配行程并监控运输运营的绩效。"
+                        }
+                    ]
+                },
+                {
+                    "value": "subscription",
+                    "label": "订阅",
+                    "items": [
+                        {
+                            "id": "subscription-1",
+                            "question": "系统是否采用订阅模式？",
+                            "answer": "是的，该系统基于SaaS模式，公司可以根据自身需求选择合适的套餐。"
+                        },
+                        {
+                            "id": "subscription-2",
+                            "question": "我以后可以更改套餐吗？",
+                            "answer": "您可以根据公司的发展和需求增长，随时升级或更改套餐。"
+                        }
+                    ]
+                }
+            ]
+        },
+        "ctaBanner": {
+            "imageAlt": "SaaS平台",
+            "title": "准备好发展您公司的货运管理了吗？",
+            "description": "开始使用智能货运管理平台，组织您的运营、追踪行程，并从单一位置管理您的团队。",
+            "action": "立即开始"
+        }
+    },
+    "registerCompanyPage": {
+        "hero": {
+            "title": "新公司订阅请求",
+            "imageAlt": "注册新公司"
+        },
+        "form": {
+            "title": "创建新公司",
+            "description": "提交创建新公司的请求，并使其能够使用平台进行货运操作。",
+            "sections": {
+                "companyInfo": {
+                    "title": "公司信息",
+                    "description": "输入公司基本信息和订阅计划。"
+                },
+                "accountInfo": {
+                    "title": "账户信息",
+                    "description": "输入用于登录平台的凭证。"
+                },
+                "receipt": {
+                    "title": "付款凭证",
+                    "description": "上传付款凭证图片以提交订阅申请并供审核。"
+                }
+            },
+            "fields": {
+                "name": {
+                    "label": "公司名称",
+                    "placeholder": "例如：快速物流货运"
+                },
+                "subscriptionType": {
+                    "label": "订阅计划",
+                    "placeholder": "选择订阅计划"
+                },
+                "location": {
+                    "label": "公司位置",
+                    "placeholder": "例如：沙特阿拉伯利雅得"
+                },
+                "companyEmail": {
+                    "label": "公司邮箱",
+                    "placeholder": "例如：example@gmail.com"
+                },
+                "companyPassword": {
+                    "label": "密码",
+                    "placeholder": "***********"
+                },
+                "confirmPassword": {
+                    "label": "确认密码",
+                    "placeholder": "***********"
+                }
+            },
+            "attachment": {
+                "upload": "上传付款凭证图片",
+                "remove": "移除文件"
+            },
+            "actions": {
+                "submit": "创建",
+                "submitting": "创建中..."
+            }
+        },
+        "validation": {
+            "nameMin": "公司名称至少需要3个字符",
+            "locationMin": "公司位置至少需要3个字符",
+            "emailInvalid": "请输入有效的电子邮件地址",
+            "passwordMin": "密码至少需要8个字符",
+            "confirmPasswordMin": "确认密码至少需要8个字符",
+            "subscriptionRequired": "请选择订阅计划",
+            "receiptRequired": "付款凭证为必填项",
+            "receiptMaxSize": "最大文件大小为5MB",
+            "receiptFileType": "仅允许JPG、PNG和WEBP格式"
+        }
+    },
     "shared": {
         "uploadImage": {
             "title": "上传附件",
@@ -1177,5 +1468,17 @@
             "clients": "客户",
             "ways": "路线"
         }
+    },
+    "tableEmpty": {
+        "companies": "目前还没有添加任何公司。从添加您的第一家公司开始。",
+        "subscriptions": "目前还没有订阅计划。添加您的第一个计划。",
+        "notes": "目前还没有备注。",
+        "notesWithAction": "目前还没有备注。添加您的第一条备注。",
+        "clients": "目前还没有客户。添加您的第一个客户。",
+        "shipments": "目前还没有货运。添加您的第一个货运。",
+        "finishedShipments": "目前还没有已完成货运。",
+        "users": "目前还没有用户。从添加您的第一个用户开始。",
+        "ways": "目前还没有路线。从添加您的第一条路线开始。",
+        "shipmentsCurrent": "目前还没有货运。添加您的第一个货运。"
     }
 }

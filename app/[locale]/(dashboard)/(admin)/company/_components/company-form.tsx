@@ -2,7 +2,6 @@ import {Card, CardContent, CardHeader, CardTitle} from '@/components/ui/card';
 import {Separator} from '@/components/ui/separator';
 import CustomInputWithLabelForViewPage from '@/components/custom-input-with-label-for-view-page';
 import {ICompanyWithSubscription} from '../_interfaces/company-with-subscription';
-import UploadImage from '../[id]/_components/UploadImage';
 import { formattedDate } from '@/lib/utils';
 import { useTranslations } from 'next-intl';
 
@@ -29,7 +28,6 @@ function CompanyForm({company}: {company: ICompanyWithSubscription}) {
         <Separator />
         <CustomInputWithLabelForViewPage label={t('subscriptionEnd')} value={formattedDate(company.subscriptionEndDate)} />
         <Separator />
-        <UploadImage />
       </CardContent>
     </Card>
   );

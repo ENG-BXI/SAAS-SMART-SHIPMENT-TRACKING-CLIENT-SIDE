@@ -14,17 +14,16 @@ import {cn, formattedDate} from '@/lib/utils';
 import PauseShipmentDialog from './pause-shipment-dialog';
 import ResumeShipmentDialog from './resume-shipment-dialog';
 import DeleteShipmentDialog from './delete-shipment-dialog';
-import {SHIPMENT_STATUS} from '@/lib/Constant/enum';
 import {Badge} from '@/components/ui/badge';
 
 import {CurrentShipmentTableSkeleton} from './skeletons';
-import { getTranslations } from 'next-intl/server';
+import {getTranslations} from 'next-intl/server';
 
 interface CurrentShipmentsProps {
   search?: string;
   page?: string;
 }
-async function CurrentShipments({ search, page }: CurrentShipmentsProps) {
+async function CurrentShipments({search, page}: CurrentShipmentsProps) {
   const t = await getTranslations('shipments.current.page');
   const tShared = await getTranslations('shared.buttons');
   return (
@@ -61,6 +60,7 @@ async function TableAndPagination({search, page}: CurrentShipmentsProps) {
   const t = await getTranslations('shipments.current.table.headers');
   const tState = await getTranslations('shipments.current.status');
   const tActions = await getTranslations('shipments.current.table.actions');
+  const tEmpty = await getTranslations('tableEmpty');
   return (
     <>
       <Table>
@@ -78,8 +78,8 @@ async function TableAndPagination({search, page}: CurrentShipmentsProps) {
         <TableBody>
           {data?.data?.length === 0 ? (
             <TableRow>
-              <TableCell colSpan={5}>
-                <TableEmpty />
+              <TableCell colSpan={7}>
+                <TableEmpty text={tEmpty('shipmentsCurrent')} action={<ShipmentDialog type='add' />} />
               </TableCell>
             </TableRow>
           ) : (

@@ -59,6 +59,7 @@ async function WaysTableAndPagination({page, search}: {page?: string; search?: s
   const token = cookie.get('token')?.value;
   const ways = await GetAllWays({token, page, search});
   const t = await getTranslations('waysPage');
+  const tEmpty = await getTranslations('tableEmpty');
   return (
     <>
       <Table>
@@ -73,7 +74,7 @@ async function WaysTableAndPagination({page, search}: {page?: string; search?: s
           {ways?.data.length === 0 ? (
             <TableRow>
               <TableCell colSpan={3}>
-                <TableEmpty />
+                <TableEmpty text={tEmpty('ways')} action={<WayDialog type='add' triggerTitle={t('actions.add')} />} />
               </TableCell>
             </TableRow>
           ) : (
@@ -84,8 +85,6 @@ async function WaysTableAndPagination({page, search}: {page?: string; search?: s
                 <TableCell>
                   <TablePopover
                     items={[
-                      // TODO : add dialog for show Details
-                      //   {type: 'link', link: `/manager/ways/${way.id}`, text: 'عرض التفاصيل'},
                       {type: 'dialog', item: <WayDialog id={way.id} type='edit' triggerTitle={t('table.actions.edit')} data={{name: way.name, points: way.points, showMapLocation: !!way.points[0].lat}} />},
                       {
                         type: 'dialog',

@@ -30,7 +30,6 @@ export default function PricingPlans({currentPlan, status, plans}: PricingPlansP
   const [selectedSubscriptionTypeId, setSelectedSubscriptionTypeId] = useState('');
   const handleOpenUpgrade = (subscriptionTypeId: string) => {
     if (!subscriptionTypeId) return;
-
     setSelectedSubscriptionTypeId(subscriptionTypeId);
     setRenewOpen(true);
   };

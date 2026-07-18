@@ -4,7 +4,7 @@ import {Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious}
 
 import Image from 'next/image';
 import {cn} from '@/lib/utils';
-import {useLocale} from 'next-intl';
+import {useLocale, useTranslations} from 'next-intl';
 import Autoplay from 'embla-carousel-autoplay';
 import {useMemo} from 'react';
 
@@ -16,7 +16,6 @@ interface SliderCardProps {
 }
 
 export interface SliderItem {
-  id: number;
   title: string;
   description: string;
   image: string;
@@ -38,41 +37,15 @@ export function SliderCard({image, title, description, className}: SliderCardPro
   );
 }
 
-export const sliderData: SliderItem[] = [
-  {
-    id: 1,
-    title: 'إدارة الشحنات بذكاء',
-    description: 'أنشئ الشحنات بسهولة، تابع مراحل النقل، وأدر جميع عمليات التسليم من خلال لوحة تحكم واحدة تساعدك على تحسين سرعة وكفاءة العمل.',
-    image: '/assets/smart-shipment-mangement.jpg'
-  },
-  {
-    id: 2,
-    title: 'تتبع مباشر للشحنات',
-    description: 'راقب حالة كل شحنة بشكل لحظي، واعرف موقعها الحالي ومسارها حتى وصولها للعميل مع تحديثات مستمرة.',
-    image: '/assets/shipment-track.jpg'
-  },
-  {
-    id: 3,
-    title: 'إدارة السائقين والرحلات',
-    description: 'قم بتوزيع الشحنات على السائقين، متابعة الرحلات، وتنظيم عمليات النقل لضمان أفضل أداء تشغيلي.',
-    image: '/assets/manage-driver.jpg'
-  },
-  {
-    id: 4,
-    title: 'إدارة العملاء والحسابات',
-    description: 'نظم بيانات العملاء، الطلبات، المدفوعات، والأرصدة مع سجل كامل لجميع العمليات داخل النظام.',
-    image: '/assets/manage-clients.jpg'
-  },
-  {
-    id: 5,
-    title: 'منصة SaaS متعددة الشركات',
-    description: 'ادعم أكثر من شركة داخل النظام مع فصل كامل للبيانات، إدارة المستخدمين، والصلاحيات بطريقة آمنة.',
-    image: '/assets/saas.jpg'
-  }
-];
+const sliderImages = ['/assets/smart-shipment-mangement.jpg', '/assets/shipment-track.jpg', '/assets/manage-driver.jpg', '/assets/manage-clients.jpg', '/assets/saas.jpg'];
 
 const ImageSlider = () => {
   const locale = useLocale();
+  const t = useTranslations('landingPage.imageSlider');
+  const sliderData = (t.raw('items') as Omit<SliderItem, 'image'>[]).map((item, index) => ({
+    ...item,
+    image: sliderImages[index]
+  }));
   const isRtl = locale == 'ar' || locale == 'ur';
   const autoplay = useMemo(
     () =>
@@ -87,7 +60,7 @@ const ImageSlider = () => {
     <Carousel id='image-slider' opts={{align: 'start', loop: true, direction: isRtl ? 'rtl' : 'ltr'}} plugins={[autoplay]} className='w-full'>
       <CarouselContent className='-ml-6'>
         {sliderData.map((item, index) => (
-          <CarouselItem key={`${item.id}-${index}`} className='basis-full pl-6 md:basis-1/2'>
+          <CarouselItem key={`${item.title}-${index}`} className='basis-full pl-6 md:basis-1/2'>
             <SliderCard {...item} />
           </CarouselItem>
         ))}

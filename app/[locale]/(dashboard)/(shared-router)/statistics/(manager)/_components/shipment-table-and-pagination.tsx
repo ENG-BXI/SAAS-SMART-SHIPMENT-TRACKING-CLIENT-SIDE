@@ -11,6 +11,7 @@ async function ShipmentTableAndPagination({page}: {page?: string}) {
   const token = cookie.get('token')?.value;
   const currentShipment = await getCurrentShipments(token, '', page);
   const t = await getTranslations('managerDashboard.table');
+  const tEmpty = await getTranslations('tableEmpty');
   return (
     <>
       <Table>
@@ -27,8 +28,8 @@ async function ShipmentTableAndPagination({page}: {page?: string}) {
         <TableBody>
           {currentShipment.data?.length === 0 ? (
             <TableRow>
-              <TableCell colSpan={4}>
-                <TableEmpty />
+              <TableCell colSpan={6}>
+                <TableEmpty text={tEmpty('finishedShipments')} />
               </TableCell>
             </TableRow>
           ) : (

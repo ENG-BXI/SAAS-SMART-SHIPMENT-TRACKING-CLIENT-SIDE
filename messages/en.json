@@ -1,7 +1,7 @@
 {
   "homePage": {
     "title": "Home",
-    "description": "Submit a subscription request to create a company account and start using the platform.",
+    "description": "Submit a subscription request to create a company account and begin using the platform.",
     "registerCompany": {
       "title": "New Company Subscription Request",
       "description": "This page is currently used to submit a request for creating a new company."
@@ -9,10 +9,10 @@
     "registerCompanyForm": {
       "tempNote": "Temporary page for company subscription requests",
       "title": "Create a New Company",
-      "description": "Submit a request to create a new company and enable it to use the platform for shipping operations.",
+      "description": "Submit a request to create a new company and enable it to utilize the platform for shipping operations.",
       "sections": {
         "companyInfo": "Company Information",
-        "companyInfoDescription": "Enter the basic company details and subscription plan.",
+        "companyInfoDescription": "Enter the essential company details and subscription plan.",
         "accountInfo": "Account Details",
         "accountInfoDescription": "Enter the login credentials that will be used to access the platform."
       },
@@ -48,10 +48,301 @@
       }
     }
   },
+  "landingPage": {
+    "hero": {
+      "imageAlt": "Shipping Platform",
+      "eyebrow": "Intelligent Shipping Management Platform",
+      "titleLine1": "Manage Your Shipments",
+      "titleLine2": "Simpler and Faster",
+      "description": "A comprehensive platform that enables shipping companies to track shipments, manage clients, and streamline delivery operations from a single dashboard.",
+      "actions": {
+        "subscribe": "Subscribe Now",
+        "learnMore": "Learn More"
+      }
+    },
+    "about": {
+      "items": [
+        {
+          "title": "Shipment Management",
+          "description": "Maintain full control over all shipping operations from creation to delivery with complete oversight."
+        },
+        {
+          "title": "Smart Tracking",
+          "description": "Monitor shipment status and locations in real-time with ease and precision."
+        },
+        {
+          "title": "Client Management",
+          "description": "Organize client data efficiently and enhance their overall experience."
+        }
+      ]
+    },
+    "services": {
+      "eyebrow": "Our Services",
+      "title": "Your Trusted Partner in Shipment and Logistics Management",
+      "items": [
+        {
+          "title": "Shipment Tracking",
+          "description": "A dedicated client-facing page to view shipment status, current location, upcoming stops, and overall trip progress."
+        },
+        {
+          "title": "Client Management",
+          "description": "Empower each company to manage all their clients, data, shipments, and seamlessly track delivery operations."
+        },
+        {
+          "title": "Shipping Route Management",
+          "description": "Create customized shipping routes with multiple points and zones to organize shipment movement efficiently."
+        },
+        {
+          "title": "Driver Management",
+          "description": "Add drivers and assign them to their designated shipments with a dedicated mobile application for trip monitoring."
+        },
+        {
+          "title": "Effortless Shipment Creation",
+          "description": "Create shipments quickly by selecting the route, driver, and clients with their items in an organized and streamlined manner."
+        },
+        {
+          "title": "Automated Client Notifications",
+          "description": "Send automatic notifications to clients when shipments move between points, complete with a tracking link."
+        },
+        {
+          "title": "Feedback and Suggestions",
+          "description": "Submit notes, suggestions, and issues to help improve the platform and enhance service quality."
+        }
+      ]
+    },
+    "explore": {
+      "eyebrow": "Platform Interfaces",
+      "title": "Explore the System Before You Begin",
+      "description": "All images below are taken from the live system to give you a clear preview of managing shipments, clients, and drivers.",
+      "items": [
+        {
+          "title": "Dashboard",
+          "description": "Monitor statistics, shipments, clients, and drivers from a single, unified dashboard."
+        },
+        {
+          "title": "Create Shipments",
+          "description": "Create a new shipment, select the route, driver, and clients within seconds."
+        },
+        {
+          "title": "Shipment Tracking",
+          "description": "Display shipment status, current location, and upcoming stations for clients."
+        }
+      ]
+    },
+    "whyChooseUs": {
+      "eyebrow": "Why Choose Our System?",
+      "title": "An Integrated Cloud Platform for Shipping and Logistics Companies",
+      "description": "Our system is designed to help shipping companies manage their daily operations with efficiency, from shipments, clients, and drivers to reporting and accounting, all through a single, secure, and user-friendly platform.",
+      "features": [
+        {
+          "title": "Real-Time Shipment Tracking",
+          "description": "Track every shipment's journey in real-time and monitor its current status from creation through to final delivery."
+        },
+        {
+          "title": "Branch and Warehouse Management",
+          "description": "Oversee operations across all branches and warehouses from one dashboard, with full visibility of shipment movement between them."
+        },
+        {
+          "title": "Driver and Fleet Management",
+          "description": "Assign shipments to drivers, track trips, and manage your entire fleet efficiently and effortlessly."
+        },
+        {
+          "title": "Route and Delivery Point Management",
+          "description": "Define trip routes, delivery and pickup points to ensure shipments follow the most optimal path."
+        },
+        {
+          "title": "Instant Notifications and Updates",
+          "description": "Automatically notify clients and staff when shipment status changes, trips begin, or deliveries are completed."
+        },
+        {
+          "title": "Operational Reports and Analytics",
+          "description": "Review company performance, shipment volumes, revenue, trips, and completion rates through detailed reports and charts."
+        }
+      ]
+    },
+    "driverApp": {
+      "eyebrow": "Mobile App for Drivers",
+      "titleLine1": "Smart Driver App",
+      "titleLine2": "Making Every Trip More Efficient",
+      "description": "Provide your drivers with a professional experience through a dedicated app for managing trips, tracking shipments, and communicating directly with the system.",
+      "download": "Download Driver App",
+      "screenAlt": "Driver App Screen",
+      "features": [
+        "View all shipments and trips assigned to the driver",
+        "Update shipment status with a single tap during delivery",
+        "Track trip details, waypoints, and current shipment status",
+        "Supports over 10 languages with an intuitive driver interface"
+      ]
+    },
+    "imageSlider": {
+      "items": [
+        {
+          "title": "Smart Shipment Management",
+          "description": "Create shipments effortlessly, monitor transport stages, and manage all delivery operations from a single dashboard that helps you improve speed and efficiency."
+        },
+        {
+          "title": "Real-Time Shipment Tracking",
+          "description": "Track each shipment's status in real-time and know its current location and route until it reaches the client, with continuous updates."
+        },
+        {
+          "title": "Driver and Trip Management",
+          "description": "Distribute shipments among drivers, monitor trips, and coordinate transport operations to ensure optimal performance."
+        },
+        {
+          "title": "Client and Account Management",
+          "description": "Organize client data, orders, payments, and account balances with a complete history of all operations."
+        },
+        {
+          "title": "Multi-Company SaaS Platform",
+          "description": "Support multiple companies within the platform with complete data isolation, user management, and role-based permissions in a secure environment."
+        }
+      ]
+    },
+    "faq": {
+      "eyebrow": "Frequently Asked Questions",
+      "title": "Everything You Need to Know About the Smart Shipment Management System",
+      "description": "Get familiar with the platform's functionality, shipment management, subscriptions, and permissions before getting started.",
+      "tabs": [
+        {
+          "value": "system",
+          "label": "System",
+          "items": [
+            {
+              "id": "system-1",
+              "question": "What is the Shipment Management System?",
+              "answer": "A SaaS platform that helps shipping and logistics companies manage shipments, clients, drivers, trips, and reports through an intuitive, all-in-one dashboard."
+            },
+            {
+              "id": "system-2",
+              "question": "Can the system support multiple companies?",
+              "answer": "Yes, the platform is built on a multi-tenant architecture where each company has its own independent account with complete data isolation and permission controls."
+            },
+            {
+              "id": "system-3",
+              "question": "Can I manage users and permissions?",
+              "answer": "Absolutely. You can create multiple users and assign different permission levels based on each user's role within the company."
+            }
+          ]
+        },
+        {
+          "value": "shipments",
+          "label": "Shipments",
+          "items": [
+            {
+              "id": "shipment-1",
+              "question": "How do I create and track shipments?",
+              "answer": "You can create a new shipment by adding client details, specifying pickup and delivery points, assigning a driver, and tracking its status throughout the delivery process."
+            },
+            {
+              "id": "shipment-2",
+              "question": "Does the system offer real-time shipment tracking?",
+              "answer": "Yes, the platform provides real-time tracking that allows you to monitor shipment status, trip progress, and receive the latest updates at a glance."
+            },
+            {
+              "id": "shipment-3",
+              "question": "Can I manage drivers and trips?",
+              "answer": "Yes, you can manage drivers, assign trips, and monitor transport operations performance directly from the dashboard."
+            }
+          ]
+        },
+        {
+          "value": "subscription",
+          "label": "Subscriptions",
+          "items": [
+            {
+              "id": "subscription-1",
+              "question": "Does the system operate on a subscription model?",
+              "answer": "Yes, the platform follows a SaaS subscription model, allowing companies to choose the plan that best fits their operational needs."
+            },
+            {
+              "id": "subscription-2",
+              "question": "Can I change my subscription plan later?",
+              "answer": "Yes, you can upgrade or change your plan at any time as your company grows and your requirements evolve."
+            }
+          ]
+        }
+      ]
+    },
+    "ctaBanner": {
+      "imageAlt": "SaaS Platform",
+      "title": "Ready to Transform Your Shipment Management?",
+      "description": "Get started with the intelligent shipment management platform, organize your operations, track trips, and manage your team from one centralized location.",
+      "action": "Get Started Now"
+    }
+  },
+  "registerCompanyPage": {
+    "hero": {
+      "title": "New Company Subscription Request",
+      "imageAlt": "Register New Company"
+    },
+    "form": {
+      "title": "Create a New Company",
+      "description": "Submit a request to create a new company and enable it to use the platform for shipping operations.",
+      "sections": {
+        "companyInfo": {
+          "title": "Company Information",
+          "description": "Enter the essential company details and subscription plan."
+        },
+        "accountInfo": {
+          "title": "Account Details",
+          "description": "Enter the login credentials that will be used to access the platform."
+        },
+        "receipt": {
+          "title": "Payment Receipt",
+          "description": "Upload a copy of the payment receipt to submit your subscription request for review."
+        }
+      },
+      "fields": {
+        "name": {
+          "label": "Company Name",
+          "placeholder": "e.g.: Fast Line Shipping Company"
+        },
+        "subscriptionType": {
+          "label": "Subscription Plan",
+          "placeholder": "Select a subscription plan"
+        },
+        "location": {
+          "label": "Company Location",
+          "placeholder": "e.g.: Riyadh, Saudi Arabia"
+        },
+        "companyEmail": {
+          "label": "Company Email",
+          "placeholder": "e.g.: example@gmail.com"
+        },
+        "companyPassword": {
+          "label": "Password",
+          "placeholder": "***********"
+        },
+        "confirmPassword": {
+          "label": "Confirm Password",
+          "placeholder": "***********"
+        }
+      },
+      "attachment": {
+        "upload": "Upload Payment Receipt",
+        "remove": "Remove File"
+      },
+      "actions": {
+        "submit": "Create",
+        "submitting": "Creating..."
+      }
+    },
+    "validation": {
+      "nameMin": "Company name must be at least 3 characters long",
+      "locationMin": "Company location must be at least 3 characters long",
+      "emailInvalid": "Please enter a valid email address",
+      "passwordMin": "Password must be at least 8 characters long",
+      "confirmPasswordMin": "Password confirmation must be at least 8 characters long",
+      "subscriptionRequired": "Please select a subscription plan",
+      "receiptRequired": "Payment receipt is required",
+      "receiptMaxSize": "Maximum file size allowed is 5MB",
+      "receiptFileType": "Only JPG, PNG, and WEBP formats are accepted"
+    }
+  },
   "shared": {
     "uploadImage": {
       "title": "Upload Attachments",
-      "description": "The maximum allowed file size is 2MB, and supported formats include .jpg, .png, and .pdf.",
+      "description": "Maximum file size is 2MB. Supported formats include .jpg, .png, and .pdf.",
       "browseFiles": "Browse Files"
     },
     "buttons": {
@@ -61,7 +352,7 @@
       "edit": "Edit"
     },
     "tablePopover": {
-      "actionsTitle": "Operations"
+      "actionsTitle": "Actions"
     },
     "currencyRiyal": "SAR",
     "pagination": {
@@ -89,10 +380,10 @@
   },
   "login": {
     "title": "Login",
-    "description": "Access your account to continue managing shipments and operations.",
+    "description": "Sign in to your account to continue managing shipments and operations.",
     "fields": {
       "email": {
-        "label": "Email",
+        "label": "Email Address",
         "placeholder": "Enter your email"
       },
       "password": {
@@ -106,33 +397,33 @@
     }
   },
   "shipmentClientPage": {
-    "eyebrow": "Shipment tracking",
-    "title": "Current order status and official tracking details",
-    "description": "A clear and organized view of the shipment status, route, and contact details in one page.",
+    "eyebrow": "Shipment Tracking",
+    "title": "Current Order Status and Official Tracking Details",
+    "description": "A clear and organized view of the shipment status, route, and contact information, all on one page.",
     "topSection": {
-      "shipmentNumber": "Shipment number",
+      "shipmentNumber": "Shipment Number",
       "summary": "Current route overview with shipment status and stop count.",
       "from": "From",
       "to": "To",
-      "stopsCount": "Stop points count"
+      "stopsCount": "Number of Stop Points"
     },
     "summaryGrid": {
       "title": "Overview",
       "carrier": "Carrier",
       "from": "From",
       "to": "To",
-      "currentPoint": "Current point",
-      "progress": "Trip progress",
-      "remainingPoints": "Remaining points",
-      "itemsCount": "Items count",
-      "clientInfo": "Client information",
+      "currentPoint": "Current Location",
+      "progress": "Trip Progress",
+      "remainingPoints": "Remaining Stops",
+      "itemsCount": "Number of Items",
+      "clientInfo": "Client Information",
       "email": "Email",
       "phone": "Phone"
     },
     "sidebar": {
-      "title": "Quick status",
-      "currentStatus": "Current status",
-      "mainPoints": "Main points",
+      "title": "Quick Status",
+      "currentStatus": "Current Status",
+      "mainPoints": "Key Stops",
       "stopPointsCount": "{count} stop points",
       "contacts": "Contacts",
       "email": "Email",
@@ -141,56 +432,56 @@
       "secondary": "Secondary"
     },
     "timeline": {
-      "title": "Tracking timeline",
-      "description": "Each station the shipment passes through, in order.",
+      "title": "Tracking Timeline",
+      "description": "Every stop the shipment passes through, in sequential order.",
       "current": "Current",
-      "done": "Passed",
+      "done": "Completed",
       "upcoming": "Upcoming",
-      "currentDescriptionWithNext": "The shipment is here now, then heading to {nextPointName}.",
-      "currentDescriptionLast": "The shipment has reached this station, and it is the last point in the route.",
-      "doneDescription": "This station has been passed successfully.",
-      "upcomingDescription": "The shipment has not reached this station yet."
+      "currentDescriptionWithNext": "The shipment is currently at this stop and will next proceed to {nextPointName}.",
+      "currentDescriptionLast": "The shipment has reached this final stop, which is the last point on the route.",
+      "doneDescription": "This stop has been successfully completed.",
+      "upcomingDescription": "The shipment has not yet reached this stop."
     },
     "orderDetails": {
-      "title": "Order details",
-      "origin": "Origin",
-      "arrival": "Arrival",
+      "title": "Order Details",
+      "origin": "Departure Point",
+      "arrival": "Destination Point",
       "driver": "Driver",
       "phone": "Phone",
-      "itemsCount": "Items count",
-      "currentPoint": "Current point",
-      "routeDetails": "Route details",
+      "itemsCount": "Items Count",
+      "currentPoint": "Current Location",
+      "routeDetails": "Route Details",
       "carrier": "Carrier",
-      "totalStations": "Total stations",
-      "remainingStations": "Remaining stations",
-      "notAvailable": "Not available"
+      "totalStations": "Total Stations",
+      "remainingStations": "Remaining Stations",
+      "notAvailable": "Not Available"
     }
   },
   "statisticsAdminPage": {
     "header": {
       "title": "Dashboard",
-      "description": "An overview of platform activity with quick statistics for companies, subscriptions, visits, and notes.",
+      "description": "An overview of platform activity with quick statistics on companies, subscriptions, visitors, and notes.",
       "breadcrumb": "Home"
     },
     "cards": {
-      "companies": "Companies count",
-      "subscriptionRequests": "Subscription requests",
-      "visitors": "Visitors count",
-      "notes": "Notes count",
-      "expiringCompanies": "Companies near expiration",
-      "pausedCompanies": "Paused companies"
+      "companies": "Total Companies",
+      "subscriptionRequests": "Subscription Requests",
+      "visitors": "Total Visitors",
+      "notes": "Total Notes",
+      "expiringCompanies": "Companies Nearing Expiration",
+      "pausedCompanies": "Suspended Companies"
     },
     "chart": {
-      "title": "Active companies chart"
+      "title": "Active Companies Chart"
     }
   },
   "adminCompanyDetailPage": {
-    "title": "Company details",
+    "title": "Company Details",
     "description": "Company details and management",
     "breadcrumb": {
       "home": "Home",
       "companies": "Companies",
-      "details": "Company details"
+      "details": "Company Details"
     },
     "companyForm": {
       "basicInfo": "Basic Information",
@@ -200,11 +491,11 @@
       "clientsCount": "Number of Clients",
       "subscriptionInfo": "Subscription Information",
       "subscriptionType": "Subscription Type",
-      "subscriptionStart": "Subscription Start",
-      "subscriptionEnd": "Subscription End"
+      "subscriptionStart": "Subscription Start Date",
+      "subscriptionEnd": "Subscription End Date"
     },
     "headerActions": {
-      "pauseSubscription": "Pause Company Subscription",
+      "pauseSubscription": "Suspend Company Subscription",
       "activateSubscription": "Activate Company Subscription"
     }
   },
@@ -232,8 +523,8 @@
     },
     "deleteCompanyDialog": {
       "triggerText": "Delete Company",
-      "title": "Are you sure you want to delete the company {companyName}?",
-      "description": "The company {companyName} will be permanently deleted."
+      "title": "Are you sure you want to delete {companyName}?",
+      "description": "This action will permanently delete {companyName} and all associated data."
     },
     "dialog": {
       "add": {
@@ -242,24 +533,24 @@
       },
       "edit": {
         "title": "Edit Company",
-        "description": "Edit company details and activation status. Any changes will be applied immediately to all users of the company."
+        "description": "Modify company details and activation status. Any changes will take effect immediately for all users of the company."
       },
       "fields": {
         "companyName": {
           "label": "Company Name",
-          "placeholder": "Example: Fast Line Shipping"
+          "placeholder": "e.g.: Fast Line Shipping"
         },
         "subscriptionType": {
           "label": "Subscription Plan",
-          "placeholder": "Choose a subscription plan"
+          "placeholder": "Select a subscription plan"
         },
         "companyLocation": {
           "label": "Company Location",
-          "placeholder": "Example: Riyadh, Saudi Arabia"
+          "placeholder": "e.g.: Riyadh, Saudi Arabia"
         },
         "companyEmail": {
           "label": "Company Email",
-          "placeholder": "Example: example@gmail.com"
+          "placeholder": "e.g.: example@gmail.com"
         },
         "password": {
           "label": "Password",
@@ -280,7 +571,7 @@
   "adminSubscriptionsPage": {
     "header": {
       "title": "Subscriptions",
-      "description": "Manage and track subscription plans",
+      "description": "Manage and monitor subscription plans",
       "breadcrumb": {
         "home": "Home",
         "subscriptions": "Subscriptions"
@@ -304,36 +595,36 @@
       },
       "edit": {
         "title": "Edit Subscription Plan",
-        "description": "Edit current subscription plan details. Changes will be applied to the plan data in the system."
+        "description": "Modify the current subscription plan details. Changes will be applied to the plan data throughout the system."
       },
       "fields": {
         "planType": {
           "label": "Plan Type",
-          "placeholder": "Example: monthly or yearly"
+          "placeholder": "e.g.: Monthly or Annual"
         },
         "price": {
           "label": "Plan Price",
-          "placeholder": "Example: 150"
+          "placeholder": "e.g.: 150"
         },
         "duration": {
           "label": "Duration (Months)",
-          "placeholder": "Example: 1 or 12"
+          "placeholder": "e.g.: 1 or 12"
         }
       },
       "hints": {
-        "duration": "Subscription duration is saved in months, e.g., 1 for monthly and 12 for yearly subscription.",
+        "duration": "The subscription duration is stored in months; for example, 1 for monthly and 12 for annual subscription.",
         "price": "The price is used when linking the plan to companies."
       }
     },
     "deleteDialog": {
       "triggerText": "Delete Plan",
-      "title": "Are you sure you want to delete the plan {subscriptionType}?",
-      "description": "The plan {subscriptionType} will be permanently deleted if it is not linked to any company."
+      "title": "Are you sure you want to delete the {subscriptionType} plan?",
+      "description": "The {subscriptionType} plan will be permanently deleted if it is not currently assigned to any company."
     }
   },
   "adminNotesPage": {
     "title": "Notes",
-    "description": "Manage and view administrative notes.",
+    "description": "Manage and review administrative notes.",
     "breadcrumb": {
       "notes": "Notes"
     },
@@ -347,7 +638,7 @@
     },
     "dialog": {
       "title": "Add New Note",
-      "description": "Send a new note to the platform administration to share an inquiry, request, complaint, or any details related to the service or system.",
+      "description": "Send a new note to the platform administration to share an inquiry, request, complaint, or any details concerning the service or system.",
       "viewDetails": "View Details",
       "field": {
         "type": "Note Type",
@@ -361,7 +652,7 @@
   "adminSubscriptionRequestPage": {
     "header": {
       "title": "Subscription Requests",
-      "description": "Pending activation and plan change requests from companies.",
+      "description": "Pending activation and plan change requests submitted by companies.",
       "breadcrumb": {
         "home": "Home",
         "subscriptionRequest": "Subscription Requests"
@@ -370,15 +661,15 @@
     "summary": {
       "pending": {
         "title": "Pending Requests",
-        "description": "Number of pending subscription activation requests."
+        "description": "Number of pending subscription activation requests awaiting review."
       },
       "change": {
         "title": "Plan Change Requests",
-        "description": "Number of pending plan change requests."
+        "description": "Number of pending plan change requests awaiting review."
       },
       "total": {
         "title": "Total Requests",
-        "description": "Total number of subscription related requests."
+        "description": "Total number of all subscription-related requests."
       }
     },
     "card": {
@@ -387,19 +678,19 @@
       "requiredPlan": "Requested Plan",
       "planPrice": "Plan Price",
       "duration": "Duration",
-      "subscriptionStart": "Subscription Start",
-      "subscriptionEnd": "Subscription End",
-      "notSet": "Not set",
+      "subscriptionStart": "Subscription Start Date",
+      "subscriptionEnd": "Subscription End Date",
+      "notSet": "Not Set",
       "viewCompany": "View Company",
-      "acceptAndActivate": "Accept and Activate",
+      "acceptAndActivate": "Approve and Activate",
       "year": "Year",
       "month": "Month"
     },
-    "noPendingMessage": "There are no pending subscription or plan change requests at the moment."
+    "noPendingMessage": "There are no pending subscription or plan change requests at this time."
   },
   "expirePage": {
     "title": "Company Subscription Expired",
-    "description": "Your company account is temporarily suspended until the subscription is renewed or the plan is updated.",
+    "description": "Your account has been temporarily suspended until the subscription is renewed or the plan is updated.",
     "breadcrumb": {
       "home": "Home",
       "mySubscription": "My Subscription",
@@ -410,39 +701,39 @@
       "description": "Please renew your subscription to regain access to the dashboard and company data.",
       "alert": {
         "title": "Access Locked Until Renewal",
-        "description": "The current subscription is no longer valid, and platform services are unavailable until it is renewed."
+        "description": "Your current subscription is no longer valid, and platform services will remain unavailable until it is renewed."
       },
-      "stepsTitle": "Renewal Steps",
+      "stepsTitle": "Renewal Instructions",
       "steps": {
-        "step1": "Review available subscription details on the My Subscription page.",
-        "step2": "Choose the most suitable plan and start the renewal process.",
-        "step3": "After renewal, all company features will be automatically restored."
+        "step1": "Review the available subscription details on the My Subscription page.",
+        "step2": "Select the most suitable plan and initiate the renewal process.",
+        "step3": "Once renewed, all company features will be automatically restored."
       },
       "info": {
         "title": "Note",
-        "text": "If you need assistance with renewal, you can visit the subscription page or contact support."
+        "text": "If you require assistance with the renewal process, you may visit the subscription page or contact our support team."
       },
       "actions": {
         "renew": "Renew Subscription",
-        "home": "Back to Home"
+        "home": "Return to Home"
       }
     },
     "statusCard": {
       "title": "Account Status",
-      "description": "Dashboard features are unavailable until renewal.",
+      "description": "Dashboard features are temporarily unavailable until renewal is completed.",
       "current": {
         "title": "Current Subscription",
-        "text": "Expired and no longer usable."
+        "text": "Expired and can no longer be used."
       },
       "solution": {
-        "title": "Suggested Solution",
-        "text": "Go to My Subscription page to renew your plan or switch to a new one."
+        "title": "Recommended Action",
+        "text": "Visit the My Subscription page to renew your current plan or switch to a new one."
       }
     }
   },
   "pendingPage": {
     "title": "Your Company is Under Review",
-    "description": "Your company data has been successfully received, and the subscription request is currently being reviewed by our team.",
+    "description": "Your company information has been successfully submitted, and your subscription request is currently being reviewed by our team.",
     "breadcrumb": {
       "home": "Home",
       "mySubscription": "My Subscription",
@@ -450,42 +741,42 @@
     },
     "card": {
       "title": "Subscription Request Under Review",
-      "description": "Our support team is reviewing your company data to ensure all information is accurate.",
+      "description": "Our support team is verifying your company details to ensure all information is accurate and complete.",
       "alert": {
         "title": "We appreciate your patience.",
-        "description": "Verification may take some time. You will be notified once the review is completed or if additional information is required."
+        "description": "The verification process may take some time. You will be notified as soon as the review is complete or if additional information is needed."
       },
-      "stepsTitle": "What is happening now?",
+      "stepsTitle": "What happens next?",
       "steps": {
-        "step1": "Reviewing company data and subscription information.",
-        "step2": "Verifying required documents and attachments if any.",
-        "step3": "Approving the account to activate the company again."
+        "step1": "Review of company data and subscription information.",
+        "step2": "Verification of any required documents and attachments.",
+        "step3": "Account approval to reactivate your company on the platform."
       },
       "info": {
         "title": "Tip",
-        "text": "If you have any questions or need to update information, you can return to the subscription page or contact support at any time."
+        "text": "If you have any questions or need to update your information, you can visit the subscription page or contact support at any time."
       },
       "actions": {
         "viewSubscriptions": "View My Subscriptions",
-        "home": "Back to Home"
+        "home": "Return to Home"
       }
     },
     "statusCard": {
-      "title": "Expected Review",
-      "description": "No action is required at the moment, and we will notify you of any updates.",
+      "title": "Review Timeline",
+      "description": "No action is required on your part at this time. We will keep you informed of any updates.",
       "current": {
         "title": "Current Status",
-        "text": "The request is currently under review by the support team."
+        "text": "Your request is currently being reviewed by our support team."
       },
       "expected": {
-        "title": "Expected Time",
-        "text": "A response will be provided within 24 business hours or less."
+        "title": "Expected Response Time",
+        "text": "We aim to respond within 24 business hours or less."
       }
     }
   },
   "inactivePage": {
     "title": "Your Account Has Been Disabled",
-    "description": "Your account has been temporarily deactivated. You cannot access the dashboard or perform any actions until it is reactivated.",
+    "description": "Your account has been temporarily deactivated. You will not be able to access the dashboard or perform any actions until it is reactivated.",
     "breadcrumb": {
       "home": "Home",
       "mySubscription": "My Subscription",
@@ -495,22 +786,22 @@
       "title": "Your Account is Inactive",
       "description": "Your company account has been disabled by the administrative team.",
       "alert": {
-        "title": "Don’t worry, we will help you reactivate it.",
-        "description": "If you believe this is a mistake, you can contact support or review your subscription status for more details."
+        "title": "We're here to help you reactivate it.",
+        "description": "If you believe this was done in error, you can contact support or review your subscription status for further details."
       },
-      "reasonsTitle": "Reason for deactivation",
+      "reasonsTitle": "Possible Reasons for Deactivation",
       "reasons": {
-        "reason1": "Company data is under administrative review.",
-        "reason2": "Subscription expired or payment not completed.",
-        "reason3": "Violation or incompatibility with terms of service."
+        "reason1": "Company data is undergoing administrative review.",
+        "reason2": "Subscription has expired or payment is incomplete.",
+        "reason3": "Violation or non-compliance with our terms of service."
       },
       "info": {
         "title": "What can you do now?",
-        "text": "Check your email for any instructions, or contact support to reactivate your account as soon as possible."
+        "text": "Check your email for any instructions, or reach out to support to have your account reactivated as soon as possible."
       },
       "actions": {
         "viewSubscriptions": "View My Subscriptions",
-        "home": "Back to Home"
+        "home": "Return to Home"
       }
     },
     "statusCard": {
@@ -518,11 +809,11 @@
       "description": "You cannot make any changes or access resources until the account is reactivated.",
       "current": {
         "title": "Current Status",
-        "text": "The account is temporarily inactive and all permissions are disabled."
+        "text": "Your account is temporarily disabled and all permissions have been revoked."
       },
       "nextSteps": {
         "title": "Next Steps",
-        "text": "Contact support or your administration team to reactivate your account and restore access."
+        "text": "Contact support or your administrative team to reactivate your account and restore access."
       }
     }
   },
@@ -530,7 +821,7 @@
     "current": {
       "page": {
         "title": "Shipments",
-        "description": "View and manage all active shipments in the system, track their status and updates.",
+        "description": "View and manage all active shipments in the system, and track their status and updates.",
         "breadcrumb": {
           "home": "Home",
           "shipments": "Shipments"
@@ -541,12 +832,12 @@
           "shipmentNumber": "Shipment Number",
           "launchDate": "Launch Date",
           "route": "Route",
-          "currentPoint": "Current Point",
+          "currentPoint": "Current Location",
           "driver": "Driver",
           "status": "Status",
           "actions": ""
         },
-        "empty": "No shipments found",
+        "empty": "No shipments available",
         "actions": {
           "viewDetails": "View Details"
         }
@@ -555,26 +846,26 @@
         "filter": "Filter"
       },
       "status": {
-        "paused": "Paused",
+        "paused": "Suspended",
         "current": "Active"
       }
     },
     "finished": {
       "page": {
-        "title": "Finished Shipments",
+        "title": "Completed Shipments",
         "description": "View shipments that have been completed or closed, including final status and full tracking history."
       },
       "table": {
         "headers": {
           "shipmentNumber": "Shipment Number",
           "launchDate": "Launch Date",
-          "endDate": "End Date",
+          "endDate": "Completion Date",
           "route": "Route",
-          "currentPoint": "Current Point",
+          "currentPoint": "Current Location",
           "driver": "Driver",
           "actions": ""
         },
-        "empty": "No finished shipments found",
+        "empty": "No completed shipments found",
         "actions": {
           "viewDetails": "View Details"
         }
@@ -586,7 +877,7 @@
     "dialog": {
       "add": {
         "title": "Add New Shipment",
-        "description": "Register a new shipment and assign driver and route to start tracking.",
+        "description": "Register a new shipment by assigning a driver and route to begin tracking.",
         "button": "Add Shipment",
         "loading": "Adding..."
       },
@@ -599,13 +890,13 @@
       "fields": {
         "shipmentNumber": "Shipment Number",
         "way": "Shipment Route",
-        "driver": "Shipment Driver",
+        "driver": "Assigned Driver",
         "launchDate": "Launch Date"
       },
       "placeholders": {
         "shipmentNumber": "Enter shipment number",
-        "way": "Select route",
-        "driver": "Select driver",
+        "way": "Select a route",
+        "driver": "Select a driver",
         "launchDate": "Select launch date"
       },
       "actions": {
@@ -613,10 +904,10 @@
       },
       "confirm": {
         "pause": {
-          "title": "Pause Shipment",
-          "description": "Are you sure you want to pause this shipment?",
-          "action": "Pause",
-          "trigger": "Pause Shipment"
+          "title": "Suspend Shipment",
+          "description": "Are you sure you want to suspend this shipment?",
+          "action": "Suspend",
+          "trigger": "Suspend Shipment"
         },
         "resume": {
           "title": "Resume Shipment",
@@ -636,7 +927,7 @@
   "shipmentDetails": {
     "page": {
       "title": "Shipment Details",
-      "description": "View shipment information and items included in the shipment."
+      "description": "View shipment information and the items included."
     },
     "breadcrumb": {
       "shipments": "Shipments",
@@ -651,16 +942,16 @@
       },
       "items": {
         "title": "Shipment Items",
-        "description": "View all items included in the shipment with quantity and details."
+        "description": "View all items included in this shipment with quantities and details."
       }
     },
     "actions": {
-      "addItem": "Add Shipment Item"
+      "addItem": "Add Item to Shipment"
     },
     "header": {
       "status": {
         "completed": "Completed",
-        "paused": "Paused",
+        "paused": "Suspended",
         "current": "Active"
       },
       "title": "Shipment #{number}",
@@ -676,8 +967,8 @@
           }
         },
         "pause": {
-          "text": "Pause",
-          "loading": "Pausing..."
+          "text": "Suspend",
+          "loading": "Suspending..."
         },
         "resume": {
           "text": "Resume",
@@ -688,15 +979,15 @@
     "info": {
       "fields": {
         "launchDate": "Launch Date",
-        "driverPhone": "Driver Phone",
+        "driverPhone": "Driver's Phone",
         "endDate": "Arrival Date",
         "route": "Route",
-        "clientsCount": "Clients Count",
-        "itemsCount": "Items Count",
-        "currentPoint": "Current Point"
+        "clientsCount": "Number of Clients",
+        "itemsCount": "Number of Items",
+        "currentPoint": "Current Location"
       },
       "values": {
-        "notArrived": "Not arrived yet",
+        "notArrived": "Not yet arrived",
         "unknown": "---"
       }
     },
@@ -705,10 +996,10 @@
         "client": "Client Name",
         "item": "Item",
         "quantity": "Quantity",
-        "breakable": "Breakable",
+        "breakable": "Fragile",
         "actions": ""
       },
-      "empty": "No shipment items found",
+      "empty": "No items found in this shipment",
       "breakableValues": {
         "yes": "Yes",
         "no": "No"
@@ -721,24 +1012,24 @@
     "dialog": {
       "items": {
         "title": {
-          "add": "Assign Client & Shipment Items",
-          "edit": "Edit Client & Shipment Items"
+          "add": "Assign Client and Shipment Items",
+          "edit": "Edit Client and Shipment Items"
         },
         "description": {
           "add": "Select a registered client and assign items to this shipment.",
-          "edit": "Edit client and shipment items."
+          "edit": "Modify the client and shipment items."
         },
         "fields": {
           "client": "Client Name",
           "item": "Item",
           "quantity": "Quantity",
-          "breakable": "Breakable"
+          "breakable": "Fragile"
         },
         "placeholders": {
-          "client": "Select client",
-          "item": "Enter item",
+          "client": "Select a client",
+          "item": "Enter item name",
           "quantity": "Enter quantity",
-          "breakable": "Select breakable option"
+          "breakable": "Select fragility option"
         },
         "actions": {
           "addItem": "Add Item",
@@ -766,7 +1057,7 @@
   "clientsPage": {
     "page": {
       "title": "Clients",
-      "description": "View and manage all registered clients in the system, including their contact details and activity.",
+      "description": "View and manage all registered clients in the system, including their contact information and activity.",
       "breadcrumb": {
         "home": "Home",
         "clients": "Clients"
@@ -791,29 +1082,29 @@
     "dialog": {
       "add": {
         "title": "Add New Client",
-        "description": "Register a new client and add their contact methods used for shipment notifications.",
+        "description": "Register a new client and add their contact methods to be used for shipment notifications.",
         "button": "Add Client",
         "loading": "Adding..."
       },
       "edit": {
         "title": "Edit Client Information",
-        "description": "Update existing client data and manage their contact methods used for shipment notifications.",
+        "description": "Update the client's data and manage their contact methods for shipment notifications.",
         "button": "Update Client",
         "loading": "Updating..."
       },
       "view": {
         "title": "Client Information",
-        "description": "View the client’s stored data and their registered contact methods used for shipment notifications."
+        "description": "View the client's stored data and their registered contact methods."
       },
       "fields": {
         "name": "Client Name",
         "contactWays": "Contact Methods",
         "contactType": "Contact Type",
-        "isPrimary": "Is Primary Contact"
+        "isPrimary": "Primary Contact"
       },
       "placeholders": {
         "name": "Enter client name",
-        "contactWays": "Add contact method",
+        "contactWays": "Add a contact method",
         "contactType": "Select contact type",
         "isPrimary": "Select if primary"
       },
@@ -835,7 +1126,7 @@
       },
       "delete": {
         "title": "Delete Client {name}",
-        "description": "Are you sure you want to delete this client {name}? This action cannot be undone.",
+        "description": "Are you sure you want to delete {name}? This action cannot be undone.",
         "action": "Delete",
         "trigger": "Delete Client"
       }
@@ -844,7 +1135,7 @@
   "waysPage": {
     "header": {
       "title": "Routes",
-      "description": "Manage approved routes for transporting shipments, defining start and end points and linking them to shipping operations.",
+      "description": "Manage approved shipping routes, define start and end points, and link them to shipping operations.",
       "breadcrumb": {
         "home": "Home",
         "ways": "Routes"
@@ -857,39 +1148,39 @@
     "table": {
       "columns": {
         "name": "Route Name",
-        "points": "Points"
+        "points": "Stops"
       },
       "actions": {
-        "edit": "Edit Route Data"
+        "edit": "Edit Route Details"
       }
     },
     "dialog": {
       "add": {
         "title": "Add New Route",
-        "description": "Create a new shipping route by defining the route points in the correct order. Multiple points can be added to clarify the movement path and use it later in shipping operations.",
+        "description": "Create a new shipping route by defining the stops in the correct order. Multiple stops can be added to clarify the movement path and be used later in shipping operations.",
         "button": "Add Route",
         "loading": "Adding..."
       },
       "edit": {
-        "title": "Edit Route Data",
-        "description": "Modify previously registered route data and update its points or order as needed.",
+        "title": "Edit Route Details",
+        "description": "Modify the existing route data and update its stops or order as needed.",
         "button": "Update Route",
         "loading": "Updating..."
       },
       "fields": {
         "name": "Route Name",
-        "pointName": "Point Name",
-        "pointOrder": "Point Order",
+        "pointName": "Stop Name",
+        "pointOrder": "Stop Order",
         "locationTitle": "Show Map Location",
-        "locationDescription": "Enable map picker for points"
+        "locationDescription": "Enable map picking for stops"
       },
       "placeholders": {
-        "name": "Enter route name e.g. (Mukalla - Dubai Line)",
-        "pointName": "Enter point name",
-        "pointOrder": "Enter point order"
+        "name": "Enter route name (e.g., Mukalla - Dubai Line)",
+        "pointName": "Enter stop name",
+        "pointOrder": "Enter stop order"
       },
       "actions": {
-        "addPoint": "Add New Point",
+        "addPoint": "Add New Stop",
         "remove": "Remove",
         "cancel": "Cancel"
       }
@@ -904,7 +1195,7 @@
   "usersPage": {
     "header": {
       "title": "Users",
-      "description": "View and manage registered users in the system, and define their roles and permissions related to shipment and data management.",
+      "description": "View and manage registered users, and define their roles and permissions related to shipment and data management.",
       "breadcrumb": {
         "home": "Home",
         "users": "Users"
@@ -924,11 +1215,11 @@
     "dialog": {
       "add": {
         "title": "Add New User",
-        "description": "Add a new user to the system and define their role and permissions. The user will be able to access the features allowed based on the assigned role."
+        "description": "Add a new user to the system and define their role and permissions. The user will have access to features based on their assigned role."
       },
       "edit": {
         "title": "Edit User",
-        "description": "Edit the previously registered user's data and update their role and permissions."
+        "description": "Modify the user's details and update their role and permissions."
       },
       "fields": {
         "name": {
@@ -945,7 +1236,7 @@
         },
         "role": {
           "label": "Role",
-          "placeholder": "Select role"
+          "placeholder": "Select a role"
         }
       },
       "actions": {
@@ -965,12 +1256,12 @@
   "settingsPage": {
     "header": {
       "title": "Settings",
-      "description": "Manage account settings, including changing the language, updating basic information, and reviewing subscription details linked to the system.",
+      "description": "Manage your account settings, including language preferences, basic information updates, and subscription details.",
       "breadcrumb": "Settings"
     },
     "systemSettings": {
       "title": "System Settings",
-      "description": "Select the system interface language according to your preference. The change will be applied to all system pages."
+      "description": "Choose your preferred interface language. The change will be applied across all system pages."
     },
     "language": {
       "label": "System Language",
@@ -981,7 +1272,7 @@
     },
     "accountSettings": {
       "title": "Personal Account Settings",
-      "description": "Update the basic information linked to your personal account."
+      "description": "Update your personal account information."
     },
     "userSection": {
       "name": "Username",
@@ -991,13 +1282,13 @@
     },
     "subscriptionSettings": {
       "title": "Subscription Status",
-      "description": "View current subscription information and usage limits associated with the plan."
+      "description": "View your current subscription details and usage limits associated with your plan."
     },
     "subscriptionSection": {
       "status": "Subscription Status",
-      "activeText": "The subscription is active and the system can be used fully.",
+      "activeText": "Your subscription is active and the system is fully accessible.",
       "period": "Subscription Period",
-      "remaining": "Remaining: {days} days",
+      "remaining": "{days} days remaining",
       "start": "Subscription Start: {date}",
       "end": "Subscription End: {date}"
     }
@@ -1005,7 +1296,7 @@
   "notesPage": {
     "header": {
       "title": "Notes",
-      "description": "This section allows companies to send notes, complaints, feedback, or change requests to the system administration. All notes are displayed in the admin dashboard for review and appropriate action.",
+      "description": "This section enables companies to submit notes, complaints, feedback, or change requests to the system administrators. All notes are displayed on the admin dashboard for review and appropriate action.",
       "breadcrumb": {
         "home": "Home",
         "notes": "Notes"
@@ -1017,15 +1308,15 @@
     },
     "table": {
       "columns": {
-        "createdAt": "Created At",
+        "createdAt": "Date Created",
         "type": "Note Type",
-        "text": "Note"
+        "text": "Note Content"
       }
     },
     "dialog": {
       "add": {
         "title": "Add New Note",
-        "description": "Send a new note to the system administration to share an inquiry, request, or any service/system-related details."
+        "description": "Submit a new note to the system administration to share an inquiry, request, or any service-related details."
       },
       "edit": {
         "title": "Edit Note",
@@ -1034,7 +1325,7 @@
       "fields": {
         "type": {
           "label": "Note Type",
-          "placeholder": "Select note type"
+          "placeholder": "Select a note type"
         },
         "text": {
           "label": "Note",
@@ -1066,7 +1357,7 @@
   "subscriptionPage": {
     "header": {
       "title": "My Subscriptions",
-      "description": "Manage your company's current subscription details, review plan type, pricing, subscription period, and explore available renewal options.",
+      "description": "Manage your company's current subscription, review plan type, pricing, subscription period, and explore available renewal options.",
       "breadcrumb": {
         "home": "Home",
         "settings": "System Settings",
@@ -1077,16 +1368,16 @@
       "title": "Company Subscription Status",
       "yearly": {
         "label": "Annual Subscription",
-        "hint": "Provides the best long-term value for your company."
+        "hint": "Offers the best long-term value for your company."
       },
       "monthly": {
         "label": "Monthly Subscription",
-        "hint": "Ideal for companies that need monthly flexibility."
+        "hint": "Ideal for companies that require monthly flexibility."
       },
       "progress": {
         "title": "Subscription Progress",
         "remaining": "{days} days remaining",
-        "notAvailable": "Not available"
+        "notAvailable": "Not Available"
       },
       "featuresTitle": "Subscription Features",
       "cards": {
@@ -1107,45 +1398,45 @@
     },
     "pricing": {
       "title": "Available Plans",
-      "description": "Review available plans with clearer details about features and subscription periods to help you choose the best option.",
+      "description": "Review the available plans with detailed information about features and subscription periods to help you make the best choice.",
       "bestValue": "Best Value",
       "currentPlan": "Current Plan",
-      "selectPlan": "Choose this plan",
-      "selected": "Your active plan",
+      "selectPlan": "Choose This Plan",
+      "selected": "Your Active Plan",
       "billing": "Billing Cycle",
       "monthly": "Monthly",
-      "yearly": "Yearly",
+      "yearly": "Annual",
       "duration": "Duration"
     },
     "status": {
       "pending": "Pending",
       "active": "Active",
       "inactive": "Inactive",
-      "change": "Change request under review"
+      "change": "Change Request Under Review"
     },
     "features": {
       "title": "Subscription Features",
       "items": [
         "Direct technical support for companies",
         "Daily reports and subscription tracking",
-        "User and shipment management dashboard",
-        "Easy plan upgrade or downgrade"
+        "Dashboard for user and shipment management",
+        "Easy plan upgrades and downgrades"
       ]
     },
     "faq": {
       "title": "Subscription FAQs",
       "items": [
         {
-          "q": "Can I change my subscription plan anytime?",
-          "a": "Yes, you can switch between monthly and yearly plans based on system rules."
+          "q": "Can I change my subscription plan at any time?",
+          "a": "Yes, you can switch between monthly and annual plans in accordance with the system's policies."
         },
         {
-          "q": "What data is shown in the plan details?",
-          "a": "The page displays subscription type, price, and duration based on available plan data."
+          "q": "What information is displayed in the plan details?",
+          "a": "The page displays the subscription type, price, and duration based on the available plan data."
         },
         {
-          "q": "Are there hidden fees or long-term contracts?",
-          "a": "All pricing shown is transparent; additional payment details depend on system settings."
+          "q": "Are there any hidden fees or long-term commitments?",
+          "a": "All displayed prices are transparent; any additional payment details are based on the system's configuration."
         }
       ]
     }
@@ -1153,29 +1444,41 @@
   "managerDashboard": {
     "header": {
       "title": "Dashboard",
-      "description": "Overview of shipping operations performance, including current shipments, clients, and routes.",
+      "description": "An overview of shipping operations performance, including current shipments, clients, and routes.",
       "breadcrumb": {
         "home": "Home"
       }
     },
     "currentShipments": {
       "title": "Current Shipments",
-      "description": "View all active shipments and track their latest updates."
+      "description": "View all active shipments and monitor their latest updates."
     },
     "table": {
       "shipmentNumber": "Shipment Number",
       "launchDate": "Launch Date",
       "route": "Route",
-      "currentPoint": "Current Point",
+      "currentPoint": "Current Location",
       "driver": "Driver",
       "empty": "No shipments available"
     },
     "stats": {
       "shipments": "Total Shipments",
       "current": "Current Shipments",
-      "finished": "Finished Shipments",
+      "finished": "Completed Shipments",
       "clients": "Clients",
       "ways": "Routes"
     }
+  },
+  "tableEmpty": {
+    "companies": "There are no companies added yet. Start by adding your first company.",
+    "subscriptions": "There are no subscription plans available yet. Add your first plan.",
+    "notes": "No notes have been added yet.",
+    "notesWithAction": "No notes have been added yet. Create your first note.",
+    "clients": "No clients have been added yet. Create your first client.",
+    "shipments": "No shipments have been added yet. Create your first shipment.",
+    "finishedShipments": "No shipments have been completed yet.",
+    "users": "There are no users yet. Start by adding your first user.",
+    "ways": "No routes have been created yet. Start by adding your first route.",
+    "shipmentsCurrent": "No shipments have been added yet. Create your first shipment."
   }
 }

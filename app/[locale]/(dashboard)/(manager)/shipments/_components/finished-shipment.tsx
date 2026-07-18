@@ -47,6 +47,7 @@ async function TableAndPagination({search, page}: FinishedShipmentsProps) {
   const data = await getFinishedShipments(token, search, page);
   const tTable = await getTranslations('shipments.finished.table.headers');
   const tActionsTable = await getTranslations('shipments.finished.table.actions');
+  const tEmpty = await getTranslations('tableEmpty');
   return (
     <>
       <Table>
@@ -65,7 +66,7 @@ async function TableAndPagination({search, page}: FinishedShipmentsProps) {
           {data?.data?.length === 0 ? (
             <TableRow>
               <TableCell colSpan={6}>
-                <TableEmpty />
+                <TableEmpty text={tEmpty('finishedShipments')} />
               </TableCell>
             </TableRow>
           ) : (
@@ -78,12 +79,7 @@ async function TableAndPagination({search, page}: FinishedShipmentsProps) {
                 <TableCell>{shipment.currentPoint?.name}</TableCell>
                 <TableCell>{shipment.driver.userName}</TableCell>
                 <TableCell>
-                  <TablePopover
-                    items={[
-                      {type: 'link', link: `/shipments/${shipment.id}`, text: tActionsTable('viewDetails')}
-                      // {type: 'dialog', item: <DeleteDialog title='حدف الشحنة' triggerText='حدف الشحنة' description='هل انت متاكد من حدف الشحنة' onclick={() => {}} open={open} setOpen={setOpen} />}
-                    ]}
-                  />
+                  <TablePopover items={[{type: 'link', link: `/shipments/${shipment.id}`, text: tActionsTable('viewDetails')}]} />
                 </TableCell>
               </TableRow>
             ))

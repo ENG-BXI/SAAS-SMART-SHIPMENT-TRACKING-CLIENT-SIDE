@@ -15,29 +15,31 @@ import useGetSubscriptionTypeAsOptions from '@/app/[locale]/(dashboard)/(admin)/
 import {useTranslations} from 'next-intl';
 import Attachment from './attachment';
 
-const createCompanyFormSchema = z.object({
-  name: z.string().min(3),
-  location: z.string().min(3),
-  companyEmail: z.email(),
-  companyPassword: z.string().min(8),
-  confirmPassword: z.string().min(8),
-  subscriptionType: z.string().min(1),
-  receipt: z
-    .custom<File>(file => file instanceof File, {
-      message: 'Receipt is required'
-    })
-    .refine(file => file.size <= 5 * 1024 * 1024, 'Max file size is 5MB')
-    .refine(file => ['image/jpeg', 'image/png', 'image/webp'].includes(file.type), 'Only JPG, PNG, WEBP allowed')
-});
+const createCompanyFormSchema = (t: ReturnType<typeof useTranslations>) =>
+  z.object({
+    name: z.string().min(3, t('nameMin')),
+    location: z.string().min(3, t('locationMin')),
+    companyEmail: z.email(t('emailInvalid')),
+    companyPassword: z.string().min(8, t('passwordMin')),
+    confirmPassword: z.string().min(8, t('confirmPasswordMin')),
+    subscriptionType: z.string().min(1, t('subscriptionRequired')),
+    receipt: z
+      .custom<File>(file => file instanceof File, {
+        message: t('receiptRequired')
+      })
+      .refine(file => file instanceof File && file.size <= 5 * 1024 * 1024, t('receiptMaxSize'))
+      .refine(file => file instanceof File && ['image/jpeg', 'image/png', 'image/webp'].includes(file.type), t('receiptFileType'))
+  });
 
-export type createCompanyFormData = z.infer<typeof createCompanyFormSchema>;
+export type createCompanyFormData = z.infer<ReturnType<typeof createCompanyFormSchema>>;
 
 function RegisterCompanyForm() {
   const [isPending, startTransition] = useTransition();
-  const t = useTranslations('homePage.registerCompanyForm');
+  const t = useTranslations('registerCompanyPage.form');
+  const tValidation = useTranslations('registerCompanyPage.validation');
 
   const formHook = useForm<createCompanyFormData>({
-    resolver: zodResolver(createCompanyFormSchema),
+    resolver: zodResolver(createCompanyFormSchema(tValidation)),
     defaultValues: {
       name: '',
       location: '',
@@ -80,8 +82,8 @@ function RegisterCompanyForm() {
           {/* Company Information */}
           <section className='space-y-5'>
             <div className='space-y-1'>
-              <h2 className='text-lg font-semibold'>{t('sections.companyInfo')}</h2>
-              <p className='text-sm text-muted-foreground'>{t('sections.companyInfoDescription')}</p>
+              <h2 className='text-lg font-semibold'>{t('sections.companyInfo.title')}</h2>
+              <p className='text-sm text-muted-foreground'>{t('sections.companyInfo.description')}</p>
             </div>
             <Separator />
             <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
@@ -93,8 +95,8 @@ function RegisterCompanyForm() {
           {/* Account Information */}
           <section className='space-y-5'>
             <div className='space-y-1'>
-              <h2 className='text-lg font-semibold'>{t('sections.accountInfo')}</h2>
-              <p className='text-sm text-muted-foreground'>{t('sections.accountInfoDescription')}</p>
+              <h2 className='text-lg font-semibold'>{t('sections.accountInfo.title')}</h2>
+              <p className='text-sm text-muted-foreground'>{t('sections.accountInfo.description')}</p>
             </div>
             <Separator />
             <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
@@ -108,7 +110,11 @@ function RegisterCompanyForm() {
             control={formHook.control}
             render={({field, fieldState}) => (
               <div className='space-y-2'>
-                <Attachment value={field.value} onChange={field.onChange} accept='image/*' disabled={isPending} />
+                <div className='space-y-1'>
+                  <h2 className='text-lg font-semibold'>{t('sections.receipt.title')}</h2>
+                  <p className='text-sm text-muted-foreground'>{t('sections.receipt.description')}</p>
+                </div>
+                <Attachment value={field.value} onChange={field.onChange} accept='image/*' disabled={isPending} uploadLabel={t('attachment.upload')} removeLabel={t('attachment.remove')} />
 
                 {fieldState.error && <p className='text-sm text-destructive'>{fieldState.error.message}</p>}
               </div>

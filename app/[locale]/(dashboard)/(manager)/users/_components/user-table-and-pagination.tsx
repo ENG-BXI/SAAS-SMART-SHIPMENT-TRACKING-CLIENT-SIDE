@@ -8,14 +8,14 @@ import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from '@/c
 import CustomPagination from '@/components/custom-pagination';
 import UserDialog from './user-dialog';
 import DeleteUserDialog from './delete-user-dialog';
-import { getTranslations } from 'next-intl/server';
+import {getTranslations} from 'next-intl/server';
 
 async function UserTableAndPagination({search, page}: {search: string; page: string}) {
   const cookie = await cookies();
   const t = await getTranslations('usersPage');
   const token = cookie.get('token')?.value;
   const response = await GetAllUsers(token, search, page);
-
+  const tEmpty = await getTranslations('tableEmpty');
   return (
     <>
       <Table>
@@ -30,8 +30,8 @@ async function UserTableAndPagination({search, page}: {search: string; page: str
         <TableBody>
           {response.data?.length === 0 ? (
             <TableRow>
-              <TableCell colSpan={3}>
-                <TableEmpty />
+              <TableCell colSpan={4}>
+                <TableEmpty text={tEmpty('users')} action={<UserDialog type='add' triggerTitle={t('actions.add')} />} />{' '}
               </TableCell>
             </TableRow>
           ) : (
@@ -39,13 +39,10 @@ async function UserTableAndPagination({search, page}: {search: string; page: str
               <TableRow key={user.id}>
                 <TableCell className='w-50'>{user.userName}</TableCell>
                 <TableCell className='w-60'>{user.email}</TableCell>
-                {/* //TODO: add badge here by user role  */}
                 <TableCell className=''>{userRoleName[user.role]}</TableCell>
                 <TableCell>
                   <TablePopover
                     items={[
-                      // TODO : add dialog for show Details
-                      //   {type: 'link', link: `/manager/ways/${way.id}`, text: 'عرض التفاصيل'},
                       {type: 'dialog', item: <UserDialog type='edit' id={user.id} triggerTitle={t('dialog.actions.triggerEdit')} data={{name: user.userName, email: user.email, password: '', role: user.role}} />},
                       {
                         type: 'dialog',

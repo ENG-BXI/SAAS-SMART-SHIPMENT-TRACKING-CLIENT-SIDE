@@ -4,7 +4,7 @@ import {TableEmpty} from '@/components/table-empty';
 import TablePopover from '@/components/table-popover';
 import SubscriptionDialog from './subscription-dialog';
 import DeleteSubscriptionDialog from './delete-subscription-dialog';
-import { useTranslations } from 'next-intl';
+import {useTranslations} from 'next-intl';
 
 interface IAllSubscriptions {
   subscriptions?: ISubscriptionForTable[];
@@ -12,6 +12,7 @@ interface IAllSubscriptions {
 
 function AllSubscriptions({subscriptions}: IAllSubscriptions) {
   const t = useTranslations('adminSubscriptionsPage.table');
+  const tEmpty = useTranslations('tableEmpty');
   return (
     <Table>
       <TableHeader>
@@ -29,7 +30,7 @@ function AllSubscriptions({subscriptions}: IAllSubscriptions) {
             const durationByYear = sub.durationByMonth / 12;
             return (
               <TableRow key={sub.id}>
-                <TableCell className='font-semibold text-gray-900'>{sub.type}</TableCell>
+                <TableCell className='font-semibold'>{sub.type}</TableCell>
                 <TableCell>{sub.price}</TableCell>
                 <TableCell>
                   {isYearly ? durationByYear : sub.durationByMonth} {isYearly ? t('format.year') : t('format.month')}
@@ -48,7 +49,7 @@ function AllSubscriptions({subscriptions}: IAllSubscriptions) {
         ) : (
           <TableRow>
             <TableCell colSpan={4}>
-              <TableEmpty />
+              <TableEmpty text={tEmpty('subscriptions')} action={<SubscriptionDialog type='add' />} />
             </TableCell>
           </TableRow>
         )}
