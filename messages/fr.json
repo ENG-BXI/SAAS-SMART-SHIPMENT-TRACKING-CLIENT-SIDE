@@ -1,1485 +1,1512 @@
 {
-    "homePage": {
-        "title": "Accueil",
-        "description": "Soumettez une demande d'abonnement pour créer un compte d'entreprise et commencer à utiliser la plateforme.",
-        "registerCompany": {
-            "title": "Nouvelle demande d'abonnement d'entreprise",
-            "description": "Cette page est actuellement utilisée pour soumettre une demande de création d'une nouvelle entreprise."
-        },
-        "registerCompanyForm": {
-            "tempNote": "Page de destination temporaire pour les demandes d'abonnement d'entreprise",
-            "title": "Créer une nouvelle entreprise",
-            "description": "Soumettez une demande pour créer une nouvelle entreprise et lui permettre d'utiliser la plateforme pour les opérations d'expédition.",
-            "sections": {
-                "companyInfo": "Informations de l'entreprise",
-                "companyInfoDescription": "Entrez les informations de base de l'entreprise et le plan d'abonnement.",
-                "accountInfo": "Informations du compte",
-                "accountInfoDescription": "Entrez les identifiants de connexion qui seront utilisés pour accéder à la plateforme."
-            },
-            "fields": {
-                "name": {
-                    "label": "Nom de l'entreprise",
-                    "placeholder": "Exemple: Fast Line Shipping"
-                },
-                "subscriptionType": {
-                    "label": "Plan d'abonnement",
-                    "placeholder": "Choisissez un plan d'abonnement"
-                },
-                "location": {
-                    "label": "Localisation de l'entreprise",
-                    "placeholder": "Exemple: Riyad, Arabie Saoudite"
-                },
-                "companyEmail": {
-                    "label": "Email de l'entreprise",
-                    "placeholder": "Exemple: example@gmail.com"
-                },
-                "companyPassword": {
-                    "label": "Mot de passe",
-                    "placeholder": "***********"
-                },
-                "confirmPassword": {
-                    "label": "Confirmer le mot de passe",
-                    "placeholder": "***********"
-                }
-            },
-            "actions": {
-                "submit": "Créer",
-                "submitting": "Création en cours..."
-            }
-        }
+  "homePage": {
+    "title": "Accueil",
+    "description": "Soumettez une demande d'abonnement pour créer un compte d'entreprise et commencer à utiliser la plateforme.",
+    "registerCompany": {
+      "title": "Nouvelle demande d'abonnement d'entreprise",
+      "description": "Cette page est actuellement utilisée pour soumettre une demande de création d'une nouvelle entreprise."
     },
-    "landingPage": {
-        "hero": {
-            "imageAlt": "Plateforme d'expédition",
-            "eyebrow": "Plateforme intelligente de gestion des expéditions",
-            "titleLine1": "Gérez vos expéditions",
-            "titleLine2": "Plus simple et plus rapide",
-            "description": "Une plateforme complète qui aide les entreprises de transport à suivre les expéditions, gérer les clients et optimiser les opérations de livraison depuis un seul endroit.",
-            "actions": {
-                "subscribe": "S'abonner maintenant",
-                "learnMore": "En savoir plus"
-            }
+    "registerCompanyForm": {
+      "tempNote": "Page de destination temporaire pour les demandes d'abonnement d'entreprise",
+      "title": "Créer une nouvelle entreprise",
+      "description": "Soumettez une demande pour créer une nouvelle entreprise et lui permettre d'utiliser la plateforme pour les opérations d'expédition.",
+      "sections": {
+        "companyInfo": "Informations de l'entreprise",
+        "companyInfoDescription": "Entrez les informations de base de l'entreprise et le plan d'abonnement.",
+        "accountInfo": "Informations du compte",
+        "accountInfoDescription": "Entrez les identifiants de connexion qui seront utilisés pour accéder à la plateforme."
+      },
+      "fields": {
+        "name": {
+          "label": "Nom de l'entreprise",
+          "placeholder": "Exemple: Fast Line Shipping"
         },
-        "about": {
-            "items": [
-                {
-                    "title": "Gestion des expéditions",
-                    "description": "Contrôlez toutes les opérations d'expédition de la création à la livraison avec un suivi complet."
-                },
-                {
-                    "title": "Suivi intelligent",
-                    "description": "Suivez l'état et l'emplacement des expéditions de manière directe et simple."
-                },
-                {
-                    "title": "Gestion des clients",
-                    "description": "Organisez les données des clients et améliorez leur expérience."
-                }
-            ]
+        "subscriptionType": {
+          "label": "Plan d'abonnement",
+          "placeholder": "Choisissez un plan d'abonnement"
         },
-        "services": {
-            "eyebrow": "Nos services",
-            "title": "Votre partenaire de confiance dans la gestion des expéditions et de la logistique",
-            "items": [
-                {
-                    "title": "Suivi des expéditions",
-                    "description": "Une page dédiée aux clients pour connaître l'état de l'expédition, l'emplacement actuel, le prochain point et le nombre total de points du voyage."
-                },
-                {
-                    "title": "Gestion des clients",
-                    "description": "Permettez à chaque entreprise de gérer tous ses clients, données, expéditions et de suivre facilement les opérations de livraison."
-                },
-                {
-                    "title": "Gestion des itinéraires d'expédition",
-                    "description": "Créez des itinéraires d'expédition personnalisés avec plusieurs points et zones pour organiser le mouvement des expéditions."
-                },
-                {
-                    "title": "Gestion des chauffeurs",
-                    "description": "Ajoutez des chauffeurs et assignez-les aux expéditions dont ils sont responsables avec une application mobile dédiée au suivi des trajets."
-                },
-                {
-                    "title": "Création facile d'expéditions",
-                    "description": "Créez des expéditions, sélectionnez l'itinéraire et le chauffeur, et ajoutez les clients et leurs articles de manière organisée et rapide."
-                },
-                {
-                    "title": "Notifications automatiques aux clients",
-                    "description": "Envoyez des messages aux clients lorsque l'expédition passe d'un point à un autre avec un lien de suivi de l'expédition."
-                },
-                {
-                    "title": "Notes et suggestions",
-                    "description": "Possibilité d'envoyer des notes, des suggestions et des problèmes pour améliorer la plateforme et développer les services."
-                }
-            ]
+        "location": {
+          "label": "Localisation de l'entreprise",
+          "placeholder": "Exemple: Riyad, Arabie Saoudite"
         },
-        "explore": {
-            "eyebrow": "Interfaces de la plateforme",
-            "title": "Explorez le système avant de l'utiliser",
-            "description": "Toutes les images ci-dessous sont issues du système réel pour illustrer l'expérience de gestion des expéditions, des clients et des chauffeurs.",
-            "items": [
-                {
-                    "title": "Tableau de bord",
-                    "description": "Suivez les statistiques, les expéditions, les clients et les chauffeurs depuis un seul tableau de bord."
-                },
-                {
-                    "title": "Créer des expéditions",
-                    "description": "Créez une nouvelle expédition, sélectionnez l'itinéraire, le chauffeur et les clients en quelques secondes."
-                },
-                {
-                    "title": "Suivi des expéditions",
-                    "description": "Affichez l'état de l'expédition, le point actuel et les prochaines stations pour les clients."
-                }
-            ]
+        "companyEmail": {
+          "label": "Email de l'entreprise",
+          "placeholder": "Exemple: example@gmail.com"
         },
-        "whyChooseUs": {
-            "eyebrow": "Pourquoi choisir notre système ?",
-            "title": "Une plateforme cloud intégrée pour la gestion des entreprises de transport et de logistique",
-            "description": "Notre système est conçu pour aider les entreprises de transport à gérer leurs opérations quotidiennes de manière efficace, de la gestion des expéditions, des clients et des chauffeurs, jusqu'aux rapports et à la comptabilité, le tout à travers une plateforme facile à utiliser et sécurisée.",
-            "features": [
-                {
-                    "title": "Suivi des expéditions en temps réel",
-                    "description": "Suivez le parcours de chaque expédition directement et connaissez son état actuel depuis sa création jusqu'à sa livraison au client."
-                },
-                {
-                    "title": "Gestion des succursales et des entrepôts",
-                    "description": "Organisez les opérations de toutes les succursales et entrepôts depuis un seul tableau de bord avec le suivi des mouvements d'expédition entre eux."
-                },
-                {
-                    "title": "Gestion des chauffeurs et des véhicules",
-                    "description": "Assignez des expéditions aux chauffeurs, suivez les trajets et gérez votre flotte de transport efficacement et facilement."
-                },
-                {
-                    "title": "Gestion des itinéraires et des points de livraison",
-                    "description": "Créez des itinéraires de voyage et définissez les points de livraison et de ramassage pour garantir que les expéditions arrivent par le meilleur itinéraire possible."
-                },
-                {
-                    "title": "Notifications et mises à jour instantanées",
-                    "description": "Envoyez des mises à jour automatiques aux clients et aux employés lorsque l'état de l'expédition change, que le voyage commence ou que la livraison est terminée."
-                },
-                {
-                    "title": "Rapports opérationnels et statistiques",
-                    "description": "Examinez les performances de l'entreprise, le nombre d'expéditions, les revenus, les trajets et les taux d'achèvement à travers des rapports et des graphiques."
-                }
-            ]
+        "companyPassword": {
+          "label": "Mot de passe",
+          "placeholder": "***********"
         },
-        "driverApp": {
-            "eyebrow": "Application mobile pour chauffeurs",
-            "titleLine1": "Application intelligente pour chauffeurs",
-            "titleLine2": "Rend chaque trajet plus efficace",
-            "description": "Offrez à vos chauffeurs une expérience professionnelle avec une application dédiée à la gestion des trajets, au suivi des expéditions et à la communication directe avec le système.",
-            "download": "Télécharger l'application chauffeur",
-            "screenAlt": "Écran de l'application chauffeur",
-            "features": [
-                "Voir toutes les expéditions et trajets assignés au chauffeur",
-                "Mettre à jour l'état de l'expédition en un clic pendant la livraison",
-                "Suivre les détails du trajet, les points et l'état actuel de l'expédition",
-                "Prise en charge de plus de 10 langues avec une interface facile pour les chauffeurs"
-            ]
-        },
-        "imageSlider": {
-            "items": [
-                {
-                    "title": "Gestion intelligente des expéditions",
-                    "description": "Créez facilement des expéditions, suivez les étapes de transport et gérez toutes les opérations de livraison via un seul tableau de bord qui vous aide à améliorer la vitesse et l'efficacité du travail."
-                },
-                {
-                    "title": "Suivi direct des expéditions",
-                    "description": "Surveillez l'état de chaque expédition en temps réel et connaissez son emplacement actuel et son itinéraire jusqu'à son arrivée chez le client avec des mises à jour continues."
-                },
-                {
-                    "title": "Gestion des chauffeurs et des trajets",
-                    "description": "Distribuez les expéditions entre les chauffeurs, suivez les trajets et organisez les opérations de transport pour garantir les meilleures performances opérationnelles."
-                },
-                {
-                    "title": "Gestion des clients et des comptes",
-                    "description": "Organisez les données des clients, les commandes, les paiements et les soldes avec un historique complet de toutes les opérations au sein du système."
-                },
-                {
-                    "title": "Plateforme SaaS multi-entreprises",
-                    "description": "Prenez en charge plusieurs entreprises au sein du système avec une séparation complète des données, une gestion des utilisateurs et des permissions de manière sécurisée."
-                }
-            ]
-        },
-        "faq": {
-            "eyebrow": "Questions fréquemment posées",
-            "title": "Tout ce que vous devez savoir sur le système intelligent de gestion des expéditions",
-            "description": "Découvrez le fonctionnement de la plateforme, la gestion des expéditions, les abonnements et les permissions avant de commencer à utiliser le système.",
-            "tabs": [
-                {
-                    "value": "system",
-                    "label": "Système",
-                    "items": [
-                        {
-                            "id": "system-1",
-                            "question": "Qu'est-ce que le système de gestion des expéditions ?",
-                            "answer": "Une plateforme SaaS qui aide les entreprises de transport et de logistique à gérer les expéditions, les clients, les chauffeurs, les trajets et les rapports via un tableau de bord facile à utiliser."
-                        },
-                        {
-                            "id": "system-2",
-                            "question": "Le système peut-il être utilisé pour plusieurs entreprises ?",
-                            "answer": "Oui, le système prend en charge la multi-tenant (Multi Tenant) afin que chaque entreprise dispose d'un compte indépendant avec une séparation complète des données et des permissions."
-                        },
-                        {
-                            "id": "system-3",
-                            "question": "Puis-je gérer les utilisateurs et les permissions ?",
-                            "answer": "Vous pouvez créer plusieurs utilisateurs et définir différentes permissions en fonction du rôle de chaque utilisateur au sein de l'entreprise."
-                        }
-                    ]
-                },
-                {
-                    "value": "shipments",
-                    "label": "Expéditions",
-                    "items": [
-                        {
-                            "id": "shipment-1",
-                            "question": "Comment les expéditions sont-elles créées et suivies ?",
-                            "answer": "Vous pouvez créer une nouvelle expédition, ajouter les données du client et les points de ramassage et de livraison, assigner un chauffeur et suivre l'état de l'expédition jusqu'à la livraison."
-                        },
-                        {
-                            "id": "shipment-2",
-                            "question": "Le système fournit-il un suivi direct des expéditions ?",
-                            "answer": "Oui, vous pouvez suivre l'état de l'expédition et du trajet, et connaître facilement les dernières mises à jour qui s'y rapportent."
-                        },
-                        {
-                            "id": "shipment-3",
-                            "question": "Puis-je gérer les chauffeurs et les trajets ?",
-                            "answer": "Vous pouvez gérer les chauffeurs, distribuer les trajets et surveiller les performances des opérations de transport via le tableau de bord."
-                        }
-                    ]
-                },
-                {
-                    "value": "subscription",
-                    "label": "Abonnements",
-                    "items": [
-                        {
-                            "id": "subscription-1",
-                            "question": "Le système fonctionne-t-il avec un modèle d'abonnement ?",
-                            "answer": "Oui, le système est basé sur le modèle SaaS et les entreprises peuvent choisir le forfait approprié selon leurs besoins."
-                        },
-                        {
-                            "id": "subscription-2",
-                            "question": "Puis-je changer de forfait plus tard ?",
-                            "answer": "Vous pouvez mettre à niveau ou changer de forfait à tout moment en fonction de la croissance de l'entreprise et de l'augmentation de ses besoins."
-                        }
-                    ]
-                }
-            ]
-        },
-        "ctaBanner": {
-            "imageAlt": "Plateforme SaaS",
-            "title": "Prêt à développer la gestion des expéditions dans votre entreprise ?",
-            "description": "Commencez à utiliser la plateforme intelligente de gestion des expéditions, organisez vos opérations, suivez les trajets et gérez votre équipe depuis un seul endroit.",
-            "action": "Commencer maintenant"
+        "confirmPassword": {
+          "label": "Confirmer le mot de passe",
+          "placeholder": "***********"
         }
+      },
+      "actions": {
+        "submit": "Créer",
+        "submitting": "Création en cours..."
+      }
+    }
+  },
+  "landingPage": {
+    "hero": {
+      "imageAlt": "Plateforme d'expédition",
+      "eyebrow": "Plateforme intelligente de gestion des expéditions",
+      "titleLine1": "Gérez vos expéditions",
+      "titleLine2": "Plus simple et plus rapide",
+      "description": "Une plateforme complète qui aide les entreprises de transport à suivre les expéditions, gérer les clients et optimiser les opérations de livraison depuis un seul endroit.",
+      "actions": {
+        "subscribe": "S'abonner maintenant",
+        "learnMore": "En savoir plus"
+      }
     },
-    "registerCompanyPage": {
-        "hero": {
-            "title": "Nouvelle demande d'abonnement d'entreprise",
-            "imageAlt": "Enregistrer une nouvelle entreprise"
+    "about": {
+      "items": [
+        {
+          "title": "Gestion des expéditions",
+          "description": "Contrôlez toutes les opérations d'expédition de la création à la livraison avec un suivi complet."
         },
-        "form": {
-            "title": "Créer une nouvelle entreprise",
-            "description": "Soumettez une demande pour créer une nouvelle entreprise et lui permettre d'utiliser la plateforme pour les opérations d'expédition.",
-            "sections": {
-                "companyInfo": {
-                    "title": "Informations de l'entreprise",
-                    "description": "Entrez les informations de base de l'entreprise et le plan d'abonnement."
-                },
-                "accountInfo": {
-                    "title": "Informations du compte",
-                    "description": "Entrez les identifiants de connexion qui seront utilisés pour accéder à la plateforme."
-                },
-                "receipt": {
-                    "title": "Justificatif de paiement",
-                    "description": "Téléchargez une image du justificatif de paiement pour soumettre la demande d'abonnement et sa révision."
-                }
-            },
-            "fields": {
-                "name": {
-                    "label": "Nom de l'entreprise",
-                    "placeholder": "Exemple: Fast Line Shipping"
-                },
-                "subscriptionType": {
-                    "label": "Plan d'abonnement",
-                    "placeholder": "Choisissez un plan d'abonnement"
-                },
-                "location": {
-                    "label": "Localisation de l'entreprise",
-                    "placeholder": "Exemple: Riyad, Arabie Saoudite"
-                },
-                "companyEmail": {
-                    "label": "Email de l'entreprise",
-                    "placeholder": "Exemple: example@gmail.com"
-                },
-                "companyPassword": {
-                    "label": "Mot de passe",
-                    "placeholder": "***********"
-                },
-                "confirmPassword": {
-                    "label": "Confirmer le mot de passe",
-                    "placeholder": "***********"
-                }
-            },
-            "attachment": {
-                "upload": "Télécharger l'image du justificatif de paiement",
-                "remove": "Supprimer le fichier"
-            },
-            "actions": {
-                "submit": "Créer",
-                "submitting": "Création en cours..."
-            }
+        {
+          "title": "Suivi intelligent",
+          "description": "Suivez l'état et l'emplacement des expéditions de manière directe et simple."
         },
-        "validation": {
-            "nameMin": "Le nom de l'entreprise doit comporter au moins 3 caractères",
-            "locationMin": "La localisation de l'entreprise doit comporter au moins 3 caractères",
-            "emailInvalid": "Veuillez entrer une adresse email valide",
-            "passwordMin": "Le mot de passe doit comporter au moins 8 caractères",
-            "confirmPasswordMin": "La confirmation du mot de passe doit comporter au moins 8 caractères",
-            "subscriptionRequired": "Veuillez sélectionner un plan d'abonnement",
-            "receiptRequired": "Le justificatif de paiement est obligatoire",
-            "receiptMaxSize": "La taille maximale du fichier est de 5 Mo",
-            "receiptFileType": "Seuls les formats JPG, PNG et WEBP sont autorisés"
+        {
+          "title": "Gestion des clients",
+          "description": "Organisez les données des clients et améliorez leur expérience."
         }
+      ]
     },
-    "shared": {
-        "uploadImage": {
-            "title": "Télécharger des pièces jointes",
-            "description": "La taille maximale autorisée est de 2 Mo, et les formats pris en charge incluent .jpg, .png et .pdf.",
-            "browseFiles": "Parcourir les fichiers"
+    "services": {
+      "eyebrow": "Nos services",
+      "title": "Votre partenaire de confiance dans la gestion des expéditions et de la logistique",
+      "items": [
+        {
+          "title": "Suivi des expéditions",
+          "description": "Une page dédiée aux clients pour connaître l'état de l'expédition, l'emplacement actuel, le prochain point et le nombre total de points du voyage."
         },
-        "buttons": {
-            "filter": "Filtrer",
-            "cancel": "Annuler",
-            "add": "Ajouter",
-            "edit": "Modifier"
+        {
+          "title": "Gestion des clients",
+          "description": "Permettez à chaque entreprise de gérer tous ses clients, données, expéditions et de suivre facilement les opérations de livraison."
         },
-        "tablePopover": {
-            "actionsTitle": "Opérations"
+        {
+          "title": "Gestion des itinéraires d'expédition",
+          "description": "Créez des itinéraires d'expédition personnalisés avec plusieurs points et zones pour organiser le mouvement des expéditions."
         },
-        "currencyRiyal": "SAR",
-        "pagination": {
-            "next": "Suivant",
-            "previous": "Précédent",
-            "showing": "Affichage",
-            "to": "à",
-            "of": "sur",
-            "items": "éléments"
+        {
+          "title": "Gestion des chauffeurs",
+          "description": "Ajoutez des chauffeurs et assignez-les aux expéditions dont ils sont responsables avec une application mobile dédiée au suivi des trajets."
+        },
+        {
+          "title": "Création facile d'expéditions",
+          "description": "Créez des expéditions, sélectionnez l'itinéraire et le chauffeur, et ajoutez les clients et leurs articles de manière organisée et rapide."
+        },
+        {
+          "title": "Notifications automatiques aux clients",
+          "description": "Envoyez des messages aux clients lorsque l'expédition passe d'un point à un autre avec un lien de suivi de l'expédition."
+        },
+        {
+          "title": "Notes et suggestions",
+          "description": "Possibilité d'envoyer des notes, des suggestions et des problèmes pour améliorer la plateforme et développer les services."
         }
+      ]
+    },
+    "explore": {
+      "eyebrow": "Interfaces de la plateforme",
+      "title": "Explorez le système avant de l'utiliser",
+      "description": "Toutes les images ci-dessous sont issues du système réel pour illustrer l'expérience de gestion des expéditions, des clients et des chauffeurs.",
+      "items": [
+        {
+          "title": "Tableau de bord",
+          "description": "Suivez les statistiques, les expéditions, les clients et les chauffeurs depuis un seul tableau de bord."
+        },
+        {
+          "title": "Créer des expéditions",
+          "description": "Créez une nouvelle expédition, sélectionnez l'itinéraire, le chauffeur et les clients en quelques secondes."
+        },
+        {
+          "title": "Suivi des expéditions",
+          "description": "Affichez l'état de l'expédition, le point actuel et les prochaines stations pour les clients."
+        }
+      ]
+    },
+    "whyChooseUs": {
+      "eyebrow": "Pourquoi choisir notre système ?",
+      "title": "Une plateforme cloud intégrée pour la gestion des entreprises de transport et de logistique",
+      "description": "Notre système est conçu pour aider les entreprises de transport à gérer leurs opérations quotidiennes de manière efficace, de la gestion des expéditions, des clients et des chauffeurs, jusqu'aux rapports et à la comptabilité, le tout à travers une plateforme facile à utiliser et sécurisée.",
+      "features": [
+        {
+          "title": "Suivi des expéditions en temps réel",
+          "description": "Suivez le parcours de chaque expédition directement et connaissez son état actuel depuis sa création jusqu'à sa livraison au client."
+        },
+        {
+          "title": "Gestion des succursales et des entrepôts",
+          "description": "Organisez les opérations de toutes les succursales et entrepôts depuis un seul tableau de bord avec le suivi des mouvements d'expédition entre eux."
+        },
+        {
+          "title": "Gestion des chauffeurs et des véhicules",
+          "description": "Assignez des expéditions aux chauffeurs, suivez les trajets et gérez votre flotte de transport efficacement et facilement."
+        },
+        {
+          "title": "Gestion des itinéraires et des points de livraison",
+          "description": "Créez des itinéraires de voyage et définissez les points de livraison et de ramassage pour garantir que les expéditions arrivent par le meilleur itinéraire possible."
+        },
+        {
+          "title": "Notifications et mises à jour instantanées",
+          "description": "Envoyez des mises à jour automatiques aux clients et aux employés lorsque l'état de l'expédition change, que le voyage commence ou que la livraison est terminée."
+        },
+        {
+          "title": "Rapports opérationnels et statistiques",
+          "description": "Examinez les performances de l'entreprise, le nombre d'expéditions, les revenus, les trajets et les taux d'achèvement à travers des rapports et des graphiques."
+        }
+      ]
+    },
+    "driverApp": {
+      "eyebrow": "Application mobile pour chauffeurs",
+      "titleLine1": "Application intelligente pour chauffeurs",
+      "titleLine2": "Rend chaque trajet plus efficace",
+      "description": "Offrez à vos chauffeurs une expérience professionnelle avec une application dédiée à la gestion des trajets, au suivi des expéditions et à la communication directe avec le système.",
+      "download": "Télécharger l'application chauffeur",
+      "screenAlt": "Écran de l'application chauffeur",
+      "features": [
+        "Voir toutes les expéditions et trajets assignés au chauffeur",
+        "Mettre à jour l'état de l'expédition en un clic pendant la livraison",
+        "Suivre les détails du trajet, les points et l'état actuel de l'expédition",
+        "Prise en charge de plus de 10 langues avec une interface facile pour les chauffeurs"
+      ]
+    },
+    "imageSlider": {
+      "items": [
+        {
+          "title": "Gestion intelligente des expéditions",
+          "description": "Créez facilement des expéditions, suivez les étapes de transport et gérez toutes les opérations de livraison via un seul tableau de bord qui vous aide à améliorer la vitesse et l'efficacité du travail."
+        },
+        {
+          "title": "Suivi direct des expéditions",
+          "description": "Surveillez l'état de chaque expédition en temps réel et connaissez son emplacement actuel et son itinéraire jusqu'à son arrivée chez le client avec des mises à jour continues."
+        },
+        {
+          "title": "Gestion des chauffeurs et des trajets",
+          "description": "Distribuez les expéditions entre les chauffeurs, suivez les trajets et organisez les opérations de transport pour garantir les meilleures performances opérationnelles."
+        },
+        {
+          "title": "Gestion des clients et des comptes",
+          "description": "Organisez les données des clients, les commandes, les paiements et les soldes avec un historique complet de toutes les opérations au sein du système."
+        },
+        {
+          "title": "Plateforme SaaS multi-entreprises",
+          "description": "Prenez en charge plusieurs entreprises au sein du système avec une séparation complète des données, une gestion des utilisateurs et des permissions de manière sécurisée."
+        }
+      ]
+    },
+    "faq": {
+      "eyebrow": "Questions fréquemment posées",
+      "title": "Tout ce que vous devez savoir sur le système intelligent de gestion des expéditions",
+      "description": "Découvrez le fonctionnement de la plateforme, la gestion des expéditions, les abonnements et les permissions avant de commencer à utiliser le système.",
+      "tabs": [
+        {
+          "value": "system",
+          "label": "Système",
+          "items": [
+            {
+              "id": "system-1",
+              "question": "Qu'est-ce que le système de gestion des expéditions ?",
+              "answer": "Une plateforme SaaS qui aide les entreprises de transport et de logistique à gérer les expéditions, les clients, les chauffeurs, les trajets et les rapports via un tableau de bord facile à utiliser."
+            },
+            {
+              "id": "system-2",
+              "question": "Le système peut-il être utilisé pour plusieurs entreprises ?",
+              "answer": "Oui, le système prend en charge la multi-tenant (Multi Tenant) afin que chaque entreprise dispose d'un compte indépendant avec une séparation complète des données et des permissions."
+            },
+            {
+              "id": "system-3",
+              "question": "Puis-je gérer les utilisateurs et les permissions ?",
+              "answer": "Vous pouvez créer plusieurs utilisateurs et définir différentes permissions en fonction du rôle de chaque utilisateur au sein de l'entreprise."
+            }
+          ]
+        },
+        {
+          "value": "shipments",
+          "label": "Expéditions",
+          "items": [
+            {
+              "id": "shipment-1",
+              "question": "Comment les expéditions sont-elles créées et suivies ?",
+              "answer": "Vous pouvez créer une nouvelle expédition, ajouter les données du client et les points de ramassage et de livraison, assigner un chauffeur et suivre l'état de l'expédition jusqu'à la livraison."
+            },
+            {
+              "id": "shipment-2",
+              "question": "Le système fournit-il un suivi direct des expéditions ?",
+              "answer": "Oui, vous pouvez suivre l'état de l'expédition et du trajet, et connaître facilement les dernières mises à jour qui s'y rapportent."
+            },
+            {
+              "id": "shipment-3",
+              "question": "Puis-je gérer les chauffeurs et les trajets ?",
+              "answer": "Vous pouvez gérer les chauffeurs, distribuer les trajets et surveiller les performances des opérations de transport via le tableau de bord."
+            }
+          ]
+        },
+        {
+          "value": "subscription",
+          "label": "Abonnements",
+          "items": [
+            {
+              "id": "subscription-1",
+              "question": "Le système fonctionne-t-il avec un modèle d'abonnement ?",
+              "answer": "Oui, le système est basé sur le modèle SaaS et les entreprises peuvent choisir le forfait approprié selon leurs besoins."
+            },
+            {
+              "id": "subscription-2",
+              "question": "Puis-je changer de forfait plus tard ?",
+              "answer": "Vous pouvez mettre à niveau ou changer de forfait à tout moment en fonction de la croissance de l'entreprise et de l'augmentation de ses besoins."
+            }
+          ]
+        }
+      ]
+    },
+    "ctaBanner": {
+      "imageAlt": "Plateforme SaaS",
+      "title": "Prêt à développer la gestion des expéditions dans votre entreprise ?",
+      "description": "Commencez à utiliser la plateforme intelligente de gestion des expéditions, organisez vos opérations, suivez les trajets et gérez votre équipe depuis un seul endroit.",
+      "action": "Commencer maintenant"
+    }
+  },
+  "registerCompanyPage": {
+    "hero": {
+      "title": "Nouvelle demande d'abonnement d'entreprise",
+      "imageAlt": "Enregistrer une nouvelle entreprise"
+    },
+    "form": {
+      "title": "Créer une nouvelle entreprise",
+      "description": "Soumettez une demande pour créer une nouvelle entreprise et lui permettre d'utiliser la plateforme pour les opérations d'expédition.",
+      "sections": {
+        "companyInfo": {
+          "title": "Informations de l'entreprise",
+          "description": "Entrez les informations de base de l'entreprise et le plan d'abonnement."
+        },
+        "accountInfo": {
+          "title": "Informations du compte",
+          "description": "Entrez les identifiants de connexion qui seront utilisés pour accéder à la plateforme."
+        },
+        "receipt": {
+          "title": "Justificatif de paiement",
+          "description": "Téléchargez une image du justificatif de paiement pour soumettre la demande d'abonnement et sa révision."
+        }
+      },
+      "fields": {
+        "name": {
+          "label": "Nom de l'entreprise",
+          "placeholder": "Exemple: Fast Line Shipping"
+        },
+        "subscriptionType": {
+          "label": "Plan d'abonnement",
+          "placeholder": "Choisissez un plan d'abonnement"
+        },
+        "location": {
+          "label": "Localisation de l'entreprise",
+          "placeholder": "Exemple: Riyad, Arabie Saoudite"
+        },
+        "companyEmail": {
+          "label": "Email de l'entreprise",
+          "placeholder": "Exemple: example@gmail.com"
+        },
+        "companyPassword": {
+          "label": "Mot de passe",
+          "placeholder": "***********"
+        },
+        "confirmPassword": {
+          "label": "Confirmer le mot de passe",
+          "placeholder": "***********"
+        }
+      },
+      "attachment": {
+        "upload": "Télécharger l'image du justificatif de paiement",
+        "remove": "Supprimer le fichier"
+      },
+      "actions": {
+        "submit": "Créer",
+        "submitting": "Création en cours..."
+      }
+    },
+    "validation": {
+      "nameMin": "Le nom de l'entreprise doit comporter au moins 3 caractères",
+      "locationMin": "La localisation de l'entreprise doit comporter au moins 3 caractères",
+      "emailInvalid": "Veuillez entrer une adresse email valide",
+      "passwordMin": "Le mot de passe doit comporter au moins 8 caractères",
+      "confirmPasswordMin": "La confirmation du mot de passe doit comporter au moins 8 caractères",
+      "subscriptionRequired": "Veuillez sélectionner un plan d'abonnement",
+      "receiptRequired": "Le justificatif de paiement est obligatoire",
+      "receiptMaxSize": "La taille maximale du fichier est de 5 Mo",
+      "receiptFileType": "Seuls les formats JPG, PNG et WEBP sont autorisés"
+    }
+  },
+  "shared": {
+    "uploadImage": {
+      "title": "Télécharger des pièces jointes",
+      "description": "La taille maximale autorisée est de 2 Mo, et les formats pris en charge incluent .jpg, .png et .pdf.",
+      "browseFiles": "Parcourir les fichiers"
+    },
+    "buttons": {
+      "filter": "Filtrer",
+      "cancel": "Annuler",
+      "add": "Ajouter",
+      "edit": "Modifier"
+    },
+    "tablePopover": {
+      "actionsTitle": "Opérations"
+    },
+    "currencyRiyal": "SAR",
+    "pagination": {
+      "next": "Suivant",
+      "previous": "Précédent",
+      "showing": "Affichage",
+      "to": "à",
+      "of": "sur",
+      "items": "éléments"
+    }
+  },
+  "sidebar": {
+    "home": "Accueil",
+    "companies": "Entreprises",
+    "subscriptions": "Abonnements",
+    "subscriptionRequests": "Demandes d'abonnement",
+    "notes": "Notes",
+    "shipments": "Expéditions",
+    "clients": "Clients",
+    "ways": "Itinéraires",
+    "users": "Utilisateurs",
+    "mySubscription": "Mon abonnement",
+    "settings": "Paramètres",
+    "logout": "Déconnexion"
+  },
+  "login": {
+    "title": "Connexion",
+    "description": "Accédez à votre compte pour continuer à gérer les expéditions et les opérations.",
+    "fields": {
+      "email": {
+        "label": "Email",
+        "placeholder": "Entrez votre email"
+      },
+      "password": {
+        "label": "Mot de passe",
+        "placeholder": "Entrez votre mot de passe"
+      }
+    },
+    "actions": {
+      "submit": "Se connecter",
+      "submitting": "Connexion en cours..."
+    }
+  },
+  "shipmentClientPage": {
+    "eyebrow": "Suivi des expéditions",
+    "title": "Statut actuel de la commande et détails de suivi officiels",
+    "description": "Une vue claire et organisée du statut de l'expédition, de l'itinéraire et des coordonnées en une seule page.",
+    "topSection": {
+      "shipmentNumber": "Numéro d'expédition",
+      "summary": "Aperçu de l'itinéraire actuel avec le statut de l'expédition et le nombre d'arrêts.",
+      "from": "De",
+      "to": "À",
+      "stopsCount": "Nombre de points d'arrêt"
+    },
+    "summaryGrid": {
+      "title": "Aperçu",
+      "carrier": "Transporteur",
+      "from": "De",
+      "to": "À",
+      "currentPoint": "Point actuel",
+      "progress": "Progression du trajet",
+      "remainingPoints": "Points restants",
+      "itemsCount": "Nombre d'articles",
+      "clientInfo": "Informations client",
+      "email": "Email",
+      "phone": "Téléphone"
     },
     "sidebar": {
-        "home": "Accueil",
-        "companies": "Entreprises",
-        "subscriptions": "Abonnements",
-        "subscriptionRequests": "Demandes d'abonnement",
-        "notes": "Notes",
-        "shipments": "Expéditions",
-        "clients": "Clients",
-        "ways": "Itinéraires",
-        "users": "Utilisateurs",
-        "mySubscription": "Mon abonnement",
-        "settings": "Paramètres",
-        "logout": "Déconnexion"
+      "title": "Statut rapide",
+      "currentStatus": "Statut actuel",
+      "mainPoints": "Points principaux",
+      "stopPointsCount": "{count} points d'arrêt",
+      "contacts": "Contacts",
+      "email": "Email",
+      "phone": "Téléphone",
+      "primary": "Principal",
+      "secondary": "Secondaire"
     },
-    "login": {
-        "title": "Connexion",
-        "description": "Accédez à votre compte pour continuer à gérer les expéditions et les opérations.",
-        "fields": {
-            "email": {
-                "label": "Email",
-                "placeholder": "Entrez votre email"
-            },
-            "password": {
-                "label": "Mot de passe",
-                "placeholder": "Entrez votre mot de passe"
-            }
-        },
-        "actions": {
-            "submit": "Se connecter",
-            "submitting": "Connexion en cours..."
-        }
+    "timeline": {
+      "title": "Chronologie de suivi",
+      "description": "Chaque station que l'expédition traverse, dans l'ordre.",
+      "current": "Actuel",
+      "done": "Passé",
+      "upcoming": "À venir",
+      "currentDescriptionWithNext": "L'expédition est ici maintenant, puis se dirige vers {nextPointName}.",
+      "currentDescriptionLast": "L'expédition a atteint cette station, et c'est le dernier point de l'itinéraire.",
+      "doneDescription": "Cette station a été franchie avec succès.",
+      "upcomingDescription": "L'expédition n'a pas encore atteint cette station."
     },
-    "shipmentClientPage": {
-        "eyebrow": "Suivi des expéditions",
-        "title": "Statut actuel de la commande et détails de suivi officiels",
-        "description": "Une vue claire et organisée du statut de l'expédition, de l'itinéraire et des coordonnées en une seule page.",
-        "topSection": {
-            "shipmentNumber": "Numéro d'expédition",
-            "summary": "Aperçu de l'itinéraire actuel avec le statut de l'expédition et le nombre d'arrêts.",
-            "from": "De",
-            "to": "À",
-            "stopsCount": "Nombre de points d'arrêt"
-        },
-        "summaryGrid": {
-            "title": "Aperçu",
-            "carrier": "Transporteur",
-            "from": "De",
-            "to": "À",
-            "currentPoint": "Point actuel",
-            "progress": "Progression du trajet",
-            "remainingPoints": "Points restants",
-            "itemsCount": "Nombre d'articles",
-            "clientInfo": "Informations client",
-            "email": "Email",
-            "phone": "Téléphone"
-        },
-        "sidebar": {
-            "title": "Statut rapide",
-            "currentStatus": "Statut actuel",
-            "mainPoints": "Points principaux",
-            "stopPointsCount": "{count} points d'arrêt",
-            "contacts": "Contacts",
-            "email": "Email",
-            "phone": "Téléphone",
-            "primary": "Principal",
-            "secondary": "Secondaire"
-        },
-        "timeline": {
-            "title": "Chronologie de suivi",
-            "description": "Chaque station que l'expédition traverse, dans l'ordre.",
-            "current": "Actuel",
-            "done": "Passé",
-            "upcoming": "À venir",
-            "currentDescriptionWithNext": "L'expédition est ici maintenant, puis se dirige vers {nextPointName}.",
-            "currentDescriptionLast": "L'expédition a atteint cette station, et c'est le dernier point de l'itinéraire.",
-            "doneDescription": "Cette station a été franchie avec succès.",
-            "upcomingDescription": "L'expédition n'a pas encore atteint cette station."
-        },
-        "orderDetails": {
-            "title": "Détails de la commande",
-            "origin": "Origine",
-            "arrival": "Arrivée",
-            "driver": "Chauffeur",
-            "phone": "Téléphone",
-            "itemsCount": "Nombre d'articles",
-            "currentPoint": "Point actuel",
-            "routeDetails": "Détails de l'itinéraire",
-            "carrier": "Transporteur",
-            "totalStations": "Total des stations",
-            "remainingStations": "Stations restantes",
-            "notAvailable": "Non disponible"
-        }
-    },
-    "statisticsAdminPage": {
-        "header": {
-            "title": "Tableau de bord",
-            "description": "Aperçu de l'activité de la plateforme avec des statistiques rapides pour les entreprises, les abonnements, les visites et les notes.",
-            "breadcrumb": "Accueil"
-        },
-        "cards": {
-            "companies": "Nombre d'entreprises",
-            "subscriptionRequests": "Demandes d'abonnement",
-            "visitors": "Nombre de visiteurs",
-            "notes": "Nombre de notes",
-            "expiringCompanies": "Entreprises proches de l'expiration",
-            "pausedCompanies": "Entreprises en pause"
-        },
-        "chart": {
-            "title": "Graphique des entreprises actives"
-        }
-    },
-    "adminCompanyDetailPage": {
-        "title": "Détails de l'entreprise",
-        "description": "Détails et gestion de l'entreprise",
-        "breadcrumb": {
-            "home": "Accueil",
-            "companies": "Entreprises",
-            "details": "Détails de l'entreprise"
-        },
-        "companyForm": {
-            "basicInfo": "Informations de base",
-            "companyName": "Nom de l'entreprise",
-            "companyLocation": "Localisation de l'entreprise",
-            "email": "Email",
-            "clientsCount": "Nombre de clients",
-            "subscriptionInfo": "Informations d'abonnement",
-            "subscriptionType": "Type d'abonnement",
-            "subscriptionStart": "Début de l'abonnement",
-            "subscriptionEnd": "Fin de l'abonnement"
-        },
-        "headerActions": {
-            "pauseSubscription": "Suspendre l'abonnement de l'entreprise",
-            "activateSubscription": "Activer l'abonnement de l'entreprise"
-        }
-    },
-    "adminCompaniesPage": {
-        "header": {
-            "title": "Entreprises",
-            "description": "Gérer les entreprises enregistrées et leur statut d'activation",
-            "breadcrumb": {
-                "home": "Accueil",
-                "companies": "Entreprises"
-            }
-        },
-        "table": {
-            "columns": {
-                "companyName": "Nom de l'entreprise",
-                "companyLocation": "Localisation de l'entreprise",
-                "clientsCount": "Nombre de clients",
-                "companyEmail": "Email de l'entreprise",
-                "subscriptionStatus": "Statut d'abonnement"
-            },
-            "actions": {
-                "viewCompany": "Voir l'entreprise",
-                "deleteCompany": "Supprimer l'entreprise"
-            }
-        },
-        "deleteCompanyDialog": {
-            "triggerText": "Supprimer l'entreprise",
-            "title": "Êtes-vous sûr de vouloir supprimer l'entreprise {companyName} ?",
-            "description": "L'entreprise {companyName} sera définitivement supprimée."
-        },
-        "dialog": {
-            "add": {
-                "title": "Ajouter une nouvelle entreprise",
-                "description": "Créez une nouvelle entreprise pour lui permettre d'utiliser le système et de gérer ses opérations d'expédition."
-            },
-            "edit": {
-                "title": "Modifier l'entreprise",
-                "description": "Modifiez les détails de l'entreprise et son statut d'activation. Toute modification sera appliquée immédiatement à tous les utilisateurs de l'entreprise."
-            },
-            "fields": {
-                "companyName": {
-                    "label": "Nom de l'entreprise",
-                    "placeholder": "Exemple: Fast Line Shipping"
-                },
-                "subscriptionType": {
-                    "label": "Plan d'abonnement",
-                    "placeholder": "Choisissez un plan d'abonnement"
-                },
-                "companyLocation": {
-                    "label": "Localisation de l'entreprise",
-                    "placeholder": "Exemple: Riyad, Arabie Saoudite"
-                },
-                "companyEmail": {
-                    "label": "Email de l'entreprise",
-                    "placeholder": "Exemple: example@gmail.com"
-                },
-                "password": {
-                    "label": "Mot de passe",
-                    "placeholder": "***********"
-                },
-                "confirmPassword": {
-                    "label": "Confirmer le mot de passe",
-                    "placeholder": "***********"
-                }
-            },
-            "buttons": {
-                "cancel": "Annuler",
-                "add": "Ajouter",
-                "edit": "Modifier"
-            }
-        }
-    },
-    "adminSubscriptionsPage": {
-        "header": {
-            "title": "Abonnements",
-            "description": "Gérer et suivre les plans d'abonnement",
-            "breadcrumb": {
-                "home": "Accueil",
-                "subscriptions": "Abonnements"
-            }
-        },
-        "table": {
-            "columns": {
-                "planType": "Type de plan",
-                "price": "Prix",
-                "duration": "Durée (mois)"
-            },
-            "format": {
-                "year": "Année",
-                "month": "Mois"
-            }
-        },
-        "dialog": {
-            "add": {
-                "title": "Ajouter un plan d'abonnement",
-                "description": "Créez un nouveau plan d'abonnement, définissez le prix et la durée en mois à utiliser lors de l'ajout d'entreprises."
-            },
-            "edit": {
-                "title": "Modifier le plan d'abonnement",
-                "description": "Modifiez les détails du plan d'abonnement actuel. Les modifications seront appliquées aux données du plan dans le système."
-            },
-            "fields": {
-                "planType": {
-                    "label": "Type de plan",
-                    "placeholder": "Exemple: mensuel ou annuel"
-                },
-                "price": {
-                    "label": "Prix du plan",
-                    "placeholder": "Exemple: 150"
-                },
-                "duration": {
-                    "label": "Durée (mois)",
-                    "placeholder": "Exemple: 1 ou 12"
-                }
-            },
-            "hints": {
-                "duration": "La durée de l'abonnement est enregistrée en mois, par exemple, 1 pour un abonnement mensuel et 12 pour un abonnement annuel.",
-                "price": "Le prix est utilisé lors de la liaison du plan aux entreprises."
-            }
-        },
-        "deleteDialog": {
-            "triggerText": "Supprimer le plan",
-            "title": "Êtes-vous sûr de vouloir supprimer le plan {subscriptionType} ?",
-            "description": "Le plan {subscriptionType} sera définitivement supprimé s'il n'est lié à aucune entreprise."
-        }
-    },
-    "adminNotesPage": {
-        "title": "Notes",
-        "description": "Gérer et consulter les notes administratives.",
-        "breadcrumb": {
-            "notes": "Notes"
-        },
-        "filter": "Filtrer",
-        "table": {
-            "columns": {
-                "createdAt": "Date de création",
-                "type": "Type de note",
-                "note": "Note"
-            }
-        },
-        "dialog": {
-            "title": "Ajouter une nouvelle note",
-            "description": "Envoyez une nouvelle note à l'administration de la plateforme pour partager une demande, une requête, une réclamation ou tout détail lié au service ou au système.",
-            "viewDetails": "Voir les détails",
-            "field": {
-                "type": "Type de note",
-                "typePlaceholder": "Sélectionnez un type de note",
-                "note": "Note",
-                "notePlaceholder": "Entrez votre note"
-            },
-            "close": "Fermer"
-        }
-    },
-    "adminSubscriptionRequestPage": {
-        "header": {
-            "title": "Demandes d'abonnement",
-            "description": "Demandes d'activation et de changement de plan en attente des entreprises.",
-            "breadcrumb": {
-                "home": "Accueil",
-                "subscriptionRequest": "Demandes d'abonnement"
-            }
-        },
-        "summary": {
-            "pending": {
-                "title": "Demandes en attente",
-                "description": "Nombre de demandes d'activation d'abonnement en attente."
-            },
-            "change": {
-                "title": "Demandes de changement de plan",
-                "description": "Nombre de demandes de changement de plan en attente."
-            },
-            "total": {
-                "title": "Total des demandes",
-                "description": "Nombre total de demandes liées aux abonnements."
-            }
-        },
-        "card": {
-            "requestTypeChange": "Demande de changement de plan",
-            "requestTypeNew": "Nouvelle demande d'abonnement",
-            "requiredPlan": "Plan demandé",
-            "planPrice": "Prix du plan",
-            "duration": "Durée",
-            "subscriptionStart": "Début de l'abonnement",
-            "subscriptionEnd": "Fin de l'abonnement",
-            "notSet": "Non défini",
-            "viewCompany": "Voir l'entreprise",
-            "acceptAndActivate": "Accepter et activer",
-            "year": "Année",
-            "month": "Mois"
-        },
-        "noPendingMessage": "Il n'y a pas de demandes d'abonnement ou de changement de plan en attente pour le moment."
-    },
-    "expirePage": {
-        "title": "Abonnement de l'entreprise expiré",
-        "description": "Votre compte d'entreprise est temporairement suspendu jusqu'à ce que l'abonnement soit renouvelé ou que le plan soit mis à jour.",
-        "breadcrumb": {
-            "home": "Accueil",
-            "mySubscription": "Mon abonnement",
-            "expire": "Abonnement expiré"
-        },
-        "card": {
-            "title": "Votre abonnement a expiré",
-            "description": "Veuillez renouveler votre abonnement pour retrouver l'accès au tableau de bord et aux données de l'entreprise.",
-            "alert": {
-                "title": "Accès verrouillé jusqu'au renouvellement",
-                "description": "L'abonnement actuel n'est plus valide et les services de la plateforme ne sont pas disponibles tant qu'il n'est pas renouvelé."
-            },
-            "stepsTitle": "Étapes de renouvellement",
-            "steps": {
-                "step1": "Consultez les détails d'abonnement disponibles sur la page Mon abonnement.",
-                "step2": "Choisissez le plan le plus adapté et lancez le processus de renouvellement.",
-                "step3": "Après le renouvellement, toutes les fonctionnalités de l'entreprise seront automatiquement restaurées."
-            },
-            "info": {
-                "title": "Note",
-                "text": "Si vous avez besoin d'aide pour le renouvellement, vous pouvez visiter la page d'abonnement ou contacter le support."
-            },
-            "actions": {
-                "renew": "Renouveler l'abonnement",
-                "home": "Retour à l'accueil"
-            }
-        },
-        "statusCard": {
-            "title": "Statut du compte",
-            "description": "Les fonctionnalités du tableau de bord ne sont pas disponibles jusqu'au renouvellement.",
-            "current": {
-                "title": "Abonnement actuel",
-                "text": "Expiré et plus utilisable."
-            },
-            "solution": {
-                "title": "Solution suggérée",
-                "text": "Allez à la page Mon abonnement pour renouveler votre plan ou passer à un nouveau."
-            }
-        }
-    },
-    "pendingPage": {
-        "title": "Votre entreprise est en cours d'examen",
-        "description": "Les données de votre entreprise ont été reçues avec succès et la demande d'abonnement est actuellement examinée par notre équipe.",
-        "breadcrumb": {
-            "home": "Accueil",
-            "mySubscription": "Mon abonnement",
-            "pending": "En cours d'examen"
-        },
-        "card": {
-            "title": "Demande d'abonnement en cours d'examen",
-            "description": "Notre équipe de support examine les données de votre entreprise pour s'assurer que toutes les informations sont exactes.",
-            "alert": {
-                "title": "Nous apprécions votre patience.",
-                "description": "La vérification peut prendre un certain temps. Vous serez informé une fois l'examen terminé ou si des informations supplémentaires sont nécessaires."
-            },
-            "stepsTitle": "Que se passe-t-il maintenant ?",
-            "steps": {
-                "step1": "Examen des données de l'entreprise et des informations d'abonnement.",
-                "step2": "Vérification des documents et pièces jointes requis le cas échéant.",
-                "step3": "Approbation du compte pour activer à nouveau l'entreprise."
-            },
-            "info": {
-                "title": "Astuce",
-                "text": "Si vous avez des questions ou devez mettre à jour des informations, vous pouvez retourner à la page d'abonnement ou contacter le support à tout moment."
-            },
-            "actions": {
-                "viewSubscriptions": "Voir mes abonnements",
-                "home": "Retour à l'accueil"
-            }
-        },
-        "statusCard": {
-            "title": "Examen prévu",
-            "description": "Aucune action n'est requise pour le moment et nous vous informerons de toute mise à jour.",
-            "current": {
-                "title": "Statut actuel",
-                "text": "La demande est actuellement en cours d'examen par l'équipe de support."
-            },
-            "expected": {
-                "title": "Délai prévu",
-                "text": "Une réponse sera fournie dans un délai de 24 heures ouvrables ou moins."
-            }
-        }
-    },
-    "inactivePage": {
-        "title": "Votre compte a été désactivé",
-        "description": "Votre compte a été temporairement désactivé. Vous ne pouvez pas accéder au tableau de bord ni effectuer d'actions tant qu'il n'est pas réactivé.",
-        "breadcrumb": {
-            "home": "Accueil",
-            "mySubscription": "Mon abonnement",
-            "inactive": "Inactif"
-        },
-        "card": {
-            "title": "Votre compte est inactif",
-            "description": "Votre compte d'entreprise a été désactivé par l'équipe administrative.",
-            "alert": {
-                "title": "Ne vous inquiétez pas, nous vous aiderons à le réactiver.",
-                "description": "Si vous pensez qu'il s'agit d'une erreur, vous pouvez contacter le support ou consulter le statut de votre abonnement pour plus de détails."
-            },
-            "reasonsTitle": "Raison de la désactivation",
-            "reasons": {
-                "reason1": "Les données de l'entreprise sont en cours d'examen administratif.",
-                "reason2": "Abonnement expiré ou paiement non effectué.",
-                "reason3": "Violation ou incompatibilité avec les conditions de service."
-            },
-            "info": {
-                "title": "Que pouvez-vous faire maintenant ?",
-                "text": "Vérifiez votre email pour toute instruction, ou contactez le support pour réactiver votre compte dès que possible."
-            },
-            "actions": {
-                "viewSubscriptions": "Voir mes abonnements",
-                "home": "Retour à l'accueil"
-            }
-        },
-        "statusCard": {
-            "title": "Compte désactivé",
-            "description": "Vous ne pouvez apporter aucune modification ni accéder aux ressources tant que le compte n'est pas réactivé.",
-            "current": {
-                "title": "Statut actuel",
-                "text": "Le compte est temporairement inactif et toutes les permissions sont désactivées."
-            },
-            "nextSteps": {
-                "title": "Prochaines étapes",
-                "text": "Contactez le support ou votre équipe d'administration pour réactiver votre compte et restaurer l'accès."
-            }
-        }
-    },
-    "shipments": {
-        "current": {
-            "page": {
-                "title": "Expéditions",
-                "description": "Consultez et gérez toutes les expéditions actives dans le système, suivez leur statut et leurs mises à jour.",
-                "breadcrumb": {
-                    "home": "Accueil",
-                    "shipments": "Expéditions"
-                }
-            },
-            "table": {
-                "headers": {
-                    "shipmentNumber": "Numéro d'expédition",
-                    "launchDate": "Date de lancement",
-                    "route": "Itinéraire",
-                    "currentPoint": "Point actuel",
-                    "driver": "Chauffeur",
-                    "status": "Statut",
-                    "actions": ""
-                },
-                "empty": "Aucune expédition trouvée",
-                "actions": {
-                    "viewDetails": "Voir les détails"
-                }
-            },
-            "actions": {
-                "filter": "Filtrer"
-            },
-            "status": {
-                "paused": "En pause",
-                "current": "Actif"
-            }
-        },
-        "finished": {
-            "page": {
-                "title": "Expéditions terminées",
-                "description": "Consultez les expéditions qui ont été complétées ou clôturées, y compris le statut final et l'historique complet de suivi."
-            },
-            "table": {
-                "headers": {
-                    "shipmentNumber": "Numéro d'expédition",
-                    "launchDate": "Date de lancement",
-                    "endDate": "Date de fin",
-                    "route": "Itinéraire",
-                    "currentPoint": "Point actuel",
-                    "driver": "Chauffeur",
-                    "actions": ""
-                },
-                "empty": "Aucune expédition terminée trouvée",
-                "actions": {
-                    "viewDetails": "Voir les détails"
-                }
-            },
-            "actions": {
-                "filter": "Filtrer"
-            }
-        },
-        "dialog": {
-            "add": {
-                "title": "Ajouter une nouvelle expédition",
-                "description": "Enregistrez une nouvelle expédition et attribuez un chauffeur et un itinéraire pour commencer le suivi.",
-                "button": "Ajouter une expédition",
-                "loading": "Ajout en cours..."
-            },
-            "edit": {
-                "title": "Modifier l'expédition",
-                "description": "Mettez à jour les détails de l'expédition et les informations de suivi.",
-                "button": "Mettre à jour l'expédition",
-                "loading": "Mise à jour en cours..."
-            },
-            "fields": {
-                "shipmentNumber": "Numéro d'expédition",
-                "way": "Itinéraire de l'expédition",
-                "driver": "Chauffeur de l'expédition",
-                "launchDate": "Date de lancement"
-            },
-            "placeholders": {
-                "shipmentNumber": "Entrez le numéro d'expédition",
-                "way": "Sélectionnez l'itinéraire",
-                "driver": "Sélectionnez le chauffeur",
-                "launchDate": "Sélectionnez la date de lancement"
-            },
-            "actions": {
-                "cancel": "Annuler"
-            },
-            "confirm": {
-                "pause": {
-                    "title": "Mettre en pause l'expédition",
-                    "description": "Êtes-vous sûr de vouloir mettre cette expédition en pause ?",
-                    "action": "Mettre en pause",
-                    "trigger": "Mettre en pause l'expédition"
-                },
-                "resume": {
-                    "title": "Reprendre l'expédition",
-                    "description": "Êtes-vous sûr de vouloir reprendre cette expédition ?",
-                    "action": "Reprendre",
-                    "trigger": "Reprendre l'expédition"
-                },
-                "delete": {
-                    "title": "Supprimer l'expédition",
-                    "description": "Êtes-vous sûr de vouloir supprimer cette expédition ? Cette action est irréversible.",
-                    "action": "Supprimer",
-                    "trigger": "Supprimer l'expédition"
-                }
-            }
-        }
-    },
-    "shipmentDetails": {
-        "page": {
-            "title": "Détails de l'expédition",
-            "description": "Consultez les informations de l'expédition et les articles inclus dans l'expédition."
-        },
-        "breadcrumb": {
-            "shipments": "Expéditions",
-            "details": "Détails"
-        },
-        "sections": {
-            "overview": {
-                "title": "Aperçu de l'expédition"
-            },
-            "info": {
-                "title": "Informations de l'expédition"
-            },
-            "items": {
-                "title": "Articles de l'expédition",
-                "description": "Consultez tous les articles inclus dans l'expédition avec la quantité et les détails."
-            }
-        },
-        "actions": {
-            "addItem": "Ajouter un article à l'expédition"
-        },
-        "header": {
-            "status": {
-                "completed": "Terminé",
-                "paused": "En pause",
-                "current": "Actif"
-            },
-            "title": "Expédition #{number}",
-            "actions": {
-                "move": {
-                    "withNotification": {
-                        "text": "Déplacer",
-                        "loading": "Déplacement en cours..."
-                    },
-                    "withoutNotification": {
-                        "text": "Déplacer sans notification",
-                        "loading": "Déplacement silencieux..."
-                    }
-                },
-                "pause": {
-                    "text": "Mettre en pause",
-                    "loading": "Mise en pause en cours..."
-                },
-                "resume": {
-                    "text": "Reprendre",
-                    "loading": "Reprise en cours..."
-                }
-            }
-        },
-        "info": {
-            "fields": {
-                "launchDate": "Date de lancement",
-                "driverPhone": "Téléphone du chauffeur",
-                "endDate": "Date d'arrivée",
-                "route": "Itinéraire",
-                "clientsCount": "Nombre de clients",
-                "itemsCount": "Nombre d'articles",
-                "currentPoint": "Point actuel"
-            },
-            "values": {
-                "notArrived": "Pas encore arrivé",
-                "unknown": "---"
-            }
-        },
-        "table": {
-            "headers": {
-                "client": "Nom du client",
-                "item": "Article",
-                "quantity": "Quantité",
-                "breakable": "Cassable",
-                "actions": ""
-            },
-            "empty": "Aucun article d'expédition trouvé",
-            "breakableValues": {
-                "yes": "Oui",
-                "no": "Non"
-            },
-            "actions": {
-                "edit": "Modifier l'article",
-                "delete": "Supprimer l'article"
-            }
-        },
-        "dialog": {
-            "items": {
-                "title": {
-                    "add": "Attribuer un client et des articles d'expédition",
-                    "edit": "Modifier le client et les articles d'expédition"
-                },
-                "description": {
-                    "add": "Sélectionnez un client enregistré et attribuez des articles à cette expédition.",
-                    "edit": "Modifier le client et les articles d'expédition."
-                },
-                "fields": {
-                    "client": "Nom du client",
-                    "item": "Article",
-                    "quantity": "Quantité",
-                    "breakable": "Cassable"
-                },
-                "placeholders": {
-                    "client": "Sélectionnez le client",
-                    "item": "Entrez l'article",
-                    "quantity": "Entrez la quantité",
-                    "breakable": "Sélectionnez l'option cassable"
-                },
-                "actions": {
-                    "addItem": "Ajouter un article",
-                    "remove": "Supprimer",
-                    "submitAdd": "Ajouter",
-                    "submitEdit": "Mettre à jour",
-                    "loadingAdd": "Ajout en cours...",
-                    "loadingEdit": "Mise à jour en cours...",
-                    "cancel": "Annuler"
-                },
-                "breakableValues": {
-                    "yes": "Oui",
-                    "no": "Non"
-                }
-            },
-            "deleteItem": {
-                "title": "Supprimer l'article de l'expédition",
-                "description": "Êtes-vous sûr de vouloir supprimer cet article ? Cette action est irréversible.",
-                "trigger": "Supprimer l'article",
-                "action": "Supprimer",
-                "loading": "Suppression en cours..."
-            }
-        }
-    },
-    "clientsPage": {
-        "page": {
-            "title": "Clients",
-            "description": "Consultez et gérez tous les clients enregistrés dans le système, y compris leurs coordonnées et leur activité.",
-            "breadcrumb": {
-                "home": "Accueil",
-                "clients": "Clients"
-            }
-        },
-        "table": {
-            "headers": {
-                "name": "Nom du client",
-                "contacts": "Méthodes de contact",
-                "actions": ""
-            },
-            "empty": "Aucun client trouvé",
-            "actions": {
-                "viewDetails": "Voir les détails",
-                "edit": "Modifier le client",
-                "delete": "Supprimer le client"
-            }
-        },
-        "actions": {
-            "filter": "Filtrer"
-        },
-        "dialog": {
-            "add": {
-                "title": "Ajouter un nouveau client",
-                "description": "Enregistrez un nouveau client et ajoutez ses méthodes de contact utilisées pour les notifications d'expédition.",
-                "button": "Ajouter un client",
-                "loading": "Ajout en cours..."
-            },
-            "edit": {
-                "title": "Modifier les informations du client",
-                "description": "Mettez à jour les données existantes du client et gérez ses méthodes de contact utilisées pour les notifications d'expédition.",
-                "button": "Mettre à jour le client",
-                "loading": "Mise à jour en cours..."
-            },
-            "view": {
-                "title": "Informations du client",
-                "description": "Consultez les données stockées du client et ses méthodes de contact enregistrées utilisées pour les notifications d'expédition."
-            },
-            "fields": {
-                "name": "Nom du client",
-                "contactWays": "Méthodes de contact",
-                "contactType": "Type de contact",
-                "isPrimary": "Est un contact principal"
-            },
-            "placeholders": {
-                "name": "Entrez le nom du client",
-                "contactWays": "Ajouter une méthode de contact",
-                "contactType": "Sélectionnez le type de contact",
-                "isPrimary": "Sélectionnez si principal"
-            },
-            "options": {
-                "contactType": {
-                    "phoneNumber": "Numéro de téléphone",
-                    "email": "Email"
-                },
-                "isPrimary": {
-                    "true": "Oui",
-                    "false": "Non"
-                }
-            },
-            "actions": {
-                "cancel": "Annuler",
-                "save": "Enregistrer",
-                "remove": "Supprimer",
-                "addContactWay": "Ajouter une méthode de contact"
-            },
-            "delete": {
-                "title": "Supprimer le client {name}",
-                "description": "Êtes-vous sûr de vouloir supprimer ce client {name} ? Cette action est irréversible.",
-                "action": "Supprimer",
-                "trigger": "Supprimer le client"
-            }
-        }
-    },
-    "waysPage": {
-        "header": {
-            "title": "Itinéraires",
-            "description": "Gérez les itinéraires approuvés pour le transport des expéditions, en définissant les points de départ et d'arrivée et en les liant aux opérations d'expédition.",
-            "breadcrumb": {
-                "home": "Accueil",
-                "ways": "Itinéraires"
-            }
-        },
-        "actions": {
-            "filter": "Filtrer",
-            "add": "Ajouter un nouvel itinéraire"
-        },
-        "table": {
-            "columns": {
-                "name": "Nom de l'itinéraire",
-                "points": "Points"
-            },
-            "actions": {
-                "edit": "Modifier les données de l'itinéraire"
-            }
-        },
-        "dialog": {
-            "add": {
-                "title": "Ajouter un nouvel itinéraire",
-                "description": "Créez un nouvel itinéraire d'expédition en définissant les points de l'itinéraire dans le bon ordre. Plusieurs points peuvent être ajoutés pour clarifier le chemin de déplacement et l'utiliser ultérieurement dans les opérations d'expédition.",
-                "button": "Ajouter un itinéraire",
-                "loading": "Ajout en cours..."
-            },
-            "edit": {
-                "title": "Modifier les données de l'itinéraire",
-                "description": "Modifiez les données de l'itinéraire précédemment enregistrées et mettez à jour ses points ou son ordre selon les besoins.",
-                "button": "Mettre à jour l'itinéraire",
-                "loading": "Mise à jour en cours..."
-            },
-            "fields": {
-                "name": "Nom de l'itinéraire",
-                "pointName": "Nom du point",
-                "pointOrder": "Ordre du point",
-                "locationTitle": "Afficher l'emplacement sur la carte",
-                "locationDescription": "Activer la sélection d'emplacement pour les points"
-            },
-            "placeholders": {
-                "name": "Entrez le nom de l'itinéraire ex. (Ligne Mukalla - Dubaï)",
-                "pointName": "Entrez le nom du point",
-                "pointOrder": "Entrez l'ordre du point"
-            },
-            "actions": {
-                "addPoint": "Ajouter un nouveau point",
-                "remove": "Supprimer",
-                "cancel": "Annuler"
-            }
-        },
-        "deleteDialog": {
-            "title": "Supprimer l'itinéraire",
-            "triggerText": "Supprimer l'itinéraire",
-            "description": "Êtes-vous sûr de vouloir supprimer cet itinéraire ?",
-            "action": "Supprimer"
-        }
-    },
-    "usersPage": {
-        "header": {
-            "title": "Utilisateurs",
-            "description": "Consultez et gérez les utilisateurs enregistrés dans le système, et définissez leurs rôles et permissions liés à la gestion des expéditions et des données.",
-            "breadcrumb": {
-                "home": "Accueil",
-                "users": "Utilisateurs"
-            }
-        },
-        "actions": {
-            "filter": "Filtrer",
-            "add": "Ajouter un nouvel utilisateur"
-        },
-        "table": {
-            "columns": {
-                "name": "Nom d'utilisateur",
-                "email": "Email",
-                "role": "Rôle"
-            }
-        },
-        "dialog": {
-            "add": {
-                "title": "Ajouter un nouvel utilisateur",
-                "description": "Ajoutez un nouvel utilisateur au système et définissez son rôle et ses permissions. L'utilisateur pourra accéder aux fonctionnalités autorisées en fonction du rôle attribué."
-            },
-            "edit": {
-                "title": "Modifier l'utilisateur",
-                "description": "Modifiez les données de l'utilisateur précédemment enregistré et mettez à jour son rôle et ses permissions."
-            },
-            "fields": {
-                "name": {
-                    "label": "Nom d'utilisateur",
-                    "placeholder": "Entrez le nom d'utilisateur"
-                },
-                "email": {
-                    "label": "Email",
-                    "placeholder": "Entrez l'email"
-                },
-                "password": {
-                    "label": "Mot de passe",
-                    "placeholder": "Entrez le mot de passe"
-                },
-                "role": {
-                    "label": "Rôle",
-                    "placeholder": "Sélectionnez le rôle"
-                }
-            },
-            "actions": {
-                "cancel": "Annuler",
-                "add": "Ajouter",
-                "edit": "Modifier",
-                "triggerEdit": "Modifier l'utilisateur"
-            }
-        },
-        "deleteDialog": {
-            "title": "Supprimer l'utilisateur",
-            "triggerText": "Supprimer l'utilisateur",
-            "description": "Êtes-vous sûr de vouloir supprimer cet utilisateur ?",
-            "action": "Supprimer"
-        }
-    },
-    "settingsPage": {
-        "header": {
-            "title": "Paramètres",
-            "description": "Gérez les paramètres du compte, y compris le changement de langue, la mise à jour des informations de base et la révision des détails d'abonnement liés au système.",
-            "breadcrumb": "Paramètres"
-        },
-        "systemSettings": {
-            "title": "Paramètres système",
-            "description": "Sélectionnez la langue de l'interface du système selon votre préférence. Le changement sera appliqué à toutes les pages du système."
-        },
-        "language": {
-            "label": "Langue du système",
-            "placeholder": "Langue du système"
-        },
-        "theme": {
-            "label": "Thème du système"
-        },
-        "accountSettings": {
-            "title": "Paramètres du compte personnel",
-            "description": "Mettez à jour les informations de base liées à votre compte personnel."
-        },
-        "userSection": {
-            "name": "Nom d'utilisateur",
-            "email": "Email",
-            "password": "Mot de passe",
-            "loading": "Chargement..."
-        },
-        "subscriptionSettings": {
-            "title": "Statut d'abonnement",
-            "description": "Consultez les informations d'abonnement actuelles et les limites d'utilisation associées au plan."
-        },
-        "subscriptionSection": {
-            "status": "Statut d'abonnement",
-            "activeText": "L'abonnement est actif et le système peut être utilisé pleinement.",
-            "period": "Période d'abonnement",
-            "remaining": "Restant: {days} jours",
-            "start": "Début de l'abonnement: {date}",
-            "end": "Fin de l'abonnement: {date}"
-        }
-    },
-    "notesPage": {
-        "header": {
-            "title": "Notes",
-            "description": "Cette section permet aux entreprises d'envoyer des notes, des réclamations, des commentaires ou des demandes de modification à l'administration du système. Toutes les notes sont affichées dans le tableau de bord d'administration pour examen et action appropriée.",
-            "breadcrumb": {
-                "home": "Accueil",
-                "notes": "Notes"
-            }
-        },
-        "actions": {
-            "filter": "Filtrer",
-            "add": "Ajouter une nouvelle note"
-        },
-        "table": {
-            "columns": {
-                "createdAt": "Date de création",
-                "type": "Type de note",
-                "text": "Note"
-            }
-        },
-        "dialog": {
-            "add": {
-                "title": "Ajouter une nouvelle note",
-                "description": "Envoyez une nouvelle note à l'administration du système pour partager une demande, une requête ou tout détail lié au service/système."
-            },
-            "edit": {
-                "title": "Modifier la note",
-                "description": "Mettez à jour une note précédemment soumise et modifiez son contenu ou ses détails."
-            },
-            "fields": {
-                "type": {
-                    "label": "Type de note",
-                    "placeholder": "Sélectionnez le type de note"
-                },
-                "text": {
-                    "label": "Note",
-                    "placeholder": "Entrez votre note"
-                }
-            },
-            "actions": {
-                "cancel": "Annuler",
-                "add": "Ajouter",
-                "edit": "Modifier",
-                "triggerEdit": "Modifier la note"
-            },
-            "noteTypes": {
-                "complaint": "Réclamation",
-                "inquiry": "Demande de renseignements",
-                "suggestion": "Suggestion",
-                "compliment": "Compliment",
-                "feedback": "Retour d'information",
-                "other": "Autre"
-            }
-        },
-        "deleteDialog": {
-            "title": "Supprimer la note",
-            "triggerText": "Supprimer la note",
-            "description": "Êtes-vous sûr de vouloir supprimer cette note ?",
-            "action": "Supprimer"
-        }
-    },
-    "subscriptionPage": {
-        "header": {
-            "title": "Mes abonnements",
-            "description": "Gérez les détails de l'abonnement actuel de votre entreprise, examinez le type de plan, les tarifs, la période d'abonnement et explorez les options de renouvellement disponibles.",
-            "breadcrumb": {
-                "home": "Accueil",
-                "settings": "Paramètres système",
-                "subscriptions": "Mes abonnements"
-            }
-        },
-        "currentSubscription": {
-            "title": "Statut d'abonnement de l'entreprise",
-            "yearly": {
-                "label": "Abonnement annuel",
-                "hint": "Offre la meilleure valeur à long terme pour votre entreprise."
-            },
-            "monthly": {
-                "label": "Abonnement mensuel",
-                "hint": "Idéal pour les entreprises qui ont besoin de flexibilité mensuelle."
-            },
-            "progress": {
-                "title": "Progression de l'abonnement",
-                "remaining": "{days} jours restants",
-                "notAvailable": "Non disponible"
-            },
-            "featuresTitle": "Fonctionnalités d'abonnement",
-            "cards": {
-                "price": {
-                    "title": "Prix",
-                    "description": "Coût actuel de l'abonnement"
-                },
-                "startDate": {
-                    "title": "Date de début",
-                    "description": "Date de début de l'abonnement"
-                },
-                "endDate": {
-                    "title": "Date de renouvellement",
-                    "description": "{days} jours restants",
-                    "descriptionNoDate": "Date de renouvellement non disponible"
-                }
-            }
-        },
-        "pricing": {
-            "title": "Plans disponibles",
-            "description": "Examinez les plans disponibles avec des détails plus clairs sur les fonctionnalités et les périodes d'abonnement pour vous aider à choisir la meilleure option.",
-            "bestValue": "Meilleur rapport qualité-prix",
-            "currentPlan": "Plan actuel",
-            "selectPlan": "Choisir ce plan",
-            "selected": "Votre plan actif",
-            "billing": "Cycle de facturation",
-            "monthly": "Mensuel",
-            "yearly": "Annuel",
-            "duration": "Durée"
-        },
-        "status": {
-            "pending": "En attente",
-            "active": "Actif",
-            "inactive": "Inactif",
-            "change": "Demande de modification en cours d'examen"
-        },
-        "features": {
-            "title": "Fonctionnalités d'abonnement",
-            "items": [
-                "Support technique direct pour les entreprises",
-                "Rapports quotidiens et suivi des abonnements",
-                "Tableau de bord de gestion des utilisateurs et des expéditions",
-                "Mise à niveau ou rétrogradation facile du plan"
-            ]
-        },
-        "faq": {
-            "title": "FAQ sur les abonnements",
-            "items": [
-                {
-                    "q": "Puis-je changer mon plan d'abonnement à tout moment ?",
-                    "a": "Oui, vous pouvez passer d'un plan mensuel à un plan annuel et vice versa selon les règles du système."
-                },
-                {
-                    "q": "Quelles données sont affichées dans les détails du plan ?",
-                    "a": "La page affiche le type d'abonnement, le prix et la durée en fonction des données du plan disponible."
-                },
-                {
-                    "q": "Y a-t-il des frais cachés ou des contrats à long terme ?",
-                    "a": "Tous les prix affichés sont transparents ; les détails de paiement supplémentaires dépendent des paramètres du système."
-                }
-            ]
-        }
-    },
-    "managerDashboard": {
-        "header": {
-            "title": "Tableau de bord",
-            "description": "Aperçu des performances des opérations d'expédition, y compris les expéditions actuelles, les clients et les itinéraires.",
-            "breadcrumb": {
-                "home": "Accueil"
-            }
-        },
-        "currentShipments": {
-            "title": "Expéditions actuelles",
-            "description": "Consultez toutes les expéditions actives et suivez leurs dernières mises à jour."
-        },
-        "table": {
-            "shipmentNumber": "Numéro d'expédition",
-            "launchDate": "Date de lancement",
-            "route": "Itinéraire",
-            "currentPoint": "Point actuel",
-            "driver": "Chauffeur",
-            "empty": "Aucune expédition disponible"
-        },
-        "stats": {
-            "shipments": "Total des expéditions",
-            "current": "Expéditions actuelles",
-            "finished": "Expéditions terminées",
-            "clients": "Clients",
-            "ways": "Itinéraires"
-        }
-    },
-    "tableEmpty": {
-        "companies": "Aucune entreprise n'a encore été ajoutée. Commencez par ajouter votre première entreprise.",
-        "subscriptions": "Aucun plan d'abonnement disponible pour le moment. Ajoutez votre premier plan.",
-        "notes": "Aucune note pour le moment.",
-        "notesWithAction": "Aucune note pour le moment. Ajoutez votre première note.",
-        "clients": "Aucun client pour le moment. Ajoutez votre premier client.",
-        "shipments": "Aucune expédition pour le moment. Ajoutez votre première expédition.",
-        "finishedShipments": "Aucune expédition terminée pour le moment.",
-        "users": "Aucun utilisateur pour le moment. Commencez par ajouter votre premier utilisateur.",
-        "ways": "Aucun itinéraire pour le moment. Commencez par ajouter votre premier itinéraire.",
-        "shipmentsCurrent": "Aucune expédition pour le moment. Ajoutez votre première expédition.",
-        "shipmentItems": "Il n'y a pas encore d'articles d'expédition. Ajoutez votre premier article."
+    "orderDetails": {
+      "title": "Détails de la commande",
+      "origin": "Origine",
+      "arrival": "Arrivée",
+      "driver": "Chauffeur",
+      "phone": "Téléphone",
+      "itemsCount": "Nombre d'articles",
+      "currentPoint": "Point actuel",
+      "routeDetails": "Détails de l'itinéraire",
+      "carrier": "Transporteur",
+      "totalStations": "Total des stations",
+      "remainingStations": "Stations restantes",
+      "notAvailable": "Non disponible"
     }
+  },
+  "statisticsAdminPage": {
+    "header": {
+      "title": "Tableau de bord",
+      "description": "Aperçu de l'activité de la plateforme avec des statistiques rapides pour les entreprises, les abonnements, les visites et les notes.",
+      "breadcrumb": "Accueil"
+    },
+    "cards": {
+      "companies": "Nombre d'entreprises",
+      "subscriptionRequests": "Demandes d'abonnement",
+      "visitors": "Nombre de visiteurs",
+      "notes": "Nombre de notes",
+      "expiringCompanies": "Entreprises proches de l'expiration",
+      "pausedCompanies": "Entreprises en pause"
+    },
+    "chart": {
+      "title": "Graphique des entreprises actives"
+    }
+  },
+  "adminCompanyDetailPage": {
+    "title": "Détails de l'entreprise",
+    "description": "Détails et gestion de l'entreprise",
+    "breadcrumb": {
+      "home": "Accueil",
+      "companies": "Entreprises",
+      "details": "Détails de l'entreprise"
+    },
+    "companyForm": {
+      "basicInfo": "Informations de base",
+      "companyName": "Nom de l'entreprise",
+      "companyLocation": "Localisation de l'entreprise",
+      "email": "Email",
+      "clientsCount": "Nombre de clients",
+      "subscriptionInfo": "Informations d'abonnement",
+      "subscriptionType": "Type d'abonnement",
+      "subscriptionStart": "Début de l'abonnement",
+      "subscriptionEnd": "Fin de l'abonnement"
+    },
+    "headerActions": {
+      "pauseSubscription": "Suspendre l'abonnement de l'entreprise",
+      "activateSubscription": "Activer l'abonnement de l'entreprise"
+    }
+  },
+  "adminCompaniesPage": {
+    "header": {
+      "title": "Entreprises",
+      "description": "Gérer les entreprises enregistrées et leur statut d'activation",
+      "breadcrumb": {
+        "home": "Accueil",
+        "companies": "Entreprises"
+      }
+    },
+    "table": {
+      "columns": {
+        "companyName": "Nom de l'entreprise",
+        "companyLocation": "Localisation de l'entreprise",
+        "clientsCount": "Nombre de clients",
+        "companyEmail": "Email de l'entreprise",
+        "subscriptionStatus": "Statut d'abonnement"
+      },
+      "actions": {
+        "viewCompany": "Voir l'entreprise",
+        "deleteCompany": "Supprimer l'entreprise"
+      }
+    },
+    "deleteCompanyDialog": {
+      "triggerText": "Supprimer l'entreprise",
+      "title": "Êtes-vous sûr de vouloir supprimer l'entreprise {companyName} ?",
+      "description": "L'entreprise {companyName} sera définitivement supprimée."
+    },
+    "dialog": {
+      "add": {
+        "title": "Ajouter une nouvelle entreprise",
+        "description": "Créez une nouvelle entreprise pour lui permettre d'utiliser le système et de gérer ses opérations d'expédition."
+      },
+      "edit": {
+        "title": "Modifier l'entreprise",
+        "description": "Modifiez les détails de l'entreprise et son statut d'activation. Toute modification sera appliquée immédiatement à tous les utilisateurs de l'entreprise."
+      },
+      "fields": {
+        "companyName": {
+          "label": "Nom de l'entreprise",
+          "placeholder": "Exemple: Fast Line Shipping"
+        },
+        "subscriptionType": {
+          "label": "Plan d'abonnement",
+          "placeholder": "Choisissez un plan d'abonnement"
+        },
+        "companyLocation": {
+          "label": "Localisation de l'entreprise",
+          "placeholder": "Exemple: Riyad, Arabie Saoudite"
+        },
+        "companyEmail": {
+          "label": "Email de l'entreprise",
+          "placeholder": "Exemple: example@gmail.com"
+        },
+        "password": {
+          "label": "Mot de passe",
+          "placeholder": "***********"
+        },
+        "confirmPassword": {
+          "label": "Confirmer le mot de passe",
+          "placeholder": "***********"
+        }
+      },
+      "buttons": {
+        "cancel": "Annuler",
+        "add": "Ajouter",
+        "edit": "Modifier"
+      }
+    }
+  },
+  "adminSubscriptionsPage": {
+    "header": {
+      "title": "Abonnements",
+      "description": "Gérer et suivre les plans d'abonnement",
+      "breadcrumb": {
+        "home": "Accueil",
+        "subscriptions": "Abonnements"
+      }
+    },
+    "table": {
+      "columns": {
+        "planType": "Type de plan",
+        "price": "Prix",
+        "duration": "Durée (mois)"
+      },
+      "format": {
+        "year": "Année",
+        "month": "Mois"
+      }
+    },
+    "dialog": {
+      "add": {
+        "title": "Ajouter un plan d'abonnement",
+        "description": "Créez un nouveau plan d'abonnement, définissez le prix et la durée en mois à utiliser lors de l'ajout d'entreprises."
+      },
+      "edit": {
+        "title": "Modifier le plan d'abonnement",
+        "description": "Modifiez les détails du plan d'abonnement actuel. Les modifications seront appliquées aux données du plan dans le système."
+      },
+      "fields": {
+        "planType": {
+          "label": "Type de plan",
+          "placeholder": "Exemple: mensuel ou annuel"
+        },
+        "price": {
+          "label": "Prix du plan",
+          "placeholder": "Exemple: 150"
+        },
+        "duration": {
+          "label": "Durée (mois)",
+          "placeholder": "Exemple: 1 ou 12"
+        }
+      },
+      "hints": {
+        "duration": "La durée de l'abonnement est enregistrée en mois, par exemple, 1 pour un abonnement mensuel et 12 pour un abonnement annuel.",
+        "price": "Le prix est utilisé lors de la liaison du plan aux entreprises."
+      }
+    },
+    "deleteDialog": {
+      "triggerText": "Supprimer le plan",
+      "title": "Êtes-vous sûr de vouloir supprimer le plan {subscriptionType} ?",
+      "description": "Le plan {subscriptionType} sera définitivement supprimé s'il n'est lié à aucune entreprise."
+    }
+  },
+  "adminNotesPage": {
+    "title": "Notes",
+    "description": "Gérer et consulter les notes administratives.",
+    "breadcrumb": {
+      "notes": "Notes"
+    },
+    "filter": "Filtrer",
+    "table": {
+      "columns": {
+        "createdAt": "Date de création",
+        "type": "Type de note",
+        "note": "Note"
+      }
+    },
+    "dialog": {
+      "title": "Ajouter une nouvelle note",
+      "description": "Envoyez une nouvelle note à l'administration de la plateforme pour partager une demande, une requête, une réclamation ou tout détail lié au service ou au système.",
+      "viewDetails": "Voir les détails",
+      "field": {
+        "type": "Type de note",
+        "typePlaceholder": "Sélectionnez un type de note",
+        "note": "Note",
+        "notePlaceholder": "Entrez votre note"
+      },
+      "close": "Fermer"
+    }
+  },
+  "adminSubscriptionRequestPage": {
+    "header": {
+      "title": "Demandes d'abonnement",
+      "description": "Demandes d'activation et de changement de plan en attente des entreprises.",
+      "breadcrumb": {
+        "home": "Accueil",
+        "subscriptionRequest": "Demandes d'abonnement"
+      }
+    },
+    "summary": {
+      "pending": {
+        "title": "Demandes en attente",
+        "description": "Nombre de demandes d'activation d'abonnement en attente."
+      },
+      "change": {
+        "title": "Demandes de changement de plan",
+        "description": "Nombre de demandes de changement de plan en attente."
+      },
+      "total": {
+        "title": "Total des demandes",
+        "description": "Nombre total de demandes liées aux abonnements."
+      }
+    },
+    "card": {
+      "requestTypeChange": "Demande de changement de plan",
+      "requestTypeNew": "Nouvelle demande d'abonnement",
+      "requiredPlan": "Plan demandé",
+      "planPrice": "Prix du plan",
+      "duration": "Durée",
+      "subscriptionStart": "Début de l'abonnement",
+      "subscriptionEnd": "Fin de l'abonnement",
+      "notSet": "Non défini",
+      "viewCompany": "Voir l'entreprise",
+      "acceptAndActivate": "Accepter et activer",
+      "year": "Année",
+      "month": "Mois"
+    },
+    "noPendingMessage": "Il n'y a pas de demandes d'abonnement ou de changement de plan en attente pour le moment."
+  },
+  "expirePage": {
+    "title": "Abonnement de l'entreprise expiré",
+    "description": "Votre compte d'entreprise est temporairement suspendu jusqu'à ce que l'abonnement soit renouvelé ou que le plan soit mis à jour.",
+    "breadcrumb": {
+      "home": "Accueil",
+      "mySubscription": "Mon abonnement",
+      "expire": "Abonnement expiré"
+    },
+    "card": {
+      "title": "Votre abonnement a expiré",
+      "description": "Veuillez renouveler votre abonnement pour retrouver l'accès au tableau de bord et aux données de l'entreprise.",
+      "alert": {
+        "title": "Accès verrouillé jusqu'au renouvellement",
+        "description": "L'abonnement actuel n'est plus valide et les services de la plateforme ne sont pas disponibles tant qu'il n'est pas renouvelé."
+      },
+      "stepsTitle": "Étapes de renouvellement",
+      "steps": {
+        "step1": "Consultez les détails d'abonnement disponibles sur la page Mon abonnement.",
+        "step2": "Choisissez le plan le plus adapté et lancez le processus de renouvellement.",
+        "step3": "Après le renouvellement, toutes les fonctionnalités de l'entreprise seront automatiquement restaurées."
+      },
+      "info": {
+        "title": "Note",
+        "text": "Si vous avez besoin d'aide pour le renouvellement, vous pouvez visiter la page d'abonnement ou contacter le support."
+      },
+      "actions": {
+        "renew": "Renouveler l'abonnement",
+        "home": "Retour à l'accueil"
+      }
+    },
+    "statusCard": {
+      "title": "Statut du compte",
+      "description": "Les fonctionnalités du tableau de bord ne sont pas disponibles jusqu'au renouvellement.",
+      "current": {
+        "title": "Abonnement actuel",
+        "text": "Expiré et plus utilisable."
+      },
+      "solution": {
+        "title": "Solution suggérée",
+        "text": "Allez à la page Mon abonnement pour renouveler votre plan ou passer à un nouveau."
+      }
+    }
+  },
+  "pendingPage": {
+    "title": "Votre entreprise est en cours d'examen",
+    "description": "Les données de votre entreprise ont été reçues avec succès et la demande d'abonnement est actuellement examinée par notre équipe.",
+    "breadcrumb": {
+      "home": "Accueil",
+      "mySubscription": "Mon abonnement",
+      "pending": "En cours d'examen"
+    },
+    "card": {
+      "title": "Demande d'abonnement en cours d'examen",
+      "description": "Notre équipe de support examine les données de votre entreprise pour s'assurer que toutes les informations sont exactes.",
+      "alert": {
+        "title": "Nous apprécions votre patience.",
+        "description": "La vérification peut prendre un certain temps. Vous serez informé une fois l'examen terminé ou si des informations supplémentaires sont nécessaires."
+      },
+      "stepsTitle": "Que se passe-t-il maintenant ?",
+      "steps": {
+        "step1": "Examen des données de l'entreprise et des informations d'abonnement.",
+        "step2": "Vérification des documents et pièces jointes requis le cas échéant.",
+        "step3": "Approbation du compte pour activer à nouveau l'entreprise."
+      },
+      "info": {
+        "title": "Astuce",
+        "text": "Si vous avez des questions ou devez mettre à jour des informations, vous pouvez retourner à la page d'abonnement ou contacter le support à tout moment."
+      },
+      "actions": {
+        "viewSubscriptions": "Voir mes abonnements",
+        "home": "Retour à l'accueil"
+      }
+    },
+    "statusCard": {
+      "title": "Examen prévu",
+      "description": "Aucune action n'est requise pour le moment et nous vous informerons de toute mise à jour.",
+      "current": {
+        "title": "Statut actuel",
+        "text": "La demande est actuellement en cours d'examen par l'équipe de support."
+      },
+      "expected": {
+        "title": "Délai prévu",
+        "text": "Une réponse sera fournie dans un délai de 24 heures ouvrables ou moins."
+      }
+    }
+  },
+  "inactivePage": {
+    "title": "Votre compte a été désactivé",
+    "description": "Votre compte a été temporairement désactivé. Vous ne pouvez pas accéder au tableau de bord ni effectuer d'actions tant qu'il n'est pas réactivé.",
+    "breadcrumb": {
+      "home": "Accueil",
+      "mySubscription": "Mon abonnement",
+      "inactive": "Inactif"
+    },
+    "card": {
+      "title": "Votre compte est inactif",
+      "description": "Votre compte d'entreprise a été désactivé par l'équipe administrative.",
+      "alert": {
+        "title": "Ne vous inquiétez pas, nous vous aiderons à le réactiver.",
+        "description": "Si vous pensez qu'il s'agit d'une erreur, vous pouvez contacter le support ou consulter le statut de votre abonnement pour plus de détails."
+      },
+      "reasonsTitle": "Raison de la désactivation",
+      "reasons": {
+        "reason1": "Les données de l'entreprise sont en cours d'examen administratif.",
+        "reason2": "Abonnement expiré ou paiement non effectué.",
+        "reason3": "Violation ou incompatibilité avec les conditions de service."
+      },
+      "info": {
+        "title": "Que pouvez-vous faire maintenant ?",
+        "text": "Vérifiez votre email pour toute instruction, ou contactez le support pour réactiver votre compte dès que possible."
+      },
+      "actions": {
+        "viewSubscriptions": "Voir mes abonnements",
+        "home": "Retour à l'accueil"
+      }
+    },
+    "statusCard": {
+      "title": "Compte désactivé",
+      "description": "Vous ne pouvez apporter aucune modification ni accéder aux ressources tant que le compte n'est pas réactivé.",
+      "current": {
+        "title": "Statut actuel",
+        "text": "Le compte est temporairement inactif et toutes les permissions sont désactivées."
+      },
+      "nextSteps": {
+        "title": "Prochaines étapes",
+        "text": "Contactez le support ou votre équipe d'administration pour réactiver votre compte et restaurer l'accès."
+      }
+    }
+  },
+  "shipments": {
+    "current": {
+      "page": {
+        "title": "Expéditions",
+        "description": "Consultez et gérez toutes les expéditions actives dans le système, suivez leur statut et leurs mises à jour.",
+        "breadcrumb": {
+          "home": "Accueil",
+          "shipments": "Expéditions"
+        }
+      },
+      "table": {
+        "headers": {
+          "shipmentNumber": "Numéro d'expédition",
+          "launchDate": "Date de lancement",
+          "route": "Itinéraire",
+          "currentPoint": "Point actuel",
+          "driver": "Chauffeur",
+          "status": "Statut",
+          "actions": ""
+        },
+        "empty": "Aucune expédition trouvée",
+        "actions": {
+          "viewDetails": "Voir les détails"
+        }
+      },
+      "actions": {
+        "filter": "Filtrer"
+      },
+      "status": {
+        "paused": "En pause",
+        "current": "Actif"
+      }
+    },
+    "finished": {
+      "page": {
+        "title": "Expéditions terminées",
+        "description": "Consultez les expéditions qui ont été complétées ou clôturées, y compris le statut final et l'historique complet de suivi."
+      },
+      "table": {
+        "headers": {
+          "shipmentNumber": "Numéro d'expédition",
+          "launchDate": "Date de lancement",
+          "endDate": "Date de fin",
+          "route": "Itinéraire",
+          "currentPoint": "Point actuel",
+          "driver": "Chauffeur",
+          "actions": ""
+        },
+        "empty": "Aucune expédition terminée trouvée",
+        "actions": {
+          "viewDetails": "Voir les détails"
+        }
+      },
+      "actions": {
+        "filter": "Filtrer"
+      }
+    },
+    "dialog": {
+      "add": {
+        "title": "Ajouter une nouvelle expédition",
+        "description": "Enregistrez une nouvelle expédition et attribuez un chauffeur et un itinéraire pour commencer le suivi.",
+        "button": "Ajouter une expédition",
+        "loading": "Ajout en cours..."
+      },
+      "edit": {
+        "title": "Modifier l'expédition",
+        "description": "Mettez à jour les détails de l'expédition et les informations de suivi.",
+        "button": "Mettre à jour l'expédition",
+        "loading": "Mise à jour en cours..."
+      },
+      "fields": {
+        "shipmentNumber": "Numéro d'expédition",
+        "way": "Itinéraire de l'expédition",
+        "driver": "Chauffeur de l'expédition",
+        "launchDate": "Date de lancement"
+      },
+      "placeholders": {
+        "shipmentNumber": "Entrez le numéro d'expédition",
+        "way": "Sélectionnez l'itinéraire",
+        "driver": "Sélectionnez le chauffeur",
+        "launchDate": "Sélectionnez la date de lancement"
+      },
+      "actions": {
+        "cancel": "Annuler"
+      },
+      "confirm": {
+        "pause": {
+          "title": "Mettre en pause l'expédition",
+          "description": "Êtes-vous sûr de vouloir mettre cette expédition en pause ?",
+          "action": "Mettre en pause",
+          "trigger": "Mettre en pause l'expédition"
+        },
+        "resume": {
+          "title": "Reprendre l'expédition",
+          "description": "Êtes-vous sûr de vouloir reprendre cette expédition ?",
+          "action": "Reprendre",
+          "trigger": "Reprendre l'expédition"
+        },
+        "delete": {
+          "title": "Supprimer l'expédition",
+          "description": "Êtes-vous sûr de vouloir supprimer cette expédition ? Cette action est irréversible.",
+          "action": "Supprimer",
+          "trigger": "Supprimer l'expédition"
+        }
+      }
+    }
+  },
+  "shipmentDetails": {
+    "page": {
+      "title": "Détails de l'expédition",
+      "description": "Consultez les informations de l'expédition et les articles inclus dans l'expédition."
+    },
+    "breadcrumb": {
+      "shipments": "Expéditions",
+      "details": "Détails"
+    },
+    "sections": {
+      "overview": {
+        "title": "Aperçu de l'expédition"
+      },
+      "info": {
+        "title": "Informations de l'expédition"
+      },
+      "items": {
+        "title": "Articles de l'expédition",
+        "description": "Consultez tous les articles inclus dans l'expédition avec la quantité et les détails."
+      }
+    },
+    "actions": {
+      "addItem": "Ajouter un article à l'expédition"
+    },
+    "header": {
+      "status": {
+        "completed": "Terminé",
+        "paused": "En pause",
+        "current": "Actif"
+      },
+      "title": "Expédition #{number}",
+      "actions": {
+        "move": {
+          "withNotification": {
+            "text": "Déplacer",
+            "loading": "Déplacement en cours..."
+          },
+          "withoutNotification": {
+            "text": "Déplacer sans notification",
+            "loading": "Déplacement silencieux..."
+          }
+        },
+        "pause": {
+          "text": "Mettre en pause",
+          "loading": "Mise en pause en cours..."
+        },
+        "resume": {
+          "text": "Reprendre",
+          "loading": "Reprise en cours..."
+        }
+      }
+    },
+    "info": {
+      "fields": {
+        "launchDate": "Date de lancement",
+        "driverPhone": "Téléphone du chauffeur",
+        "endDate": "Date d'arrivée",
+        "route": "Itinéraire",
+        "clientsCount": "Nombre de clients",
+        "itemsCount": "Nombre d'articles",
+        "currentPoint": "Point actuel"
+      },
+      "values": {
+        "notArrived": "Pas encore arrivé",
+        "unknown": "---"
+      }
+    },
+    "table": {
+      "headers": {
+        "client": "Nom du client",
+        "item": "Article",
+        "quantity": "Quantité",
+        "breakable": "Cassable",
+        "actions": ""
+      },
+      "empty": "Aucun article d'expédition trouvé",
+      "breakableValues": {
+        "yes": "Oui",
+        "no": "Non"
+      },
+      "actions": {
+        "edit": "Modifier l'article",
+        "delete": "Supprimer l'article"
+      }
+    },
+    "dialog": {
+      "items": {
+        "title": {
+          "add": "Attribuer un client et des articles d'expédition",
+          "edit": "Modifier le client et les articles d'expédition"
+        },
+        "description": {
+          "add": "Sélectionnez un client enregistré et attribuez des articles à cette expédition.",
+          "edit": "Modifier le client et les articles d'expédition."
+        },
+        "fields": {
+          "client": "Nom du client",
+          "item": "Article",
+          "quantity": "Quantité",
+          "breakable": "Cassable"
+        },
+        "placeholders": {
+          "client": "Sélectionnez le client",
+          "item": "Entrez l'article",
+          "quantity": "Entrez la quantité",
+          "breakable": "Sélectionnez l'option cassable"
+        },
+        "actions": {
+          "addItem": "Ajouter un article",
+          "remove": "Supprimer",
+          "submitAdd": "Ajouter",
+          "submitEdit": "Mettre à jour",
+          "loadingAdd": "Ajout en cours...",
+          "loadingEdit": "Mise à jour en cours...",
+          "cancel": "Annuler"
+        },
+        "breakableValues": {
+          "yes": "Oui",
+          "no": "Non"
+        }
+      },
+      "deleteItem": {
+        "title": "Supprimer l'article de l'expédition",
+        "description": "Êtes-vous sûr de vouloir supprimer cet article ? Cette action est irréversible.",
+        "trigger": "Supprimer l'article",
+        "action": "Supprimer",
+        "loading": "Suppression en cours..."
+      }
+    }
+  },
+  "clientsPage": {
+    "page": {
+      "title": "Clients",
+      "description": "Consultez et gérez tous les clients enregistrés dans le système, y compris leurs coordonnées et leur activité.",
+      "breadcrumb": {
+        "home": "Accueil",
+        "clients": "Clients"
+      }
+    },
+    "table": {
+      "headers": {
+        "name": "Nom du client",
+        "contacts": "Méthodes de contact",
+        "actions": ""
+      },
+      "empty": "Aucun client trouvé",
+      "actions": {
+        "viewDetails": "Voir les détails",
+        "edit": "Modifier le client",
+        "delete": "Supprimer le client"
+      }
+    },
+    "actions": {
+      "filter": "Filtrer"
+    },
+    "dialog": {
+      "add": {
+        "title": "Ajouter un nouveau client",
+        "description": "Enregistrez un nouveau client et ajoutez ses méthodes de contact utilisées pour les notifications d'expédition.",
+        "button": "Ajouter un client",
+        "loading": "Ajout en cours..."
+      },
+      "edit": {
+        "title": "Modifier les informations du client",
+        "description": "Mettez à jour les données existantes du client et gérez ses méthodes de contact utilisées pour les notifications d'expédition.",
+        "button": "Mettre à jour le client",
+        "loading": "Mise à jour en cours..."
+      },
+      "view": {
+        "title": "Informations du client",
+        "description": "Consultez les données stockées du client et ses méthodes de contact enregistrées utilisées pour les notifications d'expédition."
+      },
+      "fields": {
+        "name": "Nom du client",
+        "contactWays": "Méthodes de contact",
+        "contactType": "Type de contact",
+        "isPrimary": "Est un contact principal"
+      },
+      "placeholders": {
+        "name": "Entrez le nom du client",
+        "contactWays": "Ajouter une méthode de contact",
+        "contactType": "Sélectionnez le type de contact",
+        "isPrimary": "Sélectionnez si principal"
+      },
+      "options": {
+        "contactType": {
+          "phoneNumber": "Numéro de téléphone",
+          "email": "Email"
+        },
+        "isPrimary": {
+          "true": "Oui",
+          "false": "Non"
+        }
+      },
+      "actions": {
+        "cancel": "Annuler",
+        "save": "Enregistrer",
+        "remove": "Supprimer",
+        "addContactWay": "Ajouter une méthode de contact"
+      },
+      "delete": {
+        "title": "Supprimer le client {name}",
+        "description": "Êtes-vous sûr de vouloir supprimer ce client {name} ? Cette action est irréversible.",
+        "action": "Supprimer",
+        "trigger": "Supprimer le client"
+      }
+    }
+  },
+  "waysPage": {
+    "header": {
+      "title": "Itinéraires",
+      "description": "Gérez les itinéraires approuvés pour le transport des expéditions, en définissant les points de départ et d'arrivée et en les liant aux opérations d'expédition.",
+      "breadcrumb": {
+        "home": "Accueil",
+        "ways": "Itinéraires"
+      }
+    },
+    "actions": {
+      "filter": "Filtrer",
+      "add": "Ajouter un nouvel itinéraire"
+    },
+    "table": {
+      "columns": {
+        "name": "Nom de l'itinéraire",
+        "points": "Points"
+      },
+      "actions": {
+        "edit": "Modifier les données de l'itinéraire"
+      }
+    },
+    "dialog": {
+      "add": {
+        "title": "Ajouter un nouvel itinéraire",
+        "description": "Créez un nouvel itinéraire d'expédition en définissant les points de l'itinéraire dans le bon ordre. Plusieurs points peuvent être ajoutés pour clarifier le chemin de déplacement et l'utiliser ultérieurement dans les opérations d'expédition.",
+        "button": "Ajouter un itinéraire",
+        "loading": "Ajout en cours..."
+      },
+      "edit": {
+        "title": "Modifier les données de l'itinéraire",
+        "description": "Modifiez les données de l'itinéraire précédemment enregistrées et mettez à jour ses points ou son ordre selon les besoins.",
+        "button": "Mettre à jour l'itinéraire",
+        "loading": "Mise à jour en cours..."
+      },
+      "fields": {
+        "name": "Nom de l'itinéraire",
+        "pointName": "Nom du point",
+        "pointOrder": "Ordre du point",
+        "locationTitle": "Afficher l'emplacement sur la carte",
+        "locationDescription": "Activer la sélection d'emplacement pour les points"
+      },
+      "placeholders": {
+        "name": "Entrez le nom de l'itinéraire ex. (Ligne Mukalla - Dubaï)",
+        "pointName": "Entrez le nom du point",
+        "pointOrder": "Entrez l'ordre du point"
+      },
+      "actions": {
+        "addPoint": "Ajouter un nouveau point",
+        "remove": "Supprimer",
+        "cancel": "Annuler"
+      }
+    },
+    "deleteDialog": {
+      "title": "Supprimer l'itinéraire",
+      "triggerText": "Supprimer l'itinéraire",
+      "description": "Êtes-vous sûr de vouloir supprimer cet itinéraire ?",
+      "action": "Supprimer"
+    }
+  },
+  "usersPage": {
+    "header": {
+      "title": "Utilisateurs",
+      "description": "Consultez et gérez les utilisateurs enregistrés dans le système, et définissez leurs rôles et permissions liés à la gestion des expéditions et des données.",
+      "breadcrumb": {
+        "home": "Accueil",
+        "users": "Utilisateurs"
+      }
+    },
+    "actions": {
+      "filter": "Filtrer",
+      "add": "Ajouter un nouvel utilisateur"
+    },
+    "table": {
+      "columns": {
+        "name": "Nom d'utilisateur",
+        "email": "Email",
+        "role": "Rôle"
+      }
+    },
+    "dialog": {
+      "add": {
+        "title": "Ajouter un nouvel utilisateur",
+        "description": "Ajoutez un nouvel utilisateur au système et définissez son rôle et ses permissions. L'utilisateur pourra accéder aux fonctionnalités autorisées en fonction du rôle attribué."
+      },
+      "edit": {
+        "title": "Modifier l'utilisateur",
+        "description": "Modifiez les données de l'utilisateur précédemment enregistré et mettez à jour son rôle et ses permissions."
+      },
+      "fields": {
+        "name": {
+          "label": "Nom d'utilisateur",
+          "placeholder": "Entrez le nom d'utilisateur"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Entrez l'email"
+        },
+        "password": {
+          "label": "Mot de passe",
+          "placeholder": "Entrez le mot de passe"
+        },
+        "role": {
+          "label": "Rôle",
+          "placeholder": "Sélectionnez le rôle"
+        }
+      },
+      "actions": {
+        "cancel": "Annuler",
+        "add": "Ajouter",
+        "edit": "Modifier",
+        "triggerEdit": "Modifier l'utilisateur"
+      }
+    },
+    "deleteDialog": {
+      "title": "Supprimer l'utilisateur",
+      "triggerText": "Supprimer l'utilisateur",
+      "description": "Êtes-vous sûr de vouloir supprimer cet utilisateur ?",
+      "action": "Supprimer"
+    }
+  },
+  "settingsPage": {
+    "header": {
+      "title": "Paramètres",
+      "description": "Gérez les paramètres du compte, y compris le changement de langue, la mise à jour des informations de base et la révision des détails d'abonnement liés au système.",
+      "breadcrumb": "Paramètres"
+    },
+    "systemSettings": {
+      "title": "Paramètres système",
+      "description": "Sélectionnez la langue de l'interface du système selon votre préférence. Le changement sera appliqué à toutes les pages du système."
+    },
+    "language": {
+      "label": "Langue du système",
+      "placeholder": "Langue du système"
+    },
+    "theme": {
+      "label": "Thème du système"
+    },
+    "accountSettings": {
+      "title": "Paramètres du compte personnel",
+      "description": "Mettez à jour les informations de base liées à votre compte personnel."
+    },
+    "userSection": {
+      "name": "Nom d'utilisateur",
+      "email": "Email",
+      "password": "Mot de passe",
+      "loading": "Chargement..."
+    },
+    "subscriptionSettings": {
+      "title": "Statut d'abonnement",
+      "description": "Consultez les informations d'abonnement actuelles et les limites d'utilisation associées au plan."
+    },
+    "subscriptionSection": {
+      "status": "Statut d'abonnement",
+      "activeText": "L'abonnement est actif et le système peut être utilisé pleinement.",
+      "period": "Période d'abonnement",
+      "remaining": "Restant: {days} jours",
+      "start": "Début de l'abonnement: {date}",
+      "end": "Fin de l'abonnement: {date}"
+    }
+  },
+  "notesPage": {
+    "header": {
+      "title": "Notes",
+      "description": "Cette section permet aux entreprises d'envoyer des notes, des réclamations, des commentaires ou des demandes de modification à l'administration du système. Toutes les notes sont affichées dans le tableau de bord d'administration pour examen et action appropriée.",
+      "breadcrumb": {
+        "home": "Accueil",
+        "notes": "Notes"
+      }
+    },
+    "actions": {
+      "filter": "Filtrer",
+      "add": "Ajouter une nouvelle note"
+    },
+    "table": {
+      "columns": {
+        "createdAt": "Date de création",
+        "type": "Type de note",
+        "text": "Note"
+      }
+    },
+    "dialog": {
+      "add": {
+        "title": "Ajouter une nouvelle note",
+        "description": "Envoyez une nouvelle note à l'administration du système pour partager une demande, une requête ou tout détail lié au service/système."
+      },
+      "edit": {
+        "title": "Modifier la note",
+        "description": "Mettez à jour une note précédemment soumise et modifiez son contenu ou ses détails."
+      },
+      "fields": {
+        "type": {
+          "label": "Type de note",
+          "placeholder": "Sélectionnez le type de note"
+        },
+        "text": {
+          "label": "Note",
+          "placeholder": "Entrez votre note"
+        }
+      },
+      "actions": {
+        "cancel": "Annuler",
+        "add": "Ajouter",
+        "edit": "Modifier",
+        "triggerEdit": "Modifier la note"
+      },
+      "noteTypes": {
+        "complaint": "Réclamation",
+        "inquiry": "Demande de renseignements",
+        "suggestion": "Suggestion",
+        "compliment": "Compliment",
+        "feedback": "Retour d'information",
+        "other": "Autre"
+      }
+    },
+    "deleteDialog": {
+      "title": "Supprimer la note",
+      "triggerText": "Supprimer la note",
+      "description": "Êtes-vous sûr de vouloir supprimer cette note ?",
+      "action": "Supprimer"
+    }
+  },
+  "subscriptionPage": {
+    "header": {
+      "title": "Mes abonnements",
+      "description": "Gérez les détails de l'abonnement actuel de votre entreprise, examinez le type de plan, les tarifs, la période d'abonnement et explorez les options de renouvellement disponibles.",
+      "breadcrumb": {
+        "home": "Accueil",
+        "settings": "Paramètres système",
+        "subscriptions": "Mes abonnements"
+      }
+    },
+    "currentSubscription": {
+      "title": "Statut d'abonnement de l'entreprise",
+      "yearly": {
+        "label": "Abonnement annuel",
+        "hint": "Offre la meilleure valeur à long terme pour votre entreprise."
+      },
+      "monthly": {
+        "label": "Abonnement mensuel",
+        "hint": "Idéal pour les entreprises qui ont besoin de flexibilité mensuelle."
+      },
+      "progress": {
+        "title": "Progression de l'abonnement",
+        "remaining": "{days} jours restants",
+        "notAvailable": "Non disponible"
+      },
+      "featuresTitle": "Fonctionnalités d'abonnement",
+      "cards": {
+        "price": {
+          "title": "Prix",
+          "description": "Coût actuel de l'abonnement"
+        },
+        "startDate": {
+          "title": "Date de début",
+          "description": "Date de début de l'abonnement"
+        },
+        "endDate": {
+          "title": "Date de renouvellement",
+          "description": "{days} jours restants",
+          "descriptionNoDate": "Date de renouvellement non disponible"
+        }
+      }
+    },
+    "pricing": {
+      "title": "Plans disponibles",
+      "description": "Examinez les plans disponibles avec des détails plus clairs sur les fonctionnalités et les périodes d'abonnement pour vous aider à choisir la meilleure option.",
+      "bestValue": "Meilleur rapport qualité-prix",
+      "currentPlan": "Plan actuel",
+      "selectPlan": "Choisir ce plan",
+      "selected": "Votre plan actif",
+      "billing": "Cycle de facturation",
+      "monthly": "Mensuel",
+      "yearly": "Annuel",
+      "duration": "Durée"
+    },
+    "status": {
+      "pending": "En attente",
+      "active": "Actif",
+      "inactive": "Inactif",
+      "change": "Demande de modification en cours d'examen"
+    },
+    "features": {
+      "title": "Fonctionnalités d'abonnement",
+      "items": [
+        "Support technique direct pour les entreprises",
+        "Rapports quotidiens et suivi des abonnements",
+        "Tableau de bord de gestion des utilisateurs et des expéditions",
+        "Mise à niveau ou rétrogradation facile du plan"
+      ]
+    },
+    "faq": {
+      "title": "FAQ sur les abonnements",
+      "items": [
+        {
+          "q": "Puis-je changer mon plan d'abonnement à tout moment ?",
+          "a": "Oui, vous pouvez passer d'un plan mensuel à un plan annuel et vice versa selon les règles du système."
+        },
+        {
+          "q": "Quelles données sont affichées dans les détails du plan ?",
+          "a": "La page affiche le type d'abonnement, le prix et la durée en fonction des données du plan disponible."
+        },
+        {
+          "q": "Y a-t-il des frais cachés ou des contrats à long terme ?",
+          "a": "Tous les prix affichés sont transparents ; les détails de paiement supplémentaires dépendent des paramètres du système."
+        }
+      ]
+    }
+  },
+  "managerDashboard": {
+    "header": {
+      "title": "Tableau de bord",
+      "description": "Aperçu des performances des opérations d'expédition, y compris les expéditions actuelles, les clients et les itinéraires.",
+      "breadcrumb": {
+        "home": "Accueil"
+      }
+    },
+    "currentShipments": {
+      "title": "Expéditions actuelles",
+      "description": "Consultez toutes les expéditions actives et suivez leurs dernières mises à jour."
+    },
+    "table": {
+      "shipmentNumber": "Numéro d'expédition",
+      "launchDate": "Date de lancement",
+      "route": "Itinéraire",
+      "currentPoint": "Point actuel",
+      "driver": "Chauffeur",
+      "empty": "Aucune expédition disponible"
+    },
+    "stats": {
+      "shipments": "Total des expéditions",
+      "current": "Expéditions actuelles",
+      "finished": "Expéditions terminées",
+      "clients": "Clients",
+      "ways": "Itinéraires"
+    }
+  },
+  "tableEmpty": {
+    "companies": "Aucune entreprise n'a encore été ajoutée. Commencez par ajouter votre première entreprise.",
+    "subscriptions": "Aucun plan d'abonnement disponible pour le moment. Ajoutez votre premier plan.",
+    "notes": "Aucune note pour le moment.",
+    "notesWithAction": "Aucune note pour le moment. Ajoutez votre première note.",
+    "clients": "Aucun client pour le moment. Ajoutez votre premier client.",
+    "shipments": "Aucune expédition pour le moment. Ajoutez votre première expédition.",
+    "finishedShipments": "Aucune expédition terminée pour le moment.",
+    "users": "Aucun utilisateur pour le moment. Commencez par ajouter votre premier utilisateur.",
+    "ways": "Aucun itinéraire pour le moment. Commencez par ajouter votre premier itinéraire.",
+    "shipmentsCurrent": "Aucune expédition pour le moment. Ajoutez votre première expédition.",
+    "shipmentItems": "Il n'y a pas encore d'articles d'expédition. Ajoutez votre premier article."
+  },
+  "landingHero": {
+    "imageAlt": "Tableau de gestion intelligente des expéditions",
+    "eyebrow": "Plateforme intelligente de gestion des expéditions",
+    "titleLine1": "Gérez vos expéditions",
+    "titleLine2": "avec plus de rapidité et de clarté",
+    "description": "Une plateforme SaaS complète qui aide les entreprises de transport à suivre les trajets, organiser les clients, gérer les équipes et améliorer les livraisons depuis un seul tableau de bord.",
+    "actions": {
+      "subscribe": "Commencer",
+      "learnMore": "Découvrir la plateforme"
+    }
+  },
+  "landingHeader": {
+    "brand": {
+      "name": "S3",
+      "suffix": "Système de suivi"
+    },
+    "nav": {
+      "home": "Accueil",
+      "services": "Services",
+      "explore": "Explorer",
+      "faq": "FAQ"
+    },
+    "actions": {
+      "login": "Connexion",
+      "register": "S’inscrire"
+    }
+  }
 }
