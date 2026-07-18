@@ -60,7 +60,7 @@ function PreviewCard({title, description, image, previewItems, large}: PreviewCa
 
   return (
     <>
-      <div onClick={() => setOpen(true)} className={`group cursor-zoom-in overflow-hidden rounded-3xl border bg-card transition duration-500 hover:-translate-y-1 hover:shadow-xl ${large ? 'h-[650px]' : 'h-[430px]'}`}>
+      <div onClick={() => setOpen(true)} className={`group cursor-zoom-in overflow-hidden rounded-3xl border bg-card transition duration-500 hover:-translate-y-1 hover:shadow-xl ${large ? 'h-162.5' : 'h-107.5'}`}>
         <div className='relative h-[75%] overflow-hidden'>
           <Image src={image} alt={title} fill className='object-cover object-top transition duration-700 group-hover:scale-105' />
         </div>
@@ -71,7 +71,7 @@ function PreviewCard({title, description, image, previewItems, large}: PreviewCa
 
             <p className='text-muted-foreground'>{description}</p>
           </div>
-          <div className='flex size-12 items-center justify-center rounded-full bg-custom-primary-color/10 transition group-hover:bg-custom-primary-color'>
+          <div className='flex min-w-12 min-h-12 items-center justify-center rounded-full bg-custom-primary-color/10 transition group-hover:bg-custom-primary-color'>
             <ArrowUpRight className='text-custom-primary-color transition group-hover:text-white' />
           </div>
         </div>

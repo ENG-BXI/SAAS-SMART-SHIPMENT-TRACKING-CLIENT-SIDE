@@ -43,7 +43,7 @@ const DriverAppSection = () => {
             {features.map(item => (
               <div key={item} className='flex items-center gap-3 text-zinc-500'>
                 <CheckCircle2 className='h-5 w-5 text-custom-primary-color' />
-                <span>{item}</span>
+                <span className='text-wrap'>{item}</span>
               </div>
             ))}
           </div>
@@ -58,7 +58,7 @@ const DriverAppSection = () => {
 
         {/* Phone */}
         <div className='relative flex justify-center'>
-          <div className='absolute h-125 w-62.5 rounded-full bg-custom-primary-color/20 blur-3xl' />
+          <div className='absolute h-125 w-full max-w-62.5 rounded-full bg-custom-primary-color/20 blur-3xl' />
 
           <div className='relative rounded-[3rem] border border-white/10 bg-black p-3 shadow-2xl'>
             <Carousel
@@ -68,7 +68,7 @@ const DriverAppSection = () => {
                 loop: true,
                 direction: isRtl ? 'rtl' : 'ltr'
               }}
-              className='w-75'
+              className='max-w-75'
             >
               <CarouselContent>
                 {mobileScreens.map(image => (

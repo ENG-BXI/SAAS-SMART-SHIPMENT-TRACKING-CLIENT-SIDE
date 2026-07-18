@@ -37,7 +37,7 @@ function ServicesItem({title, icon, description, index, totalItems}: ServicesIte
   const Icon = icon;
 
   return (
-    <div className={`group relative overflow-hidden rounded-3xl border bg-background p-8 transition-all duration-500 hover:shadow-xl ${index === 0 || index == 4 ? 'md:row-span-2' : ''} ${index == totalItems - 1 ? 'col-span-2' : ''}`}>
+    <div className={`group relative overflow-hidden rounded-3xl border bg-background p-8 transition-all duration-500 hover:shadow-xl ${index === 0 || index == 4 ? 'md:row-span-2' : ''} ${index == totalItems - 1 ? 'md:col-span-2' : ''}`}>
       {/* Hover background */}
       <div className='pointer-events-none absolute inset-0 bg-linear-to-br from-custom-primary-color/10 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100' />{' '}
       <div className='relative z-10 flex h-full flex-col justify-between'>

@@ -9,7 +9,7 @@ export const CtaBanner = () => {
     <section id='cta-banner' className='relative w-full pt-20'>
       <div className='container relative mx-auto flex justify-center'>
         <div className='relative h-24 w-full md:h-44'>
-          <Image src='/assets/footer.webp' alt={t('imageAlt')} fill priority className='object-contain' />
+          <Image src='/assets/footer.webp' alt={t('imageAlt')} fill priority className='sm:object-contain' />
         </div>
       </div>
 
@@ -20,7 +20,7 @@ export const CtaBanner = () => {
             <p className='mt-3 text-sm leading-7 text-white/80 md:text-base'>{t('description')}</p>
           </div>
 
-          <button onClick={() => {}} className='whitespace-nowrap rounded-full border-2 border-white/50 bg-transparent px-8 py-3 text-sm font-semibold transition-all duration-300 hover:bg-white hover:text-custom-primary-color'>
+          <button onClick={() => {}} className='whitespace-nowrap rounded-full w-full md:w-min border-2 border-white/50 bg-transparent px-8 py-3 text-sm font-semibold transition-all duration-300 hover:bg-white hover:text-custom-primary-color'>
             {t('action')}
           </button>
         </div>

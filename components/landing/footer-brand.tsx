@@ -75,7 +75,7 @@ export default function FooterBrand() {
   );
 
   return (
-    <div ref={wrapperRef} className='relative flex h-90 items-end justify-center overflow-hidden border-t border-zinc-900'>
+    <div ref={wrapperRef} className='relative hidden md:flex h-90 items-end justify-center overflow-hidden border-t border-zinc-900'>
       <div ref={glowRef} className='absolute left-1/2 top-1/2 min-h-75 min-w-175 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#0B0B0B] blur-[120px]' />
 
       <h2 ref={textRef} className='relative z-10 select-none whitespace-nowrap text-center text-[clamp(4rem,15vw,13rem)] font-black leading-none tracking-[-0.08em] bg-linear-to-b from-zinc-200 via-zinc-500 to-zinc-900 bg-clip-text text-transparent'>

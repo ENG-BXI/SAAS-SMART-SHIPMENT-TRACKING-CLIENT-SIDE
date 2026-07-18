@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import {ArrowUpRight, Infinity} from 'lucide-react';
+import {ArrowUpRight, Infinity, Menu, X} from 'lucide-react';
 import {cn} from '@/lib/utils';
 import {useEffect, useState} from 'react';
 import {usePathname} from '@/i18n/navigation';
@@ -11,7 +11,6 @@ import CustomSelect, {IOption} from '@/components/custom-select';
 import {ModeToggle} from '@/components/theme-toggle';
 import useSwitchLanguage from '@/hooks/use-switch-language';
 import {LocalsNames, routing} from '@/i18n/routing';
-import SideBarLogo from '../sideBar/side-bar-logo';
 
 interface HeaderProps {
   className?: string;
@@ -21,10 +20,13 @@ const Header = ({className}: HeaderProps) => {
   const [hidden, setHidden] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [atTop, setAtTop] = useState(true);
+  const [mobileMenu, setMobileMenu] = useState(false);
+
   const pathname = usePathname();
   const locale = useLocale();
   const t = useTranslations('landingHeader');
   const {switchLocale} = useSwitchLanguage();
+
   const isHomePage = pathname === '/';
 
   const navLinks = [
@@ -77,23 +79,21 @@ const Header = ({className}: HeaderProps) => {
   }, []);
 
   return (
-    <header className={cn('fixed left-0 top-0 z-40 w-full transition-transform duration-500', hidden ? 'translate-y-[-120%]' : 'translate-y-0', className)}>
-      <div className={cn('relative z-40 mx-auto flex items-center justify-between text-white transition-all duration-500 ease-out', atTop ? 'w-full bg-black/40 px-6 py-5 backdrop-blur-sm md:px-20' : scrolled ? 'mt-5 w-[90%] max-w-7xl rounded-full border border-white/10 bg-black/80 px-6 py-4 shadow-2xl backdrop-blur-xl' : 'w-full bg-transparent px-6 py-5 md:px-20')}>
+    <header className={cn('fixed left-0 top-0 z-50 w-full transition-transform duration-500', hidden ? 'translate-y-[-120%]' : 'translate-y-0', className)}>
+      <div className={cn('relative z-50 mx-auto flex items-center justify-between text-white transition-all duration-500 ease-out', atTop ? 'w-full bg-black/40 px-4 py-4 backdrop-blur-sm sm:px-6 md:px-20' : scrolled ? 'mt-4 w-[92%] max-w-7xl rounded-full border border-white/10 bg-black/80 px-4 py-3 shadow-2xl backdrop-blur-xl sm:px-6' : 'w-full px-4 py-4 sm:px-6 md:px-20')}>
         {/* Logo */}
-        <Link href='/' className='flex items-center gap-2'>
-          <div className='flex h-9 w-9 items-center justify-center rounded-xl bg-custom-primary-color'>
-            <div className='bg-custom-primary-color rounded-lg p-0.5'>
-              <Infinity className='text-white' />
-            </div>
+        <Link href='/' className='flex shrink-0 items-center gap-2'>
+          <div className='flex h-10 w-10 items-center justify-center rounded-xl bg-custom-primary-color'>
+            <Infinity className='h-6 w-6 text-white' />
           </div>
 
           <span className='text-lg font-bold tracking-tight'>
             S3
-            <span className='ml-1 font-medium text-zinc-300'>Tracking System</span>
+            <span className='ml-1 hidden font-medium text-zinc-300 sm:inline'>Tracking System</span>
           </span>
         </Link>
 
-        {/* Navigation */}
+        {/* Desktop Navigation */}
         <nav className='hidden lg:block'>
           <ul className='flex items-center gap-8 text-sm text-zinc-300'>
             {navLinks.map(item => (
@@ -107,9 +107,9 @@ const Header = ({className}: HeaderProps) => {
         </nav>
 
         {/* Actions */}
-        <div className='flex items-center gap-3'>
+        <div className='flex items-center gap-2 sm:gap-3'>
           {/* Language */}
-          <div className='relative z-50 hidden sm:block'>
+          <div className='relative z-60 hidden md:block'>
             <CustomSelect className='w-24' value={locale} onChange={newLocale => switchLocale(newLocale)} options={localOptions} />
           </div>
 
@@ -117,15 +117,54 @@ const Header = ({className}: HeaderProps) => {
           <ModeToggle />
 
           {/* Login */}
-          <Link href='/login' className='hidden sm:flex h-10 items-center justify-center rounded-full border border-white/20 px-5 text-sm font-semibold text-white transition hover:bg-white/10'>
+          <Link href='/login' className='hidden h-10 items-center justify-center rounded-full border border-white/20 px-4 text-sm font-semibold transition hover:bg-white/10 sm:flex'>
             {t('actions.login')}
           </Link>
 
           {/* Register */}
-          <Link href='/register-company' className='group flex items-center gap-2 rounded-full bg-custom-primary-color px-5 py-2.5 text-sm font-semibold text-white transition hover:opacity-90'>
+          <Link href='/register-company' className='hidden items-center gap-2 rounded-full bg-custom-primary-color px-4 py-2.5 text-sm font-semibold transition hover:opacity-90 sm:flex'>
             {t('actions.register')}
-            <ArrowUpRight className='h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5' />
+            <ArrowUpRight className='h-4 w-4' />
           </Link>
+
+          {/* Mobile Button */}
+          <button onClick={() => setMobileMenu(prev => !prev)} className='flex h-10 w-10 items-center justify-center rounded-full border border-white/20 lg:hidden'>
+            {mobileMenu ? <X className='h-5 w-5' /> : <Menu className='h-5 w-5' />}
+          </button>
+        </div>
+      </div>
+      {/* Mobile Menu */}
+      <div className={cn('mx-4 overflow-hidden rounded-3xl border border-white/10 bg-black/90 backdrop-blur-xl transition-all duration-300 lg:hidden', mobileMenu ? 'mt-3 max-h-[600px] opacity-100' : 'max-h-0 opacity-0')}>
+        <div className='flex flex-col gap-6 p-5'>
+          {/* Mobile Navigation */}
+          <nav>
+            <ul className='flex flex-col gap-4 text-sm text-zinc-300'>
+              {navLinks.map(item => (
+                <li key={item.href}>
+                  <Link href={item.href} onClick={() => setMobileMenu(false)} className='block transition hover:text-white'>
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          {/* Mobile Actions */}
+          <div className='flex flex-col gap-3 border-t border-white/10 pt-5'>
+            {/* Language */}
+            <CustomSelect className='w-full text-white' value={locale} onChange={newLocale => switchLocale(newLocale)} options={localOptions} />
+
+            {/* Login */}
+            <Link href='/login' onClick={() => setMobileMenu(false)} className='flex h-11 items-center justify-center rounded-full border border-white/20 text-sm font-semibold text-white transition hover:bg-white/10'>
+              {t('actions.login')}
+            </Link>
+
+            {/* Register */}
+            <Link href='/register-company' onClick={() => setMobileMenu(false)} className='flex h-11 items-center justify-center gap-2 rounded-full bg-custom-primary-color text-sm font-semibold text-white'>
+              {t('actions.register')}
+              <ArrowUpRight className='h-4 w-4' />
+            </Link>
+          </div>
         </div>
       </div>
     </header>
