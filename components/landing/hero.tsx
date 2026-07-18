@@ -4,7 +4,7 @@ import {Link} from '@/i18n/navigation';
 import {getTranslations} from 'next-intl/server';
 
 async function Hero() {
-  const t = await getTranslations('landingPage.hero');
+  const t = await getTranslations('landingHero');
 
   return (
     <section id='hero' className='relative m-3 min-h-175 overflow-hidden rounded-3xl px-6 py-5 md:px-20'>
@@ -24,7 +24,7 @@ async function Hero() {
             <p className='max-w-xl text-lg text-white/80 md:text-xl'>{t('description')}</p>
             <div className='flex gap-4'>
               <Link href='register-company'>
-                <CustomButton text={t('actions.subscribe')} className='border border-white bg-white text-black hover:bg-white/90' />
+                <CustomButton text={t('actions.subscribe')} />
               </Link>
               <CustomButton text={t('actions.learnMore')} className='border border-white/40 bg-transparent text-white' />
             </div>

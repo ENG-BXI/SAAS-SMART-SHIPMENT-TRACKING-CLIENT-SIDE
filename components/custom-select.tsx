@@ -52,7 +52,7 @@ function CustomSelect({onChange, label, required, value, ref, invalid, errorMess
           )}
           {!isLoading && !isError && <SelectValue placeholder={placeHolder} />}
         </SelectTrigger>
-        <SelectContent ref={ref}>
+        <SelectContent ref={ref} align='start' className='z-50'>
           <SelectItem value='0' disabled>
             <div className='w-full'>{placeHolder}</div>
           </SelectItem>

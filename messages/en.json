@@ -1481,5 +1481,32 @@
     "ways": "No routes have been created yet. Start by adding your first route.",
     "shipmentsCurrent": "No shipments have been added yet. Create your first shipment.",
     "shipmentItems": "There are no shipment items yet. Add your first item."
+  },
+  "landingHero": {
+    "imageAlt": "Smart shipment management dashboard",
+    "eyebrow": "Smart shipment management platform",
+    "titleLine1": "Manage shipments",
+    "titleLine2": "with speed and clarity",
+    "description": "An end-to-end SaaS platform that helps shipping companies track trips, organize clients, manage teams, and improve delivery operations from one dashboard.",
+    "actions": {
+      "subscribe": "Get Started",
+      "learnMore": "Explore Platform"
+    }
+  },
+  "landingHeader": {
+    "brand": {
+      "name": "S3",
+      "suffix": "Tracking System"
+    },
+    "nav": {
+      "home": "Home",
+      "services": "Services",
+      "explore": "Explore",
+      "faq": "FAQ"
+    },
+    "actions": {
+      "login": "Login",
+      "register": "Register Now"
+    }
   }
 }

@@ -11,7 +11,8 @@ import {hasLocale, NextIntlClientProvider} from 'next-intl';
 import {routing} from '@/i18n/routing';
 import {notFound} from 'next/navigation';
 import {setRequestLocale} from 'next-intl/server';
-import { ThemeProvider } from '@/lib/theme-provider';
+import {ThemeProvider} from '@/lib/theme-provider';
+import Loading from '../loading';
 // import '@/lib/leaflet';
 const myFont = localFont({
   src: './../../public/Fonts/IBMPlexSansArabic-Medium.ttf'
