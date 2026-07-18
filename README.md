@@ -181,9 +181,7 @@ The landing page introduces the platform and highlights the major product areas:
 
 Suggested screenshot:
 
-```md
-![Landing home page](public/assets/readme/landing-home.png)
-```
+![Landing home page](https://res.cloudinary.com/l4tse0of/image/upload/v1784365870/landing-home_bzm62t.png)
 
 ### Company Registration Page
 
@@ -206,9 +204,7 @@ The form is submitted as `FormData` through `requestSubscriptionCompany`.
 
 Suggested screenshot:
 
-```md
-![Company registration page](public/assets/readme/register-company.png)
-```
+![Company registration page](https://res.cloudinary.com/l4tse0of/image/upload/v1784365872/register-company_kqthto.png)
 
 ## Authentication
 
@@ -224,9 +220,7 @@ The login page authenticates dashboard users using email and password. Authentic
 
 Suggested screenshot:
 
-```md
-![Login page](public/assets/readme/login.png)
-```
+![Login page](https://res.cloudinary.com/l4tse0of/image/upload/v1784365876/login_b8vhrm.png)
 
 ## Admin Dashboard
 
@@ -261,9 +255,7 @@ The page listens for real-time updates through Socket.IO.
 
 Suggested screenshot:
 
-```md
-![Admin statistics dashboard](public/assets/readme/admin-statistics.png)
-```
+![Admin statistics dashboard](https://res.cloudinary.com/l4tse0of/image/upload/v1784365864/admin-statistics_zvze1x.png)
 
 ### Companies
 
@@ -283,9 +275,7 @@ The companies page lists registered companies with search, filtering, pagination
 
 Suggested screenshot:
 
-```md
-![Admin companies page](public/assets/readme/admin-companies.png)
-```
+![Admin companies page](https://res.cloudinary.com/l4tse0of/image/upload/v1784365862/admin-companies_gl6j4y.png)
 
 ### Company Details
 
@@ -306,9 +296,7 @@ Admins can pause or activate the company subscription from the page header actio
 
 Suggested screenshot:
 
-```md
-![Admin company details page](public/assets/readme/admin-company-details.png)
-```
+![Admin company details page](https://res.cloudinary.com/l4tse0of/image/upload/v1784365863/admin-company-details_yp2ldg.png)
 
 ### Subscription Plans
 
@@ -327,9 +315,7 @@ This page manages the subscription plans available to companies. Admins can:
 
 Suggested screenshot:
 
-```md
-![Admin subscription plans page](public/assets/readme/admin-subscriptions.png)
-```
+![Admin subscription plans page](https://res.cloudinary.com/l4tse0of/image/upload/v1784365864/admin-subscriptions_nhj1bq.png)
 
 ### Subscription Requests
 
@@ -349,9 +335,7 @@ This page handles new company subscription requests and plan-change requests. It
 
 Suggested screenshot:
 
-```md
-![Admin subscription requests page](public/assets/readme/admin-subscription-requests.png)
-```
+![Admin subscription requests page](https://res.cloudinary.com/l4tse0of/image/upload/v1784365864/admin-subscription-requests_ymbj11.png)
 
 ### Admin Notes
 
@@ -365,9 +349,7 @@ For admins, the notes page displays notes sent by companies to the platform admi
 
 Suggested screenshot:
 
-```md
-![Admin notes page](public/assets/readme/admin-notes.png)
-```
+![Admin notes page](https://res.cloudinary.com/l4tse0of/image/upload/v1784365863/admin-notes_akthyt.png)
 
 ## Company Manager Dashboard
 
@@ -403,9 +385,7 @@ The manager statistics page focuses on company operations:
 
 Suggested screenshot:
 
-```md
-![Manager statistics dashboard](public/assets/readme/manager-statistics.png)
-```
+![Manager statistics dashboard](https://res.cloudinary.com/l4tse0of/image/upload/v1784365870/manager-statistics_ohqdb7.png)
 
 ### Shipments
 
@@ -433,9 +413,7 @@ Managers and employees can manage shipment workflows from this page. Supported a
 
 Suggested screenshot:
 
-```md
-![Manager shipments page](public/assets/readme/manager-shipments.png)
-```
+![Manager shipments page](https://res.cloudinary.com/l4tse0of/image/upload/v1784365869/manager-shipments_bsudft.png)
 
 ### Shipment Details
 
@@ -457,9 +435,7 @@ The shipment details page displays a full operational view of one shipment:
 
 Suggested screenshot:
 
-```md
-![Manager shipment details page](public/assets/readme/manager-shipment-details.png)
-```
+![Manager shipment details page](https://res.cloudinary.com/l4tse0of/image/upload/v1784365871/manager-shipment-details_rh1xfk.png)
 
 ### Clients
 
@@ -480,9 +456,7 @@ The clients page manages company clients. Managers and employees can:
 
 Suggested screenshot:
 
-```md
-![Manager clients page](public/assets/readme/manager-clients.png)
-```
+![Manager clients page](https://res.cloudinary.com/l4tse0of/image/upload/v1784365868/manager-clients_uvmbbs.png)
 
 ### Routes
 
@@ -502,9 +476,7 @@ Routes define the movement path for shipments. Managers and employees can:
 
 Suggested screenshot:
 
-```md
-![Manager routes page](public/assets/readme/manager-ways.png)
-```
+![Manager routes page](https://res.cloudinary.com/l4tse0of/image/upload/v1784365871/manager-ways_ms9gdy.png)
 
 ### Users
 
@@ -523,9 +495,7 @@ This page is available to company managers. Managers can:
 
 Suggested screenshot:
 
-```md
-![Manager users page](public/assets/readme/manager-users.png)
-```
+![Manager users page](https://res.cloudinary.com/l4tse0of/image/upload/v1784365870/manager-users_b0meav.png)
 
 ### My Subscription
 
@@ -548,9 +518,7 @@ The subscription page shows the company subscription state:
 
 Suggested screenshot:
 
-```md
-![Manager subscription page](public/assets/readme/manager-my-subscription.png)
-```
+![Manager subscription page](https://res.cloudinary.com/l4tse0of/image/upload/v1784365868/manager-my-subscription_gyqaet.png)
 
 ### Manager and Employee Notes
 
@@ -570,35 +538,7 @@ Managers and employees use this page to send feedback, complaints, questions, or
 
 Suggested screenshot:
 
-```md
-![Manager notes page](public/assets/readme/manager-notes.png)
-```
-
-## Employee Dashboard
-
-Employees use the operational part of the dashboard. They do not access subscription management or user management. The employee sidebar includes:
-
-- Home
-- Shipments
-- Clients
-- Routes
-- Notes
-- Settings
-
-Employees share these pages with managers:
-
-- Operational statistics.
-- Shipments.
-- Clients.
-- Routes.
-- Notes.
-- Settings.
-
-Suggested screenshot:
-
-```md
-![Employee dashboard](public/assets/readme/employee-dashboard.png)
-```
+![Manager notes page](https://res.cloudinary.com/l4tse0of/image/upload/v1784365870/manager-notes_zkomf1.png)
 
 ## Public Client Shipment Tracking
 
@@ -627,9 +567,7 @@ The page also listens for real-time updates so customers can see the latest ship
 
 Suggested screenshot:
 
-```md
-![Client shipment tracking page](public/assets/readme/client-shipment-tracking.png)
-```
+![Client shipment tracking page](https://res.cloudinary.com/l4tse0of/image/upload/v1784365865/client-shipment-tracking_ymmt3o.png)
 
 ## Subscription Status Pages
 
@@ -645,9 +583,7 @@ Displayed when a company subscription request is waiting for review. It explains
 
 Suggested screenshot:
 
-```md
-![Pending subscription status page](public/assets/readme/status-pending.png)
-```
+![Pending subscription status page](https://res.cloudinary.com/l4tse0of/image/upload/v1784365873/status-pending_nnk9sp.png)
 
 ### Expired Subscription
 
@@ -661,9 +597,7 @@ Displayed when the company subscription has expired. It explains that access is 
 
 Suggested screenshot:
 
-```md
-![Expired subscription status page](public/assets/readme/status-expired.png)
-```
+![Expired subscription status page](https://res.cloudinary.com/l4tse0of/image/upload/v1784365872/status-expired_fe9hqu.png)
 
 ### Inactive Company
 
@@ -677,9 +611,7 @@ Displayed when the company is inactive or paused. It explains likely reasons and
 
 Suggested screenshot:
 
-```md
-![Inactive company status page](public/assets/readme/status-inactive.png)
-```
+![Inactive company status page](https://res.cloudinary.com/l4tse0of/image/upload/v1784365872/status-inactive_rzpswq.png)
 
 ## Settings
 
@@ -699,9 +631,7 @@ Admins do not see the subscription status section because subscriptions belong t
 
 Suggested screenshot:
 
-```md
-![Settings page](public/assets/readme/settings.png)
-```
+![Settings page](https://res.cloudinary.com/l4tse0of/image/upload/v1784365872/settings_gwdb1i.png)
 
 ## Real-Time Updates
 
@@ -738,14 +668,6 @@ Examples:
 - `public/assets/mobile-home.png`
 - `public/assets/mobile-shipment.png`
 - `public/assets/mobile-shipment-details.png`
-
-The README screenshot placeholders are intentionally placed under:
-
-```text
-public/assets/readme/
-```
-
-Add the screenshots there later using the filenames referenced in this README.
 
 ## Development Notes
 
