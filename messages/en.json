@@ -1479,6 +1479,7 @@
     "finishedShipments": "No shipments have been completed yet.",
     "users": "There are no users yet. Start by adding your first user.",
     "ways": "No routes have been created yet. Start by adding your first route.",
-    "shipmentsCurrent": "No shipments have been added yet. Create your first shipment."
+    "shipmentsCurrent": "No shipments have been added yet. Create your first shipment.",
+    "shipmentItems": "There are no shipment items yet. Add your first item."
   }
 }

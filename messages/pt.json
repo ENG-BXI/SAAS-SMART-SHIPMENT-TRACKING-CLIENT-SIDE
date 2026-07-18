@@ -1479,6 +1479,7 @@
         "finishedShipments": "Nenhuma remessa finalizada ainda.",
         "users": "Nenhum usuário ainda. Comece adicionando seu primeiro usuário.",
         "ways": "Nenhuma rota ainda. Comece adicionando sua primeira rota.",
-        "shipmentsCurrent": "Nenhuma remessa ainda. Adicione sua primeira remessa."
+        "shipmentsCurrent": "Nenhuma remessa ainda. Adicione sua primeira remessa.",
+        "shipmentItems": "Ainda não há itens de remessa. Adicione seu primeiro item."
     }
 }

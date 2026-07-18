@@ -1479,6 +1479,7 @@
         "finishedShipments": "Aucune expédition terminée pour le moment.",
         "users": "Aucun utilisateur pour le moment. Commencez par ajouter votre premier utilisateur.",
         "ways": "Aucun itinéraire pour le moment. Commencez par ajouter votre premier itinéraire.",
-        "shipmentsCurrent": "Aucune expédition pour le moment. Ajoutez votre première expédition."
+        "shipmentsCurrent": "Aucune expédition pour le moment. Ajoutez votre première expédition.",
+        "shipmentItems": "Il n'y a pas encore d'articles d'expédition. Ajoutez votre premier article."
     }
 }

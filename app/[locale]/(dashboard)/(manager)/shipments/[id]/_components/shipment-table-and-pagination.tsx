@@ -6,7 +6,7 @@ import GetAllShipmentItem from '../_services/get-all-shipment-item';
 import {cookies} from 'next/headers';
 import CustomPagination from '@/components/custom-pagination';
 import DeleteShipmentItemDialog from './delete-shipment-item-dialog';
-import { getTranslations } from 'next-intl/server';
+import {getTranslations} from 'next-intl/server';
 interface ShipmentTableAndPaginationProps {
   id: string;
   search?: string;
@@ -17,6 +17,8 @@ async function ShipmentTableAndPagination({id, search, page}: ShipmentTableAndPa
   const token = cookie.get('token')?.value;
   const shipmentItemData = await GetAllShipmentItem(id, token, search, page);
   const t = await getTranslations('shipmentDetails.table');
+  const tActions = await getTranslations('shipmentDetails.actions');
+  const tEmpty = await getTranslations('tableEmpty');
   return (
     <>
       <Table>
@@ -33,7 +35,7 @@ async function ShipmentTableAndPagination({id, search, page}: ShipmentTableAndPa
           {shipmentItemData.data?.length === 0 ? (
             <TableRow>
               <TableCell colSpan={5}>
-                <TableEmpty />
+                <TableEmpty text={tEmpty('shipmentItems')} action={<ShipmentItemDialog type='add' triggerTitle={tActions('addItem')} />} />
               </TableCell>
             </TableRow>
           ) : (

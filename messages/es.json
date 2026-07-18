@@ -1479,6 +1479,7 @@
         "finishedShipments": "No hay envíos finalizados aún.",
         "users": "No hay usuarios aún. Comience agregando su primer usuario.",
         "ways": "No hay rutas aún. Comience agregando su primera ruta.",
-        "shipmentsCurrent": "No hay envíos aún. Agregue su primer envío."
+        "shipmentsCurrent": "No hay envíos aún. Agregue su primer envío.",
+        "shipmentItems": "No hay artículos de envío aún. Agregue su primer artículo."
     }
 }
