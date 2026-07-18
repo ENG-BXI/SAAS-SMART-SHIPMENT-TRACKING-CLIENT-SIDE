@@ -48,6 +48,297 @@
             }
         }
     },
+    "landingPage": {
+        "hero": {
+            "imageAlt": "Plataforma de envio",
+            "eyebrow": "Plataforma inteligente de gestão de envios",
+            "titleLine1": "Gerencie seus envios",
+            "titleLine2": "Mais simples e rápido",
+            "description": "Uma plataforma integrada que ajuda empresas de transporte a rastrear envios, gerenciar clientes e otimizar operações de entrega a partir de um único lugar.",
+            "actions": {
+                "subscribe": "Assine agora",
+                "learnMore": "Saiba mais"
+            }
+        },
+        "about": {
+            "items": [
+                {
+                    "title": "Gestão de envios",
+                    "description": "Controle todas as operações de envio desde a criação até a entrega com rastreamento completo."
+                },
+                {
+                    "title": "Rastreamento inteligente",
+                    "description": "Acompanhe o status e a localização dos envios de forma direta e fácil."
+                },
+                {
+                    "title": "Gestão de clientes",
+                    "description": "Organize os dados dos clientes e melhore a experiência deles."
+                }
+            ]
+        },
+        "services": {
+            "eyebrow": "Nossos serviços",
+            "title": "Seu parceiro de confiança na gestão de envios e logística",
+            "items": [
+                {
+                    "title": "Rastreamento de envios",
+                    "description": "Uma página dedicada para os clientes verificarem o status do envio, localização atual, próximo ponto e número total de pontos da viagem."
+                },
+                {
+                    "title": "Gestão de clientes",
+                    "description": "Capacite cada empresa a gerenciar todos os seus clientes, dados, envios e acompanhar as operações de entrega com facilidade."
+                },
+                {
+                    "title": "Gestão de rotas de envio",
+                    "description": "Crie rotas de envio personalizadas com múltiplos pontos e áreas para organizar o movimento dos envios."
+                },
+                {
+                    "title": "Gestão de motoristas",
+                    "description": "Adicione motoristas e atribua-os aos envios sob sua responsabilidade com um aplicativo móvel dedicado para acompanhamento de viagens."
+                },
+                {
+                    "title": "Criação fácil de envios",
+                    "description": "Crie envios, selecione a rota e o motorista, e adicione clientes e seus itens de forma organizada e rápida."
+                },
+                {
+                    "title": "Notificações automáticas para clientes",
+                    "description": "Envie mensagens aos clientes quando o envio se mover de um ponto para outro com um link de rastreamento do envio."
+                },
+                {
+                    "title": "Notas e sugestões",
+                    "description": "Possibilidade de enviar notas, sugestões e problemas para melhorar a plataforma e desenvolver os serviços."
+                }
+            ]
+        },
+        "explore": {
+            "eyebrow": "Interfaces da plataforma",
+            "title": "Explore o sistema antes de usá-lo",
+            "description": "Todas as imagens abaixo são do sistema real para ilustrar a experiência de gerenciar envios, clientes e motoristas.",
+            "items": [
+                {
+                    "title": "Painel de controle",
+                    "description": "Acompanhe estatísticas, envios, clientes e motoristas a partir de um único painel."
+                },
+                {
+                    "title": "Criar envios",
+                    "description": "Crie um novo envio, selecione a rota, o motorista e os clientes em segundos."
+                },
+                {
+                    "title": "Rastreamento de envio",
+                    "description": "Exiba o status do envio, o ponto atual e as próximas estações para os clientes."
+                }
+            ]
+        },
+        "whyChooseUs": {
+            "eyebrow": "Por que escolher nosso sistema?",
+            "title": "Uma plataforma em nuvem integrada para gestão de empresas de transporte e logística",
+            "description": "Nosso sistema é projetado para ajudar empresas de transporte a gerenciar suas operações diárias com eficiência, desde a gestão de envios, clientes e motoristas, até relatórios e contabilidade, tudo através de uma plataforma fácil de usar e segura.",
+            "features": [
+                {
+                    "title": "Rastreamento de envios em tempo real",
+                    "description": "Acompanhe o percurso de cada envio diretamente e saiba seu status atual desde a criação até a entrega ao cliente."
+                },
+                {
+                    "title": "Gestão de filiais e armazéns",
+                    "description": "Organize as operações de todas as filiais e armazéns a partir de um único painel com acompanhamento do movimento de envios entre eles."
+                },
+                {
+                    "title": "Gestão de motoristas e veículos",
+                    "description": "Atribua envios aos motoristas, acompanhe viagens e gerencie sua frota de transporte de forma eficiente e fácil."
+                },
+                {
+                    "title": "Gestão de rotas e pontos de entrega",
+                    "description": "Crie rotas de viagem e defina pontos de entrega e coleta para garantir que os envios cheguem pela melhor rota possível."
+                },
+                {
+                    "title": "Notificações e atualizações instantâneas",
+                    "description": "Envie atualizações automáticas para clientes e funcionários quando o status do envio mudar, a viagem começar ou a entrega for concluída."
+                },
+                {
+                    "title": "Relatórios operacionais e estatísticas",
+                    "description": "Revise o desempenho da empresa, número de envios, receitas, viagens e taxas de conclusão através de relatórios e gráficos."
+                }
+            ]
+        },
+        "driverApp": {
+            "eyebrow": "Aplicativo móvel para motoristas",
+            "titleLine1": "Aplicativo inteligente para motoristas",
+            "titleLine2": "Torna cada viagem mais eficiente",
+            "description": "Proporcione aos seus motoristas uma experiência profissional com um aplicativo dedicado à gestão de viagens, rastreamento de envios e comunicação direta com o sistema.",
+            "download": "Baixar aplicativo do motorista",
+            "screenAlt": "Tela do aplicativo do motorista",
+            "features": [
+                "Ver todos os envios e viagens atribuídos ao motorista",
+                "Atualizar o status do envio com um clique durante a entrega",
+                "Acompanhar detalhes da viagem, pontos e status atual do envio",
+                "Suporte a mais de 10 idiomas com interface fácil para motoristas"
+            ]
+        },
+        "imageSlider": {
+            "items": [
+                {
+                    "title": "Gestão inteligente de envios",
+                    "description": "Crie envios facilmente, acompanhe as etapas de transporte e gerencie todas as operações de entrega através de um único painel que ajuda a melhorar a velocidade e eficiência do trabalho."
+                },
+                {
+                    "title": "Rastreamento direto de envios",
+                    "description": "Monitore o status de cada envio em tempo real e saiba sua localização e rota atual até chegar ao cliente com atualizações contínuas."
+                },
+                {
+                    "title": "Gestão de motoristas e viagens",
+                    "description": "Distribua os envios entre os motoristas, acompanhe as viagens e organize as operações de transporte para garantir o melhor desempenho operacional."
+                },
+                {
+                    "title": "Gestão de clientes e contas",
+                    "description": "Organize os dados dos clientes, pedidos, pagamentos e saldos com um histórico completo de todas as operações dentro do sistema."
+                },
+                {
+                    "title": "Plataforma SaaS multiempresa",
+                    "description": "Suporte múltiplas empresas dentro do sistema com separação completa de dados, gestão de usuários e permissões de forma segura."
+                }
+            ]
+        },
+        "faq": {
+            "eyebrow": "Perguntas frequentes",
+            "title": "Tudo o que você precisa saber sobre o sistema inteligente de gestão de envios",
+            "description": "Conheça o funcionamento da plataforma, a gestão de envios, assinaturas e permissões antes de começar a usar o sistema.",
+            "tabs": [
+                {
+                    "value": "system",
+                    "label": "Sistema",
+                    "items": [
+                        {
+                            "id": "system-1",
+                            "question": "O que é o sistema de gestão de envios?",
+                            "answer": "Uma plataforma SaaS que ajuda empresas de transporte e logística a gerenciar envios, clientes, motoristas, viagens e relatórios através de um painel fácil de usar."
+                        },
+                        {
+                            "id": "system-2",
+                            "question": "O sistema pode ser usado para múltiplas empresas?",
+                            "answer": "Sim, o sistema suporta multi-tenant (Multi Tenant) de modo que cada empresa tenha uma conta independente com separação completa de dados e permissões."
+                        },
+                        {
+                            "id": "system-3",
+                            "question": "Posso gerenciar usuários e permissões?",
+                            "answer": "Você pode criar múltiplos usuários e definir diferentes permissões com base na função de cada usuário dentro da empresa."
+                        }
+                    ]
+                },
+                {
+                    "value": "shipments",
+                    "label": "Envios",
+                    "items": [
+                        {
+                            "id": "shipment-1",
+                            "question": "Como os envios são criados e rastreados?",
+                            "answer": "Você pode criar um novo envio, adicionar dados do cliente e pontos de coleta e entrega, atribuir um motorista e acompanhar o status do envio até a entrega."
+                        },
+                        {
+                            "id": "shipment-2",
+                            "question": "O sistema fornece rastreamento direto de envios?",
+                            "answer": "Sim, você pode acompanhar o status do envio e da viagem, e saber as últimas atualizações relacionadas a ele facilmente."
+                        },
+                        {
+                            "id": "shipment-3",
+                            "question": "Posso gerenciar motoristas e viagens?",
+                            "answer": "Você pode gerenciar motoristas, distribuir viagens e monitorar o desempenho das operações de transporte através do painel de controle."
+                        }
+                    ]
+                },
+                {
+                    "value": "subscription",
+                    "label": "Assinaturas",
+                    "items": [
+                        {
+                            "id": "subscription-1",
+                            "question": "O sistema funciona com modelo de assinatura?",
+                            "answer": "Sim, o sistema é baseado no modelo SaaS e as empresas podem escolher o pacote adequado de acordo com suas necessidades."
+                        },
+                        {
+                            "id": "subscription-2",
+                            "question": "Posso mudar o pacote mais tarde?",
+                            "answer": "Você pode atualizar ou mudar o pacote a qualquer momento conforme o crescimento da empresa e o aumento de suas necessidades."
+                        }
+                    ]
+                }
+            ]
+        },
+        "ctaBanner": {
+            "imageAlt": "Plataforma SaaS",
+            "title": "Pronto para desenvolver a gestão de envios na sua empresa?",
+            "description": "Comece a usar a plataforma inteligente de gestão de envios, organize suas operações, acompanhe viagens e gerencie sua equipe a partir de um único lugar.",
+            "action": "Começar agora"
+        }
+    },
+    "registerCompanyPage": {
+        "hero": {
+            "title": "Nova solicitação de assinatura de empresa",
+            "imageAlt": "Registrar nova empresa"
+        },
+        "form": {
+            "title": "Criar uma nova empresa",
+            "description": "Envie uma solicitação para criar uma nova empresa e permitir que ela use a plataforma para operações de envio.",
+            "sections": {
+                "companyInfo": {
+                    "title": "Informações da empresa",
+                    "description": "Insira os dados básicos da empresa e o plano de assinatura."
+                },
+                "accountInfo": {
+                    "title": "Dados da conta",
+                    "description": "Insira as credenciais de login que serão usadas para acessar a plataforma."
+                },
+                "receipt": {
+                    "title": "Comprovante de pagamento",
+                    "description": "Envie uma imagem do comprovante de pagamento para enviar a solicitação de assinatura e sua revisão."
+                }
+            },
+            "fields": {
+                "name": {
+                    "label": "Nome da empresa",
+                    "placeholder": "Exemplo: Fast Line Shipping"
+                },
+                "subscriptionType": {
+                    "label": "Plano de assinatura",
+                    "placeholder": "Escolha um plano de assinatura"
+                },
+                "location": {
+                    "label": "Localização da empresa",
+                    "placeholder": "Exemplo: Riad, Arábia Saudita"
+                },
+                "companyEmail": {
+                    "label": "E-mail da empresa",
+                    "placeholder": "Exemplo: example@gmail.com"
+                },
+                "companyPassword": {
+                    "label": "Senha",
+                    "placeholder": "***********"
+                },
+                "confirmPassword": {
+                    "label": "Confirmar senha",
+                    "placeholder": "***********"
+                }
+            },
+            "attachment": {
+                "upload": "Enviar imagem do comprovante de pagamento",
+                "remove": "Remover arquivo"
+            },
+            "actions": {
+                "submit": "Criar",
+                "submitting": "Criando..."
+            }
+        },
+        "validation": {
+            "nameMin": "O nome da empresa deve ter pelo menos 3 caracteres",
+            "locationMin": "A localização da empresa deve ter pelo menos 3 caracteres",
+            "emailInvalid": "Digite um endereço de e-mail válido",
+            "passwordMin": "A senha deve ter pelo menos 8 caracteres",
+            "confirmPasswordMin": "A confirmação da senha deve ter pelo menos 8 caracteres",
+            "subscriptionRequired": "Selecione um plano de assinatura",
+            "receiptRequired": "O comprovante de pagamento é obrigatório",
+            "receiptMaxSize": "O tamanho máximo do arquivo é 5MB",
+            "receiptFileType": "Apenas formatos JPG, PNG e WEBP são permitidos"
+        }
+    },
     "shared": {
         "uploadImage": {
             "title": "Enviar anexos",
@@ -1177,5 +1468,18 @@
             "clients": "Clientes",
             "ways": "Rotas"
         }
+    },
+    "tableEmpty": {
+        "companies": "Nenhuma empresa adicionada ainda. Comece adicionando sua primeira empresa.",
+        "subscriptions": "Nenhum plano de assinatura disponível ainda. Adicione seu primeiro plano.",
+        "notes": "Nenhuma nota ainda.",
+        "notesWithAction": "Nenhuma nota ainda. Adicione sua primeira nota.",
+        "clients": "Nenhum cliente ainda. Adicione seu primeiro cliente.",
+        "shipments": "Nenhuma remessa ainda. Adicione sua primeira remessa.",
+        "finishedShipments": "Nenhuma remessa finalizada ainda.",
+        "users": "Nenhum usuário ainda. Comece adicionando seu primeiro usuário.",
+        "ways": "Nenhuma rota ainda. Comece adicionando sua primeira rota.",
+        "shipmentsCurrent": "Nenhuma remessa ainda. Adicione sua primeira remessa.",
+        "shipmentItems": "Ainda não há itens de remessa. Adicione seu primeiro item."
     }
 }

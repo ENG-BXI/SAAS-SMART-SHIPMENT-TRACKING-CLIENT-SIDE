@@ -49,7 +49,7 @@ async function NotesTableWithPagination({searchParams}: IAdminNotesProps) {
   const token = cookiesStore.get('token')?.value;
   const notes = await GetAllNotes(token, search, page);
   const t = await getTranslations('adminNotesPage');
-
+  const tEmpty = await getTranslations('tableEmpty');
   return (
     <>
       <Table>
@@ -64,8 +64,8 @@ async function NotesTableWithPagination({searchParams}: IAdminNotesProps) {
         <TableBody>
           {notes.data?.length === 0 ? (
             <TableRow>
-              <TableCell colSpan={3}>
-                <TableEmpty />
+              <TableCell colSpan={4}>
+                <TableEmpty text={tEmpty('notes')} />
               </TableCell>
             </TableRow>
           ) : (

@@ -5,13 +5,14 @@ import TablePopover from '@/components/table-popover';
 import {ICompanyForTable} from '../_interfaces/company-for-table';
 import {TableEmpty} from '@/components/table-empty';
 import DeleteCompanyDialog from './delete-company-dialog';
-import { useTranslations } from 'next-intl';
+import {useTranslations} from 'next-intl';
 
 interface IAllCompanies {
   companies?: ICompanyForTable[];
 }
 function AllCompanies({companies}: IAllCompanies) {
   const t = useTranslations('adminCompaniesPage.table');
+  const tEmpty = useTranslations('tableEmpty');
   return (
     <Table>
       <TableHeader>
@@ -43,7 +44,6 @@ function AllCompanies({companies}: IAllCompanies) {
                   <TablePopover
                     items={[
                       {type: 'link', text: t('actions.viewCompany'), link: `/company/${company.id}`},
-                      // TODO : Add Subscription Type
                       {type: 'dialog', item: <CompanyDialog type='edit' id={company.id} data={{name: company.name, location: company.location, companyEmail: company.companyEmail, subscriptionType: company?.subscriptionType}} />},
                       {
                         type: 'dialog',
@@ -57,8 +57,8 @@ function AllCompanies({companies}: IAllCompanies) {
           })
         ) : (
           <TableRow>
-            <TableCell colSpan={5}>
-              <TableEmpty />
+            <TableCell colSpan={6}>
+              <TableEmpty text={tEmpty('companies')} action={<CompanyDialog type='add' />} />{' '}
             </TableCell>
           </TableRow>
         )}

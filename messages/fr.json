@@ -48,6 +48,297 @@
             }
         }
     },
+    "landingPage": {
+        "hero": {
+            "imageAlt": "Plateforme d'expédition",
+            "eyebrow": "Plateforme intelligente de gestion des expéditions",
+            "titleLine1": "Gérez vos expéditions",
+            "titleLine2": "Plus simple et plus rapide",
+            "description": "Une plateforme complète qui aide les entreprises de transport à suivre les expéditions, gérer les clients et optimiser les opérations de livraison depuis un seul endroit.",
+            "actions": {
+                "subscribe": "S'abonner maintenant",
+                "learnMore": "En savoir plus"
+            }
+        },
+        "about": {
+            "items": [
+                {
+                    "title": "Gestion des expéditions",
+                    "description": "Contrôlez toutes les opérations d'expédition de la création à la livraison avec un suivi complet."
+                },
+                {
+                    "title": "Suivi intelligent",
+                    "description": "Suivez l'état et l'emplacement des expéditions de manière directe et simple."
+                },
+                {
+                    "title": "Gestion des clients",
+                    "description": "Organisez les données des clients et améliorez leur expérience."
+                }
+            ]
+        },
+        "services": {
+            "eyebrow": "Nos services",
+            "title": "Votre partenaire de confiance dans la gestion des expéditions et de la logistique",
+            "items": [
+                {
+                    "title": "Suivi des expéditions",
+                    "description": "Une page dédiée aux clients pour connaître l'état de l'expédition, l'emplacement actuel, le prochain point et le nombre total de points du voyage."
+                },
+                {
+                    "title": "Gestion des clients",
+                    "description": "Permettez à chaque entreprise de gérer tous ses clients, données, expéditions et de suivre facilement les opérations de livraison."
+                },
+                {
+                    "title": "Gestion des itinéraires d'expédition",
+                    "description": "Créez des itinéraires d'expédition personnalisés avec plusieurs points et zones pour organiser le mouvement des expéditions."
+                },
+                {
+                    "title": "Gestion des chauffeurs",
+                    "description": "Ajoutez des chauffeurs et assignez-les aux expéditions dont ils sont responsables avec une application mobile dédiée au suivi des trajets."
+                },
+                {
+                    "title": "Création facile d'expéditions",
+                    "description": "Créez des expéditions, sélectionnez l'itinéraire et le chauffeur, et ajoutez les clients et leurs articles de manière organisée et rapide."
+                },
+                {
+                    "title": "Notifications automatiques aux clients",
+                    "description": "Envoyez des messages aux clients lorsque l'expédition passe d'un point à un autre avec un lien de suivi de l'expédition."
+                },
+                {
+                    "title": "Notes et suggestions",
+                    "description": "Possibilité d'envoyer des notes, des suggestions et des problèmes pour améliorer la plateforme et développer les services."
+                }
+            ]
+        },
+        "explore": {
+            "eyebrow": "Interfaces de la plateforme",
+            "title": "Explorez le système avant de l'utiliser",
+            "description": "Toutes les images ci-dessous sont issues du système réel pour illustrer l'expérience de gestion des expéditions, des clients et des chauffeurs.",
+            "items": [
+                {
+                    "title": "Tableau de bord",
+                    "description": "Suivez les statistiques, les expéditions, les clients et les chauffeurs depuis un seul tableau de bord."
+                },
+                {
+                    "title": "Créer des expéditions",
+                    "description": "Créez une nouvelle expédition, sélectionnez l'itinéraire, le chauffeur et les clients en quelques secondes."
+                },
+                {
+                    "title": "Suivi des expéditions",
+                    "description": "Affichez l'état de l'expédition, le point actuel et les prochaines stations pour les clients."
+                }
+            ]
+        },
+        "whyChooseUs": {
+            "eyebrow": "Pourquoi choisir notre système ?",
+            "title": "Une plateforme cloud intégrée pour la gestion des entreprises de transport et de logistique",
+            "description": "Notre système est conçu pour aider les entreprises de transport à gérer leurs opérations quotidiennes de manière efficace, de la gestion des expéditions, des clients et des chauffeurs, jusqu'aux rapports et à la comptabilité, le tout à travers une plateforme facile à utiliser et sécurisée.",
+            "features": [
+                {
+                    "title": "Suivi des expéditions en temps réel",
+                    "description": "Suivez le parcours de chaque expédition directement et connaissez son état actuel depuis sa création jusqu'à sa livraison au client."
+                },
+                {
+                    "title": "Gestion des succursales et des entrepôts",
+                    "description": "Organisez les opérations de toutes les succursales et entrepôts depuis un seul tableau de bord avec le suivi des mouvements d'expédition entre eux."
+                },
+                {
+                    "title": "Gestion des chauffeurs et des véhicules",
+                    "description": "Assignez des expéditions aux chauffeurs, suivez les trajets et gérez votre flotte de transport efficacement et facilement."
+                },
+                {
+                    "title": "Gestion des itinéraires et des points de livraison",
+                    "description": "Créez des itinéraires de voyage et définissez les points de livraison et de ramassage pour garantir que les expéditions arrivent par le meilleur itinéraire possible."
+                },
+                {
+                    "title": "Notifications et mises à jour instantanées",
+                    "description": "Envoyez des mises à jour automatiques aux clients et aux employés lorsque l'état de l'expédition change, que le voyage commence ou que la livraison est terminée."
+                },
+                {
+                    "title": "Rapports opérationnels et statistiques",
+                    "description": "Examinez les performances de l'entreprise, le nombre d'expéditions, les revenus, les trajets et les taux d'achèvement à travers des rapports et des graphiques."
+                }
+            ]
+        },
+        "driverApp": {
+            "eyebrow": "Application mobile pour chauffeurs",
+            "titleLine1": "Application intelligente pour chauffeurs",
+            "titleLine2": "Rend chaque trajet plus efficace",
+            "description": "Offrez à vos chauffeurs une expérience professionnelle avec une application dédiée à la gestion des trajets, au suivi des expéditions et à la communication directe avec le système.",
+            "download": "Télécharger l'application chauffeur",
+            "screenAlt": "Écran de l'application chauffeur",
+            "features": [
+                "Voir toutes les expéditions et trajets assignés au chauffeur",
+                "Mettre à jour l'état de l'expédition en un clic pendant la livraison",
+                "Suivre les détails du trajet, les points et l'état actuel de l'expédition",
+                "Prise en charge de plus de 10 langues avec une interface facile pour les chauffeurs"
+            ]
+        },
+        "imageSlider": {
+            "items": [
+                {
+                    "title": "Gestion intelligente des expéditions",
+                    "description": "Créez facilement des expéditions, suivez les étapes de transport et gérez toutes les opérations de livraison via un seul tableau de bord qui vous aide à améliorer la vitesse et l'efficacité du travail."
+                },
+                {
+                    "title": "Suivi direct des expéditions",
+                    "description": "Surveillez l'état de chaque expédition en temps réel et connaissez son emplacement actuel et son itinéraire jusqu'à son arrivée chez le client avec des mises à jour continues."
+                },
+                {
+                    "title": "Gestion des chauffeurs et des trajets",
+                    "description": "Distribuez les expéditions entre les chauffeurs, suivez les trajets et organisez les opérations de transport pour garantir les meilleures performances opérationnelles."
+                },
+                {
+                    "title": "Gestion des clients et des comptes",
+                    "description": "Organisez les données des clients, les commandes, les paiements et les soldes avec un historique complet de toutes les opérations au sein du système."
+                },
+                {
+                    "title": "Plateforme SaaS multi-entreprises",
+                    "description": "Prenez en charge plusieurs entreprises au sein du système avec une séparation complète des données, une gestion des utilisateurs et des permissions de manière sécurisée."
+                }
+            ]
+        },
+        "faq": {
+            "eyebrow": "Questions fréquemment posées",
+            "title": "Tout ce que vous devez savoir sur le système intelligent de gestion des expéditions",
+            "description": "Découvrez le fonctionnement de la plateforme, la gestion des expéditions, les abonnements et les permissions avant de commencer à utiliser le système.",
+            "tabs": [
+                {
+                    "value": "system",
+                    "label": "Système",
+                    "items": [
+                        {
+                            "id": "system-1",
+                            "question": "Qu'est-ce que le système de gestion des expéditions ?",
+                            "answer": "Une plateforme SaaS qui aide les entreprises de transport et de logistique à gérer les expéditions, les clients, les chauffeurs, les trajets et les rapports via un tableau de bord facile à utiliser."
+                        },
+                        {
+                            "id": "system-2",
+                            "question": "Le système peut-il être utilisé pour plusieurs entreprises ?",
+                            "answer": "Oui, le système prend en charge la multi-tenant (Multi Tenant) afin que chaque entreprise dispose d'un compte indépendant avec une séparation complète des données et des permissions."
+                        },
+                        {
+                            "id": "system-3",
+                            "question": "Puis-je gérer les utilisateurs et les permissions ?",
+                            "answer": "Vous pouvez créer plusieurs utilisateurs et définir différentes permissions en fonction du rôle de chaque utilisateur au sein de l'entreprise."
+                        }
+                    ]
+                },
+                {
+                    "value": "shipments",
+                    "label": "Expéditions",
+                    "items": [
+                        {
+                            "id": "shipment-1",
+                            "question": "Comment les expéditions sont-elles créées et suivies ?",
+                            "answer": "Vous pouvez créer une nouvelle expédition, ajouter les données du client et les points de ramassage et de livraison, assigner un chauffeur et suivre l'état de l'expédition jusqu'à la livraison."
+                        },
+                        {
+                            "id": "shipment-2",
+                            "question": "Le système fournit-il un suivi direct des expéditions ?",
+                            "answer": "Oui, vous pouvez suivre l'état de l'expédition et du trajet, et connaître facilement les dernières mises à jour qui s'y rapportent."
+                        },
+                        {
+                            "id": "shipment-3",
+                            "question": "Puis-je gérer les chauffeurs et les trajets ?",
+                            "answer": "Vous pouvez gérer les chauffeurs, distribuer les trajets et surveiller les performances des opérations de transport via le tableau de bord."
+                        }
+                    ]
+                },
+                {
+                    "value": "subscription",
+                    "label": "Abonnements",
+                    "items": [
+                        {
+                            "id": "subscription-1",
+                            "question": "Le système fonctionne-t-il avec un modèle d'abonnement ?",
+                            "answer": "Oui, le système est basé sur le modèle SaaS et les entreprises peuvent choisir le forfait approprié selon leurs besoins."
+                        },
+                        {
+                            "id": "subscription-2",
+                            "question": "Puis-je changer de forfait plus tard ?",
+                            "answer": "Vous pouvez mettre à niveau ou changer de forfait à tout moment en fonction de la croissance de l'entreprise et de l'augmentation de ses besoins."
+                        }
+                    ]
+                }
+            ]
+        },
+        "ctaBanner": {
+            "imageAlt": "Plateforme SaaS",
+            "title": "Prêt à développer la gestion des expéditions dans votre entreprise ?",
+            "description": "Commencez à utiliser la plateforme intelligente de gestion des expéditions, organisez vos opérations, suivez les trajets et gérez votre équipe depuis un seul endroit.",
+            "action": "Commencer maintenant"
+        }
+    },
+    "registerCompanyPage": {
+        "hero": {
+            "title": "Nouvelle demande d'abonnement d'entreprise",
+            "imageAlt": "Enregistrer une nouvelle entreprise"
+        },
+        "form": {
+            "title": "Créer une nouvelle entreprise",
+            "description": "Soumettez une demande pour créer une nouvelle entreprise et lui permettre d'utiliser la plateforme pour les opérations d'expédition.",
+            "sections": {
+                "companyInfo": {
+                    "title": "Informations de l'entreprise",
+                    "description": "Entrez les informations de base de l'entreprise et le plan d'abonnement."
+                },
+                "accountInfo": {
+                    "title": "Informations du compte",
+                    "description": "Entrez les identifiants de connexion qui seront utilisés pour accéder à la plateforme."
+                },
+                "receipt": {
+                    "title": "Justificatif de paiement",
+                    "description": "Téléchargez une image du justificatif de paiement pour soumettre la demande d'abonnement et sa révision."
+                }
+            },
+            "fields": {
+                "name": {
+                    "label": "Nom de l'entreprise",
+                    "placeholder": "Exemple: Fast Line Shipping"
+                },
+                "subscriptionType": {
+                    "label": "Plan d'abonnement",
+                    "placeholder": "Choisissez un plan d'abonnement"
+                },
+                "location": {
+                    "label": "Localisation de l'entreprise",
+                    "placeholder": "Exemple: Riyad, Arabie Saoudite"
+                },
+                "companyEmail": {
+                    "label": "Email de l'entreprise",
+                    "placeholder": "Exemple: example@gmail.com"
+                },
+                "companyPassword": {
+                    "label": "Mot de passe",
+                    "placeholder": "***********"
+                },
+                "confirmPassword": {
+                    "label": "Confirmer le mot de passe",
+                    "placeholder": "***********"
+                }
+            },
+            "attachment": {
+                "upload": "Télécharger l'image du justificatif de paiement",
+                "remove": "Supprimer le fichier"
+            },
+            "actions": {
+                "submit": "Créer",
+                "submitting": "Création en cours..."
+            }
+        },
+        "validation": {
+            "nameMin": "Le nom de l'entreprise doit comporter au moins 3 caractères",
+            "locationMin": "La localisation de l'entreprise doit comporter au moins 3 caractères",
+            "emailInvalid": "Veuillez entrer une adresse email valide",
+            "passwordMin": "Le mot de passe doit comporter au moins 8 caractères",
+            "confirmPasswordMin": "La confirmation du mot de passe doit comporter au moins 8 caractères",
+            "subscriptionRequired": "Veuillez sélectionner un plan d'abonnement",
+            "receiptRequired": "Le justificatif de paiement est obligatoire",
+            "receiptMaxSize": "La taille maximale du fichier est de 5 Mo",
+            "receiptFileType": "Seuls les formats JPG, PNG et WEBP sont autorisés"
+        }
+    },
     "shared": {
         "uploadImage": {
             "title": "Télécharger des pièces jointes",
@@ -1177,5 +1468,18 @@
             "clients": "Clients",
             "ways": "Itinéraires"
         }
+    },
+    "tableEmpty": {
+        "companies": "Aucune entreprise n'a encore été ajoutée. Commencez par ajouter votre première entreprise.",
+        "subscriptions": "Aucun plan d'abonnement disponible pour le moment. Ajoutez votre premier plan.",
+        "notes": "Aucune note pour le moment.",
+        "notesWithAction": "Aucune note pour le moment. Ajoutez votre première note.",
+        "clients": "Aucun client pour le moment. Ajoutez votre premier client.",
+        "shipments": "Aucune expédition pour le moment. Ajoutez votre première expédition.",
+        "finishedShipments": "Aucune expédition terminée pour le moment.",
+        "users": "Aucun utilisateur pour le moment. Commencez par ajouter votre premier utilisateur.",
+        "ways": "Aucun itinéraire pour le moment. Commencez par ajouter votre premier itinéraire.",
+        "shipmentsCurrent": "Aucune expédition pour le moment. Ajoutez votre première expédition.",
+        "shipmentItems": "Il n'y a pas encore d'articles d'expédition. Ajoutez votre premier article."
     }
 }

@@ -5,7 +5,7 @@ import ShipmentInfo from './_components/shipment-info';
 import ShipmentTableAndPagination from './_components/shipment-table-and-pagination';
 import ShipmentItemDialog from './_components/shipment-item-dialog';
 import ShipmentDetailsRealTime from './_components/shipment-details-real-time';
-import { getTranslations } from 'next-intl/server';
+import {getTranslations} from 'next-intl/server';
 
 interface PageProps {
   params: Promise<{id: string}>;
@@ -13,7 +13,7 @@ interface PageProps {
 }
 const Page = async ({params, searchParams}: PageProps) => {
   const {id} = await params;
-  const { search, page } = await searchParams;
+  const {search, page} = await searchParams;
   const t = await getTranslations('shipmentDetails.page');
   const tBread = await getTranslations('shipmentDetails.breadcrumb');
   const tSections = await getTranslations('shipmentDetails.sections');

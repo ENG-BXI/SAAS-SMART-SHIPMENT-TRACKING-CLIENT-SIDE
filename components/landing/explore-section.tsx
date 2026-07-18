@@ -4,43 +4,40 @@ import Image from 'next/image';
 import {useState} from 'react';
 import Lightbox from 'yet-another-react-lightbox';
 import Zoom from 'yet-another-react-lightbox/plugins/zoom';
+import {useTranslations} from 'next-intl';
 
 import 'yet-another-react-lightbox/styles.css';
 
-const previewItems = [
-  {
-    title: 'لوحة التحكم',
-    description: 'تابع الإحصائيات، الشحنات، العملاء والسائقين من لوحة تحكم واحدة.',
-    image: '/assets/screenshot/home.png'
-  },
-  {
-    title: 'إنشاء الشحنات',
-    description: 'أنشئ شحنة جديدة، اختر الخط، السائق، والعملاء خلال ثوانٍ.',
-    image: '/assets/screenshot/create-shipment.png'
-  },
-  {
-    title: 'تتبع الشحنة',
-    description: 'اعرض حالة الشحنة، النقطة الحالية، والمحطات القادمة للعملاء.',
-    image: '/assets/screenshot/shipment-details.png'
-  }
-];
+const previewImages = ['/assets/screenshot/home.png', '/assets/screenshot/create-shipment.png', '/assets/screenshot/shipment-details.png'];
+
+interface PreviewItem {
+  title: string;
+  description: string;
+  image: string;
+}
 
 function ExploreSection() {
+  const t = useTranslations('landingPage.explore');
+  const previewItems = (t.raw('items') as Omit<PreviewItem, 'image'>[]).map((item, index) => ({
+    ...item,
+    image: previewImages[index]
+  }));
+
   return (
     <section id='explore' className='container mx-auto my-28 px-5'>
       <div className='mb-12 text-center'>
-        <h6 className='mb-2 text-xl text-custom-primary-color'>واجهات المنصة</h6>
+        <h6 className='mb-2 text-xl text-custom-primary-color'>{t('eyebrow')}</h6>
 
-        <h2 className='section__title mx-auto max-w-3xl'>استكشف النظام قبل استخدامه</h2>
+        <h2 className='section__title mx-auto max-w-3xl'>{t('title')}</h2>
 
-        <p className='mx-auto mt-4 max-w-2xl text-muted-foreground'>جميع الصور التالية مأخوذة من النظام الحقيقي لتوضيح تجربة إدارة الشحنات والعملاء والسائقين.</p>
+        <p className='mx-auto mt-4 max-w-2xl text-muted-foreground'>{t('description')}</p>
       </div>
 
-      <PreviewCard large {...previewItems[0]} />
+      <PreviewCard large {...previewItems[0]} previewItems={previewItems} />
 
       <div className='mt-5 grid gap-5 md:grid-cols-2'>
         {previewItems.slice(1).map(pre => {
-          return <PreviewCard key={pre.title} {...pre} />;
+          return <PreviewCard key={pre.title} {...pre} previewItems={previewItems} />;
         })}
       </div>
     </section>
@@ -53,10 +50,11 @@ interface PreviewCardProps {
   title: string;
   description: string;
   image: string;
+  previewItems: PreviewItem[];
   large?: boolean;
 }
 
-function PreviewCard({title, description, image, large}: PreviewCardProps) {
+function PreviewCard({title, description, image, previewItems, large}: PreviewCardProps) {
   const [open, setOpen] = useState(false);
   const currentIndex = previewItems.findIndex(item => item.image === image);
 

@@ -61,6 +61,7 @@ async function ClientTableAndPagination({search, page}: ClientTableAndPagination
   const token = cookie.get('token')?.value;
   const clients = await GetAllClient({token, search, page});
   const t = await getTranslations('clientsPage');
+  const tEmpty = await getTranslations('tableEmpty');
   return (
     <>
       <Table>
@@ -75,7 +76,7 @@ async function ClientTableAndPagination({search, page}: ClientTableAndPagination
           {clients?.data?.length === 0 ? (
             <TableRow>
               <TableCell colSpan={3}>
-                <TableEmpty />
+                <TableEmpty text={tEmpty('clients')} action={<ClientDialog type='add' triggerTitle={t('dialog.add.title')} />} />
               </TableCell>
             </TableRow>
           ) : (

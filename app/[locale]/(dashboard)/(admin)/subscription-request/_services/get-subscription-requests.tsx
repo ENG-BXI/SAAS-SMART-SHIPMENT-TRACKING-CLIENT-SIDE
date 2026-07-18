@@ -18,6 +18,8 @@ export interface ICompany {
     endDate: string;
     status: TSubscriptionStatus;
     newTypeId: string;
+    voucherPublicId: string;
+    voucherSecureUrl: string;
     type: {
       id: string;
       type: string;
@@ -33,12 +35,14 @@ export interface ISubscriptionRequest {
 }
 
 const GetSubscriptionRequests = async (token?: string) => {
-
   const response = await serverAxiosInstance.get(`/${COMPANY}/${REQUEST_SUBSCRIPTION}`, {
     headers: {Authorization: `Bearer ${token}`}
   });
 
   const responseData = response.data.data as ISubscriptionRequest;
+  console.log('====================================');
+  console.log(responseData);
+  console.log('====================================');
   return responseData;
 };
 

@@ -8,7 +8,7 @@ interface ICustomInputWithLabelForViewPage {
 function CustomInputWithLabelForViewPage({label, value}: ICustomInputWithLabelForViewPage) {
   return (
     <div className='flex gap-x-3'>
-      <Label className='text-nowrap w-25'>{label}</Label>
+      <Label className='text-nowrap w-35'>{label}</Label>
       <Input className='w-full cursor-not-allowed' value={value} />
     </div>
   );

@@ -48,6 +48,297 @@
             }
         }
     },
+    "landingPage": {
+        "hero": {
+            "imageAlt": "Plataforma de envíos",
+            "eyebrow": "Plataforma inteligente de gestión de envíos",
+            "titleLine1": "Gestione sus envíos",
+            "titleLine2": "Más fácil y rápido",
+            "description": "Una plataforma integral que ayuda a las empresas de envíos a rastrear envíos, gestionar clientes y optimizar las operaciones de entrega desde un solo lugar.",
+            "actions": {
+                "subscribe": "Suscríbase ahora",
+                "learnMore": "Más información"
+            }
+        },
+        "about": {
+            "items": [
+                {
+                    "title": "Gestión de envíos",
+                    "description": "Controle todas las operaciones de envío desde la creación hasta la entrega con seguimiento completo."
+                },
+                {
+                    "title": "Seguimiento inteligente",
+                    "description": "Realice un seguimiento del estado y la ubicación de los envíos de forma directa y sencilla."
+                },
+                {
+                    "title": "Gestión de clientes",
+                    "description": "Organice los datos de los clientes y mejore su experiencia."
+                }
+            ]
+        },
+        "services": {
+            "eyebrow": "Nuestros servicios",
+            "title": "Su socio de confianza en la gestión de envíos y logística",
+            "items": [
+                {
+                    "title": "Seguimiento de envíos",
+                    "description": "Una página dedicada para que los clientes conozcan el estado del envío, la ubicación actual, el próximo punto y el número total de puntos del viaje."
+                },
+                {
+                    "title": "Gestión de clientes",
+                    "description": "Permita que cada empresa gestione todos sus clientes, datos, envíos y realice un seguimiento sencillo de las operaciones de entrega."
+                },
+                {
+                    "title": "Gestión de rutas de envío",
+                    "description": "Cree rutas de envío personalizadas con múltiples puntos y áreas para organizar el movimiento de los envíos."
+                },
+                {
+                    "title": "Gestión de conductores",
+                    "description": "Agregue conductores y asígnelos a los envíos a su cargo con una aplicación móvil especial para el seguimiento de viajes."
+                },
+                {
+                    "title": "Creación sencilla de envíos",
+                    "description": "Cree envíos, seleccione la ruta y el conductor, y agregue clientes y sus artículos de forma organizada y rápida."
+                },
+                {
+                    "title": "Notificaciones automáticas para clientes",
+                    "description": "Envíe mensajes a los clientes cuando el envío se mueva de un punto a otro con un enlace de seguimiento del envío."
+                },
+                {
+                    "title": "Notas y sugerencias",
+                    "description": "Posibilidad de enviar notas, sugerencias y problemas para mejorar la plataforma y desarrollar los servicios."
+                }
+            ]
+        },
+        "explore": {
+            "eyebrow": "Interfaces de la plataforma",
+            "title": "Explore el sistema antes de usarlo",
+            "description": "Todas las imágenes a continuación están tomadas del sistema real para ilustrar la experiencia de gestionar envíos, clientes y conductores.",
+            "items": [
+                {
+                    "title": "Panel de control",
+                    "description": "Realice un seguimiento de estadísticas, envíos, clientes y conductores desde un solo panel."
+                },
+                {
+                    "title": "Crear envíos",
+                    "description": "Cree un nuevo envío, seleccione la ruta, el conductor y los clientes en segundos."
+                },
+                {
+                    "title": "Seguimiento de envíos",
+                    "description": "Muestre el estado del envío, el punto actual y las próximas estaciones para los clientes."
+                }
+            ]
+        },
+        "whyChooseUs": {
+            "eyebrow": "¿Por qué elegir nuestro sistema?",
+            "title": "Una plataforma en la nube integrada para la gestión de empresas de envíos y logística",
+            "description": "Nuestro sistema está diseñado para ayudar a las empresas de envíos a gestionar sus operaciones diarias de manera eficiente, desde la gestión de envíos, clientes y conductores, hasta informes y contabilidad, todo a través de una plataforma fácil de usar y segura.",
+            "features": [
+                {
+                    "title": "Seguimiento de envíos en tiempo real",
+                    "description": "Siga la ruta de cada envío directamente y conozca su estado actual desde su creación hasta la entrega al cliente."
+                },
+                {
+                    "title": "Gestión de sucursales y almacenes",
+                    "description": "Organice las operaciones de todas las sucursales y almacenes desde un solo panel con seguimiento del movimiento de envíos entre ellos."
+                },
+                {
+                    "title": "Gestión de conductores y vehículos",
+                    "description": "Asigne envíos a conductores, realice un seguimiento de los viajes y gestione su flota de transporte de manera eficiente y sencilla."
+                },
+                {
+                    "title": "Gestión de rutas y puntos de entrega",
+                    "description": "Cree rutas de viaje y defina puntos de entrega y recogida para garantizar que los envíos lleguen por la mejor ruta posible."
+                },
+                {
+                    "title": "Notificaciones y actualizaciones instantáneas",
+                    "description": "Envíe actualizaciones automáticas a clientes y empleados cuando cambie el estado del envío, comience el viaje o se complete la entrega."
+                },
+                {
+                    "title": "Informes operativos y estadísticas",
+                    "description": "Revise el rendimiento de la empresa, el número de envíos, los ingresos, los viajes y las tasas de finalización a través de informes y gráficos."
+                }
+            ]
+        },
+        "driverApp": {
+            "eyebrow": "Aplicación móvil para conductores",
+            "titleLine1": "Aplicación inteligente para conductores",
+            "titleLine2": "Hace que cada viaje sea más eficiente",
+            "description": "Brinde a sus conductores una experiencia profesional con una aplicación dedicada para la gestión de viajes, seguimiento de envíos y comunicación directa con el sistema.",
+            "download": "Descargar aplicación para conductores",
+            "screenAlt": "Pantalla de la aplicación para conductores",
+            "features": [
+                "Ver todos los envíos y viajes asignados al conductor",
+                "Actualizar el estado del envío con un solo clic durante la entrega",
+                "Realizar un seguimiento de los detalles del viaje, los puntos y el estado actual del envío",
+                "Soporte para más de 10 idiomas con una interfaz fácil de usar para conductores"
+            ]
+        },
+        "imageSlider": {
+            "items": [
+                {
+                    "title": "Gestión inteligente de envíos",
+                    "description": "Cree envíos fácilmente, realice un seguimiento de las etapas de transporte y gestione todas las operaciones de entrega a través de un único panel que le ayuda a mejorar la velocidad y eficiencia del trabajo."
+                },
+                {
+                    "title": "Seguimiento directo de envíos",
+                    "description": "Monitoree el estado de cada envío en tiempo real y conozca su ubicación y ruta actual hasta que llegue al cliente con actualizaciones continuas."
+                },
+                {
+                    "title": "Gestión de conductores y viajes",
+                    "description": "Distribuya los envíos entre los conductores, realice un seguimiento de los viajes y organice las operaciones de transporte para garantizar el mejor rendimiento operativo."
+                },
+                {
+                    "title": "Gestión de clientes y cuentas",
+                    "description": "Organice los datos de los clientes, pedidos, pagos y saldos con un historial completo de todas las operaciones dentro del sistema."
+                },
+                {
+                    "title": "Plataforma SaaS multiempresa",
+                    "description": "Admita múltiples empresas dentro del sistema con separación completa de datos, gestión de usuarios y permisos de forma segura."
+                }
+            ]
+        },
+        "faq": {
+            "eyebrow": "Preguntas frecuentes",
+            "title": "Todo lo que necesita saber sobre el sistema inteligente de gestión de envíos",
+            "description": "Conozca el funcionamiento de la plataforma, la gestión de envíos, suscripciones y permisos antes de comenzar a usar el sistema.",
+            "tabs": [
+                {
+                    "value": "system",
+                    "label": "Sistema",
+                    "items": [
+                        {
+                            "id": "system-1",
+                            "question": "¿Qué es el sistema de gestión de envíos?",
+                            "answer": "Una plataforma SaaS que ayuda a las empresas de envíos y transporte a gestionar envíos, clientes, conductores, viajes e informes a través de un panel de control fácil de usar."
+                        },
+                        {
+                            "id": "system-2",
+                            "question": "¿Se puede utilizar el sistema para múltiples empresas?",
+                            "answer": "Sí, el sistema admite múltiples empresas (Multi Tenant) de modo que cada empresa tiene una cuenta independiente con separación completa de datos y permisos."
+                        },
+                        {
+                            "id": "system-3",
+                            "question": "¿Puedo gestionar usuarios y permisos?",
+                            "answer": "Puede crear múltiples usuarios y definir diferentes permisos según el rol de cada usuario dentro de la empresa."
+                        }
+                    ]
+                },
+                {
+                    "value": "shipments",
+                    "label": "Envíos",
+                    "items": [
+                        {
+                            "id": "shipment-1",
+                            "question": "¿Cómo se crean y rastrean los envíos?",
+                            "answer": "Puede crear un nuevo envío, agregar datos del cliente y puntos de recogida y entrega, asignar un conductor y realizar un seguimiento del estado del envío hasta la entrega."
+                        },
+                        {
+                            "id": "shipment-2",
+                            "question": "¿El sistema proporciona seguimiento directo de envíos?",
+                            "answer": "Sí, puede realizar un seguimiento del estado del envío y del viaje, y conocer las últimas actualizaciones relacionadas con él fácilmente."
+                        },
+                        {
+                            "id": "shipment-3",
+                            "question": "¿Puedo gestionar conductores y viajes?",
+                            "answer": "Puede gestionar conductores, distribuir viajes y monitorear el rendimiento de las operaciones de transporte a través del panel de control."
+                        }
+                    ]
+                },
+                {
+                    "value": "subscription",
+                    "label": "Suscripciones",
+                    "items": [
+                        {
+                            "id": "subscription-1",
+                            "question": "¿El sistema funciona con un modelo de suscripción?",
+                            "answer": "Sí, el sistema se basa en el modelo SaaS y las empresas pueden elegir el paquete adecuado según sus necesidades."
+                        },
+                        {
+                            "id": "subscription-2",
+                            "question": "¿Puedo cambiar el paquete más tarde?",
+                            "answer": "Puede actualizar o cambiar el paquete en cualquier momento según el crecimiento de la empresa y el aumento de sus necesidades."
+                        }
+                    ]
+                }
+            ]
+        },
+        "ctaBanner": {
+            "imageAlt": "Plataforma SaaS",
+            "title": "¿Listo para desarrollar la gestión de envíos en su empresa?",
+            "description": "Comience a usar la plataforma inteligente de gestión de envíos, organice sus operaciones, realice un seguimiento de los viajes y gestione su equipo desde un solo lugar.",
+            "action": "Comenzar ahora"
+        }
+    },
+    "registerCompanyPage": {
+        "hero": {
+            "title": "Nueva solicitud de suscripción de empresa",
+            "imageAlt": "Registrar nueva empresa"
+        },
+        "form": {
+            "title": "Crear una nueva empresa",
+            "description": "Envíe una solicitud para crear una nueva empresa y permitirle utilizar la plataforma para operaciones de envío.",
+            "sections": {
+                "companyInfo": {
+                    "title": "Información de la empresa",
+                    "description": "Ingrese los datos básicos de la empresa y el plan de suscripción."
+                },
+                "accountInfo": {
+                    "title": "Datos de la cuenta",
+                    "description": "Ingrese las credenciales de inicio de sesión que se utilizarán para acceder a la plataforma."
+                },
+                "receipt": {
+                    "title": "Comprobante de pago",
+                    "description": "Cargue una imagen del comprobante de pago para enviar la solicitud de suscripción y su revisión."
+                }
+            },
+            "fields": {
+                "name": {
+                    "label": "Nombre de la empresa",
+                    "placeholder": "Ejemplo: Fast Line Shipping"
+                },
+                "subscriptionType": {
+                    "label": "Plan de suscripción",
+                    "placeholder": "Elija un plan de suscripción"
+                },
+                "location": {
+                    "label": "Ubicación de la empresa",
+                    "placeholder": "Ejemplo: Riad, Arabia Saudita"
+                },
+                "companyEmail": {
+                    "label": "Correo electrónico de la empresa",
+                    "placeholder": "Ejemplo: example@gmail.com"
+                },
+                "companyPassword": {
+                    "label": "Contraseña",
+                    "placeholder": "***********"
+                },
+                "confirmPassword": {
+                    "label": "Confirmar contraseña",
+                    "placeholder": "***********"
+                }
+            },
+            "attachment": {
+                "upload": "Cargar imagen del comprobante de pago",
+                "remove": "Eliminar archivo"
+            },
+            "actions": {
+                "submit": "Crear",
+                "submitting": "Creando..."
+            }
+        },
+        "validation": {
+            "nameMin": "El nombre de la empresa debe tener al menos 3 caracteres",
+            "locationMin": "La ubicación de la empresa debe tener al menos 3 caracteres",
+            "emailInvalid": "Ingrese una dirección de correo electrónico válida",
+            "passwordMin": "La contraseña debe tener al menos 8 caracteres",
+            "confirmPasswordMin": "La confirmación de contraseña debe tener al menos 8 caracteres",
+            "subscriptionRequired": "Seleccione un plan de suscripción",
+            "receiptRequired": "El comprobante de pago es obligatorio",
+            "receiptMaxSize": "El tamaño máximo del archivo es 5MB",
+            "receiptFileType": "Solo se permiten formatos JPG, PNG y WEBP"
+        }
+    },
     "shared": {
         "uploadImage": {
             "title": "Subir archivos adjuntos",
@@ -1177,5 +1468,18 @@
             "clients": "Clientes",
             "ways": "Rutas"
         }
+    },
+    "tableEmpty": {
+        "companies": "No hay empresas agregadas aún. Comience agregando su primera empresa.",
+        "subscriptions": "No hay planes de suscripción disponibles aún. Agregue su primer plan.",
+        "notes": "No hay notas aún.",
+        "notesWithAction": "No hay notas aún. Agregue su primera nota.",
+        "clients": "No hay clientes aún. Agregue su primer cliente.",
+        "shipments": "No hay envíos aún. Agregue su primer envío.",
+        "finishedShipments": "No hay envíos finalizados aún.",
+        "users": "No hay usuarios aún. Comience agregando su primer usuario.",
+        "ways": "No hay rutas aún. Comience agregando su primera ruta.",
+        "shipmentsCurrent": "No hay envíos aún. Agregue su primer envío.",
+        "shipmentItems": "No hay artículos de envío aún. Agregue su primer artículo."
     }
 }

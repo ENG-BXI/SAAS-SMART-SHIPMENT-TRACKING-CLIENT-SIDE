@@ -4,7 +4,7 @@ import {cookies} from 'next/headers';
 import {redirect} from 'next/navigation';
 import StatisticsAdminPage from '@/app/[locale]/(dashboard)/(shared-router)/statistics/(admin)/StatisticsAdminPage';
 import StatisticsManagerPage from '@/app/[locale]/(dashboard)/(shared-router)/statistics/(manager)/StatisticsManagerPage';
-import {JSX, ReactNode} from 'react';
+import {ReactNode} from 'react';
 function AllPageContent(searchParams?: {page?: string}): Record<UserRoleForSaasAdmin, ReactNode | undefined> {
   return {
     [enUserRoleForSaasAdmin.ADMIN]: <StatisticsAdminPage />,

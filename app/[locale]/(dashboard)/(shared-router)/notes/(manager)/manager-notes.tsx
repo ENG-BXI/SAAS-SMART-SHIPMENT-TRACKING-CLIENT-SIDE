@@ -55,24 +55,25 @@ async function NoteTableAndPagination({searchParams}: IManagerNotesProps) {
   const cookie = await cookies();
   const token = cookie.get('token')?.value;
   const response = await GetAllNotes(token, search, page);
-  const t = await getTranslations('notesPage.table');
+  const t = await getTranslations('notesPage');
   const tDialog = await getTranslations('notesPage.dialog');
+  const tEmpty = await getTranslations('tableEmpty');
   return (
     <>
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className='text-start'>{t('columns.createdAt')}</TableHead>
-            <TableHead className='text-start'>{t('columns.type')}</TableHead>
-            <TableHead className='text-start'>{t('columns.text')}</TableHead>
+            <TableHead className='text-start'>{t('table.columns.createdAt')}</TableHead>
+            <TableHead className='text-start'>{t('table.columns.type')}</TableHead>
+            <TableHead className='text-start'>{t('table.columns.text')}</TableHead>
             <TableHead></TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {response.data?.length === 0 ? (
             <TableRow>
-              <TableCell colSpan={3}>
-                <TableEmpty />
+              <TableCell colSpan={4}>
+                <TableEmpty text={tEmpty('notesWithAction')} action={<NoteDialog type='add' triggerTitle={t('actions.add')} />} />
               </TableCell>
             </TableRow>
           ) : (
@@ -82,13 +83,10 @@ async function NoteTableAndPagination({searchParams}: IManagerNotesProps) {
                 <TableCell className='w-60'>
                   <Badge className={cn('', note.type == 'complaint' ? 'bg-red-500' : note.type == 'compliment' ? 'bg-green-500' : note.type == 'feedback' ? 'bg-amber-500' : note.type == 'inquiry' ? 'bg-fuchsia-700' : note.type == 'suggestion' ? 'bg-cyan-500' : 'default')}>{NOTE_TYPE_NAMES[note.type]}</Badge>
                 </TableCell>
-                {/* //TODO: add badge here by user role  */}
                 <TableCell className=''>{note.text}</TableCell>
                 <TableCell>
                   <TablePopover
                     items={[
-                      // TODO : add dialog for show Details
-                      //   {type: 'link', link: `/manager/ways/${way.id}`, text: 'عرض التفاصيل'},
                       {type: 'dialog', item: <NoteDialog type='edit' id={note.id} triggerTitle={tDialog('actions.triggerEdit')} data={{type: note.type, text: note.text}} />},
                       {
                         type: 'dialog',
